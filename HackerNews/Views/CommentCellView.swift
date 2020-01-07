@@ -2,9 +2,13 @@
 import Cocoa
 
 @objc protocol CommentCellViewDelegate {
-    func commentCellView(_ commentCellView: CommentCellView, toggleButtonWillBeClickedForComment comment: Comment?)
-    func commentCellView(_ commentCellView: CommentCellView, isCommentExpandable comment: Comment?) -> Bool
-    func commentCellView(_ commentCellView: CommentCellView, isCommentExpanded comment: Comment?) -> Bool
+
+    func formattedAuthor(for comment: Comment?) -> String
+    func formattedText(for comment: Comment?) -> String
+    func isToggleHidden(for comment: Comment?) -> Bool
+    func isToggleExpanded(for comment: Comment?) -> Bool
+
+    func toggle(_ comment: Comment?)
 }
 
 class CommentCellView: NSTableCellView {
@@ -12,7 +16,7 @@ class CommentCellView: NSTableCellView {
     // MARK: - IBOutlets
 
     @IBOutlet var authorLabel: NSTextField!
-    @IBOutlet var commentLabel: NSTextField!
+    @IBOutlet var textLabel: NSTextField!
     @IBOutlet var toggleButton: NSButton!
 
     // MARK: - Delegate
@@ -35,24 +39,18 @@ class CommentCellView: NSTableCellView {
     // MARK: - IBActions
 
     @IBAction func toggleButton(_ sender: NSButton) {
-        delegate?.commentCellView(self, toggleButtonWillBeClickedForComment: comment)
+        delegate?.toggle(comment)
     }
 
     // MARK: - Methods
 
     func updateInterface() {
-        guard let comment = comment else {
-            commentLabel.stringValue = ""
-            authorLabel.stringValue = ""
+        guard let delegate = delegate else {
             return
         }
-        let textData = comment.text.data(using: .utf16) ?? Data()
-        let attributedString = NSAttributedString(html: textData, documentAttributes: nil)
-        commentLabel.stringValue = attributedString?.string ?? ""
-        authorLabel.stringValue = comment.author
-        let isExpandable = delegate?.commentCellView(self, isCommentExpandable: comment) ?? false
-        let isExpanded = delegate?.commentCellView(self, isCommentExpanded: comment) ?? false
-        toggleButton.isHidden = !isExpandable
-        toggleButton.state = isExpanded ? .off : .on
+        textLabel.stringValue = delegate.formattedText(for: comment)
+        authorLabel.stringValue = delegate.formattedAuthor(for: comment)
+        toggleButton.isHidden = delegate.isToggleHidden(for: comment)
+        toggleButton.state = delegate.isToggleExpanded(for: comment) ? .off : .on
     }
 }

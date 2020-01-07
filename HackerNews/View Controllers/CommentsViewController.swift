@@ -41,8 +41,18 @@ class CommentsViewController: NSViewController {
 
 extension CommentsViewController: CommentCellViewDelegate {
 
-    func commentCellView(_ commentCellView: CommentCellView, toggleButtonWillBeClickedForComment comment: Comment?) {
-        guard let comment = commentCellView.comment else {
+    func formattedText(for comment: Comment?) -> String {
+        let textData = comment?.text.data(using: .utf16) ?? Data()
+        let attributedString = NSAttributedString(html: textData, documentAttributes: nil)
+        return attributedString?.string ?? ""
+    }
+
+    func formattedAuthor(for comment: Comment?) -> String {
+        comment?.author ?? ""
+    }
+
+    func toggle(_ comment: Comment?) {
+        guard let comment = comment else {
             return
         }
         if commentOutlineView.isItemExpanded(comment) {
@@ -52,11 +62,11 @@ extension CommentsViewController: CommentCellViewDelegate {
         }
     }
 
-    func commentCellView(_ commentCellView: CommentCellView, isCommentExpandable comment: Comment?) -> Bool {
-        !(comment?.comments.isEmpty ?? true)
+    func isToggleHidden(for comment: Comment?) -> Bool {
+        comment?.comments.isEmpty ?? true
     }
 
-    func commentCellView(_ commentCellView: CommentCellView, isCommentExpanded comment: Comment?) -> Bool {
+    func isToggleExpanded(for comment: Comment?) -> Bool {
         commentOutlineView.isItemExpanded(comment)
     }
 }

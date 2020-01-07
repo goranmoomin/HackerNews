@@ -40,7 +40,42 @@ class StoriesViewController: NSViewController {
 
 extension StoriesViewController: StoryCellViewDelegate {
 
-    func storyCellView(_ storyCellView: StoryCellView, urlButtonWillBeClickedForStory story: Storyable?) {
+    func formattedTitle(for story: Storyable?) -> String {
+        guard let story = story else {
+            return ""
+        }
+        return story.title
+    }
+
+    func formattedScore(for story: Storyable?) -> String {
+        guard let story = story, !(story is Job) else {
+            return ""
+        }
+        return String(story.score)
+    }
+
+    func formattedCommentCount(for story: Storyable?) -> String {
+        guard let story = story as? Story else {
+            return ""
+        }
+        return String(story.commentCount)
+    }
+
+    func isURLHidden(for story: Storyable?) -> Bool {
+        guard let story = story as? Story else {
+            return true
+        }
+        return story.url == nil
+    }
+
+    func formattedURL(for story: Storyable?) -> String {
+        guard let story = story as? Story, let urlHost = story.url?.host else {
+            return ""
+        }
+        return urlHost
+    }
+
+    func openURL(for story: Storyable?) {
         guard let story = story as? Story, let url = story.url else {
             return
         }

@@ -2,7 +2,14 @@
 import Cocoa
 
 @objc protocol StoryCellViewDelegate {
-    func storyCellView(_ storyCellView: StoryCellView, urlButtonWillBeClickedForStory story: Storyable?)
+
+    func formattedTitle(for story: Storyable?) -> String
+    func formattedScore(for story: Storyable?) -> String
+    func formattedCommentCount(for story: Storyable?) -> String
+    func isURLHidden(for story: Storyable?) -> Bool
+    func formattedURL(for story: Storyable?) -> String
+
+    func openURL(for story: Storyable?)
 }
 
 class StoryCellView: NSTableCellView {
@@ -33,29 +40,20 @@ class StoryCellView: NSTableCellView {
 
     // MARK: - IBActions
 
-    @IBAction func urlButton(_ sender: NSButton) {
-        delegate?.storyCellView(self, urlButtonWillBeClickedForStory: story)
+    @IBAction func openURL(_ sender: NSButton) {
+        delegate?.openURL(for: story)
     }
 
     // MARK: - Methods
 
     func updateInterface() {
-        guard let story = story else {
+        guard let delegate = delegate else {
             return
         }
-        titleLabel.stringValue = story.title
-        scoreLabel.stringValue = "\(story.score)"
-
-        if let story = story as? Story {
-            commentCountLabel.stringValue = "\(story.commentCount)"
-            if let url = story.url {
-                urlButton.title = "\(url.host ?? url.absoluteString)"
-            } else {
-                urlButton.isHidden = true
-            }
-        } else {
-            commentCountLabel.stringValue = ""
-            urlButton.isHidden = true
-        }
+        titleLabel.stringValue = delegate.formattedTitle(for: story)
+        scoreLabel.stringValue = delegate.formattedScore(for: story)
+        commentCountLabel.stringValue = delegate.formattedCommentCount(for: story)
+        urlButton.isHidden = delegate.isURLHidden(for: story)
+        urlButton.title = delegate.formattedURL(for: story)
     }
 }

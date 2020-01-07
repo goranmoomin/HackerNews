@@ -750,7 +750,7 @@
                                             <tableColumns>
                                                 <tableColumn editable="NO" width="253" minWidth="40" maxWidth="1000" id="vXC-wH-rV0">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="menu" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -796,7 +796,7 @@
                                                                         <font key="font" metaFont="label" size="12"/>
                                                                     </buttonCell>
                                                                     <connections>
-                                                                        <action selector="urlButton:" target="DRU-mv-USN" id="VkX-35-az6"/>
+                                                                        <action selector="openURL:" target="DRU-mv-USN" id="VkX-35-az6"/>
                                                                     </connections>
                                                                 </button>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="drv-Qf-yp3">
@@ -901,7 +901,7 @@
                                             <tableColumns>
                                                 <tableColumn editable="NO" width="765" minWidth="40" maxWidth="1000" id="Cg0-Az-X4S">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="menu" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -970,8 +970,8 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="authorLabel" destination="AMG-mm-xgk" id="Dmz-5l-jKh"/>
-                                                                <outlet property="commentLabel" destination="2sw-tA-zTi" id="nF9-Ao-As2"/>
                                                                 <outlet property="delegate" destination="zhL-e9-R3f" id="9vt-Ne-Qag"/>
+                                                                <outlet property="textLabel" destination="2sw-tA-zTi" id="nF9-Ao-As2"/>
                                                                 <outlet property="toggleButton" destination="CE7-Lh-Izx" id="lT2-Xl-HDN"/>
                                                             </connections>
                                                         </tableCellView>
