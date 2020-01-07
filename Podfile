@@ -8,4 +8,6 @@ target "HackerNews" do
     # Pods for HackerNews
     pod "PromiseKit"
     pod "PromiseKit/Foundation"
+
+    pod "Firebase/Database"
 end

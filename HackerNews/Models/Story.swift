@@ -34,7 +34,7 @@ class Story: NSObject, Decodable, Itemable, Storyable {
         guard let commentIds = commentIds else {
             return .value
         }
-        let promises = commentIds.map { id in HackerNewsAPI.item(id: id) }
+        let promises = commentIds.map { id in HackerNewsAPI.firebaseItem(id: id) }
         let promise = firstly {
             when(fulfilled: promises)
         }.compactMapValues { item in

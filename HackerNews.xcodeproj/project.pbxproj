@@ -19,6 +19,8 @@
 		5B1CE44723BF9EA200064B6A /* PollOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CE43E23BF9EA200064B6A /* PollOption.swift */; };
 		5B1CE44923BFA1BF00064B6A /* StoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CE44823BFA1BF00064B6A /* StoryCellView.swift */; };
 		5B51713223C0B1B50068E7CE /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B51713023C0B1B50068E7CE /* CommentsViewController.swift */; };
+		5B67492D23C420190062BDFF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B67492C23C420190062BDFF /* GoogleService-Info.plist */; };
+		5B67493023C476B40062BDFF /* DatabaseQuery+PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B67492F23C476B40062BDFF /* DatabaseQuery+PromiseKit.swift */; };
 		5B796EBC23C086CE008173A5 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B796EBB23C086CE008173A5 /* SplitViewController.swift */; };
 		5BA8CBFF23C2CD3400E2500B /* CommentOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CBFE23C2CD3400E2500B /* CommentOutlineView.swift */; };
 		5BA8CC0523C3520000E2500B /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CC0423C3520000E2500B /* StoriesViewController.swift */; };
@@ -46,6 +48,8 @@
 		5B1CE43E23BF9EA200064B6A /* PollOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollOption.swift; sourceTree = "<group>"; };
 		5B1CE44823BFA1BF00064B6A /* StoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCellView.swift; sourceTree = "<group>"; };
 		5B51713023C0B1B50068E7CE /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		5B67492C23C420190062BDFF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5B67492F23C476B40062BDFF /* DatabaseQuery+PromiseKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseQuery+PromiseKit.swift"; sourceTree = "<group>"; };
 		5B796EBB23C086CE008173A5 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		5BA8CBFE23C2CD3400E2500B /* CommentOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentOutlineView.swift; sourceTree = "<group>"; };
 		5BA8CC0423C3520000E2500B /* StoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				5BEFBF5523C2BC6B0013153D /* Podfile */,
+				5B67492C23C420190062BDFF /* GoogleService-Info.plist */,
 				5B1CE42523BF9E6300064B6A /* HackerNews */,
 				5B1CE42423BF9E6300064B6A /* Products */,
 				6C1A88D5C89CD83926984258 /* Pods */,
@@ -94,6 +99,7 @@
 				5B51712C23C0A0340068E7CE /* Views */,
 				5B51712D23C0A03D0068E7CE /* View Controllers */,
 				5B51712E23C0A0800068E7CE /* Models */,
+				5B67492E23C4767F0062BDFF /* Helpers */,
 				5B51712B23C0A0270068E7CE /* Supporting Files */,
 			);
 			path = HackerNews;
@@ -142,6 +148,14 @@
 				5B1CE43E23BF9EA200064B6A /* PollOption.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5B67492E23C4767F0062BDFF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5B67492F23C476B40062BDFF /* DatabaseQuery+PromiseKit.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		6C1A88D5C89CD83926984258 /* Pods */ = {
@@ -222,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BEFBF5623C2BC6B0013153D /* Podfile in Resources */,
+				5B67492D23C420190062BDFF /* GoogleService-Info.plist in Resources */,
 				5B1CE42B23BF9E6600064B6A /* Assets.xcassets in Resources */,
 				5B1CE42E23BF9E6600064B6A /* Main.storyboard in Resources */,
 			);
@@ -291,6 +306,7 @@
 				5B1CE42723BF9E6300064B6A /* AppDelegate.swift in Sources */,
 				5B1CE44223BF9EA200064B6A /* Item.swift in Sources */,
 				5B1CE44023BF9EA200064B6A /* HackerNewsAPI.swift in Sources */,
+				5B67493023C476B40062BDFF /* DatabaseQuery+PromiseKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

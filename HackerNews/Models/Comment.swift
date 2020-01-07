@@ -23,7 +23,7 @@ class Comment: NSObject, Decodable, Itemable {
     }
 
     func loadComments() -> Promise<Comment> {
-        let promises = commentIds?.map { id in HackerNewsAPI.item(id: id) } ?? []
+        let promises = commentIds?.map { id in HackerNewsAPI.firebaseItem(id: id) } ?? []
         let promise = firstly {
             when(fulfilled: promises)
         }.compactMapValues { item in

@@ -34,7 +34,7 @@ class SplitViewController: NSSplitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        HackerNewsAPI.topStories(count: 10).done { stories in
+        HackerNewsAPI.firebaseTopStories(count: 10).done { stories in
             self.stories = stories
         }.catch { error in
             print(error)
