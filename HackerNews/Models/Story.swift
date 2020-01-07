@@ -13,6 +13,7 @@ class Story: NSObject, Decodable, Itemable, Storyable {
         case text
         case url
         case commentIds = "kids"
+        case commentCount = "descendants"
     }
 
     var id: Int
@@ -26,9 +27,7 @@ class Story: NSObject, Decodable, Itemable, Storyable {
     var text: String?
     var commentIds: [Int]?
     var comments: [Comment] = []
-    var commentCount: Int {
-        comments.map { $0.commentCount }.reduce(0, +)
-    }
+    var commentCount: Int
 
     func loadComments() -> Promise<Void> {
         guard let commentIds = commentIds else {

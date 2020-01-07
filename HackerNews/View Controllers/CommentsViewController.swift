@@ -1,5 +1,6 @@
 
 import Cocoa
+import PromiseKit
 
 class CommentsViewController: NSViewController {
 
@@ -12,8 +13,18 @@ class CommentsViewController: NSViewController {
     // Always in sync with it's parent view controller
     var currentStory: Story? {
         didSet {
-            commentOutlineView.reloadData()
-            commentOutlineView.expandItem(nil, expandChildren: true)
+            guard let currentStory = currentStory else {
+                return
+            }
+
+            firstly {
+                currentStory.loadComments()
+            }.done { _ in
+                self.commentOutlineView.reloadData()
+                self.commentOutlineView.expandItem(nil, expandChildren: true)
+            }.catch { error in
+                print(error)
+            }
         }
     }
 

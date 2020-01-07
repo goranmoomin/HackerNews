@@ -18,9 +18,6 @@ class Comment: NSObject, Decodable, Itemable {
     var text: String
     var commentIds: [Int]?
     var comments: [Comment] = []
-    var commentCount: Int {
-        comments.map { $0.commentCount }.reduce(0, +) + 1
-    }
 
     func loadComments() -> Promise<Comment> {
         let promises = commentIds?.map { id in HackerNewsAPI.item(id: id) } ?? []

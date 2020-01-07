@@ -36,14 +36,6 @@ class HackerNewsAPI {
             item(id: id)
         }.mapValues { item in
             item.story!
-        }.thenMap { storyable -> Promise<Storyable> in
-            guard let story = storyable as? Story else {
-                return .value(storyable)
-            }
-            let promise = firstly {
-                story.loadComments()
-            }.map { storyable }
-            return promise
         }
         return promise
     }
