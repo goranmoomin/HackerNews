@@ -2,7 +2,7 @@
 import Foundation
 import PromiseKit
 
-class Comment: NSObject, Decodable, Itemable {
+@objc class Comment: NSObject, Decodable, Itemable {
 
     enum CodingKeys: String, CodingKey {
         case id

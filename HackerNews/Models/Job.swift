@@ -1,7 +1,7 @@
 
 import Foundation
 
-class Job: Decodable, Itemable, Storyable {
+@objc class Job: NSObject, Decodable, Itemable, Storyable {
 
     enum CodingKeys: String, CodingKey {
         case id

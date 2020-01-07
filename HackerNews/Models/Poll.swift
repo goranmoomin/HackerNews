@@ -1,7 +1,7 @@
 
 import Foundation
 
-class Poll: Decodable, Itemable, Storyable {
+@objc class Poll: NSObject, Decodable, Itemable, Storyable {
 
     enum CodingKeys: String, CodingKey {
         case id

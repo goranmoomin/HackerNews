@@ -2,13 +2,13 @@
 import Foundation
 import PromiseKit
 
-protocol Itemable: class {
+@objc protocol Itemable: class {
     var id: Int { get }
     var time: Date { get }
     var author: String { get }
 }
 
-protocol Storyable: Itemable {
+@objc protocol Storyable: Itemable {
     var score: Int { get }
     var title: String { get }
 }

@@ -2,7 +2,7 @@
 import Foundation
 import PromiseKit
 
-class Story: NSObject, Decodable, Itemable, Storyable {
+@objc class Story: NSObject, Decodable, Itemable, Storyable {
 
     enum CodingKeys: String, CodingKey {
         case id
