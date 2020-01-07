@@ -19,7 +19,6 @@
 		5B1CE44723BF9EA200064B6A /* PollOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CE43E23BF9EA200064B6A /* PollOption.swift */; };
 		5B1CE44923BFA1BF00064B6A /* StoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CE44823BFA1BF00064B6A /* StoryCellView.swift */; };
 		5B51713223C0B1B50068E7CE /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B51713023C0B1B50068E7CE /* CommentsViewController.swift */; };
-		5B67493223C4AEC60062BDFF /* LoadbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B67493123C4AEC60062BDFF /* LoadbleView.swift */; };
 		5B796EBC23C086CE008173A5 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B796EBB23C086CE008173A5 /* SplitViewController.swift */; };
 		5BA8CBFF23C2CD3400E2500B /* CommentOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CBFE23C2CD3400E2500B /* CommentOutlineView.swift */; };
 		5BA8CC0523C3520000E2500B /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CC0423C3520000E2500B /* StoriesViewController.swift */; };
@@ -46,7 +45,6 @@
 		5B1CE43E23BF9EA200064B6A /* PollOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollOption.swift; sourceTree = "<group>"; };
 		5B1CE44823BFA1BF00064B6A /* StoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCellView.swift; sourceTree = "<group>"; };
 		5B51713023C0B1B50068E7CE /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
-		5B67493123C4AEC60062BDFF /* LoadbleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadbleView.swift; sourceTree = "<group>"; };
 		5B796EBB23C086CE008173A5 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		5BA8CBFE23C2CD3400E2500B /* CommentOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentOutlineView.swift; sourceTree = "<group>"; };
 		5BA8CC0423C3520000E2500B /* StoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 		5B51712C23C0A0340068E7CE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5B67493123C4AEC60062BDFF /* LoadbleView.swift */,
 				5B1CE44823BFA1BF00064B6A /* StoryCellView.swift */,
 				5BEFBF4F23C1BEF70013153D /* CommentCellView.swift */,
 				5BA8CBFE23C2CD3400E2500B /* CommentOutlineView.swift */,
@@ -288,7 +285,6 @@
 				5B1CE43F23BF9EA200064B6A /* Comment.swift in Sources */,
 				5B1CE44523BF9EA200064B6A /* Job.swift in Sources */,
 				5B1CE42723BF9E6300064B6A /* AppDelegate.swift in Sources */,
-				5B67493223C4AEC60062BDFF /* LoadbleView.swift in Sources */,
 				5B1CE44223BF9EA200064B6A /* Item.swift in Sources */,
 				5B1CE44023BF9EA200064B6A /* HackerNewsAPI.swift in Sources */,
 			);
