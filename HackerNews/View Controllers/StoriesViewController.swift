@@ -36,6 +36,18 @@ class StoriesViewController: NSViewController {
     }
 }
 
+// MARK: - StoryCellViewDelegate
+
+extension StoriesViewController: StoryCellViewDelegate {
+
+    func storyCellView(_ storyCellView: StoryCellView, urlButtonWillBeClickedForStory story: Storyable?) {
+        guard let story = story as? Story, let url = story.url else {
+            return
+        }
+        NSWorkspace.shared.open(url)
+    }
+}
+
 // MARK: - NSTableViewDataSource
 
 extension StoriesViewController: NSTableViewDataSource {
