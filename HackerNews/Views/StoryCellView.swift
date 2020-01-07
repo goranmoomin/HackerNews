@@ -44,10 +44,10 @@ class StoryCellView: NSTableCellView {
             return
         }
         titleLabel.stringValue = story.title
-        scoreLabel.stringValue = "\(story.score) points"
+        scoreLabel.stringValue = "\(story.score)"
 
         if let story = story as? Story {
-            commentCountLabel.stringValue = "\(story.commentCount) comments"
+            commentCountLabel.stringValue = "\(story.commentCount)"
             if let url = story.url {
                 urlButton.title = "\(url.host ?? url.absoluteString)"
             } else {
