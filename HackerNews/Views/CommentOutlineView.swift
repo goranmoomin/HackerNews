@@ -1,0 +1,18 @@
+
+import Cocoa
+
+class CommentOutlineView: NSOutlineView {
+
+    override func frameOfOutlineCell(atRow row: Int) -> NSRect {
+        .zero
+    }
+
+    override func frameOfCell(atColumn column: Int, row: Int) -> NSRect {
+        var frame = super.frameOfCell(atColumn: column, row: row)
+
+        frame.origin.x -= indentationPerLevel
+        frame.size.width += indentationPerLevel
+
+        return frame
+    }
+}
