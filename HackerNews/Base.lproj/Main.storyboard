@@ -862,15 +862,26 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <progressIndicator wantsLayer="YES" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="1re-KC-Jez">
+                                <rect key="frame" x="48" y="374" width="160" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="HpW-Rq-5yJ"/>
+                                </constraints>
+                            </progressIndicator>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="pY6-mS-xtz" secondAttribute="trailing" id="2tj-jC-e6m"/>
+                            <constraint firstItem="1re-KC-Jez" firstAttribute="centerY" secondItem="rQe-ko-iVi" secondAttribute="centerY" id="Lej-AF-Z4a"/>
+                            <constraint firstItem="1re-KC-Jez" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rQe-ko-iVi" secondAttribute="leading" constant="20" symbolic="YES" id="a9J-ef-MH9"/>
                             <constraint firstItem="pY6-mS-xtz" firstAttribute="leading" secondItem="rQe-ko-iVi" secondAttribute="leading" id="g88-GR-AGM"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1re-KC-Jez" secondAttribute="trailing" constant="20" symbolic="YES" id="i3T-zr-Ptz"/>
                             <constraint firstItem="pY6-mS-xtz" firstAttribute="top" secondItem="rQe-ko-iVi" secondAttribute="top" id="jRe-5M-4Ss"/>
+                            <constraint firstItem="1re-KC-Jez" firstAttribute="centerX" secondItem="rQe-ko-iVi" secondAttribute="centerX" id="mJP-a6-GPV"/>
                             <constraint firstAttribute="bottom" secondItem="pY6-mS-xtz" secondAttribute="bottom" id="qHK-HE-n1p"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="progressBar" destination="1re-KC-Jez" id="L6j-Fq-LRY"/>
                         <outlet property="storyTableView" destination="ClP-vU-7M1" id="jH7-dW-MPJ"/>
                     </connections>
                 </viewController>
