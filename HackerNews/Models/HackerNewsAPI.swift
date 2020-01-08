@@ -23,55 +23,56 @@ class HackerNewsAPI {
         return promise
     }
 
-    static func topStories(count: Int = 500) -> Promise<[Storyable]> {
-        let request = URLRequest(url: base.appendingPathComponent("topstories.json"))
+    static func items(ids: [Int], shouldTrackProgress trackProgress: Bool = false) -> Promise<[Item]> {
+        let idCount = ids.count
+        let progress = trackProgress ? Progress(totalUnitCount: Int64(idCount)) : nil
+        let promises = ids.map { id -> Promise<Item> in
+            firstly {
+                item(id: id)
+            }.map { item -> Item in
+                progress?.completedUnitCount += 1
+                return item
+            }
+        }
+
+        return when(fulfilled: promises)
+    }
+
+    static func ids(fromPathComponent pathComponent: String) -> Promise<[Int]> {
+        let url = base.appendingPathComponent(pathComponent)
+        let request = URLRequest(url: url)
         let decoder = JSONDecoder()
         let promise = firstly {
             urlSession.dataTask(.promise, with: request).validate()
         }.map { (data, _) in
             try decoder.decode([Int].self, from: data)
-        }.map { ids in
-            Array(ids.prefix(count))
-        }.thenMap { id in
-            item(id: id)
+        }
+
+        return promise
+    }
+
+    static func stories(fromPathComponent pathComponent: String, count: Int = 500) -> Promise<[Storyable]> {
+        let promise = firstly {
+            ids(fromPathComponent: pathComponent)
+        }.then { ids -> Promise<[Item]> in
+            let ids = Array(ids.prefix(count))
+            return items(ids: ids, shouldTrackProgress: true)
         }.mapValues { item in
             item.story!
         }
         return promise
+    }
+
+    static func topStories(count: Int = 500) -> Promise<[Storyable]> {
+        return stories(fromPathComponent: "topstories.json", count: count)
     }
 
     static func newStories(count: Int = 500) -> Promise<[Storyable]> {
-        let request = URLRequest(url: base.appendingPathComponent("newstories.json"))
-        let decoder = JSONDecoder()
-        let promise = firstly {
-            urlSession.dataTask(.promise, with: request).validate()
-        }.map { (data, _) in
-            try decoder.decode([Int].self, from: data)
-        }.map { ids in
-            Array(ids.prefix(count))
-        }.thenMap { id in
-            item(id: id)
-        }.mapValues { item in
-            item.story!
-        }
-        return promise
+        return stories(fromPathComponent: "newstories.json", count: count)
     }
 
     static func bestStories(count: Int = 500) -> Promise<[Storyable]> {
-        let request = URLRequest(url: base.appendingPathComponent("beststories.json"))
-        let decoder = JSONDecoder()
-        let promise = firstly {
-            urlSession.dataTask(.promise, with: request).validate()
-        }.map { (data, _) in
-            try decoder.decode([Int].self, from: data)
-        }.map { ids in
-            Array(ids.prefix(count))
-        }.thenMap { id in
-            item(id: id)
-        }.mapValues { item in
-            item.story!
-        }
-        return promise
+        stories(fromPathComponent: "beststories.json", count: count)
     }
 
     static func loadComments(of story: Story) -> Promise<Story> {
@@ -81,24 +82,18 @@ class HackerNewsAPI {
         // Assuming that the story object is up-to date
         let topLevelCommentCount = commentIds.count
         let progress = Progress(totalUnitCount: Int64(topLevelCommentCount))
-        let promises = commentIds.map { id in
-            item(id: id).map { item in
-                item.comment
-            }.then { comment -> Promise<Comment?> in
-                guard let comment = comment else {
-                    return .value(nil)
-                }
-                return loadComments(of: comment).map { $0 }
-            }.map { comment -> Comment? in
+
+        let promise = firstly {
+            items(ids: commentIds)
+        }.compactMapValues { item in
+            item.comment
+        }.thenMap { comment -> Promise<Comment> in
+            firstly {
+                loadComments(of: comment)
+            }.map { comment -> Comment in
                 progress.completedUnitCount += 1
                 return comment
             }
-        }
-
-        let promise = firstly {
-            when(fulfilled: promises)
-        }.compactMapValues {
-            $0
         }.map { comments -> Story in
             story.comments = comments
             return story
@@ -110,11 +105,9 @@ class HackerNewsAPI {
         guard let commentIds = comment.commentIds else {
             return .value(comment)
         }
-        let promises = commentIds.map { id in
-            item(id: id)
-        }
+
         let promise = firstly {
-            when(fulfilled: promises)
+            items(ids: commentIds)
         }.compactMapValues { item in
             item.comment
         }.thenMap { comment in
