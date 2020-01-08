@@ -18,19 +18,4 @@ import PromiseKit
     var text: String
     var commentIds: [Int]?
     var comments: [Comment] = []
-
-    func loadComments() -> Promise<Comment> {
-        let promises = commentIds?.map { id in HackerNewsAPI.item(id: id) } ?? []
-        let promise = firstly {
-            when(fulfilled: promises)
-        }.compactMapValues { item in
-            item.comment
-        }.thenMap { comment in
-            comment.loadComments()
-        }.map { comments -> Comment in
-            self.comments = comments
-            return self
-        }
-        return promise
-    }
 }

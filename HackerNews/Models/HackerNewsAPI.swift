@@ -73,4 +73,56 @@ class HackerNewsAPI {
         }
         return promise
     }
+
+    static func loadComments(of story: Story) -> Promise<Story> {
+        guard let commentIds = story.commentIds else {
+            return .value(story)
+        }
+        // Assuming that the story object is up-to date
+        let topLevelCommentCount = commentIds.count
+        let progress = Progress(totalUnitCount: Int64(topLevelCommentCount))
+        let promises = commentIds.map { id in
+            item(id: id).map { item in
+                item.comment
+            }.then { comment -> Promise<Comment?> in
+                guard let comment = comment else {
+                    return .value(nil)
+                }
+                return loadComments(of: comment).map { $0 }
+            }.map { comment -> Comment? in
+                progress.completedUnitCount += 1
+                return comment
+            }
+        }
+
+        let promise = firstly {
+            when(fulfilled: promises)
+        }.compactMapValues {
+            $0
+        }.map { comments -> Story in
+            story.comments = comments
+            return story
+        }
+        return promise
+    }
+
+    static func loadComments(of comment: Comment) -> Promise<Comment> {
+        guard let commentIds = comment.commentIds else {
+            return .value(comment)
+        }
+        let promises = commentIds.map { id in
+            item(id: id)
+        }
+        let promise = firstly {
+            when(fulfilled: promises)
+        }.compactMapValues { item in
+            item.comment
+        }.thenMap { comment in
+            loadComments(of: comment)
+        }.map { comments -> Comment in
+            comment.comments = comments
+            return comment
+        }
+        return promise
+    }
 }

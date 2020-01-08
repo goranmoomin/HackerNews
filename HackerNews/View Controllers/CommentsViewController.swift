@@ -7,6 +7,7 @@ class CommentsViewController: NSViewController {
     // MARK: - IBOutlets
 
     @IBOutlet var commentOutlineView: NSOutlineView!
+    @IBOutlet var progressBar: NSProgressIndicator!
 
     // MARK: - Properties
 
@@ -17,16 +18,33 @@ class CommentsViewController: NSViewController {
                 return
             }
 
+            progressBar.isHidden = false
+            commentOutlineView.isHidden = true
+            commentLoadProgress = Progress(totalUnitCount: 100)
+            commentLoadProgress?.becomeCurrent(withPendingUnitCount: 100)
             firstly {
-                currentStory.loadComments()
+                HackerNewsAPI.loadComments(of: currentStory)
             }.done { _ in
+                self.commentLoadProgress?.resignCurrent()
+                self.commentLoadProgress = nil
                 self.commentOutlineView.reloadData()
                 self.commentOutlineView.expandItem(nil, expandChildren: true)
+                self.progressBar.isHidden = true
+                self.commentOutlineView.isHidden = false
             }.catch { error in
                 print(error)
             }
         }
     }
+
+    var commentLoadProgress: Progress? {
+        didSet {
+            observation = commentLoadProgress?.observe(\.fractionCompleted) { progress, _ in
+                self.progressBar.doubleValue = progress.fractionCompleted
+            }
+        }
+    }
+    var observation: NSKeyValueObservation?
 
     var commentCellViews: [CommentCellView] = []
 

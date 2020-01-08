@@ -28,21 +28,4 @@ import PromiseKit
     var commentIds: [Int]?
     var comments: [Comment] = []
     var commentCount: Int
-
-    func loadComments() -> Promise<Void> {
-        guard let commentIds = commentIds else {
-            return .value
-        }
-        let promises = commentIds.map { id in HackerNewsAPI.item(id: id) }
-        let promise = firstly {
-            when(fulfilled: promises)
-        }.compactMapValues { item in
-            item.comment
-        }.thenMap { comment in
-            comment.loadComments()
-        }.done { comments in
-            self.comments = comments
-        }
-        return promise
-    }
 }

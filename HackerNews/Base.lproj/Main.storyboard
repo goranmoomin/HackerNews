@@ -750,7 +750,7 @@
                                             <tableColumns>
                                                 <tableColumn editable="NO" width="253" minWidth="40" maxWidth="1000" id="vXC-wH-rV0">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="label" size="11"/>
+                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -883,25 +883,25 @@
             <objects>
                 <viewController id="zhL-e9-R3f" customClass="CommentsViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="SRI-cU-zUf">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="520" height="768"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="138" horizontalPageScroll="10" verticalLineScroll="138" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO2-Zo-Y6o">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="520" height="768"/>
                                 <clipView key="contentView" id="66g-Cr-MgD">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="768"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="520" height="768"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" multipleSelection="NO" autosaveColumns="NO" rowHeight="136" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" indentationPerLevel="8" outlineTableColumn="Cg0-Az-X4S" id="OeF-ja-08f" customClass="CommentOutlineView" customModule="HackerNews" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="768"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="520" height="768"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn editable="NO" width="765" minWidth="40" maxWidth="1000" id="Cg0-Az-X4S">
+                                                <tableColumn editable="NO" width="517" minWidth="40" maxWidth="1000" id="Cg0-Az-X4S">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="label" size="11"/>
+                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -913,11 +913,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="CommentCellView" id="w7x-0j-qmy" customClass="CommentCellView" customModule="HackerNews" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="1" width="765" height="136"/>
+                                                            <rect key="frame" x="1" y="1" width="517" height="136"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="2sw-tA-zTi">
-                                                                    <rect key="frame" x="6" y="8" width="753" height="96"/>
+                                                                    <rect key="frame" x="6" y="8" width="505" height="96"/>
                                                                     <textFieldCell key="cell" selectable="YES" id="N1T-OU-0MH">
                                                                         <font key="font" usesAppearanceFont="YES"/>
                                                                         <string key="title">"sqr is a place where one might be tempted to use a macro in C, but writing such a macro in a way that x doesn't get evaluated twice is tricky."
@@ -936,7 +936,7 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <button horizontalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="CE7-Lh-Izx">
-                                                                    <rect key="frame" x="735" y="109" width="22" height="19"/>
+                                                                    <rect key="frame" x="487" y="109" width="22" height="19"/>
                                                                     <buttonCell key="cell" type="square" title="􀆇" alternateTitle="􀆈" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="ITG-dI-MXX">
                                                                         <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                                                         <font key="font" size="16" name="SFProDisplay-Regular"/>
@@ -986,7 +986,7 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="YNz-d4-ab6">
-                                    <rect key="frame" x="1" y="119" width="223" height="15"/>
+                                    <rect key="frame" x="0.0" y="752" width="520" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="oM6-1u-MXz">
@@ -994,16 +994,27 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="3IY-14-wQ6">
+                                <rect key="frame" x="80" y="374" width="360" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="360" id="dyM-ha-9y1"/>
+                                </constraints>
+                            </progressIndicator>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="dO2-Zo-Y6o" secondAttribute="bottom" id="3OM-3j-Xih"/>
                             <constraint firstItem="dO2-Zo-Y6o" firstAttribute="leading" secondItem="SRI-cU-zUf" secondAttribute="leading" id="4c0-r8-xnw"/>
                             <constraint firstItem="dO2-Zo-Y6o" firstAttribute="top" secondItem="SRI-cU-zUf" secondAttribute="top" id="Cvi-I3-NEf"/>
+                            <constraint firstItem="3IY-14-wQ6" firstAttribute="centerX" secondItem="SRI-cU-zUf" secondAttribute="centerX" id="UsD-aG-7VG"/>
                             <constraint firstAttribute="trailing" secondItem="dO2-Zo-Y6o" secondAttribute="trailing" id="aWi-yD-b9H"/>
+                            <constraint firstItem="3IY-14-wQ6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SRI-cU-zUf" secondAttribute="leading" constant="20" symbolic="YES" id="g1l-g9-5sY"/>
+                            <constraint firstItem="3IY-14-wQ6" firstAttribute="centerY" secondItem="SRI-cU-zUf" secondAttribute="centerY" id="lEY-Wo-yjH"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3IY-14-wQ6" secondAttribute="trailing" constant="20" symbolic="YES" id="qRn-lc-r9g"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="commentOutlineView" destination="OeF-ja-08f" id="2wX-r0-pX9"/>
+                        <outlet property="progressBar" destination="3IY-14-wQ6" id="ZJN-Kt-XE0"/>
                     </connections>
                 </viewController>
                 <customObject id="HYo-U2-4wB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
