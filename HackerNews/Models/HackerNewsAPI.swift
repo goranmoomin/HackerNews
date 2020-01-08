@@ -52,13 +52,20 @@ class HackerNewsAPI {
     }
 
     static func stories(fromPathComponent pathComponent: String, count: Int = 500) -> Promise<[Storyable]> {
+        let progress = Progress(totalUnitCount: 100)
+        progress.becomeCurrent(withPendingUnitCount: 0)
         let promise = firstly {
             ids(fromPathComponent: pathComponent)
         }.then { ids -> Promise<[Item]> in
+            progress.resignCurrent()
+            progress.becomeCurrent(withPendingUnitCount: 100)
             let ids = Array(ids.prefix(count))
             return items(ids: ids, shouldTrackProgress: true)
         }.mapValues { item in
             item.story!
+        }.map { stories -> [Storyable] in
+            progress.resignCurrent()
+            return stories
         }
         return promise
     }
