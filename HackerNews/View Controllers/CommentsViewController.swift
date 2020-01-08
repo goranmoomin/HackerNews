@@ -44,6 +44,7 @@ class CommentsViewController: NSViewController {
         }.done { _ in
             self.commentLoadProgress?.resignCurrent()
             self.commentLoadProgress = nil
+            self.progressBar.doubleValue = 0
             self.commentOutlineView.reloadData()
             self.commentOutlineView.expandItem(nil, expandChildren: true)
             self.progressBar.isHidden = true
