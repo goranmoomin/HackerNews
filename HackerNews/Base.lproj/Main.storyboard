@@ -994,7 +994,7 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="3IY-14-wQ6">
+                            <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="3IY-14-wQ6">
                                 <rect key="frame" x="80" y="374" width="360" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="360" id="dyM-ha-9y1"/>

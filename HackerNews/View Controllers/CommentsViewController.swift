@@ -14,26 +14,7 @@ class CommentsViewController: NSViewController {
     // Always in sync with it's parent view controller
     var currentStory: Story? {
         didSet {
-            guard let currentStory = currentStory else {
-                return
-            }
-
-            progressBar.isHidden = false
-            commentOutlineView.isHidden = true
-            commentLoadProgress = Progress(totalUnitCount: 100)
-            commentLoadProgress?.becomeCurrent(withPendingUnitCount: 100)
-            firstly {
-                HackerNewsAPI.loadComments(of: currentStory)
-            }.done { _ in
-                self.commentLoadProgress?.resignCurrent()
-                self.commentLoadProgress = nil
-                self.commentOutlineView.reloadData()
-                self.commentOutlineView.expandItem(nil, expandChildren: true)
-                self.progressBar.isHidden = true
-                self.commentOutlineView.isHidden = false
-            }.catch { error in
-                print(error)
-            }
+            loadAndDisplayComments()
         }
     }
 
@@ -46,7 +27,31 @@ class CommentsViewController: NSViewController {
     }
     var observation: NSKeyValueObservation?
 
-    var commentCellViews: [CommentCellView] = []
+    // MARK: - Methods
+
+    func loadAndDisplayComments() {
+        guard let currentStory = currentStory else {
+            return
+        }
+        progressBar.isHidden = false
+        commentOutlineView.isHidden = true
+
+        commentLoadProgress = Progress(totalUnitCount: 100)
+        commentLoadProgress?.becomeCurrent(withPendingUnitCount: 100)
+
+        firstly {
+            HackerNewsAPI.loadComments(of: currentStory)
+        }.done { _ in
+            self.commentLoadProgress?.resignCurrent()
+            self.commentLoadProgress = nil
+            self.commentOutlineView.reloadData()
+            self.commentOutlineView.expandItem(nil, expandChildren: true)
+            self.progressBar.isHidden = true
+            self.commentOutlineView.isHidden = false
+        }.catch { error in
+            print(error)
+        }
+    }
 
     // MARK: - Lifecycle Methods
 
