@@ -750,7 +750,7 @@
                                             <tableColumns>
                                                 <tableColumn editable="NO" width="253" minWidth="40" maxWidth="1000" id="vXC-wH-rV0">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="message" size="11"/>
+                                                        <font key="font" metaFont="menu" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -862,26 +862,25 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <progressIndicator wantsLayer="YES" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="1re-KC-Jez">
-                                <rect key="frame" x="48" y="374" width="160" height="20"/>
+                            <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Yn-Qh-Wjb" customClass="ProgressView" customModule="HackerNews" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="344" width="256" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="HpW-Rq-5yJ"/>
+                                    <constraint firstAttribute="height" constant="80" id="AtA-PB-yq3"/>
                                 </constraints>
-                            </progressIndicator>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="pY6-mS-xtz" secondAttribute="trailing" id="2tj-jC-e6m"/>
-                            <constraint firstItem="1re-KC-Jez" firstAttribute="centerY" secondItem="rQe-ko-iVi" secondAttribute="centerY" id="Lej-AF-Z4a"/>
-                            <constraint firstItem="1re-KC-Jez" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rQe-ko-iVi" secondAttribute="leading" constant="20" symbolic="YES" id="a9J-ef-MH9"/>
                             <constraint firstItem="pY6-mS-xtz" firstAttribute="leading" secondItem="rQe-ko-iVi" secondAttribute="leading" id="g88-GR-AGM"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1re-KC-Jez" secondAttribute="trailing" constant="20" symbolic="YES" id="i3T-zr-Ptz"/>
                             <constraint firstItem="pY6-mS-xtz" firstAttribute="top" secondItem="rQe-ko-iVi" secondAttribute="top" id="jRe-5M-4Ss"/>
-                            <constraint firstItem="1re-KC-Jez" firstAttribute="centerX" secondItem="rQe-ko-iVi" secondAttribute="centerX" id="mJP-a6-GPV"/>
+                            <constraint firstItem="8Yn-Qh-Wjb" firstAttribute="centerY" secondItem="rQe-ko-iVi" secondAttribute="centerY" id="pWD-32-7ba"/>
                             <constraint firstAttribute="bottom" secondItem="pY6-mS-xtz" secondAttribute="bottom" id="qHK-HE-n1p"/>
+                            <constraint firstItem="8Yn-Qh-Wjb" firstAttribute="centerX" secondItem="rQe-ko-iVi" secondAttribute="centerX" id="tlV-Uc-JOc"/>
+                            <constraint firstItem="8Yn-Qh-Wjb" firstAttribute="width" secondItem="rQe-ko-iVi" secondAttribute="width" id="wXF-ue-2gP"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="progressBar" destination="1re-KC-Jez" id="L6j-Fq-LRY"/>
+                        <outlet property="progressView" destination="8Yn-Qh-Wjb" id="wFm-ny-Ggo"/>
                         <outlet property="storyTableView" destination="ClP-vU-7M1" id="jH7-dW-MPJ"/>
                     </connections>
                 </viewController>
@@ -912,7 +911,7 @@
                                             <tableColumns>
                                                 <tableColumn editable="NO" width="517" minWidth="40" maxWidth="1000" id="Cg0-Az-X4S">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="message" size="11"/>
+                                                        <font key="font" metaFont="menu" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1005,27 +1004,26 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="3IY-14-wQ6">
-                                <rect key="frame" x="80" y="374" width="360" height="20"/>
+                            <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAp-hP-bpg" customClass="ProgressView" customModule="HackerNews" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="344" width="520" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="360" id="dyM-ha-9y1"/>
+                                    <constraint firstAttribute="height" constant="80" id="CNH-X9-epL"/>
                                 </constraints>
-                            </progressIndicator>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="dO2-Zo-Y6o" secondAttribute="bottom" id="3OM-3j-Xih"/>
                             <constraint firstItem="dO2-Zo-Y6o" firstAttribute="leading" secondItem="SRI-cU-zUf" secondAttribute="leading" id="4c0-r8-xnw"/>
                             <constraint firstItem="dO2-Zo-Y6o" firstAttribute="top" secondItem="SRI-cU-zUf" secondAttribute="top" id="Cvi-I3-NEf"/>
-                            <constraint firstItem="3IY-14-wQ6" firstAttribute="centerX" secondItem="SRI-cU-zUf" secondAttribute="centerX" id="UsD-aG-7VG"/>
+                            <constraint firstItem="MAp-hP-bpg" firstAttribute="width" secondItem="SRI-cU-zUf" secondAttribute="width" id="LCB-v6-rcS"/>
+                            <constraint firstItem="MAp-hP-bpg" firstAttribute="centerY" secondItem="SRI-cU-zUf" secondAttribute="centerY" id="T2f-zT-1As"/>
                             <constraint firstAttribute="trailing" secondItem="dO2-Zo-Y6o" secondAttribute="trailing" id="aWi-yD-b9H"/>
-                            <constraint firstItem="3IY-14-wQ6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SRI-cU-zUf" secondAttribute="leading" constant="20" symbolic="YES" id="g1l-g9-5sY"/>
-                            <constraint firstItem="3IY-14-wQ6" firstAttribute="centerY" secondItem="SRI-cU-zUf" secondAttribute="centerY" id="lEY-Wo-yjH"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3IY-14-wQ6" secondAttribute="trailing" constant="20" symbolic="YES" id="qRn-lc-r9g"/>
+                            <constraint firstItem="MAp-hP-bpg" firstAttribute="centerX" secondItem="SRI-cU-zUf" secondAttribute="centerX" id="enH-uT-7qC"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="commentOutlineView" destination="OeF-ja-08f" id="2wX-r0-pX9"/>
-                        <outlet property="progressBar" destination="3IY-14-wQ6" id="ZJN-Kt-XE0"/>
+                        <outlet property="progressView" destination="MAp-hP-bpg" id="ZJW-7d-0r1"/>
                     </connections>
                 </viewController>
                 <customObject id="HYo-U2-4wB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

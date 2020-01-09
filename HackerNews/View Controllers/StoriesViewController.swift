@@ -7,7 +7,7 @@ class StoriesViewController: NSViewController {
     // MARK: - IBOutlets
 
     @IBOutlet var storyTableView: NSTableView!
-    @IBOutlet var progressBar: NSProgressIndicator!
+    @IBOutlet var progressView: ProgressView!
 
     // MARK: - Properties
 
@@ -32,9 +32,7 @@ class StoriesViewController: NSViewController {
 
     var storyLoadProgress: Progress? {
         didSet {
-            observation = storyLoadProgress?.observe(\.fractionCompleted) { progress, _ in
-                self.progressBar.doubleValue = progress.fractionCompleted
-            }
+            progressView.progress = storyLoadProgress
         }
     }
     var observation: NSKeyValueObservation?
@@ -42,9 +40,7 @@ class StoriesViewController: NSViewController {
     // MARK: - Methods
 
     func loadAndDisplayStories() {
-        progressBar.doubleValue = 0
         storyTableView.isHidden = true
-        progressBar.isHidden = false
 
         storyLoadProgress = Progress(totalUnitCount: 100)
         storyLoadProgress?.becomeCurrent(withPendingUnitCount: 100)
@@ -53,8 +49,6 @@ class StoriesViewController: NSViewController {
         }.done { stories in
             self.storyLoadProgress?.resignCurrent()
             self.storyLoadProgress = nil
-            self.progressBar.isHidden = true
-            self.progressBar.doubleValue = 0
             self.stories = stories
             self.storyTableView.reloadData()
             self.storyTableView.isHidden = false
@@ -63,10 +57,15 @@ class StoriesViewController: NSViewController {
         }
     }
 
+    func initializeInterface() {
+        progressView.labelText = "Loading Stories..."
+    }
+
     // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeInterface()
         loadAndDisplayStories()
     }
 }

@@ -7,7 +7,7 @@ class CommentsViewController: NSViewController {
     // MARK: - IBOutlets
 
     @IBOutlet var commentOutlineView: NSOutlineView!
-    @IBOutlet var progressBar: NSProgressIndicator!
+    @IBOutlet var progressView: ProgressView!
 
     // MARK: - Properties
 
@@ -20,9 +20,7 @@ class CommentsViewController: NSViewController {
 
     var commentLoadProgress: Progress? {
         didSet {
-            observation = commentLoadProgress?.observe(\.fractionCompleted) { progress, _ in
-                self.progressBar.doubleValue = progress.fractionCompleted
-            }
+            progressView.progress = commentLoadProgress
         }
     }
     var observation: NSKeyValueObservation?
@@ -33,7 +31,6 @@ class CommentsViewController: NSViewController {
         guard let currentStory = currentStory else {
             return
         }
-        progressBar.isHidden = false
         commentOutlineView.isHidden = true
 
         commentLoadProgress = Progress(totalUnitCount: 100)
@@ -46,18 +43,21 @@ class CommentsViewController: NSViewController {
             self.commentLoadProgress = nil
             self.commentOutlineView.reloadData()
             self.commentOutlineView.expandItem(nil, expandChildren: true)
-            self.progressBar.isHidden = true
-            self.progressBar.doubleValue = 0
             self.commentOutlineView.isHidden = false
         }.catch { error in
             print(error)
         }
     }
 
+    func initializeInterface() {
+        progressView.labelText = "Loading Comments..."
+    }
+
     // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeInterface()
     }
 }
 
