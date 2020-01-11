@@ -1,6 +1,5 @@
 
 import Foundation
-import PromiseKit
 
 @objc protocol Itemable: class {
     var id: Int { get }

@@ -1,6 +1,5 @@
 
 import Foundation
-import PromiseKit
 
 @objc class Comment: NSObject, Decodable, Itemable {
 

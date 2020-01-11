@@ -1,6 +1,5 @@
 
 import Foundation
-import PromiseKit
 
 @objc class Story: NSObject, Decodable, Itemable, Storyable {
 

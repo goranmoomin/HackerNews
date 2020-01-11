@@ -3,10 +3,6 @@ import Foundation
 import PromiseKit
 
 class HackerNewsAPI {
-    enum HNError: Error {
-        case statusCode
-        case unexpectedData
-    }
 
     static let urlSession = URLSession.shared
     static let algoliaURL = URL(string: "http://hn.algolia.com/api/v1/")!
