@@ -109,6 +109,16 @@ extension StoriesViewController: StoryCellViewDelegate {
         return urlHost
     }
 
+    func formattedDate(for story: Storyable?) -> String {
+        guard let story = story else {
+            return ""
+        }
+        let dateFormatter = RelativeDateTimeFormatter()
+        dateFormatter.formattingContext = .standalone
+        dateFormatter.dateTimeStyle = .named
+        return dateFormatter.localizedString(for: story.time, relativeTo: Date())
+    }
+
     func openURL(for story: Storyable?) {
         guard let story = story as? Story, let url = story.url else {
             return

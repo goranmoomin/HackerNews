@@ -8,6 +8,7 @@ import Cocoa
     func formattedCommentCount(for story: Storyable?) -> String
     func isURLHidden(for story: Storyable?) -> Bool
     func formattedURL(for story: Storyable?) -> String
+    func formattedDate(for story: Storyable?) -> String
 
     func openURL(for story: Storyable?)
 }
@@ -19,6 +20,7 @@ class StoryCellView: NSTableCellView {
     @IBOutlet var titleLabel: NSTextField!
     @IBOutlet var scoreLabel: NSTextField!
     @IBOutlet var commentCountLabel: NSTextField!
+    @IBOutlet var dateLabel: NSTextField!
     @IBOutlet var urlButton: NSButton!
 
     // MARK: - Delegate
@@ -55,5 +57,6 @@ class StoryCellView: NSTableCellView {
         commentCountLabel.stringValue = delegate.formattedCommentCount(for: story)
         urlButton.isHidden = delegate.isURLHidden(for: story)
         urlButton.title = delegate.formattedURL(for: story)
+        dateLabel.stringValue = delegate.formattedDate(for: story)
     }
 }

@@ -750,7 +750,7 @@
                                             <tableColumns>
                                                 <tableColumn editable="NO" width="253" minWidth="40" maxWidth="1000" id="vXC-wH-rV0">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="menu" size="11"/>
+                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -815,28 +815,49 @@
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rn7-q4-6gt">
+                                                                    <rect key="frame" x="121" y="8" width="19" height="16"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="􀐫" id="S7s-dT-uyi">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fJ7-CB-xLQ">
+                                                                    <rect key="frame" x="144" y="8" width="77" height="16"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="8 hours ago" id="Wot-j7-XZa">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="TuI-7h-2Oo" firstAttribute="top" secondItem="E9j-Oc-7hH" secondAttribute="bottom" constant="8" symbolic="YES" id="0y6-7t-ZJ7"/>
                                                                 <constraint firstAttribute="bottom" secondItem="oUk-XT-PLy" secondAttribute="bottom" constant="8" id="8R4-ti-q2F"/>
                                                                 <constraint firstItem="oUk-XT-PLy" firstAttribute="leading" secondItem="drv-Qf-yp3" secondAttribute="trailing" constant="8" symbolic="YES" id="AN1-Uw-bdM"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fJ7-CB-xLQ" secondAttribute="trailing" constant="20" symbolic="YES" id="CNm-6v-j9Z"/>
                                                                 <constraint firstItem="fNl-xg-uWr" firstAttribute="leading" secondItem="gSu-He-aXB" secondAttribute="trailing" constant="8" symbolic="YES" id="Cc4-v7-ALi"/>
                                                                 <constraint firstItem="E9j-Oc-7hH" firstAttribute="top" secondItem="DRU-mv-USN" secondAttribute="top" constant="8" id="Csb-C0-eQe"/>
                                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TuI-7h-2Oo" secondAttribute="trailing" constant="20" symbolic="YES" id="E2a-Nc-9zD"/>
                                                                 <constraint firstItem="oUk-XT-PLy" firstAttribute="top" secondItem="TuI-7h-2Oo" secondAttribute="bottom" constant="8" symbolic="YES" id="Eax-6y-1fL"/>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fNl-xg-uWr" secondAttribute="trailing" constant="20" symbolic="YES" id="Fh8-yT-a6s"/>
                                                                 <constraint firstAttribute="bottom" secondItem="fNl-xg-uWr" secondAttribute="bottom" constant="8" id="Ic7-9J-xWw"/>
+                                                                <constraint firstAttribute="bottom" secondItem="fJ7-CB-xLQ" secondAttribute="bottom" constant="8" id="QVR-yn-xev"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Rn7-q4-6gt" secondAttribute="bottom" constant="8" id="VaT-Xp-ElB"/>
                                                                 <constraint firstItem="gSu-He-aXB" firstAttribute="leading" secondItem="oUk-XT-PLy" secondAttribute="trailing" constant="8" symbolic="YES" id="dWj-6c-L5H"/>
                                                                 <constraint firstItem="gSu-He-aXB" firstAttribute="top" secondItem="TuI-7h-2Oo" secondAttribute="bottom" constant="8" id="eqD-vI-fgi"/>
                                                                 <constraint firstAttribute="bottom" secondItem="drv-Qf-yp3" secondAttribute="bottom" constant="8" id="kt5-JA-XKJ"/>
                                                                 <constraint firstItem="TuI-7h-2Oo" firstAttribute="leading" secondItem="DRU-mv-USN" secondAttribute="leading" constant="20" symbolic="YES" id="lrP-6W-xIb"/>
                                                                 <constraint firstAttribute="bottom" secondItem="gSu-He-aXB" secondAttribute="bottom" constant="8" id="nK8-mj-EmM"/>
+                                                                <constraint firstItem="Rn7-q4-6gt" firstAttribute="leading" secondItem="fNl-xg-uWr" secondAttribute="trailing" constant="8" symbolic="YES" id="nNt-UH-zYa"/>
                                                                 <constraint firstAttribute="trailing" secondItem="E9j-Oc-7hH" secondAttribute="trailing" constant="20" symbolic="YES" id="qk5-XI-RgP"/>
                                                                 <constraint firstItem="E9j-Oc-7hH" firstAttribute="leading" secondItem="DRU-mv-USN" secondAttribute="leading" constant="20" symbolic="YES" id="thO-MQ-pgi"/>
+                                                                <constraint firstItem="fJ7-CB-xLQ" firstAttribute="leading" secondItem="Rn7-q4-6gt" secondAttribute="trailing" constant="8" symbolic="YES" id="wGP-Ue-zJz"/>
                                                                 <constraint firstItem="drv-Qf-yp3" firstAttribute="leading" secondItem="DRU-mv-USN" secondAttribute="leading" constant="20" symbolic="YES" id="z9P-4w-w0M"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="commentCountLabel" destination="fNl-xg-uWr" id="8Dl-2J-Ggx"/>
+                                                                <outlet property="dateLabel" destination="fJ7-CB-xLQ" id="CTV-AX-Phq"/>
                                                                 <outlet property="delegate" destination="3J6-R7-QzT" id="hbq-Le-tVC"/>
                                                                 <outlet property="scoreLabel" destination="oUk-XT-PLy" id="Cnl-OH-HAr"/>
                                                                 <outlet property="titleLabel" destination="E9j-Oc-7hH" id="ifU-3t-HCF"/>
@@ -911,7 +932,7 @@
                                             <tableColumns>
                                                 <tableColumn editable="NO" width="517" minWidth="40" maxWidth="1000" id="Cg0-Az-X4S">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="menu" size="11"/>
+                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
