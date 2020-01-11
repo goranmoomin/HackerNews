@@ -43,11 +43,21 @@ extension CommentsViewController: CommentCellViewDelegate {
     func formattedText(for comment: Comment?) -> String {
         let textData = comment?.text.data(using: .utf16) ?? Data()
         let attributedString = NSAttributedString(html: textData, documentAttributes: nil)
-        return attributedString?.string ?? ""
+        return attributedString?.string.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
     }
 
     func formattedAuthor(for comment: Comment?) -> String {
         comment?.author ?? ""
+    }
+
+    func formattedDate(for comment: Comment?) -> String {
+        guard let comment = comment else {
+            return ""
+        }
+        let dateFormatter = RelativeDateTimeFormatter()
+        dateFormatter.formattingContext = .standalone
+        dateFormatter.dateTimeStyle = .named
+        return dateFormatter.localizedString(for: comment.time, relativeTo: Date())
     }
 
     func toggle(_ comment: Comment?) {
@@ -67,6 +77,13 @@ extension CommentsViewController: CommentCellViewDelegate {
 
     func isToggleExpanded(for comment: Comment?) -> Bool {
         commentOutlineView.isItemExpanded(comment)
+    }
+
+    func formattedToggleCount(for comment: Comment?) -> String {
+        guard !isToggleExpanded(for: comment), let comment = comment, comment.commentCount != 1 else {
+            return ""
+        }
+        return "\(comment.commentCount) replies hidden"
     }
 }
 
