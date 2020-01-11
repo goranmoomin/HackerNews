@@ -9,10 +9,11 @@ class HackerNewsAPI {
     }
 
     static let urlSession = URLSession.shared
-    static let base = URL(string: "https://hacker-news.firebaseio.com/v0/")!
+    static let algoliaURL = URL(string: "http://hn.algolia.com/api/v1/")!
+    static let firebaseURL = URL(string: "https://hacker-news.firebaseio.com/v0/")!
 
     static func item(id: Int) -> Promise<Item> {
-        let request = URLRequest(url: base.appendingPathComponent("item/\(id).json"))
+        let request = URLRequest(url: algoliaURL.appendingPathComponent("items/\(id)"))
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .secondsSince1970
         let promise = firstly {
@@ -23,14 +24,14 @@ class HackerNewsAPI {
         return promise
     }
 
-    static func items(ids: [Int], shouldTrackProgress trackProgress: Bool = false) -> Promise<[Item]> {
+    static func items(ids: [Int]) -> Promise<[Item]> {
         let idCount = ids.count
-        let progress = trackProgress ? Progress(totalUnitCount: Int64(idCount)) : nil
+        let progress = Progress(totalUnitCount: Int64(idCount))
         let promises = ids.map { id -> Promise<Item> in
             firstly {
                 item(id: id)
             }.map { item -> Item in
-                progress?.completedUnitCount += 1
+                progress.completedUnitCount += 1
                 return item
             }
         }
@@ -39,7 +40,7 @@ class HackerNewsAPI {
     }
 
     static func ids(fromPathComponent pathComponent: String) -> Promise<[Int]> {
-        let url = base.appendingPathComponent(pathComponent)
+        let url = firebaseURL.appendingPathComponent(pathComponent)
         let request = URLRequest(url: url)
         let decoder = JSONDecoder()
         let promise = firstly {
@@ -51,6 +52,8 @@ class HackerNewsAPI {
         return promise
     }
 
+    // MARK: - Stories
+
     static func stories(fromPathComponent pathComponent: String, count: Int = 500) -> Promise<[Storyable]> {
         let progress = Progress(totalUnitCount: 100)
         progress.becomeCurrent(withPendingUnitCount: 0)
@@ -60,7 +63,7 @@ class HackerNewsAPI {
             progress.resignCurrent()
             progress.becomeCurrent(withPendingUnitCount: 100)
             let ids = Array(ids.prefix(count))
-            return items(ids: ids, shouldTrackProgress: true)
+            return items(ids: ids)
         }.mapValues { item in
             item.story!
         }.map { stories -> [Storyable] in
@@ -80,49 +83,5 @@ class HackerNewsAPI {
 
     static func bestStories(count: Int = 500) -> Promise<[Storyable]> {
         stories(fromPathComponent: "beststories.json", count: count)
-    }
-
-    static func loadComments(of story: Story) -> Promise<Story> {
-        guard let commentIds = story.commentIds else {
-            return .value(story)
-        }
-        // Assuming that the story object is up-to date
-        let topLevelCommentCount = commentIds.count
-        let progress = Progress(totalUnitCount: Int64(topLevelCommentCount))
-
-        let promise = firstly {
-            items(ids: commentIds)
-        }.compactMapValues { item in
-            item.comment
-        }.thenMap { comment -> Promise<Comment> in
-            firstly {
-                loadComments(of: comment)
-            }.map { comment -> Comment in
-                progress.completedUnitCount += 1
-                return comment
-            }
-        }.map { comments -> Story in
-            story.comments = comments
-            return story
-        }
-        return promise
-    }
-
-    static func loadComments(of comment: Comment) -> Promise<Comment> {
-        guard let commentIds = comment.commentIds else {
-            return .value(comment)
-        }
-
-        let promise = firstly {
-            items(ids: commentIds)
-        }.compactMapValues { item in
-            item.comment
-        }.thenMap { comment in
-            loadComments(of: comment)
-        }.map { comments -> Comment in
-            comment.comments = comments
-            return comment
-        }
-        return promise
     }
 }

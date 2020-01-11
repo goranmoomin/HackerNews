@@ -5,9 +5,9 @@ import Foundation
 
     enum CodingKeys: String, CodingKey {
         case id
-        case time
-        case author = "by"
-        case score
+        case time = "created_at_i"
+        case author
+        case score = "points"
         case title
         case text
     }

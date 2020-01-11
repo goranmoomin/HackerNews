@@ -6,14 +6,13 @@ import PromiseKit
 
     enum CodingKeys: String, CodingKey {
         case id
-        case time
-        case author = "by"
-        case score
+        case time = "created_at_i"
+        case author
+        case score = "points"
         case title
         case text
         case url
-        case commentIds = "kids"
-        case commentCount = "descendants"
+        case commentItems = "children"
     }
 
     var id: Int
@@ -25,7 +24,10 @@ import PromiseKit
     var url: URL?
     // but have text.
     var text: String?
-    var commentIds: [Int]?
-    var comments: [Comment] = []
-    var commentCount: Int
+
+    lazy var comments: [Comment] = commentItems?.compactMap { $0.comment } ?? []
+    var commentCount: Int {
+        comments.reduce(into: 0) { $0 += $1.commentCount }
+    }
+    var commentItems: [Item]?
 }
