@@ -1004,26 +1004,16 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MAp-hP-bpg" customClass="ProgressView" customModule="HackerNews" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="344" width="520" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="CNH-X9-epL"/>
-                                </constraints>
-                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="dO2-Zo-Y6o" secondAttribute="bottom" id="3OM-3j-Xih"/>
                             <constraint firstItem="dO2-Zo-Y6o" firstAttribute="leading" secondItem="SRI-cU-zUf" secondAttribute="leading" id="4c0-r8-xnw"/>
                             <constraint firstItem="dO2-Zo-Y6o" firstAttribute="top" secondItem="SRI-cU-zUf" secondAttribute="top" id="Cvi-I3-NEf"/>
-                            <constraint firstItem="MAp-hP-bpg" firstAttribute="width" secondItem="SRI-cU-zUf" secondAttribute="width" id="LCB-v6-rcS"/>
-                            <constraint firstItem="MAp-hP-bpg" firstAttribute="centerY" secondItem="SRI-cU-zUf" secondAttribute="centerY" id="T2f-zT-1As"/>
                             <constraint firstAttribute="trailing" secondItem="dO2-Zo-Y6o" secondAttribute="trailing" id="aWi-yD-b9H"/>
-                            <constraint firstItem="MAp-hP-bpg" firstAttribute="centerX" secondItem="SRI-cU-zUf" secondAttribute="centerX" id="enH-uT-7qC"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="commentOutlineView" destination="OeF-ja-08f" id="2wX-r0-pX9"/>
-                        <outlet property="progressView" destination="MAp-hP-bpg" id="ZJW-7d-0r1"/>
                     </connections>
                 </viewController>
                 <customObject id="HYo-U2-4wB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
