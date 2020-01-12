@@ -148,6 +148,10 @@ extension StoriesViewController: NSTableViewDelegate {
         tableView.makeView(withIdentifier: .storyCellView, owner: self)
     }
 
+    func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+        tableView.makeView(withIdentifier: .storyRowView, owner: self) as? StoryRowView
+    }
+
     func tableViewSelectionDidChange(_ notification: Notification) {
         selectedStory = stories[storyTableView.selectedRow] as? Story
     }
@@ -156,4 +160,5 @@ extension StoriesViewController: NSTableViewDelegate {
 // MARK: - NSUserInterfaceItemIdentifier
 extension NSUserInterfaceItemIdentifier {
     static let storyCellView = NSUserInterfaceItemIdentifier("StoryCellView")
+    static let storyRowView = NSUserInterfaceItemIdentifier("StoryRowView")
 }
