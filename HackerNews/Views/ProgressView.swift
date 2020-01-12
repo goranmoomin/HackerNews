@@ -1,7 +1,7 @@
 
 import Cocoa
 
-class ProgressView: NSView, LoadableView {
+class ProgressView: NSView {
 
     // MARK: - IBOutlets
 
@@ -37,30 +37,5 @@ class ProgressView: NSView, LoadableView {
         }
         progressBar.doubleValue = 0
         self.isHidden = false
-    }
-
-    // MARK: - Init
-
-    var mainView: NSView?
-
-    func commonInit() {
-        loadFromNib()
-        label.stringValue = labelText
-        progressBar.doubleValue = 0
-    }
-
-    init() {
-        super.init(frame: .zero)
-        commonInit()
-    }
-
-    override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
-        commonInit()
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        commonInit()
     }
 }

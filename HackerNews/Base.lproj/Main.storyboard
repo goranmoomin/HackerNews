@@ -889,9 +889,46 @@
                             </scrollView>
                             <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Yn-Qh-Wjb" customClass="ProgressView" customModule="HackerNews" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="344" width="256" height="80"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gwg-r8-4F7">
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="80"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oCo-P1-MKk">
+                                                <rect key="frame" x="73" y="64" width="110" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Loading Stories..." id="3G2-XN-OO3">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <progressIndicator wantsLayer="YES" maxValue="1" doubleValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="4uK-B2-V4J">
+                                                <rect key="frame" x="64" y="-1" width="129" height="58"/>
+                                            </progressIndicator>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="4uK-B2-V4J" firstAttribute="width" secondItem="gwg-r8-4F7" secondAttribute="width" multiplier="0.5" constant="1" id="GQ8-Mp-W6l"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="AtA-PB-yq3"/>
+                                    <constraint firstItem="gwg-r8-4F7" firstAttribute="top" secondItem="8Yn-Qh-Wjb" secondAttribute="top" id="KfU-LU-oFM"/>
+                                    <constraint firstAttribute="bottom" secondItem="gwg-r8-4F7" secondAttribute="bottom" id="b4v-PE-qSV"/>
+                                    <constraint firstItem="gwg-r8-4F7" firstAttribute="leading" secondItem="8Yn-Qh-Wjb" secondAttribute="leading" id="d00-rm-4t0"/>
+                                    <constraint firstAttribute="trailing" secondItem="gwg-r8-4F7" secondAttribute="trailing" id="hXY-b5-15i"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="label" destination="oCo-P1-MKk" id="XeM-RA-v05"/>
+                                    <outlet property="progressBar" destination="4uK-B2-V4J" id="tpP-Dd-1F4"/>
+                                </connections>
                             </customView>
                         </subviews>
                         <constraints>
