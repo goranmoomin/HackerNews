@@ -11,11 +11,13 @@ class StoriesViewController: NSViewController {
     @IBOutlet var progressView: ProgressView!
     @IBOutlet var storySearchView: StorySearchView!
 
-    // MARK: - Properties
+    // MARK: - Parent View Controller
 
     var splitViewController: SplitViewController {
         parent as! SplitViewController
     }
+
+    // MARK: - Properties
 
     var stories: [Storyable] = [] {
         didSet {
@@ -180,6 +182,7 @@ extension StoriesViewController: NSTableViewDataSource {
 }
 
 // MARK: - NSTableViewDelegate
+
 extension StoriesViewController: NSTableViewDelegate {
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -197,7 +200,9 @@ extension StoriesViewController: NSTableViewDelegate {
 }
 
 // MARK: - NSUserInterfaceItemIdentifier
+
 extension NSUserInterfaceItemIdentifier {
+
     static let storyCellView = NSUserInterfaceItemIdentifier("StoryCellView")
     static let storyRowView = NSUserInterfaceItemIdentifier("StoryRowView")
 }

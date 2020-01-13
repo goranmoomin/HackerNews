@@ -22,6 +22,9 @@ enum Item {
 }
 
 extension Item {
+
+    // MARK: - Properties
+
     var item: Itemable? {
         switch self {
         case .job(let job):
@@ -47,6 +50,8 @@ extension Item {
         item as? Comment
     }
 }
+
+// MARK: - Decodable
 
 extension Item: Decodable {
 

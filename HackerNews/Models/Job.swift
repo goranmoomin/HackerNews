@@ -3,6 +3,8 @@ import Foundation
 
 @objc class Job: NSObject, Decodable, Itemable, Storyable {
 
+    // MARK: - Decodable
+
     enum CodingKeys: String, CodingKey {
         case id
         case time = "created_at_i"
@@ -12,6 +14,8 @@ import Foundation
         case text
         case url
     }
+
+    // MARK: - Properties
 
     var id: Int
     var time: Date

@@ -3,6 +3,8 @@ import Foundation
 
 @objc class Poll: NSObject, Decodable, Itemable, Storyable {
 
+    // MARK: - Decodable
+
     enum CodingKeys: String, CodingKey {
         case id
         case time = "created_at_i"
@@ -11,6 +13,8 @@ import Foundation
         case title
         case text
     }
+
+    // MARK: - Properties
 
     var id: Int
     var time: Date

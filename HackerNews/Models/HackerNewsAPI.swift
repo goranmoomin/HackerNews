@@ -4,9 +4,13 @@ import PromiseKit
 
 class HackerNewsAPI {
 
+    // MARK: - Static Variables
+
     static let urlSession = URLSession.shared
     static let algoliaURL = URL(string: "http://hn.algolia.com/api/v1/")!
     static let firebaseURL = URL(string: "https://hacker-news.firebaseio.com/v0/")!
+
+    // MARK: - Items
 
     static func item(id: Int) -> Promise<Item> {
         let request = URLRequest(url: algoliaURL.appendingPathComponent("items/\(id)"))

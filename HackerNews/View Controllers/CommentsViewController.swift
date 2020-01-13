@@ -130,6 +130,8 @@ extension CommentsViewController: NSOutlineViewDelegate {
 }
 
 // MARK: - NSUserInterfaceItemIdentifier
+
 extension NSUserInterfaceItemIdentifier {
+
     static let commentCellView = NSUserInterfaceItemIdentifier("CommentCellView")
 }
