@@ -23,6 +23,7 @@
 		5B331C1D23CAB29D0002938B /* EmphasizableTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B331C1C23CAB29D0002938B /* EmphasizableTextFieldCell.swift */; };
 		5B51713223C0B1B50068E7CE /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B51713023C0B1B50068E7CE /* CommentsViewController.swift */; };
 		5B67493623C6B3C90062BDFF /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B67493523C6B3C90062BDFF /* ProgressView.swift */; };
+		5B76906023CBE88B00FD2516 /* StorySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76905F23CBE88B00FD2516 /* StorySearchView.swift */; };
 		5B796EBC23C086CE008173A5 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B796EBB23C086CE008173A5 /* SplitViewController.swift */; };
 		5BA8CBFF23C2CD3400E2500B /* CommentOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CBFE23C2CD3400E2500B /* CommentOutlineView.swift */; };
 		5BA8CC0523C3520000E2500B /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CC0423C3520000E2500B /* StoriesViewController.swift */; };
@@ -53,6 +54,7 @@
 		5B331C1C23CAB29D0002938B /* EmphasizableTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmphasizableTextFieldCell.swift; sourceTree = "<group>"; };
 		5B51713023C0B1B50068E7CE /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		5B67493523C6B3C90062BDFF /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		5B76905F23CBE88B00FD2516 /* StorySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySearchView.swift; sourceTree = "<group>"; };
 		5B796EBB23C086CE008173A5 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		5BA8CBFE23C2CD3400E2500B /* CommentOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentOutlineView.swift; sourceTree = "<group>"; };
 		5BA8CC0423C3520000E2500B /* StoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				5B331C1C23CAB29D0002938B /* EmphasizableTextFieldCell.swift */,
+				5B76905F23CBE88B00FD2516 /* StorySearchView.swift */,
 				5B1CE44823BFA1BF00064B6A /* StoryCellView.swift */,
 				5B331C1523CA3CBB0002938B /* StoryRowView.swift */,
 				5BEFBF4F23C1BEF70013153D /* CommentCellView.swift */,
@@ -295,6 +298,7 @@
 			files = (
 				5BA8CC0523C3520000E2500B /* StoriesViewController.swift in Sources */,
 				5B331C1B23CA4AE10002938B /* Colors.swift in Sources */,
+				5B76906023CBE88B00FD2516 /* StorySearchView.swift in Sources */,
 				5B1CE44923BFA1BF00064B6A /* StoryCellView.swift in Sources */,
 				5B67493623C6B3C90062BDFF /* ProgressView.swift in Sources */,
 				5BEFBF5023C1BEF70013153D /* CommentCellView.swift in Sources */,

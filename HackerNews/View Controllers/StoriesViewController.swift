@@ -6,8 +6,10 @@ class StoriesViewController: NSViewController {
 
     // MARK: - IBOutlets
 
+    @IBOutlet var storyScrollView: NSScrollView!
     @IBOutlet var storyTableView: NSTableView!
     @IBOutlet var progressView: ProgressView!
+    @IBOutlet var storySearchView: StorySearchView!
 
     // MARK: - Properties
 
@@ -35,17 +37,16 @@ class StoriesViewController: NSViewController {
             progressView.progress = storyLoadProgress
         }
     }
-    var observation: NSKeyValueObservation?
 
     // MARK: - Methods
 
-    func loadAndDisplayStories() {
+    func loadAndDisplayStories(count: Int = 10) {
         storyTableView.isHidden = true
 
         storyLoadProgress = Progress(totalUnitCount: 100)
         storyLoadProgress?.becomeCurrent(withPendingUnitCount: 100)
         firstly {
-            HackerNewsAPI.topStories(count: 10)
+            HackerNewsAPI.topStories(count: count)
         }.done { stories in
             self.storyLoadProgress?.resignCurrent()
             self.storyLoadProgress = nil
@@ -59,6 +60,15 @@ class StoriesViewController: NSViewController {
 
     func initializeInterface() {
         progressView.labelText = "Loading Stories..."
+        storyScrollView.automaticallyAdjustsContentInsets = false
+    }
+
+    func updateContentInsets() {
+        let window = view.window!
+        let contentLayoutRect = window.contentLayoutRect
+        let storySearchViewHeight = storySearchView.frame.height
+        let topInset = (window.contentView!.frame.size.height - contentLayoutRect.height) + storySearchViewHeight
+        storyScrollView.contentInsets = NSEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0)
     }
 
     // MARK: - Lifecycle Methods
@@ -67,6 +77,26 @@ class StoriesViewController: NSViewController {
         super.viewDidLoad()
         initializeInterface()
         loadAndDisplayStories()
+    }
+
+    var contentLayoutRectObservation: NSKeyValueObservation?
+
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        contentLayoutRectObservation = view.window!.observe(\.contentLayoutRect) { _, _ in
+            self.updateContentInsets()
+        }
+    }
+
+    var storySearchViewConstraint: NSLayoutConstraint?
+
+    override func updateViewConstraints() {
+        if storySearchViewConstraint == nil, let contentLayoutGuide = view.window?.contentLayoutGuide as? NSLayoutGuide {
+            let contentTopAnchor = contentLayoutGuide.topAnchor
+            storySearchViewConstraint = storySearchView.topAnchor.constraint(equalTo: contentTopAnchor)
+            storySearchViewConstraint?.isActive = true
+        }
+        super.updateViewConstraints()
     }
 }
 
@@ -124,6 +154,15 @@ extension StoriesViewController: StoryCellViewDelegate {
             return
         }
         NSWorkspace.shared.open(url)
+    }
+}
+
+// MARK: - StorySearchViewDelegate
+
+extension StoriesViewController: StorySearchViewDelegate {
+
+    func reloadStories(count: Int) {
+        loadAndDisplayStories(count: count)
     }
 }
 

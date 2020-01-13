@@ -685,7 +685,7 @@
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="HackerNews" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="1024" height="768"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
@@ -731,17 +731,17 @@
             <objects>
                 <viewController id="3J6-R7-QzT" customClass="StoriesViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="rQe-ko-iVi">
-                        <rect key="frame" x="0.0" y="0.0" width="256" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="256" height="668"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="82" horizontalPageScroll="10" verticalLineScroll="82" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pY6-mS-xtz">
-                                <rect key="frame" x="0.0" y="0.0" width="256" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="256" height="668"/>
                                 <clipView key="contentView" id="Lbb-aA-9QG">
-                                    <rect key="frame" x="0.0" y="0.0" width="256" height="768"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="256" height="668"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="80" usesAutomaticRowHeights="YES" viewBased="YES" id="ClP-vU-7M1">
-                                            <rect key="frame" x="0.0" y="0.0" width="256" height="768"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="256" height="668"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -797,7 +797,7 @@
                                                                     <rect key="frame" x="20" y="29" width="73" height="19"/>
                                                                     <buttonCell key="cell" type="roundRect" title="cliffle.com" bezelStyle="roundedRect" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O4C-rY-0C4">
                                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                        <font key="font" metaFont="system" size="12"/>
+                                                                        <font key="font" metaFont="label" size="12"/>
                                                                     </buttonCell>
                                                                     <connections>
                                                                         <action selector="openURL:" target="DRU-mv-USN" id="VkX-35-az6"/>
@@ -888,7 +888,7 @@
                                 </scroller>
                             </scrollView>
                             <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Yn-Qh-Wjb" customClass="ProgressView" customModule="HackerNews" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="344" width="256" height="80"/>
+                                <rect key="frame" x="0.0" y="294" width="256" height="80"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gwg-r8-4F7">
                                         <rect key="frame" x="0.0" y="0.0" width="256" height="80"/>
@@ -930,19 +930,84 @@
                                     <outlet property="progressBar" destination="4uK-B2-V4J" id="tpP-Dd-1F4"/>
                                 </connections>
                             </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="n9S-z3-RBU" customClass="StorySearchView" customModule="HackerNews" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="634" width="256" height="34"/>
+                                <subviews>
+                                    <visualEffectView blendingMode="behindWindow" material="headerView" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="x2K-u2-OTY">
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="34"/>
+                                        <subviews>
+                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WRa-Cq-WJW">
+                                                <rect key="frame" x="207" y="7" width="41" height="19"/>
+                                                <popUpButtonCell key="cell" type="roundRect" title="10" bezelStyle="roundedRect" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="Mda-Hh-iAn" id="bRW-y4-gGH">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="label" size="12"/>
+                                                    <menu key="menu" id="5K0-cy-SH7">
+                                                        <items>
+                                                            <menuItem title="10" state="on" id="Mda-Hh-iAn"/>
+                                                            <menuItem title="20" id="pYt-ih-L0G"/>
+                                                            <menuItem title="50" id="hPp-dW-kkU"/>
+                                                        </items>
+                                                    </menu>
+                                                </popUpButtonCell>
+                                                <connections>
+                                                    <action selector="reloadStories:" target="n9S-z3-RBU" id="JDf-yn-14P"/>
+                                                </connections>
+                                            </popUpButton>
+                                            <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pge-AY-n5m">
+                                                <rect key="frame" x="8" y="6" width="191" height="22"/>
+                                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="jAT-gH-X6G">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </searchFieldCell>
+                                            </searchField>
+                                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="DAp-jl-XhR">
+                                                <rect key="frame" x="0.0" y="-2" width="256" height="5"/>
+                                            </box>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Pge-AY-n5m" firstAttribute="centerY" secondItem="x2K-u2-OTY" secondAttribute="centerY" id="353-fs-qDR"/>
+                                            <constraint firstAttribute="bottom" secondItem="WRa-Cq-WJW" secondAttribute="bottom" constant="8" id="4FH-xu-9JQ"/>
+                                            <constraint firstItem="DAp-jl-XhR" firstAttribute="leading" secondItem="x2K-u2-OTY" secondAttribute="leading" id="5UZ-jL-PWo"/>
+                                            <constraint firstItem="Pge-AY-n5m" firstAttribute="leading" secondItem="x2K-u2-OTY" secondAttribute="leading" constant="8" id="RFQ-RJ-w1U"/>
+                                            <constraint firstAttribute="trailing" secondItem="WRa-Cq-WJW" secondAttribute="trailing" constant="8" id="Xao-aX-Gpz"/>
+                                            <constraint firstAttribute="bottom" secondItem="DAp-jl-XhR" secondAttribute="bottom" id="cGN-db-LZ8"/>
+                                            <constraint firstItem="WRa-Cq-WJW" firstAttribute="leading" secondItem="Pge-AY-n5m" secondAttribute="trailing" constant="8" symbolic="YES" id="o98-X4-Xlg"/>
+                                            <constraint firstAttribute="trailing" secondItem="DAp-jl-XhR" secondAttribute="trailing" id="swh-c9-nZY"/>
+                                            <constraint firstItem="WRa-Cq-WJW" firstAttribute="top" secondItem="x2K-u2-OTY" secondAttribute="top" constant="8" id="uTs-6h-yIW"/>
+                                        </constraints>
+                                    </visualEffectView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="x2K-u2-OTY" firstAttribute="top" secondItem="n9S-z3-RBU" secondAttribute="top" id="NRo-Oe-k21"/>
+                                    <constraint firstAttribute="bottom" secondItem="x2K-u2-OTY" secondAttribute="bottom" id="gCa-Kf-QAd"/>
+                                    <constraint firstAttribute="trailing" secondItem="x2K-u2-OTY" secondAttribute="trailing" id="oNJ-G0-WDb"/>
+                                    <constraint firstItem="x2K-u2-OTY" firstAttribute="leading" secondItem="n9S-z3-RBU" secondAttribute="leading" id="y6N-vd-alE"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="3J6-R7-QzT" id="lzs-hq-EKH"/>
+                                    <outlet property="storyCountPopUp" destination="WRa-Cq-WJW" id="OIP-MZ-o1j"/>
+                                    <outlet property="storySearchField" destination="Pge-AY-n5m" id="BxD-1T-9Eo"/>
+                                </connections>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="pY6-mS-xtz" secondAttribute="trailing" id="2tj-jC-e6m"/>
+                            <constraint firstItem="n9S-z3-RBU" firstAttribute="leading" secondItem="rQe-ko-iVi" secondAttribute="leading" id="dXM-fr-M69"/>
                             <constraint firstItem="pY6-mS-xtz" firstAttribute="leading" secondItem="rQe-ko-iVi" secondAttribute="leading" id="g88-GR-AGM"/>
                             <constraint firstItem="pY6-mS-xtz" firstAttribute="top" secondItem="rQe-ko-iVi" secondAttribute="top" id="jRe-5M-4Ss"/>
+                            <constraint firstItem="n9S-z3-RBU" firstAttribute="top" secondItem="rQe-ko-iVi" secondAttribute="top" placeholder="YES" id="nho-G1-nIC"/>
                             <constraint firstItem="8Yn-Qh-Wjb" firstAttribute="centerY" secondItem="rQe-ko-iVi" secondAttribute="centerY" id="pWD-32-7ba"/>
                             <constraint firstAttribute="bottom" secondItem="pY6-mS-xtz" secondAttribute="bottom" id="qHK-HE-n1p"/>
+                            <constraint firstAttribute="trailing" secondItem="n9S-z3-RBU" secondAttribute="trailing" id="tIM-md-km6"/>
                             <constraint firstItem="8Yn-Qh-Wjb" firstAttribute="centerX" secondItem="rQe-ko-iVi" secondAttribute="centerX" id="tlV-Uc-JOc"/>
                             <constraint firstItem="8Yn-Qh-Wjb" firstAttribute="width" secondItem="rQe-ko-iVi" secondAttribute="width" id="wXF-ue-2gP"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="progressView" destination="8Yn-Qh-Wjb" id="wFm-ny-Ggo"/>
+                        <outlet property="storyScrollView" destination="pY6-mS-xtz" id="Hya-GZ-oLu"/>
+                        <outlet property="storySearchView" destination="n9S-z3-RBU" id="vg8-aS-lYr"/>
                         <outlet property="storyTableView" destination="ClP-vU-7M1" id="jH7-dW-MPJ"/>
                     </connections>
                 </viewController>
@@ -1002,7 +1067,7 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AMG-mm-xgk">
                                                                     <rect key="frame" x="20" y="112" width="61" height="14"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="kstenerud" id="8r2-NP-38n">
-                                                                        <font key="font" metaFont="systemBold" size="11"/>
+                                                                        <font key="font" metaFont="smallSystemBold"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
@@ -1028,7 +1093,7 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lgz-pZ-abx">
                                                                     <rect key="frame" x="81" y="114" width="57" height="11"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="2 hours ago" id="QSP-3T-QSZ">
-                                                                        <font key="font" metaFont="system" size="9"/>
+                                                                        <font key="font" metaFont="menu" size="9"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
@@ -1036,7 +1101,7 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xii-hs-dhb">
                                                                     <rect key="frame" x="416" y="114" width="75" height="11"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="3 replies hidden" id="HEw-DO-dsm">
-                                                                        <font key="font" metaFont="system" size="9"/>
+                                                                        <font key="font" metaFont="menu" size="9"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
