@@ -60,6 +60,24 @@ class StoriesViewController: NSViewController {
         }
     }
 
+    func searchAndDisplayStories(matching query: String) {
+        storyTableView.isHidden = true
+
+        storyLoadProgress = Progress(totalUnitCount: 100)
+        storyLoadProgress?.becomeCurrent(withPendingUnitCount: 100)
+        firstly {
+            HackerNewsAPI.stories(matching: query)
+        }.done { stories in
+            self.storyLoadProgress?.resignCurrent()
+            self.storyLoadProgress = nil
+            self.stories = stories
+            self.storyTableView.reloadData()
+            self.storyTableView.isHidden = false
+        }.catch { error in
+            print(error)
+        }
+    }
+
     func initializeInterface() {
         progressView.labelText = "Loading Stories..."
         storyScrollView.automaticallyAdjustsContentInsets = false
@@ -162,6 +180,10 @@ extension StoriesViewController: StoryCellViewDelegate {
 // MARK: - StorySearchViewDelegate
 
 extension StoriesViewController: StorySearchViewDelegate {
+
+    func searchStories(matching query: String) {
+        searchAndDisplayStories(matching: query)
+    }
 
     func reloadStories(count: Int) {
         loadAndDisplayStories(count: count)

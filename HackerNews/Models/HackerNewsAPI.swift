@@ -7,17 +7,19 @@ class HackerNewsAPI {
     // MARK: - Static Variables
 
     static let urlSession = URLSession.shared
-    static let algoliaURL = URL(string: "http://hn.algolia.com/api/v1/")!
-    static let firebaseURL = URL(string: "https://hacker-news.firebaseio.com/v0/")!
+    static let algoliaAPI: URLComponents = URLComponents(string: "http://hn.algolia.com/api/v1/")!
+    static let firebaseAPI = URLComponents(string: "https://hacker-news.firebaseio.com/v0/")!
 
     // MARK: - Items
 
     static func item(id: Int) -> Promise<Item> {
-        let request = URLRequest(url: algoliaURL.appendingPathComponent("items/\(id)"))
+        var algoliaAPI = Self.algoliaAPI
+        algoliaAPI.path += "items/\(id)"
+        let request = URLRequest(url: algoliaAPI.url!)
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .secondsSince1970
         let promise = firstly {
-            urlSession.dataTask(.promise, with: request)
+            urlSession.dataTask(.promise, with: request).validate()
         }.map { (data, _) in
             try decoder.decode(Item.self, from: data)
         }
@@ -39,9 +41,12 @@ class HackerNewsAPI {
         return when(fulfilled: promises)
     }
 
-    static func ids(fromPathComponent pathComponent: String) -> Promise<[Int]> {
-        let url = firebaseURL.appendingPathComponent(pathComponent)
-        let request = URLRequest(url: url)
+    // MARK: - Stories
+
+    static func ids(fromFirebasePath path: String) -> Promise<[Int]> {
+        var firebaseAPI = Self.firebaseAPI
+        firebaseAPI.path += path
+        let request = URLRequest(url: firebaseAPI.url!)
         let decoder = JSONDecoder()
         let promise = firstly {
             urlSession.dataTask(.promise, with: request).validate()
@@ -52,13 +57,38 @@ class HackerNewsAPI {
         return promise
     }
 
-    // MARK: - Stories
+    static func ids(fromAlgoliaPath path: String, with queryItems: [URLQueryItem]) -> Promise<[Int]> {
+        struct Stories: Decodable {
+            let hits: [Hit]
+        }
+        struct Hit: Decodable {
+            let objectID: String
+        }
 
-    static func stories(fromPathComponent pathComponent: String, count: Int = 500) -> Promise<[Storyable]> {
+        var algoliaAPI = Self.algoliaAPI
+        algoliaAPI.path += path
+        if algoliaAPI.queryItems == nil {
+            algoliaAPI.queryItems = []
+        }
+        algoliaAPI.queryItems! += queryItems
+        let request = URLRequest(url: algoliaAPI.url!)
+        let decoder = JSONDecoder()
+        let promise = firstly {
+            urlSession.dataTask(.promise, with: request).validate()
+        }.map { (data, _) in
+            try decoder.decode(Stories.self, from: data)
+        }.map { stories in
+            stories.hits.compactMap { Int($0.objectID) }
+        }
+
+        return promise
+    }
+
+    static func stories(fromFirebasePath path: String, count: Int = 500) -> Promise<[Storyable]> {
         let progress = Progress(totalUnitCount: 100)
         progress.becomeCurrent(withPendingUnitCount: 0)
         let promise = firstly {
-            ids(fromPathComponent: pathComponent)
+            ids(fromFirebasePath: path)
         }.then { ids -> Promise<[Item]> in
             progress.resignCurrent()
             progress.becomeCurrent(withPendingUnitCount: 100)
@@ -73,15 +103,43 @@ class HackerNewsAPI {
         return promise
     }
 
+    static func stories(fromAlgoliaPath path: String, with queryItems: [URLQueryItem]) -> Promise<[Storyable]> {
+        let progress = Progress(totalUnitCount: 100)
+        progress.becomeCurrent(withPendingUnitCount: 0)
+        let promise = firstly {
+            ids(fromAlgoliaPath: path, with: queryItems)
+        }.then { ids -> Promise<[Item]> in
+            progress.resignCurrent()
+            progress.becomeCurrent(withPendingUnitCount: 100)
+            return items(ids: ids)
+        }.mapValues { item in
+            item.story!
+        }.map { stories -> [Storyable] in
+            progress.resignCurrent()
+            return stories
+        }
+        return promise
+    }
+
     static func topStories(count: Int = 500) -> Promise<[Storyable]> {
-        return stories(fromPathComponent: "topstories.json", count: count)
+        return stories(fromFirebasePath: "topstories.json", count: count)
     }
 
     static func newStories(count: Int = 500) -> Promise<[Storyable]> {
-        return stories(fromPathComponent: "newstories.json", count: count)
+        return stories(fromFirebasePath: "newstories.json", count: count)
     }
 
     static func bestStories(count: Int = 500) -> Promise<[Storyable]> {
-        stories(fromPathComponent: "beststories.json", count: count)
+        return stories(fromFirebasePath: "beststories.json", count: count)
+    }
+
+    // MARK: - Search
+
+    static func stories(matching query: String) -> Promise<[Storyable]> {
+        let queryItems = [
+            URLQueryItem(name: "query", value: query),
+            URLQueryItem(name: "tags", value: "story")
+        ]
+        return stories(fromAlgoliaPath: "search", with: queryItems)
     }
 }

@@ -12,7 +12,7 @@ import Foundation
         case score = "points"
         case title
         case text
-        case url
+        case rawURL = "url"
     }
 
     // MARK: - Properties
@@ -22,8 +22,9 @@ import Foundation
     var author: String
     var score: Int
     var title: String
-    // Some jobs don't have a URL
-    var url: URL?
+    // Some jobs don't have a URL or an empty string
+    var rawURL: String?
+    lazy var url: URL? = URL(string: rawURL ?? "")
     // but have text.
     var text: String?
 }

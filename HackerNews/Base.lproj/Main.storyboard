@@ -960,6 +960,9 @@
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </searchFieldCell>
+                                                <connections>
+                                                    <action selector="searchStories:" target="n9S-z3-RBU" id="glg-GZ-beB"/>
+                                                </connections>
                                             </searchField>
                                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="DAp-jl-XhR">
                                                 <rect key="frame" x="0.0" y="-2" width="256" height="5"/>

@@ -3,6 +3,7 @@ import Cocoa
 
 @objc protocol StorySearchViewDelegate {
 
+    func searchStories(matching query: String)
     func reloadStories(count: Int)
 }
 
@@ -25,5 +26,13 @@ class StorySearchView: NSView {
         }
         let count = Int(selectedItem.title)!
         delegate.reloadStories(count: count)
+    }
+
+    @IBAction func searchStories(_ sender: NSSearchField) {
+        guard let delegate = delegate else {
+            return
+        }
+        let query = storySearchField.stringValue
+        delegate.searchStories(matching: query)
     }
 }
