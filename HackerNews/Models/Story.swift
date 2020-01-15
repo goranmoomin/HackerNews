@@ -7,13 +7,14 @@ import Foundation
 
     enum CodingKeys: String, CodingKey {
         case id
-        case time = "created_at_i"
-        case author
-        case score = "points"
+        case time
+        case author = "by"
+        case score
         case title
         case text
         case rawURL = "url"
-        case commentItems = "children"
+        case commentIds = "kids"
+        case commentCount = "descendants"
     }
 
     // MARK: - Properties
@@ -28,10 +29,7 @@ import Foundation
     lazy var url: URL? = URL(string: rawURL ?? "")
     // but have text.
     var text: String?
-
-    lazy var comments: [Comment] = commentItems?.compactMap { $0.comment } ?? []
-    var commentCount: Int {
-        comments.reduce(into: 0) { $0 += $1.commentCount }
-    }
-    var commentItems: [Item]?
+    var commentIds: [Int]?
+    var comments: [Comment] = []
+    var commentCount: Int
 }

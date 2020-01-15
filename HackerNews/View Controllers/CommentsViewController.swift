@@ -13,7 +13,7 @@ class CommentsViewController: NSViewController {
     // Always in sync with it's parent view controller
     var currentStory: Story? {
         didSet {
-            updateInterface()
+            loadAndDisplayComments()
         }
     }
 
@@ -22,11 +22,26 @@ class CommentsViewController: NSViewController {
 
     // MARK: - Methods
 
-    func updateInterface() {
-        self.commentOutlineView.isHidden = true
-        self.commentOutlineView.reloadData()
-        self.commentOutlineView.expandItem(nil, expandChildren: true)
-        self.commentOutlineView.isHidden = false
+    func loadAndDisplayComments() {
+        guard let currentStory = currentStory else {
+            return
+        }
+        commentOutlineView.isHidden = true
+
+        commentLoadProgress = Progress(totalUnitCount: 100)
+        commentLoadProgress?.becomeCurrent(withPendingUnitCount: 100)
+
+        firstly {
+            HackerNewsAPI.loadComments(of: currentStory)
+        }.done { _ in
+            self.commentLoadProgress?.resignCurrent()
+            self.commentLoadProgress = nil
+            self.commentOutlineView.reloadData()
+            self.commentOutlineView.expandItem(nil, expandChildren: true)
+            self.commentOutlineView.isHidden = false
+        }.catch { error in
+            print(error)
+        }
     }
 
     // MARK: - Lifecycle Methods

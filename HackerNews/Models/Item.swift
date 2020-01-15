@@ -57,12 +57,12 @@ extension Item: Decodable {
 
     enum CodingKeys: CodingKey {
         case type
-        case author
+        case deleted
     }
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let isDeleted = (try? container.decode(String.self, forKey: .author)) == nil
+        let isDeleted = (try? container.decode(Bool.self, forKey: .deleted)) ?? false
         guard !isDeleted else {
             self = .deletedItem
             return

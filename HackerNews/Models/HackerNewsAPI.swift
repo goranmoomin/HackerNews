@@ -1,6 +1,7 @@
 
 import Foundation
 import PromiseKit
+import PMKFoundation
 
 class HackerNewsAPI {
 
@@ -13,9 +14,9 @@ class HackerNewsAPI {
     // MARK: - Items
 
     static func item(id: Int) -> Promise<Item> {
-        var algoliaAPI = Self.algoliaAPI
-        algoliaAPI.path += "items/\(id)"
-        let request = URLRequest(url: algoliaAPI.url!)
+        var firebaseAPI = Self.firebaseAPI
+        firebaseAPI.path += "item/\(id).json"
+        let request = URLRequest(url: firebaseAPI.url!)
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .secondsSince1970
         let promise = firstly {
@@ -141,5 +142,51 @@ class HackerNewsAPI {
             URLQueryItem(name: "tags", value: "story")
         ]
         return stories(fromAlgoliaPath: "search", with: queryItems)
+    }
+
+    // MARK: - Comments
+
+    static func loadComments(of story: Story) -> Promise<Story> {
+        guard let commentIds = story.commentIds else {
+            return .value(story)
+        }
+        // Assuming that the story object is up-to date
+        let topLevelCommentCount = commentIds.count
+        let progress = Progress(totalUnitCount: Int64(topLevelCommentCount))
+
+        let promise = firstly {
+            items(ids: commentIds)
+        }.compactMapValues { item in
+            item.comment
+        }.thenMap { comment -> Promise<Comment> in
+            firstly {
+                loadComments(of: comment)
+            }.map { comment -> Comment in
+                progress.completedUnitCount += 1
+                return comment
+            }
+        }.map { comments -> Story in
+            story.comments = comments
+            return story
+        }
+        return promise
+    }
+
+    static func loadComments(of comment: Comment) -> Promise<Comment> {
+        guard let commentIds = comment.commentIds else {
+            return .value(comment)
+        }
+
+        let promise = firstly {
+            items(ids: commentIds)
+        }.compactMapValues { item in
+            item.comment
+        }.thenMap { comment in
+            loadComments(of: comment)
+        }.map { comments -> Comment in
+            comment.comments = comments
+            return comment
+        }
+        return promise
     }
 }

@@ -27,14 +27,12 @@
 		5B796EBC23C086CE008173A5 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B796EBB23C086CE008173A5 /* SplitViewController.swift */; };
 		5BA8CBFF23C2CD3400E2500B /* CommentOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CBFE23C2CD3400E2500B /* CommentOutlineView.swift */; };
 		5BA8CC0523C3520000E2500B /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CC0423C3520000E2500B /* StoriesViewController.swift */; };
+		5BE425AD23CF20A100BEA641 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5BE425AC23CF20A100BEA641 /* PromiseKit */; };
+		5BE425B023CF20F300BEA641 /* PMKFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 5BE425AF23CF20F300BEA641 /* PMKFoundation */; };
 		5BEFBF5023C1BEF70013153D /* CommentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEFBF4F23C1BEF70013153D /* CommentCellView.swift */; };
-		5BEFBF5623C2BC6B0013153D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 5BEFBF5523C2BC6B0013153D /* Podfile */; };
-		EB89D5D1930286A7AE832C74 /* Pods_HackerNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDE703C431A132D4678CFDB /* Pods_HackerNews.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3C16158D95B591313F57AD42 /* Pods-HackerNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNews.release.xcconfig"; path = "Target Support Files/Pods-HackerNews/Pods-HackerNews.release.xcconfig"; sourceTree = "<group>"; };
-		4BDE703C431A132D4678CFDB /* Pods_HackerNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackerNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B1CE42323BF9E6300064B6A /* HackerNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B1CE42623BF9E6300064B6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B1CE42A23BF9E6600064B6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,8 +57,6 @@
 		5BA8CBFE23C2CD3400E2500B /* CommentOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentOutlineView.swift; sourceTree = "<group>"; };
 		5BA8CC0423C3520000E2500B /* StoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
 		5BEFBF4F23C1BEF70013153D /* CommentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellView.swift; sourceTree = "<group>"; };
-		5BEFBF5523C2BC6B0013153D /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		F46EACEBFC6D2FBDA61CD204 /* Pods-HackerNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNews.debug.xcconfig"; path = "Target Support Files/Pods-HackerNews/Pods-HackerNews.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB89D5D1930286A7AE832C74 /* Pods_HackerNews.framework in Frameworks */,
+				5BE425B023CF20F300BEA641 /* PMKFoundation in Frameworks */,
+				5BE425AD23CF20A100BEA641 /* PromiseKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,11 +75,8 @@
 		5B1CE41A23BF9E6300064B6A = {
 			isa = PBXGroup;
 			children = (
-				5BEFBF5523C2BC6B0013153D /* Podfile */,
 				5B1CE42523BF9E6300064B6A /* HackerNews */,
 				5B1CE42423BF9E6300064B6A /* Products */,
-				6C1A88D5C89CD83926984258 /* Pods */,
-				BA52EE964CF77B373786DA46 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,23 +158,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		6C1A88D5C89CD83926984258 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F46EACEBFC6D2FBDA61CD204 /* Pods-HackerNews.debug.xcconfig */,
-				3C16158D95B591313F57AD42 /* Pods-HackerNews.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		BA52EE964CF77B373786DA46 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4BDE703C431A132D4678CFDB /* Pods_HackerNews.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -188,17 +165,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B1CE43323BF9E6700064B6A /* Build configuration list for PBXNativeTarget "HackerNews" */;
 			buildPhases = (
-				7F9DE8F67CB17F743130A1DC /* [CP] Check Pods Manifest.lock */,
 				5B1CE41F23BF9E6300064B6A /* Sources */,
 				5B1CE42023BF9E6300064B6A /* Frameworks */,
 				5B1CE42123BF9E6300064B6A /* Resources */,
-				E8B0421D7EFC383C763CF223 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = HackerNews;
+			packageProductDependencies = (
+				5BE425AC23CF20A100BEA641 /* PromiseKit */,
+				5BE425AF23CF20F300BEA641 /* PMKFoundation */,
+			);
 			productName = HackerNews;
 			productReference = 5B1CE42323BF9E6300064B6A /* HackerNews.app */;
 			productType = "com.apple.product-type.application";
@@ -227,6 +206,10 @@
 				Base,
 			);
 			mainGroup = 5B1CE41A23BF9E6300064B6A;
+			packageReferences = (
+				5BE425AB23CF20A100BEA641 /* XCRemoteSwiftPackageReference "PromiseKit" */,
+				5BE425AE23CF20F300BEA641 /* XCRemoteSwiftPackageReference "Foundation" */,
+			);
 			productRefGroup = 5B1CE42423BF9E6300064B6A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -241,55 +224,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BEFBF5623C2BC6B0013153D /* Podfile in Resources */,
 				5B1CE42B23BF9E6600064B6A /* Assets.xcassets in Resources */,
 				5B1CE42E23BF9E6600064B6A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		7F9DE8F67CB17F743130A1DC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HackerNews-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E8B0421D7EFC383C763CF223 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HackerNews/Pods-HackerNews-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HackerNews/Pods-HackerNews-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HackerNews/Pods-HackerNews-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5B1CE41F23BF9E6300064B6A /* Sources */ = {
@@ -447,7 +387,6 @@
 		};
 		5B1CE43423BF9E6700064B6A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F46EACEBFC6D2FBDA61CD204 /* Pods-HackerNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "HackerNews/Supporting Files/HackerNews.entitlements";
@@ -466,7 +405,6 @@
 		};
 		5B1CE43523BF9E6700064B6A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C16158D95B591313F57AD42 /* Pods-HackerNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "HackerNews/Supporting Files/HackerNews.entitlements";
@@ -505,6 +443,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5BE425AB23CF20A100BEA641 /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mxcl/PromiseKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.12.0;
+			};
+		};
+		5BE425AE23CF20F300BEA641 /* XCRemoteSwiftPackageReference "Foundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PromiseKit/Foundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.3.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5BE425AC23CF20A100BEA641 /* PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BE425AB23CF20A100BEA641 /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			productName = PromiseKit;
+		};
+		5BE425AF23CF20F300BEA641 /* PMKFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BE425AE23CF20F300BEA641 /* XCRemoteSwiftPackageReference "Foundation" */;
+			productName = PMKFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5B1CE41B23BF9E6300064B6A /* Project object */;
 }
