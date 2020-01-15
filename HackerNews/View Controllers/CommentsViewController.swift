@@ -1,6 +1,5 @@
 
 import Cocoa
-import PromiseKit
 
 class CommentsViewController: NSViewController {
 

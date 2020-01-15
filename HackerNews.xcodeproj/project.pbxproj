@@ -27,6 +27,7 @@
 		5B796EBC23C086CE008173A5 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B796EBB23C086CE008173A5 /* SplitViewController.swift */; };
 		5BA8CBFF23C2CD3400E2500B /* CommentOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CBFE23C2CD3400E2500B /* CommentOutlineView.swift */; };
 		5BA8CC0523C3520000E2500B /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CC0423C3520000E2500B /* StoriesViewController.swift */; };
+		5BB25CB123CD8B36007567B5 /* CombineExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB25CB023CD8B36007567B5 /* CombineExtensions.swift */; };
 		5BEFBF5023C1BEF70013153D /* CommentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEFBF4F23C1BEF70013153D /* CommentCellView.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		5B796EBB23C086CE008173A5 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		5BA8CBFE23C2CD3400E2500B /* CommentOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentOutlineView.swift; sourceTree = "<group>"; };
 		5BA8CC0423C3520000E2500B /* StoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
+		5BB25CB023CD8B36007567B5 /* CombineExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineExtensions.swift; sourceTree = "<group>"; };
 		5BEFBF4F23C1BEF70013153D /* CommentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				5B331C1A23CA4AE10002938B /* Colors.swift */,
+				5BB25CB023CD8B36007567B5 /* CombineExtensions.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				5B331C1D23CAB29D0002938B /* EmphasizableTextFieldCell.swift in Sources */,
 				5B1CE43F23BF9EA200064B6A /* Comment.swift in Sources */,
 				5B1CE44523BF9EA200064B6A /* Job.swift in Sources */,
+				5BB25CB123CD8B36007567B5 /* CombineExtensions.swift in Sources */,
 				5B1CE42723BF9E6300064B6A /* AppDelegate.swift in Sources */,
 				5B1CE44223BF9EA200064B6A /* Item.swift in Sources */,
 				5B1CE44023BF9EA200064B6A /* HackerNewsAPI.swift in Sources */,

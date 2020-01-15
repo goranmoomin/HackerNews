@@ -1,6 +1,6 @@
 
 import Foundation
-import PromiseKit
+import Combine
 
 class HackerNewsAPI {
 
@@ -12,52 +12,40 @@ class HackerNewsAPI {
 
     // MARK: - Items
 
-    static func item(id: Int) -> Promise<Item> {
+    static func item(id: Int) -> AnyPublisher<Item, Error> {
         var algoliaAPI = Self.algoliaAPI
         algoliaAPI.path += "items/\(id)"
-        let request = URLRequest(url: algoliaAPI.url!)
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .secondsSince1970
-        let promise = firstly {
-            urlSession.dataTask(.promise, with: request).validate()
-        }.map { (data, _) in
-            try decoder.decode(Item.self, from: data)
-        }
-        return promise
+        let publisher = urlSession.dataTaskPublisher(for: algoliaAPI.url!)
+            .map(\.data)
+            .decode(type: Item.self, decoder: decoder)
+            .eraseToAnyPublisher()
+        return publisher
     }
 
-    static func items(ids: [Int]) -> Promise<[Item]> {
-        let idCount = ids.count
-        let progress = Progress(totalUnitCount: Int64(idCount))
-        let promises = ids.map { id -> Promise<Item> in
-            firstly {
-                item(id: id)
-            }.map { item -> Item in
-                progress.completedUnitCount += 1
-                return item
-            }
-        }
-
-        return when(fulfilled: promises)
+    static func items(ids: [Int]) -> AnyPublisher<Item, Error> {
+        let publisher = Publishers.Sequence(sequence: ids)
+            .flatMap({ item(id: $0) })
+            .eraseToAnyPublisher()
+        return publisher
     }
 
     // MARK: - Stories
 
-    static func ids(fromFirebasePath path: String) -> Promise<[Int]> {
+    static func ids(fromFirebasePath path: String) -> AnyPublisher<Int, Error> {
         var firebaseAPI = Self.firebaseAPI
         firebaseAPI.path += path
-        let request = URLRequest(url: firebaseAPI.url!)
         let decoder = JSONDecoder()
-        let promise = firstly {
-            urlSession.dataTask(.promise, with: request).validate()
-        }.map { (data, _) in
-            try decoder.decode([Int].self, from: data)
-        }
-
-        return promise
+        let publisher = urlSession.dataTaskPublisher(for: firebaseAPI.url!)
+            .map(\.data)
+            .decode(type: [Int].self, decoder: decoder)
+            .sequence()
+            .eraseToAnyPublisher()
+        return publisher
     }
 
-    static func ids(fromAlgoliaPath path: String, with queryItems: [URLQueryItem]) -> Promise<[Int]> {
+    static func ids(fromAlgoliaPath path: String, with queryItems: [URLQueryItem]) -> AnyPublisher<Int, Error> {
         struct Stories: Decodable {
             let hits: [Hit]
         }
@@ -71,71 +59,48 @@ class HackerNewsAPI {
             algoliaAPI.queryItems = []
         }
         algoliaAPI.queryItems! += queryItems
-        let request = URLRequest(url: algoliaAPI.url!)
         let decoder = JSONDecoder()
-        let promise = firstly {
-            urlSession.dataTask(.promise, with: request).validate()
-        }.map { (data, _) in
-            try decoder.decode(Stories.self, from: data)
-        }.map { stories in
-            stories.hits.compactMap { Int($0.objectID) }
-        }
-
-        return promise
+        let publisher = urlSession.dataTaskPublisher(for: algoliaAPI.url!)
+            .map(\.data)
+            .decode(type: Stories.self, decoder: decoder)
+            .map({ $0.hits.compactMap({ Int($0.objectID) }) })
+            .sequence()
+            .eraseToAnyPublisher()
+        return publisher
     }
 
-    static func stories(fromFirebasePath path: String, count: Int = 500) -> Promise<[Storyable]> {
-        let progress = Progress(totalUnitCount: 100)
-        progress.becomeCurrent(withPendingUnitCount: 0)
-        let promise = firstly {
-            ids(fromFirebasePath: path)
-        }.then { ids -> Promise<[Item]> in
-            progress.resignCurrent()
-            progress.becomeCurrent(withPendingUnitCount: 100)
-            let ids = Array(ids.prefix(count))
-            return items(ids: ids)
-        }.mapValues { item in
-            item.story!
-        }.map { stories -> [Storyable] in
-            progress.resignCurrent()
-            return stories
-        }
-        return promise
+    static func stories(fromFirebasePath path: String, count: Int = 500) -> AnyPublisher<Storyable, Error> {
+        let publisher = ids(fromFirebasePath: path)
+            .prefix(count)
+            .flatMap({ item(id: $0) })
+            .map(\.story!)
+            .eraseToAnyPublisher()
+        return publisher
     }
 
-    static func stories(fromAlgoliaPath path: String, with queryItems: [URLQueryItem]) -> Promise<[Storyable]> {
-        let progress = Progress(totalUnitCount: 100)
-        progress.becomeCurrent(withPendingUnitCount: 0)
-        let promise = firstly {
-            ids(fromAlgoliaPath: path, with: queryItems)
-        }.then { ids -> Promise<[Item]> in
-            progress.resignCurrent()
-            progress.becomeCurrent(withPendingUnitCount: 100)
-            return items(ids: ids)
-        }.mapValues { item in
-            item.story!
-        }.map { stories -> [Storyable] in
-            progress.resignCurrent()
-            return stories
-        }
-        return promise
+    static func stories(fromAlgoliaPath path: String, with queryItems: [URLQueryItem]) -> AnyPublisher<Storyable, Error> {
+        let publisher = ids(fromAlgoliaPath: path, with: queryItems)
+            .flatMap({ item(id: $0) })
+            .map(\.story!)
+            .eraseToAnyPublisher()
+        return publisher
     }
 
-    static func topStories(count: Int = 500) -> Promise<[Storyable]> {
+    static func topStories(count: Int = 500) -> AnyPublisher<Storyable, Error> {
         return stories(fromFirebasePath: "topstories.json", count: count)
     }
 
-    static func newStories(count: Int = 500) -> Promise<[Storyable]> {
+    static func newStories(count: Int = 500) -> AnyPublisher<Storyable, Error> {
         return stories(fromFirebasePath: "newstories.json", count: count)
     }
 
-    static func bestStories(count: Int = 500) -> Promise<[Storyable]> {
+    static func bestStories(count: Int = 500) -> AnyPublisher<Storyable, Error> {
         return stories(fromFirebasePath: "beststories.json", count: count)
     }
 
     // MARK: - Search
 
-    static func stories(matching query: String) -> Promise<[Storyable]> {
+    static func stories(matching query: String) -> AnyPublisher<Storyable, Error> {
         let queryItems = [
             URLQueryItem(name: "query", value: query),
             URLQueryItem(name: "tags", value: "story")

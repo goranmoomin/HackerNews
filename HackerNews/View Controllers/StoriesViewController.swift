@@ -1,6 +1,6 @@
 
 import Cocoa
-import PromiseKit
+import Combine
 
 class StoriesViewController: NSViewController {
 
@@ -42,40 +42,25 @@ class StoriesViewController: NSViewController {
 
     // MARK: - Methods
 
-    func loadAndDisplayStories(count: Int = 10) {
-        storyTableView.isHidden = true
+    var cancellable: AnyCancellable?
 
-        storyLoadProgress = Progress(totalUnitCount: 100)
-        storyLoadProgress?.becomeCurrent(withPendingUnitCount: 100)
-        firstly {
-            HackerNewsAPI.topStories(count: count)
-        }.done { stories in
-            self.storyLoadProgress?.resignCurrent()
-            self.storyLoadProgress = nil
-            self.stories = stories
-            self.storyTableView.reloadData()
-            self.storyTableView.isHidden = false
-        }.catch { error in
-            print(error)
-        }
+    func loadAndDisplayStories(count: Int = 10) {
+        cancellable = HackerNewsAPI.topStories(count: count)
+            .collect()
+            .replaceError(with: [])
+            .receive(on: RunLoop.main)
+            .assign(to: \.stories, on: self)
     }
 
     func searchAndDisplayStories(matching query: String) {
-        storyTableView.isHidden = true
-
-        storyLoadProgress = Progress(totalUnitCount: 100)
-        storyLoadProgress?.becomeCurrent(withPendingUnitCount: 100)
-        firstly {
-            HackerNewsAPI.stories(matching: query)
-        }.done { stories in
-            self.storyLoadProgress?.resignCurrent()
-            self.storyLoadProgress = nil
-            self.stories = stories
-            self.storyTableView.reloadData()
-            self.storyTableView.isHidden = false
-        }.catch { error in
-            print(error)
-        }
+        cancellable = HackerNewsAPI.stories(matching: query)
+            .collect().tryCatch({ error -> AnyPublisher<[Storyable], Error> in
+                print(error)
+                throw error
+            })
+            .replaceError(with: [])
+            .receive(on: RunLoop.main)
+            .assign(to: \.stories, on: self)
     }
 
     func initializeInterface() {
