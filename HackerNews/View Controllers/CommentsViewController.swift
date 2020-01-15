@@ -7,6 +7,7 @@ class CommentsViewController: NSViewController {
     // MARK: - IBOutlets
 
     @IBOutlet var commentOutlineView: NSOutlineView!
+    @IBOutlet var progressView: ProgressView!
 
     // MARK: - Properties
 
@@ -17,7 +18,11 @@ class CommentsViewController: NSViewController {
         }
     }
 
-    var commentLoadProgress: Progress?
+    var commentLoadProgress: Progress? {
+        didSet {
+            progressView.progress = commentLoadProgress
+        }
+    }
     var observation: NSKeyValueObservation?
 
     // MARK: - Methods
@@ -44,10 +49,15 @@ class CommentsViewController: NSViewController {
         }
     }
 
+    func initializeInterface() {
+        progressView.labelText = "Loading Comments..."
+    }
+
     // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeInterface()
     }
 }
 

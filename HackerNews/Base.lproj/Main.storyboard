@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -731,17 +731,17 @@
             <objects>
                 <viewController id="3J6-R7-QzT" customClass="StoriesViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="rQe-ko-iVi">
-                        <rect key="frame" x="0.0" y="0.0" width="256" height="668"/>
+                        <rect key="frame" x="0.0" y="0.0" width="256" height="768"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="82" horizontalPageScroll="10" verticalLineScroll="82" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pY6-mS-xtz">
-                                <rect key="frame" x="0.0" y="0.0" width="256" height="668"/>
+                                <rect key="frame" x="0.0" y="0.0" width="256" height="768"/>
                                 <clipView key="contentView" id="Lbb-aA-9QG">
-                                    <rect key="frame" x="0.0" y="0.0" width="256" height="668"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="256" height="768"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="80" usesAutomaticRowHeights="YES" viewBased="YES" id="ClP-vU-7M1">
-                                            <rect key="frame" x="0.0" y="0.0" width="256" height="668"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="256" height="768"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -888,50 +888,13 @@
                                 </scroller>
                             </scrollView>
                             <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Yn-Qh-Wjb" customClass="ProgressView" customModule="HackerNews" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="294" width="256" height="80"/>
-                                <subviews>
-                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gwg-r8-4F7">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="80"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oCo-P1-MKk">
-                                                <rect key="frame" x="73" y="64" width="110" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Loading Stories..." id="3G2-XN-OO3">
-                                                    <font key="font" usesAppearanceFont="YES"/>
-                                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <progressIndicator wantsLayer="YES" maxValue="1" doubleValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="4uK-B2-V4J">
-                                                <rect key="frame" x="64" y="-1" width="129" height="58"/>
-                                            </progressIndicator>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="4uK-B2-V4J" firstAttribute="width" secondItem="gwg-r8-4F7" secondAttribute="width" multiplier="0.5" constant="1" id="GQ8-Mp-W6l"/>
-                                        </constraints>
-                                        <visibilityPriorities>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                        </visibilityPriorities>
-                                        <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                        </customSpacing>
-                                    </stackView>
-                                </subviews>
+                                <rect key="frame" x="0.0" y="344" width="256" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="AtA-PB-yq3"/>
-                                    <constraint firstItem="gwg-r8-4F7" firstAttribute="top" secondItem="8Yn-Qh-Wjb" secondAttribute="top" id="KfU-LU-oFM"/>
-                                    <constraint firstAttribute="bottom" secondItem="gwg-r8-4F7" secondAttribute="bottom" id="b4v-PE-qSV"/>
-                                    <constraint firstItem="gwg-r8-4F7" firstAttribute="leading" secondItem="8Yn-Qh-Wjb" secondAttribute="leading" id="d00-rm-4t0"/>
-                                    <constraint firstAttribute="trailing" secondItem="gwg-r8-4F7" secondAttribute="trailing" id="hXY-b5-15i"/>
                                 </constraints>
-                                <connections>
-                                    <outlet property="label" destination="oCo-P1-MKk" id="XeM-RA-v05"/>
-                                    <outlet property="progressBar" destination="4uK-B2-V4J" id="tpP-Dd-1F4"/>
-                                </connections>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="n9S-z3-RBU" customClass="StorySearchView" customModule="HackerNews" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="634" width="256" height="34"/>
+                                <rect key="frame" x="0.0" y="734" width="256" height="34"/>
                                 <subviews>
                                     <visualEffectView blendingMode="behindWindow" material="headerView" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="x2K-u2-OTY">
                                         <rect key="frame" x="0.0" y="0.0" width="256" height="34"/>
@@ -1096,7 +1059,7 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lgz-pZ-abx">
                                                                     <rect key="frame" x="81" y="114" width="57" height="11"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="2 hours ago" id="QSP-3T-QSZ">
-                                                                        <font key="font" metaFont="menu" size="9"/>
+                                                                        <font key="font" metaFont="label" size="9"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
@@ -1104,7 +1067,7 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xii-hs-dhb">
                                                                     <rect key="frame" x="416" y="114" width="75" height="11"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="3 replies hidden" id="HEw-DO-dsm">
-                                                                        <font key="font" metaFont="menu" size="9"/>
+                                                                        <font key="font" metaFont="label" size="9"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
@@ -1156,21 +1119,31 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j3S-oX-ycC" customClass="ProgressView" customModule="HackerNews" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="344" width="520" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="yT8-3d-6SD"/>
+                                </constraints>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="dO2-Zo-Y6o" secondAttribute="bottom" id="3OM-3j-Xih"/>
                             <constraint firstItem="dO2-Zo-Y6o" firstAttribute="leading" secondItem="SRI-cU-zUf" secondAttribute="leading" id="4c0-r8-xnw"/>
+                            <constraint firstItem="j3S-oX-ycC" firstAttribute="leading" secondItem="SRI-cU-zUf" secondAttribute="leading" id="AUs-fg-mRT"/>
                             <constraint firstItem="dO2-Zo-Y6o" firstAttribute="top" secondItem="SRI-cU-zUf" secondAttribute="top" id="Cvi-I3-NEf"/>
+                            <constraint firstItem="j3S-oX-ycC" firstAttribute="centerY" secondItem="SRI-cU-zUf" secondAttribute="centerY" id="Hg8-W8-84N"/>
+                            <constraint firstAttribute="trailing" secondItem="j3S-oX-ycC" secondAttribute="trailing" id="Xcg-rA-TMT"/>
                             <constraint firstAttribute="trailing" secondItem="dO2-Zo-Y6o" secondAttribute="trailing" id="aWi-yD-b9H"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="commentOutlineView" destination="OeF-ja-08f" id="2wX-r0-pX9"/>
+                        <outlet property="progressView" destination="j3S-oX-ycC" id="3xg-tT-5L3"/>
                     </connections>
                 </viewController>
                 <customObject id="HYo-U2-4wB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1238" y="1038"/>
+            <point key="canvasLocation" x="1221" y="1038"/>
         </scene>
     </scenes>
 </document>
