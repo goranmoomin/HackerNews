@@ -152,25 +152,23 @@ class HackerNewsAPI {
         guard let commentIds = story.commentIds else {
             return .value(story)
         }
-        // Assuming that the story object is up-to date
-        let topLevelCommentCount = commentIds.count
-        let progress = Progress(totalUnitCount: Int64(topLevelCommentCount))
-
+        let progress = Progress(totalUnitCount: Int64(2 * commentIds.count))
+        progress.becomeCurrent(withPendingUnitCount: Int64(commentIds.count))
         let promise = firstly {
             items(ids: commentIds)
         }.compactMapValues { item in
             item.comment
         }.thenMap { comment -> Promise<Comment> in
-            firstly {
-                loadComments(of: comment)
-            }.map { comment -> Comment in
-                progress.completedUnitCount += 1
-                return comment
-            }
+            progress.becomeCurrent(withPendingUnitCount: 1)
+            let promise = loadComments(of: comment)
+            progress.resignCurrent()
+            return promise
         }.map { comments -> Story in
+            progress.completedUnitCount = progress.totalUnitCount
             story.comments = comments
             return story
         }
+        progress.resignCurrent()
         return promise
     }
 
@@ -178,17 +176,23 @@ class HackerNewsAPI {
         guard let commentIds = comment.commentIds else {
             return .value(comment)
         }
-
+        let progress = Progress(totalUnitCount: Int64(2 * commentIds.count))
+        progress.becomeCurrent(withPendingUnitCount: Int64(commentIds.count))
         let promise = firstly {
             items(ids: commentIds)
         }.compactMapValues { item in
             item.comment
-        }.thenMap { comment in
-            loadComments(of: comment)
+        }.thenMap { comment -> Promise<Comment> in
+            progress.becomeCurrent(withPendingUnitCount: 1)
+            let promise = loadComments(of: comment)
+            progress.resignCurrent()
+            return promise
         }.map { comments -> Comment in
+            progress.completedUnitCount = progress.totalUnitCount
             comment.comments = comments
             return comment
         }
+        progress.resignCurrent()
         return promise
     }
 }
