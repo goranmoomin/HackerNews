@@ -91,16 +91,17 @@ class HackerNewsAPI {
         let promise = firstly {
             ids(fromFirebasePath: path)
         }.then { ids -> Promise<[Item]> in
-            progress.resignCurrent()
             progress.becomeCurrent(withPendingUnitCount: 100)
             let ids = Array(ids.prefix(count))
-            return items(ids: ids)
+            let promise = items(ids: ids)
+            progress.resignCurrent()
+            return promise
         }.mapValues { item in
             item.story!
         }.map { stories -> [Storyable] in
-            progress.resignCurrent()
             return stories
         }
+        progress.resignCurrent()
         return promise
     }
 
@@ -110,15 +111,16 @@ class HackerNewsAPI {
         let promise = firstly {
             ids(fromAlgoliaPath: path, with: queryItems)
         }.then { ids -> Promise<[Item]> in
-            progress.resignCurrent()
             progress.becomeCurrent(withPendingUnitCount: 100)
-            return items(ids: ids)
+            let promise = items(ids: ids)
+            progress.resignCurrent()
+            return promise
         }.mapValues { item in
             item.story!
         }.map { stories -> [Storyable] in
-            progress.resignCurrent()
             return stories
         }
+        progress.resignCurrent()
         return promise
     }
 

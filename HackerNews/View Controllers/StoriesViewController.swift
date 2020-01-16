@@ -35,6 +35,9 @@ class StoriesViewController: NSViewController {
     }
 
     var storyLoadProgress: Progress? {
+        willSet {
+            storyLoadProgress?.cancel()
+        }
         didSet {
             progressView.progress = storyLoadProgress
         }
@@ -45,12 +48,15 @@ class StoriesViewController: NSViewController {
     func loadAndDisplayStories(count: Int = 10) {
         storyTableView.isHidden = true
 
-        storyLoadProgress = Progress(totalUnitCount: 100)
-        storyLoadProgress?.becomeCurrent(withPendingUnitCount: 100)
+        let progress = Progress(totalUnitCount: 100)
+        storyLoadProgress = progress
+        progress.becomeCurrent(withPendingUnitCount: 100)
         firstly {
             HackerNewsAPI.topStories(count: count)
         }.done { stories in
-            self.storyLoadProgress?.resignCurrent()
+            guard !progress.isCancelled else {
+                return
+            }
             self.storyLoadProgress = nil
             self.stories = stories
             self.storyTableView.reloadData()
@@ -58,17 +64,21 @@ class StoriesViewController: NSViewController {
         }.catch { error in
             print(error)
         }
+        progress.resignCurrent()
     }
 
     func searchAndDisplayStories(matching query: String) {
         storyTableView.isHidden = true
 
-        storyLoadProgress = Progress(totalUnitCount: 100)
-        storyLoadProgress?.becomeCurrent(withPendingUnitCount: 100)
+        let progress = Progress(totalUnitCount: 100)
+        storyLoadProgress = progress
+        progress.becomeCurrent(withPendingUnitCount: 100)
         firstly {
             HackerNewsAPI.stories(matching: query)
         }.done { stories in
-            self.storyLoadProgress?.resignCurrent()
+            guard !progress.isCancelled else {
+                return
+            }
             self.storyLoadProgress = nil
             self.stories = stories
             self.storyTableView.reloadData()
@@ -76,6 +86,7 @@ class StoriesViewController: NSViewController {
         }.catch { error in
             print(error)
         }
+        progress.resignCurrent()
     }
 
     func initializeInterface() {

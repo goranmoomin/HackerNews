@@ -33,13 +33,16 @@ class CommentsViewController: NSViewController {
         }
         commentOutlineView.isHidden = true
 
-        commentLoadProgress = Progress(totalUnitCount: 100)
-        commentLoadProgress?.becomeCurrent(withPendingUnitCount: 100)
+        let progress = Progress(totalUnitCount: 100)
+        commentLoadProgress = progress
+        progress.becomeCurrent(withPendingUnitCount: 100)
 
         firstly {
             HackerNewsAPI.loadComments(of: currentStory)
         }.done { _ in
-            self.commentLoadProgress?.resignCurrent()
+            guard !progress.isCancelled else {
+                return
+            }
             self.commentLoadProgress = nil
             self.commentOutlineView.reloadData()
             self.commentOutlineView.expandItem(nil, expandChildren: true)
@@ -47,6 +50,7 @@ class CommentsViewController: NSViewController {
         }.catch { error in
             print(error)
         }
+        progress.resignCurrent()
     }
 
     func initializeInterface() {
