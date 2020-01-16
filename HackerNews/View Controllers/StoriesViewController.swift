@@ -46,7 +46,7 @@ class StoriesViewController: NSViewController {
     // MARK: - Methods
 
     func loadAndDisplayStories(count: Int = 10) {
-        storyTableView.isHidden = true
+        storyScrollView.isHidden = true
 
         let progress = Progress(totalUnitCount: 100)
         storyLoadProgress = progress
@@ -60,7 +60,7 @@ class StoriesViewController: NSViewController {
             self.storyLoadProgress = nil
             self.stories = stories
             self.storyTableView.reloadData()
-            self.storyTableView.isHidden = false
+            self.storyScrollView.isHidden = false
         }.catch { error in
             print(error)
         }
