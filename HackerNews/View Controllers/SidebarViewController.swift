@@ -95,11 +95,23 @@ extension SidebarViewController: NSOutlineViewDataSource {
 
 extension SidebarViewController: NSOutlineViewDelegate {
 
+    func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: Any) -> Bool {
+        if item as? String == "Stories" {
+            return false
+        }
+        return true
+    }
+
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         if item as? String == "Stories" {
             return outlineView.makeView(withIdentifier: .sidebarHeaderCell, owner: self)
         }
         return outlineView.makeView(withIdentifier: .sidebarDataCell, owner: self)
+    }
+
+    func outlineViewSelectionIsChanging(_ notification: Notification) {
+        let selectedRow = sidebarOutlineView.selectedRow
+        sidebarOutlineView.rowView(atRow: selectedRow, makeIfNecessary: false)?.isEmphasized = false
     }
 
     func outlineViewSelectionDidChange(_ notification: Notification) {
