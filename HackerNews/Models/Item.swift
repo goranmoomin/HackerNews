@@ -4,7 +4,8 @@ import Foundation
 @objc protocol Itemable: class {
     var id: Int { get }
     var time: Date { get }
-    var author: String { get }
+    var author: User? { get set }
+    var authorName: String { get }
 }
 
 @objc protocol Storyable: Itemable {

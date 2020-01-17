@@ -8,7 +8,7 @@ import Foundation
     enum CodingKeys: String, CodingKey {
         case id
         case time
-        case author = "by"
+        case authorName = "by"
         case text
         case commentIds = "kids"
     }
@@ -17,7 +17,8 @@ import Foundation
 
     var id: Int
     var time: Date
-    var author: String
+    var authorName: String
+    var author: User?
     var text: String
     var commentIds: [Int]?
     var comments: [Comment] = []

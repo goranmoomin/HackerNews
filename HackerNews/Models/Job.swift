@@ -8,7 +8,7 @@ import Foundation
     enum CodingKeys: String, CodingKey {
         case id
         case time
-        case author = "by"
+        case authorName = "by"
         case score
         case title
         case text
@@ -19,7 +19,8 @@ import Foundation
 
     var id: Int
     var time: Date
-    var author: String
+    var authorName: String
+    var author: User?
     var score: Int
     var title: String
     // Some jobs don't have a URL or an empty string

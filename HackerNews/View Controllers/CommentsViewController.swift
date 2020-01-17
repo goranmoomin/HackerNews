@@ -77,7 +77,7 @@ extension CommentsViewController: CommentCellViewDelegate {
     }
 
     func formattedAuthor(for comment: Comment?) -> String {
-        comment?.author ?? ""
+        comment?.authorName ?? ""
     }
 
     func formattedDate(for comment: Comment?) -> String {

@@ -42,6 +42,22 @@ class HackerNewsAPI {
         return when(fulfilled: promises)
     }
 
+    // MARK: - Users
+
+    static func user(named name: String) -> Promise<User> {
+        var firebaseAPI = Self.firebaseAPI
+        firebaseAPI.path += "user/\(name).json"
+        let request = URLRequest(url: firebaseAPI.url!)
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .secondsSince1970
+        let promise = firstly {
+            urlSession.dataTask(.promise, with: request).validate()
+        }.map { (data, _) in
+            try decoder.decode(User.self, from: data)
+        }
+        return promise
+    }
+
     // MARK: - Stories
 
     static func ids(fromFirebasePath path: String) -> Promise<[Int]> {
@@ -187,6 +203,19 @@ class HackerNewsAPI {
             return comment
         }
         progress.resignCurrent()
+        return promise
+    }
+
+    // MARK: - Authors
+
+    static func loadAuthor(of item: Itemable) -> Promise<Itemable> {
+        let authorName = item.authorName
+        let promise = firstly {
+            user(named: authorName)
+        }.map { author -> Itemable in
+            item.author = author
+            return item
+        }
         return promise
     }
 }
