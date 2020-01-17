@@ -124,16 +124,10 @@ class HackerNewsAPI {
         return promise
     }
 
-    static func topStories(count: Int = 500) -> Promise<[Storyable]> {
-        return stories(fromFirebasePath: "topstories.json", count: count)
-    }
+    // MARK: - Categories
 
-    static func newStories(count: Int = 500) -> Promise<[Storyable]> {
-        return stories(fromFirebasePath: "newstories.json", count: count)
-    }
-
-    static func bestStories(count: Int = 500) -> Promise<[Storyable]> {
-        return stories(fromFirebasePath: "beststories.json", count: count)
+    static func stories(from category: Category, count: Int = 500) -> Promise<[Storyable]> {
+        return stories(fromFirebasePath: "\(category.rawValue).json", count: count)
     }
 
     // MARK: - Search

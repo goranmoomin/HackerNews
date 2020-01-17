@@ -25,6 +25,12 @@ class StoriesViewController: NSViewController {
         }
     }
 
+    var currentCategory: Category = .topStories {
+        didSet {
+            loadAndDisplayStories()
+        }
+    }
+
     var selectedStory: Story? {
         get {
             splitViewController.currentStory
@@ -52,7 +58,7 @@ class StoriesViewController: NSViewController {
         storyLoadProgress = progress
         progress.becomeCurrent(withPendingUnitCount: 100)
         firstly {
-            HackerNewsAPI.topStories(count: count)
+            HackerNewsAPI.stories(from: currentCategory, count: count)
         }.done { stories in
             guard !progress.isCancelled else {
                 return

@@ -1,7 +1,7 @@
 
 import Cocoa
 
-class CommentOutlineView: NSOutlineView {
+class DisclosureTrianglelessOutlineView: NSOutlineView {
 
     // MARK: - Overrides
 
