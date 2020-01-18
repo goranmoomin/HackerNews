@@ -115,6 +115,16 @@ extension CommentsViewController: CommentCellViewDelegate {
         }
         return "\(comment.commentCount) replies hidden"
     }
+
+    func displayPopup(for comment: Comment?, relativeTo rect: NSRect, of view: CommentCellView) {
+        let storyboard = NSStoryboard(name: .main, bundle: nil)
+        let viewController = storyboard.instantiateController(withIdentifier: .authorPopupViewController) as! AuthorPopupViewController
+        viewController.userName = comment?.authorName
+        let popover = NSPopover()
+        popover.contentViewController = viewController
+        popover.behavior = .transient
+        popover.show(relativeTo: rect, of: view, preferredEdge: .minY)
+    }
 }
 
 // MARK: - NSOutlineViewDataSource
@@ -158,6 +168,21 @@ extension CommentsViewController: NSOutlineViewDelegate {
         outlineView.makeView(withIdentifier: .commentCellView, owner: self)
     }
 }
+
+// MARK: - NSStoryboard.Name
+
+extension NSStoryboard.Name {
+
+    static let main = NSStoryboard.Name("Main")
+}
+
+// MARK: - NSStoryboard.SceneIdentifier
+
+extension NSStoryboard.SceneIdentifier {
+
+    static let authorPopupViewController = NSStoryboard.SceneIdentifier("AuthorPopupViewController")
+}
+
 
 // MARK: - NSUserInterfaceItemIdentifier
 

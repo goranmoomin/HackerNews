@@ -751,7 +751,7 @@
                                             <tableColumns>
                                                 <tableColumn width="195" minWidth="16" maxWidth="1000" id="Bg9-hK-CSi">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="menu" size="11"/>
+                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -885,7 +885,7 @@
                                             <tableColumns>
                                                 <tableColumn editable="NO" width="297" minWidth="40" maxWidth="1000" id="vXC-wH-rV0">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="menu" size="11"/>
+                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -907,7 +907,7 @@
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oUk-XT-PLy">
                                                                     <rect key="frame" x="33" y="8" width="23" height="14"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="125" id="2z5-Ry-O1A" customClass="EmphasizableTextFieldCell" customModule="HackerNews" customModuleProvider="target">
-                                                                        <font key="font" metaFont="menu" size="11"/>
+                                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
@@ -923,7 +923,7 @@
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fNl-xg-uWr">
                                                                     <rect key="frame" x="72" y="8" width="18" height="14"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="35" id="dEs-q5-q17" customClass="EmphasizableTextFieldCell" customModule="HackerNews" customModuleProvider="target">
-                                                                        <font key="font" metaFont="menu" size="11"/>
+                                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
@@ -941,7 +941,7 @@
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="drv-Qf-yp3">
                                                                     <rect key="frame" x="18" y="8" width="17" height="14"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="􀉿" id="htd-zr-4WY" customClass="EmphasizableTextFieldCell" customModule="HackerNews" customModuleProvider="target">
-                                                                        <font key="font" metaFont="menu" size="11"/>
+                                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
@@ -949,7 +949,7 @@
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gSu-He-aXB">
                                                                     <rect key="frame" x="56" y="8" width="18" height="14"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="􀌲" id="Rki-Jh-NcC" customClass="EmphasizableTextFieldCell" customModule="HackerNews" customModuleProvider="target">
-                                                                        <font key="font" metaFont="menu" size="11"/>
+                                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
@@ -957,7 +957,7 @@
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rn7-q4-6gt">
                                                                     <rect key="frame" x="90" y="8" width="17" height="14"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="􀐫" id="S7s-dT-uyi" customClass="EmphasizableTextFieldCell" customModule="HackerNews" customModuleProvider="target">
-                                                                        <font key="font" metaFont="menu" size="11"/>
+                                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
@@ -965,7 +965,7 @@
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fJ7-CB-xLQ">
                                                                     <rect key="frame" x="105" y="8" width="67" height="14"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="8 hours ago" id="Wot-j7-XZa" customClass="EmphasizableTextFieldCell" customModule="HackerNews" customModuleProvider="target">
-                                                                        <font key="font" metaFont="menu" size="11"/>
+                                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
@@ -1116,6 +1116,102 @@
             </objects>
             <point key="canvasLocation" x="968" y="1038"/>
         </scene>
+        <!--Author Popup View Controller-->
+        <scene sceneID="Sin-xY-xlp">
+            <objects>
+                <viewController storyboardIdentifier="AuthorPopupViewController" id="UFl-81-mrx" customClass="AuthorPopupViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="eaP-71-V86">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WUR-4f-cip">
+                                <rect key="frame" x="6" y="28" width="16" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="􀉩" id="xPA-xI-t1f">
+                                    <font key="font" metaFont="controlContent" size="11"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t6h-Aj-QvQ">
+                                <rect key="frame" x="20" y="28" width="66" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="pcr910303" id="p5p-ZB-Ly6">
+                                    <font key="font" metaFont="systemBold" size="11"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hnk-ph-xvW">
+                                <rect key="frame" x="101" y="28" width="32" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="6862" id="Bck-t4-0zM">
+                                    <font key="font" metaFont="controlContent" size="11"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XGN-g6-glP">
+                                <rect key="frame" x="86" y="28" width="17" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="􀉿" id="A3f-7D-ZRT" customClass="EmphasizableTextFieldCell" customModule="HackerNews" customModuleProvider="target">
+                                    <font key="font" metaFont="controlContent" size="11"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="T5S-FE-J4y">
+                                <rect key="frame" x="133" y="28" width="17" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="􀐫" id="vY1-lI-Zli" customClass="EmphasizableTextFieldCell" customModule="HackerNews" customModuleProvider="target">
+                                    <font key="font" metaFont="controlContent" size="11"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Tyv-ja-6tZ">
+                                <rect key="frame" x="6" y="8" width="238" height="16"/>
+                                <textFieldCell key="cell" selectable="YES" title="pcr910303 &lt;at&gt; icloud &lt;dot&gt; com" id="FEi-UO-isB">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sCA-6H-E2S">
+                                <rect key="frame" x="148" y="28" width="72" height="14"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Mar 31, 2019" id="GM6-4F-hkx">
+                                    <font key="font" metaFont="controlContent" size="11"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="t6h-Aj-QvQ" firstAttribute="leading" secondItem="WUR-4f-cip" secondAttribute="trailing" constant="2" id="0JL-Rk-QOk"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sCA-6H-E2S" secondAttribute="trailing" constant="8" id="7c5-1d-5Qt"/>
+                            <constraint firstItem="WUR-4f-cip" firstAttribute="top" secondItem="eaP-71-V86" secondAttribute="top" constant="8" id="BRC-yE-rb7"/>
+                            <constraint firstAttribute="trailing" secondItem="Tyv-ja-6tZ" secondAttribute="trailing" constant="8" id="ECn-av-nDa"/>
+                            <constraint firstItem="Tyv-ja-6tZ" firstAttribute="top" secondItem="WUR-4f-cip" secondAttribute="bottom" constant="4" id="MIW-jX-sKL"/>
+                            <constraint firstItem="T5S-FE-J4y" firstAttribute="leading" secondItem="Hnk-ph-xvW" secondAttribute="trailing" constant="4" id="NSV-o0-d30"/>
+                            <constraint firstItem="sCA-6H-E2S" firstAttribute="centerY" secondItem="WUR-4f-cip" secondAttribute="centerY" id="VSx-hk-tgW"/>
+                            <constraint firstItem="XGN-g6-glP" firstAttribute="leading" secondItem="t6h-Aj-QvQ" secondAttribute="trailing" constant="4" id="aZH-KT-f5b"/>
+                            <constraint firstItem="sCA-6H-E2S" firstAttribute="leading" secondItem="T5S-FE-J4y" secondAttribute="trailing" constant="2" id="bIB-Qn-kzl"/>
+                            <constraint firstItem="XGN-g6-glP" firstAttribute="centerY" secondItem="WUR-4f-cip" secondAttribute="centerY" id="ccc-4W-31E"/>
+                            <constraint firstItem="T5S-FE-J4y" firstAttribute="centerY" secondItem="WUR-4f-cip" secondAttribute="centerY" id="dg8-lc-dtq"/>
+                            <constraint firstAttribute="bottom" secondItem="Tyv-ja-6tZ" secondAttribute="bottom" constant="8" id="eNy-nb-3vs"/>
+                            <constraint firstItem="Hnk-ph-xvW" firstAttribute="centerY" secondItem="WUR-4f-cip" secondAttribute="centerY" id="fTC-3Z-Z19"/>
+                            <constraint firstItem="Tyv-ja-6tZ" firstAttribute="leading" secondItem="eaP-71-V86" secondAttribute="leading" constant="8" id="fuy-Sh-ssC"/>
+                            <constraint firstItem="t6h-Aj-QvQ" firstAttribute="centerY" secondItem="WUR-4f-cip" secondAttribute="centerY" id="pKT-nP-aIE"/>
+                            <constraint firstItem="WUR-4f-cip" firstAttribute="leading" secondItem="eaP-71-V86" secondAttribute="leading" constant="8" id="wBM-m2-xTt"/>
+                            <constraint firstItem="Hnk-ph-xvW" firstAttribute="leading" secondItem="XGN-g6-glP" secondAttribute="trailing" constant="2" id="xgQ-dj-UMS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="createdDateLabel" destination="sCA-6H-E2S" id="rbT-WK-Nzc"/>
+                        <outlet property="karmaLabel" destination="Hnk-ph-xvW" id="fhG-CC-wrv"/>
+                        <outlet property="selfDescriptionLabel" destination="Tyv-ja-6tZ" id="XcY-Z4-Tzy"/>
+                        <outlet property="userNameLabel" destination="t6h-Aj-QvQ" id="JcE-VW-hLt"/>
+                    </connections>
+                </viewController>
+                <customObject id="YXg-vq-2cQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1334" y="507"/>
+        </scene>
         <!--Delegate-->
         <scene sceneID="pSY-GB-F4q">
             <objects>
@@ -1139,7 +1235,7 @@
                                             <tableColumns>
                                                 <tableColumn editable="NO" width="597" minWidth="40" maxWidth="1000" id="Cg0-Az-X4S">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="menu" size="11"/>
+                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1165,19 +1261,11 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
-                                                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AMG-mm-xgk">
-                                                                    <rect key="frame" x="20" y="112" width="61" height="14"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="kstenerud" id="8r2-NP-38n">
-                                                                        <font key="font" metaFont="systemBold" size="11"/>
-                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                    </textFieldCell>
-                                                                </textField>
                                                                 <button horizontalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="CE7-Lh-Izx">
                                                                     <rect key="frame" x="573" y="112" width="16" height="14"/>
                                                                     <buttonCell key="cell" type="square" title="􀆇" alternateTitle="􀆈" bezelStyle="shadowlessSquare" alignment="center" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="ITG-dI-MXX">
                                                                         <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
-                                                                        <font key="font" metaFont="menu" size="11"/>
+                                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                                     </buttonCell>
                                                                     <connections>
                                                                         <action selector="toggleButton:" target="w7x-0j-qmy" id="ijP-aG-6vY"/>
@@ -1186,13 +1274,13 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Et2-4D-ecR">
                                                                     <rect key="frame" x="6" y="112" width="16" height="14"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="􀉩" id="oL0-qg-nc9">
-                                                                        <font key="font" metaFont="menu" size="11"/>
+                                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lgz-pZ-abx">
-                                                                    <rect key="frame" x="81" y="114" width="57" height="11"/>
+                                                                    <rect key="frame" x="85" y="114" width="57" height="11"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="2 hours ago" id="QSP-3T-QSZ">
                                                                         <font key="font" metaFont="menu" size="9"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -1207,27 +1295,36 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
+                                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="h1r-3O-eGj">
+                                                                    <rect key="frame" x="22" y="112" width="61" height="14"/>
+                                                                    <buttonCell key="cell" type="bevel" title="kstenerud" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="z2u-iy-OXE">
+                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                        <font key="font" metaFont="systemBold" size="11"/>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="displayPopover:" target="w7x-0j-qmy" id="I13-Yw-i43"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstItem="lgz-pZ-abx" firstAttribute="centerY" secondItem="Et2-4D-ecR" secondAttribute="centerY" id="0WY-T2-pBW"/>
                                                                 <constraint firstItem="2sw-tA-zTi" firstAttribute="leading" secondItem="w7x-0j-qmy" secondAttribute="leading" constant="8" id="0Xk-TK-yG5"/>
                                                                 <constraint firstAttribute="trailing" secondItem="2sw-tA-zTi" secondAttribute="trailing" constant="8" id="6dh-YX-jL9"/>
                                                                 <constraint firstItem="Et2-4D-ecR" firstAttribute="top" secondItem="w7x-0j-qmy" secondAttribute="top" constant="8" id="7gI-v7-BAm"/>
+                                                                <constraint firstItem="lgz-pZ-abx" firstAttribute="leading" secondItem="h1r-3O-eGj" secondAttribute="trailing" constant="4" id="E32-OR-c6f"/>
                                                                 <constraint firstItem="CE7-Lh-Izx" firstAttribute="top" secondItem="w7x-0j-qmy" secondAttribute="top" constant="8" id="Exc-gh-YCL"/>
-                                                                <constraint firstItem="AMG-mm-xgk" firstAttribute="centerY" secondItem="Et2-4D-ecR" secondAttribute="centerY" id="Lfd-Wl-GNi"/>
                                                                 <constraint firstItem="Et2-4D-ecR" firstAttribute="leading" secondItem="w7x-0j-qmy" secondAttribute="leading" constant="8" id="OcM-CR-zLD"/>
-                                                                <constraint firstItem="lgz-pZ-abx" firstAttribute="centerY" secondItem="AMG-mm-xgk" secondAttribute="centerY" id="WNP-Js-T3S"/>
+                                                                <constraint firstItem="h1r-3O-eGj" firstAttribute="leading" secondItem="Et2-4D-ecR" secondAttribute="trailing" constant="2" id="SD0-mM-ms3"/>
+                                                                <constraint firstItem="h1r-3O-eGj" firstAttribute="centerY" secondItem="Et2-4D-ecR" secondAttribute="centerY" id="SZi-PG-XbV"/>
                                                                 <constraint firstItem="Xii-hs-dhb" firstAttribute="centerY" secondItem="CE7-Lh-Izx" secondAttribute="centerY" id="bCd-IH-wMT"/>
                                                                 <constraint firstItem="CE7-Lh-Izx" firstAttribute="leading" secondItem="Xii-hs-dhb" secondAttribute="trailing" constant="4" id="cUG-gp-bWL"/>
                                                                 <constraint firstAttribute="trailing" secondItem="CE7-Lh-Izx" secondAttribute="trailing" constant="8" id="g9U-1e-iBd"/>
                                                                 <constraint firstItem="2sw-tA-zTi" firstAttribute="top" secondItem="Et2-4D-ecR" secondAttribute="bottom" constant="8" symbolic="YES" id="kgI-qj-LYC"/>
-                                                                <constraint firstItem="lgz-pZ-abx" firstAttribute="leading" secondItem="AMG-mm-xgk" secondAttribute="trailing" constant="4" id="mrI-8n-xBA"/>
                                                                 <constraint firstItem="Xii-hs-dhb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lgz-pZ-abx" secondAttribute="trailing" constant="8" symbolic="YES" id="sab-OH-Olf"/>
-                                                                <constraint firstItem="CE7-Lh-Izx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AMG-mm-xgk" secondAttribute="trailing" constant="8" symbolic="YES" id="vKI-gh-w3T"/>
-                                                                <constraint firstItem="AMG-mm-xgk" firstAttribute="leading" secondItem="Et2-4D-ecR" secondAttribute="trailing" constant="2" id="x56-Tz-b5h"/>
                                                                 <constraint firstAttribute="bottom" secondItem="2sw-tA-zTi" secondAttribute="bottom" constant="8" id="xb6-Y4-AMU"/>
                                                             </constraints>
                                                             <connections>
-                                                                <outlet property="authorLabel" destination="AMG-mm-xgk" id="Dmz-5l-jKh"/>
+                                                                <outlet property="authorButton" destination="h1r-3O-eGj" id="cHz-gA-RhS"/>
                                                                 <outlet property="dateLabel" destination="lgz-pZ-abx" id="xPT-YR-KAK"/>
                                                                 <outlet property="delegate" destination="zhL-e9-R3f" id="9vt-Ne-Qag"/>
                                                                 <outlet property="textLabel" destination="2sw-tA-zTi" id="nF9-Ao-As2"/>

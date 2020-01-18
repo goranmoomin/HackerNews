@@ -11,13 +11,14 @@ import Cocoa
     func formattedToggleCount(for comment: Comment?) -> String
 
     func toggle(_ comment: Comment?)
+    func displayPopup(for comment: Comment?, relativeTo rect: NSRect, of view: CommentCellView)
 }
 
 class CommentCellView: NSTableCellView {
 
     // MARK: - IBOutlets
 
-    @IBOutlet var authorLabel: NSTextField!
+    @IBOutlet var authorButton: NSButton!
     @IBOutlet var dateLabel: NSTextField!
     @IBOutlet var textLabel: NSTextField!
     @IBOutlet var toggleButton: NSButton!
@@ -42,6 +43,13 @@ class CommentCellView: NSTableCellView {
 
     // MARK: - IBActions
 
+    @IBAction func displayPopover(_ sender: NSButton) {
+        guard let delegate = delegate else {
+            return
+        }
+        delegate.displayPopup(for: comment, relativeTo: sender.frame, of: self)
+    }
+
     @IBAction func toggleButton(_ sender: NSButton) {
         delegate?.toggle(comment)
         updateInterface()
@@ -54,7 +62,7 @@ class CommentCellView: NSTableCellView {
             return
         }
         textLabel.stringValue = delegate.formattedText(for: comment)
-        authorLabel.stringValue = delegate.formattedAuthor(for: comment)
+        authorButton.title = delegate.formattedAuthor(for: comment)
         dateLabel.stringValue = delegate.formattedDate(for: comment)
         toggleButton.isHidden = delegate.isToggleHidden(for: comment)
         toggleButton.state = delegate.isToggleExpanded(for: comment) ? .off : .on
