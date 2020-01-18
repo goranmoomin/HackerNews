@@ -3,6 +3,7 @@ import Cocoa
 
 @objc protocol StoryCellViewDelegate {
 
+    func formattedAuthor(for story: Storyable?) -> String
     func formattedTitle(for story: Storyable?) -> String
     func formattedScore(for story: Storyable?) -> String
     func formattedCommentCount(for story: Storyable?) -> String
@@ -11,12 +12,14 @@ import Cocoa
     func formattedDate(for story: Storyable?) -> String
 
     func openURL(for story: Storyable?)
+    func displayPopup(for story: Storyable?, relativeTo rect: NSRect, of view: StoryCellView)
 }
 
 class StoryCellView: NSTableCellView {
 
     // MARK: - IBOutlets
 
+    @IBOutlet var authorButton: NSButton!
     @IBOutlet var titleLabel: NSTextField!
     @IBOutlet var scoreLabel: NSTextField!
     @IBOutlet var commentCountLabel: NSTextField!
@@ -46,12 +49,17 @@ class StoryCellView: NSTableCellView {
         delegate?.openURL(for: story)
     }
 
+    @IBAction func displayPopup(_ sender: NSButton) {
+        delegate?.displayPopup(for: story, relativeTo: sender.frame, of: self)
+    }
+
     // MARK: - Methods
 
     func updateInterface() {
         guard let delegate = delegate else {
             return
         }
+        authorButton.title = delegate.formattedAuthor(for: story)
         titleLabel.stringValue = delegate.formattedTitle(for: story)
         scoreLabel.stringValue = delegate.formattedScore(for: story)
         commentCountLabel.stringValue = delegate.formattedCommentCount(for: story)

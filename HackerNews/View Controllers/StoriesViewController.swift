@@ -141,6 +141,13 @@ class StoriesViewController: NSViewController {
 
 extension StoriesViewController: StoryCellViewDelegate {
 
+    func formattedAuthor(for story: Storyable?) -> String {
+        guard let story = story else {
+            return ""
+        }
+        return story.authorName
+    }
+
     func formattedTitle(for story: Storyable?) -> String {
         guard let story = story else {
             return ""
@@ -191,6 +198,16 @@ extension StoriesViewController: StoryCellViewDelegate {
             return
         }
         NSWorkspace.shared.open(url)
+    }
+
+    func displayPopup(for story: Storyable?, relativeTo rect: NSRect, of view: StoryCellView) {
+        let storyboard = NSStoryboard(name: .main, bundle: nil)
+        let viewController = storyboard.instantiateController(withIdentifier: .authorPopupViewController) as! AuthorPopupViewController
+        viewController.userName = story?.authorName
+        let popover = NSPopover()
+        popover.contentViewController = viewController
+        popover.behavior = .transient
+        popover.show(relativeTo: rect, of: view, preferredEdge: .minY)
     }
 }
 
