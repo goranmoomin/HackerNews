@@ -59,11 +59,11 @@ class AuthorPopupViewController: NSViewController {
             view.isHidden = true
             return
         }
-        view.isHidden = false
         userNameLabel.stringValue = user.name
         karmaLabel.stringValue = String(user.karma)
         createdDateLabel.stringValue = formattedCreatedDate()
         selfDescriptionLabel.stringValue = formattedSelfDescription()
+        view.isHidden = false
     }
 
     // MARK: - Lifecycle Methods
