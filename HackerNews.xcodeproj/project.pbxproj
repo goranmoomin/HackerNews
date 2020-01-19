@@ -20,8 +20,9 @@
 		5B1CE44923BFA1BF00064B6A /* StoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CE44823BFA1BF00064B6A /* StoryCellView.swift */; };
 		5B331C1623CA3CBB0002938B /* StoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B331C1523CA3CBB0002938B /* StoryRowView.swift */; };
 		5B331C1B23CA4AE10002938B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B331C1A23CA4AE10002938B /* Colors.swift */; };
-		5B331C1D23CAB29D0002938B /* EmphasizableTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B331C1C23CAB29D0002938B /* EmphasizableTextFieldCell.swift */; };
 		5B44DE6E23D30A3A001CA13F /* AuthorPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DE6D23D30A3A001CA13F /* AuthorPopupViewController.swift */; };
+		5B44DE7023D498C4001CA13F /* EmphasizableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DE6F23D498C4001CA13F /* EmphasizableTextField.swift */; };
+		5B44DE7223D49A48001CA13F /* EmphasizableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DE7123D49A48001CA13F /* EmphasizableButton.swift */; };
 		5B51713223C0B1B50068E7CE /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B51713023C0B1B50068E7CE /* CommentsViewController.swift */; };
 		5B67493623C6B3C90062BDFF /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B67493523C6B3C90062BDFF /* ProgressView.swift */; };
 		5B76906023CBE88B00FD2516 /* StorySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76905F23CBE88B00FD2516 /* StorySearchView.swift */; };
@@ -57,8 +58,9 @@
 		5B1CE44823BFA1BF00064B6A /* StoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCellView.swift; sourceTree = "<group>"; };
 		5B331C1523CA3CBB0002938B /* StoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRowView.swift; sourceTree = "<group>"; };
 		5B331C1A23CA4AE10002938B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		5B331C1C23CAB29D0002938B /* EmphasizableTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmphasizableTextFieldCell.swift; sourceTree = "<group>"; };
 		5B44DE6D23D30A3A001CA13F /* AuthorPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorPopupViewController.swift; sourceTree = "<group>"; };
+		5B44DE6F23D498C4001CA13F /* EmphasizableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmphasizableTextField.swift; sourceTree = "<group>"; };
+		5B44DE7123D49A48001CA13F /* EmphasizableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmphasizableButton.swift; sourceTree = "<group>"; };
 		5B51713023C0B1B50068E7CE /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		5B67493523C6B3C90062BDFF /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		5B76905F23CBE88B00FD2516 /* StorySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySearchView.swift; sourceTree = "<group>"; };
@@ -139,7 +141,8 @@
 		5B51712C23C0A0340068E7CE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5B331C1C23CAB29D0002938B /* EmphasizableTextFieldCell.swift */,
+				5B44DE6F23D498C4001CA13F /* EmphasizableTextField.swift */,
+				5B44DE7123D49A48001CA13F /* EmphasizableButton.swift */,
 				5B76905F23CBE88B00FD2516 /* StorySearchView.swift */,
 				5B1CE44823BFA1BF00064B6A /* StoryCellView.swift */,
 				5B331C1523CA3CBB0002938B /* StoryRowView.swift */,
@@ -276,16 +279,17 @@
 				5BE425B423CF629000BEA641 /* LoadableView.swift in Sources */,
 				5BBDA6CB23D08D2A00300FB5 /* SidebarViewController.swift in Sources */,
 				5BBDA6DA23D0CECE00300FB5 /* SidebarHeaderCellView.swift in Sources */,
-				5B331C1D23CAB29D0002938B /* EmphasizableTextFieldCell.swift in Sources */,
 				5B44DE6E23D30A3A001CA13F /* AuthorPopupViewController.swift in Sources */,
 				5B1CE43F23BF9EA200064B6A /* Comment.swift in Sources */,
 				5B1CE44523BF9EA200064B6A /* Job.swift in Sources */,
 				5B1CE42723BF9E6300064B6A /* AppDelegate.swift in Sources */,
+				5B44DE7223D49A48001CA13F /* EmphasizableButton.swift in Sources */,
 				5B1CE44223BF9EA200064B6A /* Item.swift in Sources */,
 				5BBDA6E223D1C17B00300FB5 /* User.swift in Sources */,
 				5B1CE44023BF9EA200064B6A /* HackerNewsAPI.swift in Sources */,
 				5B331C1623CA3CBB0002938B /* StoryRowView.swift in Sources */,
 				5BBDA6DC23D14D2900300FB5 /* SidebarCellView.swift in Sources */,
+				5B44DE7023D498C4001CA13F /* EmphasizableTextField.swift in Sources */,
 				5BBDA6E023D1B7ED00300FB5 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

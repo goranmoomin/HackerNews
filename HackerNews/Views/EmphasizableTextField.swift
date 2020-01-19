@@ -1,16 +1,14 @@
 
 import Cocoa
 
-class EmphasizableTextFieldCell: NSTextFieldCell {
+class EmphasizableTextField: NSTextField {
 
     // MARK: - Properties
 
-    var emphasizedTextColor: NSColor? = .emphasizedTextColor
+    var emphasizedTextColor: NSColor = .emphasizedTextColor
     lazy var normalTextColor: NSColor? = textColor
 
-    // MARK: - Overrides
-
-    override var backgroundStyle: NSView.BackgroundStyle {
+    @objc var backgroundStyle: NSView.BackgroundStyle = .normal {
         didSet {
             toggleTextColor()
         }
