@@ -32,7 +32,8 @@ class CommentsViewController: NSViewController {
         guard let currentStory = currentStory else {
             return
         }
-        commentScrollView.isHidden = true
+        commentOutlineView.reloadData()
+        commentOutlineView.isHidden = true
 
         let progress = Progress(totalUnitCount: 100)
         commentLoadProgress = progress
@@ -47,7 +48,7 @@ class CommentsViewController: NSViewController {
             self.commentLoadProgress = nil
             self.commentOutlineView.reloadData()
             self.commentOutlineView.expandItem(nil, expandChildren: true)
-            self.commentScrollView.isHidden = false
+            self.commentOutlineView.isHidden = false
         }.catch { error in
             print(error)
         }

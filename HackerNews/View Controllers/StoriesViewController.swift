@@ -52,7 +52,8 @@ class StoriesViewController: NSViewController {
     // MARK: - Methods
 
     func loadAndDisplayStories(count: Int = 10) {
-        storyScrollView.isHidden = true
+        stories = []
+        self.storyTableView.isHidden = true
 
         let progress = Progress(totalUnitCount: 100)
         storyLoadProgress = progress
@@ -65,8 +66,7 @@ class StoriesViewController: NSViewController {
             }
             self.storyLoadProgress = nil
             self.stories = stories
-            self.storyTableView.reloadData()
-            self.storyScrollView.isHidden = false
+            self.storyTableView.isHidden = false
         }.catch { error in
             print(error)
         }
@@ -74,7 +74,8 @@ class StoriesViewController: NSViewController {
     }
 
     func searchAndDisplayStories(matching query: String) {
-        storyTableView.isHidden = true
+        stories = []
+        self.storyTableView.isHidden = true
 
         let progress = Progress(totalUnitCount: 100)
         storyLoadProgress = progress
@@ -87,7 +88,6 @@ class StoriesViewController: NSViewController {
             }
             self.storyLoadProgress = nil
             self.stories = stories
-            self.storyTableView.reloadData()
             self.storyTableView.isHidden = false
         }.catch { error in
             print(error)
