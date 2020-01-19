@@ -1393,7 +1393,6 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                     </view>
                     <connections>
                         <outlet property="commentOutlineView" destination="OeF-ja-08f" id="2wX-r0-pX9"/>
-                        <outlet property="commentScrollView" destination="dO2-Zo-Y6o" id="2x0-Dc-W4d"/>
                         <outlet property="progressView" destination="j3S-oX-ycC" id="3xg-tT-5L3"/>
                     </connections>
                 </viewController>

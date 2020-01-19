@@ -6,7 +6,6 @@ class CommentsViewController: NSViewController {
 
     // MARK: - IBOutlets
 
-    @IBOutlet var commentScrollView: NSScrollView!
     @IBOutlet var commentOutlineView: NSOutlineView!
     @IBOutlet var progressView: ProgressView!
 
