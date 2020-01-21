@@ -8,7 +8,8 @@ class HackerNewsAPI {
     // MARK: - Static Variables
 
     static let urlSession = URLSession.shared
-    static let algoliaAPI: URLComponents = URLComponents(string: "http://hn.algolia.com/api/v1/")!
+    static let interactionManager = HackerNewsInteractionManager()
+    static let algoliaAPI: URLComponents = URLComponents(string: "https://hn.algolia.com/api/v1/")!
     static let firebaseAPI = URLComponents(string: "https://hacker-news.firebaseio.com/v0/")!
 
     // MARK: - Items

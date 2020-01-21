@@ -23,6 +23,8 @@
 		5B44DE6E23D30A3A001CA13F /* AuthorPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DE6D23D30A3A001CA13F /* AuthorPopupViewController.swift */; };
 		5B44DE7023D498C4001CA13F /* EmphasizableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DE6F23D498C4001CA13F /* EmphasizableTextField.swift */; };
 		5B44DE7223D49A48001CA13F /* EmphasizableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DE7123D49A48001CA13F /* EmphasizableButton.swift */; };
+		5B44DE7C23D614B5001CA13F /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 5B44DE7B23D614B5001CA13F /* SwiftSoup */; };
+		5B44DE7E23D614D4001CA13F /* HackerNewsInteractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DE7D23D614D4001CA13F /* HackerNewsInteractionManager.swift */; };
 		5B51713223C0B1B50068E7CE /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B51713023C0B1B50068E7CE /* CommentsViewController.swift */; };
 		5B67493623C6B3C90062BDFF /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B67493523C6B3C90062BDFF /* ProgressView.swift */; };
 		5B76906023CBE88B00FD2516 /* StorySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76905F23CBE88B00FD2516 /* StorySearchView.swift */; };
@@ -61,6 +63,7 @@
 		5B44DE6D23D30A3A001CA13F /* AuthorPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorPopupViewController.swift; sourceTree = "<group>"; };
 		5B44DE6F23D498C4001CA13F /* EmphasizableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmphasizableTextField.swift; sourceTree = "<group>"; };
 		5B44DE7123D49A48001CA13F /* EmphasizableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmphasizableButton.swift; sourceTree = "<group>"; };
+		5B44DE7D23D614D4001CA13F /* HackerNewsInteractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsInteractionManager.swift; sourceTree = "<group>"; };
 		5B51713023C0B1B50068E7CE /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		5B67493523C6B3C90062BDFF /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		5B76905F23CBE88B00FD2516 /* StorySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySearchView.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 			files = (
 				5BE425B023CF20F300BEA641 /* PMKFoundation in Frameworks */,
 				5BE425AD23CF20A100BEA641 /* PromiseKit in Frameworks */,
+				5B44DE7C23D614B5001CA13F /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				5B1CE43723BF9EA100064B6A /* HackerNewsAPI.swift */,
+				5B44DE7D23D614D4001CA13F /* HackerNewsInteractionManager.swift */,
 				5BBDA6DF23D1B7ED00300FB5 /* Category.swift */,
 				5BBDA6E123D1C17B00300FB5 /* User.swift */,
 				5B1CE43923BF9EA100064B6A /* Item.swift */,
@@ -204,6 +209,7 @@
 			packageProductDependencies = (
 				5BE425AC23CF20A100BEA641 /* PromiseKit */,
 				5BE425AF23CF20F300BEA641 /* PMKFoundation */,
+				5B44DE7B23D614B5001CA13F /* SwiftSoup */,
 			);
 			productName = HackerNews;
 			productReference = 5B1CE42323BF9E6300064B6A /* HackerNews.app */;
@@ -236,6 +242,7 @@
 			packageReferences = (
 				5BE425AB23CF20A100BEA641 /* XCRemoteSwiftPackageReference "PromiseKit" */,
 				5BE425AE23CF20F300BEA641 /* XCRemoteSwiftPackageReference "Foundation" */,
+				5B44DE7A23D614B5001CA13F /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = 5B1CE42423BF9E6300064B6A /* Products */;
 			projectDirPath = "";
@@ -275,6 +282,7 @@
 				5B1CE44123BF9EA200064B6A /* Poll.swift in Sources */,
 				5B1CE44723BF9EA200064B6A /* PollOption.swift in Sources */,
 				5B51713223C0B1B50068E7CE /* CommentsViewController.swift in Sources */,
+				5B44DE7E23D614D4001CA13F /* HackerNewsInteractionManager.swift in Sources */,
 				5BA8CBFF23C2CD3400E2500B /* DisclosureTrianglelessOutlineView.swift in Sources */,
 				5BE425B423CF629000BEA641 /* LoadableView.swift in Sources */,
 				5BBDA6CB23D08D2A00300FB5 /* SidebarViewController.swift in Sources */,
@@ -481,6 +489,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5B44DE7A23D614B5001CA13F /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.0;
+			};
+		};
 		5BE425AB23CF20A100BEA641 /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mxcl/PromiseKit.git";
@@ -500,6 +516,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5B44DE7B23D614B5001CA13F /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B44DE7A23D614B5001CA13F /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
 		5BE425AC23CF20A100BEA641 /* PromiseKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5BE425AB23CF20A100BEA641 /* XCRemoteSwiftPackageReference "PromiseKit" */;
