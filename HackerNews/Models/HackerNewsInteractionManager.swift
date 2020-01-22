@@ -93,4 +93,22 @@ class HackerNewsInteractionManager {
         }.asVoid()
         return promise
     }
+
+    // MARK: - Up/Downvotes
+
+    func upvote(item: Itemable) -> Promise<Void> {
+        guard isAuthorized else {
+            return Promise(error: HNError.authenticationError)
+        }
+        var hackerNews = self.hackerNews
+        hackerNews.path = "/vote"
+        hackerNews.queryItems = [
+            URLQueryItem(name: "id", value: String(item.id)),
+            URLQueryItem(name: "how", value: "up"),
+            URLQueryItem(name: "auth", value: authKeys[item.id])
+        ]
+        let request = URLRequest(url: hackerNews.url!)
+        let promise = urlSession.dataTask(.promise, with: request).validate().asVoid()
+        return promise
+    }
 }

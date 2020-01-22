@@ -39,7 +39,7 @@ class CommentsViewController: NSViewController {
         progress.becomeCurrent(withPendingUnitCount: 100)
 
         firstly {
-            HackerNewsAPI.loadComments(of: currentStory)
+            when(fulfilled: HackerNewsAPI.loadComments(of: currentStory), HackerNewsAPI.interactionManager.loadAuthKeys(for: currentStory))
         }.done { _ in
             guard !progress.isCancelled else {
                 return
@@ -88,6 +88,17 @@ extension CommentsViewController: CommentCellViewDelegate {
         dateFormatter.formattingContext = .standalone
         dateFormatter.dateTimeStyle = .named
         return dateFormatter.localizedString(for: comment.time, relativeTo: Date())
+    }
+
+    func upvote(_ comment: Comment?) {
+        guard let comment = comment else {
+            return
+        }
+        firstly {
+            HackerNewsAPI.interactionManager.upvote(item: comment)
+        }.catch { error in
+            print(error)
+        }
     }
 
     func toggle(_ comment: Comment?) {
