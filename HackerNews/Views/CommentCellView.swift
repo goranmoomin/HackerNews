@@ -11,6 +11,7 @@ import Cocoa
     func formattedToggleCount(for comment: Comment?) -> String
 
     func toggle(_ comment: Comment?)
+    func upvote(_ comment: Comment?)
     func displayPopup(for comment: Comment?, relativeTo rect: NSRect, of view: CommentCellView)
 }
 
@@ -21,6 +22,7 @@ class CommentCellView: NSTableCellView {
     @IBOutlet var authorButton: NSButton!
     @IBOutlet var dateLabel: NSTextField!
     @IBOutlet var textLabel: NSTextField!
+    @IBOutlet var upvoteButton: NSButton!
     @IBOutlet var toggleButton: NSButton!
     @IBOutlet var toggleCountLabel: NSTextField!
 
@@ -48,6 +50,10 @@ class CommentCellView: NSTableCellView {
             return
         }
         delegate.displayPopup(for: comment, relativeTo: sender.frame, of: self)
+    }
+
+    @IBAction func upvoteButton(_ sender: NSButton) {
+        delegate?.upvote(comment)
     }
 
     @IBAction func toggleButton(_ sender: NSButton) {
