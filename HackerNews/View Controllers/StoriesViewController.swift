@@ -96,6 +96,7 @@ class StoriesViewController: NSViewController {
     }
 
     func initializeInterface() {
+        storySearchView.delegate = self
         progressView.labelText = "Loading Stories..."
         storyScrollView.automaticallyAdjustsContentInsets = false
     }
@@ -243,7 +244,9 @@ extension StoriesViewController: NSTableViewDelegate {
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         // objectValue is automatically populated
-        tableView.makeView(withIdentifier: .storyCellView, owner: self)
+        let storyCellView = tableView.makeView(withIdentifier: .storyCellView, owner: self) as! StoryCellView
+        storyCellView.delegate = self
+        return storyCellView
     }
 
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {

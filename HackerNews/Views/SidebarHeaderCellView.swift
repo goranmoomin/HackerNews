@@ -1,7 +1,7 @@
 
 import Cocoa
 
-@objc protocol SidebarHeaderCellViewDelegate {
+protocol SidebarHeaderCellViewDelegate {
 
     func toggle(header: String)
 }
@@ -15,7 +15,7 @@ class SidebarHeaderCellView: NSTableCellView {
 
     // MARK: - Delegate
 
-    @IBOutlet var delegate: SidebarHeaderCellViewDelegate?
+    var delegate: SidebarHeaderCellViewDelegate?
 
     // MARK: - Properties
 

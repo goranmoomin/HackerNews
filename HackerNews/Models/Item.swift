@@ -1,14 +1,14 @@
 
 import Foundation
 
-@objc protocol Itemable: class {
+protocol Itemable: class {
     var id: Int { get }
     var time: Date { get }
     var author: User? { get set }
     var authorName: String { get }
 }
 
-@objc protocol Storyable: Itemable {
+protocol Storyable: Itemable {
     var score: Int { get }
     var title: String { get }
 }

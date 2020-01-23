@@ -1,7 +1,7 @@
 
 import Foundation
 
-@objc class Comment: NSObject, Decodable, Itemable {
+class Comment: Decodable, Itemable {
 
     // MARK: - Decodable
 

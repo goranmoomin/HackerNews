@@ -104,7 +104,9 @@ extension SidebarViewController: NSOutlineViewDelegate {
 
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         if item as? String == "Stories" {
-            return outlineView.makeView(withIdentifier: .sidebarHeaderCell, owner: self)
+            let sidebarHeaderCell = outlineView.makeView(withIdentifier: .sidebarHeaderCell, owner: self) as! SidebarHeaderCellView
+            sidebarHeaderCell.delegate = self
+            return sidebarHeaderCell
         }
         return outlineView.makeView(withIdentifier: .sidebarDataCell, owner: self)
     }

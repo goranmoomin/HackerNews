@@ -1,7 +1,7 @@
 
 import Foundation
 
-@objc class User: NSObject, Decodable {
+struct User: Decodable {
 
     // MARK: - Decodable
 
