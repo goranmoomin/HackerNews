@@ -6,7 +6,7 @@ class EmphasizableTextField: NSTextField {
     // MARK: - Properties
 
     var emphasizedTextColor: NSColor = .emphasizedTextColor
-    lazy var normalTextColor: NSColor? = textColor
+    lazy var normalTextColor: NSColor = textColor ?? .labelColor
 
     @objc var backgroundStyle: NSView.BackgroundStyle = .normal {
         didSet {

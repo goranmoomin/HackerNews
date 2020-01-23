@@ -6,7 +6,7 @@ class EmphasizableButton: NSButton {
     // MARK: - Properties
 
     var emphasizedTextColor: NSColor = .emphasizedTextColor
-    var normalTextColor: NSColor = .controlColor
+    var normalTextColor: NSColor = .controlTextColor
 
     @objc var backgroundStyle: NSView.BackgroundStyle = .normal {
         didSet {
