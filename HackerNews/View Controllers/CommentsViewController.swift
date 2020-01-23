@@ -176,7 +176,9 @@ extension CommentsViewController: NSOutlineViewDataSource {
 extension CommentsViewController: NSOutlineViewDelegate {
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         // objectValue is automatically populated
-        outlineView.makeView(withIdentifier: .commentCellView, owner: self)
+        let commentCellView = outlineView.makeView(withIdentifier: .commentCellView, owner: self) as! CommentCellView
+        commentCellView.delegate = self
+        return commentCellView
     }
 }
 

@@ -1,7 +1,7 @@
 
 import Cocoa
 
-@objc protocol StorySearchViewDelegate {
+protocol StorySearchViewDelegate {
 
     func searchStories(matching query: String)
     func reloadStories(count: Int)
@@ -16,7 +16,7 @@ class StorySearchView: NSView {
 
     // MARK: - Delegate
 
-    @IBOutlet var delegate: StorySearchViewDelegate?
+    var delegate: StorySearchViewDelegate?
 
     // MARK: - IBAction
 

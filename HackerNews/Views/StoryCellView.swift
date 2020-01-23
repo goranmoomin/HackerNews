@@ -1,7 +1,7 @@
 
 import Cocoa
 
-@objc protocol StoryCellViewDelegate {
+protocol StoryCellViewDelegate {
 
     func formattedAuthor(for story: Storyable?) -> String
     func formattedTitle(for story: Storyable?) -> String
@@ -28,7 +28,7 @@ class StoryCellView: NSTableCellView {
 
     // MARK: - Delegate
 
-    @IBOutlet var delegate: StoryCellViewDelegate?
+    var delegate: StoryCellViewDelegate?
 
     // MARK: - Properties
 

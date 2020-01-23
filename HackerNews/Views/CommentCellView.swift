@@ -1,7 +1,7 @@
 
 import Cocoa
 
-@objc protocol CommentCellViewDelegate {
+protocol CommentCellViewDelegate {
 
     func formattedAuthor(for comment: Comment?) -> String
     func formattedDate(for comment: Comment?) -> String
@@ -28,7 +28,7 @@ class CommentCellView: NSTableCellView {
 
     // MARK: - Delegate
 
-    @IBOutlet var delegate: CommentCellViewDelegate?
+    var delegate: CommentCellViewDelegate?
 
     // MARK: - Properties
 

@@ -1,7 +1,7 @@
 
 import Foundation
 
-@objc class Job: NSObject, Decodable, Itemable, Storyable {
+class Job: Decodable, Itemable, Storyable {
 
     // MARK: - Decodable
 

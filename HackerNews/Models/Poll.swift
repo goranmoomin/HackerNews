@@ -1,7 +1,7 @@
 
 import Foundation
 
-@objc class Poll: NSObject, Decodable, Itemable, Storyable {
+class Poll: Decodable, Itemable, Storyable {
 
     // MARK: - Decodable
 
