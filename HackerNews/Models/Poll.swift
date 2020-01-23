@@ -23,4 +23,5 @@ class Poll: Decodable, Itemable, Storyable {
     var score: Int
     var title: String
     var text: String
+    var availableActions: Set<Action> = []
 }

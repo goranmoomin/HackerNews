@@ -33,4 +33,5 @@ class Story: Decodable, Itemable, Storyable {
     var commentIds: [Int]?
     var comments: [Comment] = []
     var commentCount: Int
+    var availableActions: Set<Action> = []
 }
