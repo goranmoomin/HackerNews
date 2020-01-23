@@ -28,4 +28,5 @@ class Job: Decodable, Itemable, Storyable {
     lazy var url: URL? = URL(string: rawURL ?? "")
     // but have text.
     var text: String?
+    var availableActions: Set<Action> = []
 }

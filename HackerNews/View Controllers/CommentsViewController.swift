@@ -39,7 +39,7 @@ class CommentsViewController: NSViewController {
         progress.becomeCurrent(withPendingUnitCount: 100)
 
         firstly {
-            when(fulfilled: HackerNewsAPI.loadComments(of: currentStory), HackerNewsAPI.interactionManager.loadAuthKeys(for: currentStory))
+            when(fulfilled: HackerNewsAPI.loadComments(of: currentStory), HackerNewsAPI.interactionManager.loadActions(for: currentStory))
         }.done { _ in
             guard !progress.isCancelled else {
                 return

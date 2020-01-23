@@ -25,4 +25,5 @@ class Comment: Decodable, Itemable {
     var commentCount: Int {
         comments.reduce(into: 1) { $0 += $1.commentCount }
     }
+    var availableActions: Set<Action> = []
 }

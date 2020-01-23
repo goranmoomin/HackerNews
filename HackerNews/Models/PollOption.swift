@@ -21,4 +21,5 @@ class PollOption: Decodable, Itemable {
     var author: User?
     var score: Int
     var text: String
+    var availableActions: Set<Action> = []
 }

@@ -6,6 +6,7 @@ protocol Itemable: class {
     var time: Date { get }
     var author: User? { get set }
     var authorName: String { get }
+    var availableActions: Set<Action> { get set }
 }
 
 protocol Storyable: Itemable {

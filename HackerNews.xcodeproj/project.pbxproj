@@ -20,6 +20,7 @@
 		5B1CE44923BFA1BF00064B6A /* StoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CE44823BFA1BF00064B6A /* StoryCellView.swift */; };
 		5B331C1623CA3CBB0002938B /* StoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B331C1523CA3CBB0002938B /* StoryRowView.swift */; };
 		5B331C1B23CA4AE10002938B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B331C1A23CA4AE10002938B /* Colors.swift */; };
+		5B39472B23D9A52F0073F6E5 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B39472A23D9A52F0073F6E5 /* Action.swift */; };
 		5B44DE6E23D30A3A001CA13F /* AuthorPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DE6D23D30A3A001CA13F /* AuthorPopupViewController.swift */; };
 		5B44DE7023D498C4001CA13F /* EmphasizableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DE6F23D498C4001CA13F /* EmphasizableTextField.swift */; };
 		5B44DE7223D49A48001CA13F /* EmphasizableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DE7123D49A48001CA13F /* EmphasizableButton.swift */; };
@@ -60,6 +61,7 @@
 		5B1CE44823BFA1BF00064B6A /* StoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCellView.swift; sourceTree = "<group>"; };
 		5B331C1523CA3CBB0002938B /* StoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRowView.swift; sourceTree = "<group>"; };
 		5B331C1A23CA4AE10002938B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		5B39472A23D9A52F0073F6E5 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		5B44DE6D23D30A3A001CA13F /* AuthorPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorPopupViewController.swift; sourceTree = "<group>"; };
 		5B44DE6F23D498C4001CA13F /* EmphasizableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmphasizableTextField.swift; sourceTree = "<group>"; };
 		5B44DE7123D49A48001CA13F /* EmphasizableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmphasizableButton.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				5B1CE43723BF9EA100064B6A /* HackerNewsAPI.swift */,
 				5B44DE7D23D614D4001CA13F /* HackerNewsInteractionManager.swift */,
 				5BBDA6DF23D1B7ED00300FB5 /* Category.swift */,
+				5B39472A23D9A52F0073F6E5 /* Action.swift */,
 				5B1CE43923BF9EA100064B6A /* Item.swift */,
 				5BBDA6E123D1C17B00300FB5 /* User.swift */,
 				5B1CE43C23BF9EA100064B6A /* Job.swift */,
@@ -287,6 +290,7 @@
 				5BE425B423CF629000BEA641 /* LoadableView.swift in Sources */,
 				5BBDA6CB23D08D2A00300FB5 /* SidebarViewController.swift in Sources */,
 				5BBDA6DA23D0CECE00300FB5 /* SidebarHeaderCellView.swift in Sources */,
+				5B39472B23D9A52F0073F6E5 /* Action.swift in Sources */,
 				5B44DE6E23D30A3A001CA13F /* AuthorPopupViewController.swift in Sources */,
 				5B1CE43F23BF9EA200064B6A /* Comment.swift in Sources */,
 				5B1CE44523BF9EA200064B6A /* Job.swift in Sources */,

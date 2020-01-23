@@ -63,12 +63,13 @@ class HackerNewsInteractionManager {
         cookieStorage.deleteCookie(authCookie)
     }
 
-    // MARK: - Auth Keys
+    // MARK: - Actions
 
-    func loadAuthKeys(for story: Story) -> Promise<Void> {
+    func loadActions(for story: Story) -> Promise<Story> {
         guard isAuthorized else {
-            return Promise(error: HNError.authenticationError)
+            return .value(story)
         }
+        var actions: [Int : Set<Action>] = [:]
         var hackerNews = self.hackerNews
         hackerNews.path = "/item"
         hackerNews.queryItems = [
@@ -80,35 +81,59 @@ class HackerNewsInteractionManager {
         }.map { (data, response) -> [URLComponents] in
             let html = String(data: data, urlResponse: response)!
             let document = try SwiftSoup.parse(html)
-            let voteLinks = try document.select("a:has(.votearrow)").compactMap({ voteArrow in
+            let voteLinks = try document.select("a:has(.votearrow)").compactMap { voteArrow in
                 URLComponents(string: try voteArrow.attr("href"))
-            })
+            }
             return voteLinks
         }.mapValues { voteLink in
             let queryItems = voteLink.queryItems
-            guard let authKey = queryItems?.first(where: { $0.name == "auth" })?.value, let id = Int(queryItems?.first(where: { $0.name == "id" })?.value ?? "") else {
+            guard let id = Int(queryItems?.first(where: { $0.name == "id" })?.value ?? ""), let type = queryItems?.first(where: { $0.name == "how" })?.value else {
                 return
             }
-            self.authKeys[id] = authKey
-        }.asVoid()
+            let voteURL = voteLink.url(relativeTo: hackerNews.url!)!
+            let action: Action = type == "up" ? .upvote(voteURL) : .downvote(voteURL)
+            if actions[id] == nil {
+                actions[id] = []
+            }
+            actions[id]?.insert(action)
+        }.map { _ -> Story in
+            self.setActions(for: story, from: actions)
+            return story
+        }
         return promise
+    }
+
+    func setActions(for story: Story, from dict: [Int : Set<Action>]) {
+        if let actions = dict[story.id] {
+            story.availableActions = actions
+        }
+        for comment in story.comments {
+            setActions(for: comment, from: dict)
+        }
+    }
+
+    func setActions(for comment: Comment, from dict: [Int : Set<Action>]) {
+        if let actions = dict[comment.id] {
+            comment.availableActions = actions
+        }
+        for comment in comment.comments {
+            setActions(for: comment, from: dict)
+        }
+
     }
 
     // MARK: - Up/Downvotes
 
-    func upvote(item: Itemable) -> Promise<Void> {
-        guard isAuthorized else {
-            return Promise(error: HNError.authenticationError)
+    func upvote(item: Itemable) -> Promise<Itemable> {
+        guard let action = item.availableActions.first(where: { $0.isUpvote }) else {
+            return .value(item)
         }
-        var hackerNews = self.hackerNews
-        hackerNews.path = "/vote"
-        hackerNews.queryItems = [
-            URLQueryItem(name: "id", value: String(item.id)),
-            URLQueryItem(name: "how", value: "up"),
-            URLQueryItem(name: "auth", value: authKeys[item.id])
-        ]
-        let request = URLRequest(url: hackerNews.url!)
-        let promise = urlSession.dataTask(.promise, with: request).validate().asVoid()
+        let request = URLRequest(url: action.url)
+        let promise = firstly {
+            urlSession.dataTask(.promise, with: request).validate()
+        }.map { _ in
+            item
+        }
         return promise
     }
 }
