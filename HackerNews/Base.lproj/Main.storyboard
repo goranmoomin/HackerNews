@@ -931,7 +931,7 @@
                                                                     <rect key="frame" x="20" y="29" width="73" height="19"/>
                                                                     <buttonCell key="cell" type="roundRect" title="cliffle.com" bezelStyle="roundedRect" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O4C-rY-0C4">
                                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                        <font key="font" metaFont="system" size="12"/>
+                                                                        <font key="font" metaFont="label" size="12"/>
                                                                     </buttonCell>
                                                                     <connections>
                                                                         <action selector="openURL:" target="DRU-mv-USN" id="VkX-35-az6"/>
@@ -1059,7 +1059,7 @@
                                                 <rect key="frame" x="251" y="7" width="41" height="19"/>
                                                 <popUpButtonCell key="cell" type="roundRect" title="10" bezelStyle="roundedRect" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="Mda-Hh-iAn" id="bRW-y4-gGH">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system" size="12"/>
+                                                    <font key="font" metaFont="label" size="12"/>
                                                     <menu key="menu" id="5K0-cy-SH7">
                                                         <items>
                                                             <menuItem title="10" state="on" id="Mda-Hh-iAn"/>
@@ -1325,16 +1325,9 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                                                         <action selector="displayPopover:" target="w7x-0j-qmy" id="I13-Yw-i43"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZHE-pr-RHH">
-                                                                    <rect key="frame" x="144" y="112" width="15" height="14"/>
-                                                                    <buttonCell key="cell" type="bevel" title="􀄨" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="mRP-oE-Vxc">
-                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                        <font key="font" metaFont="controlContent" size="11"/>
-                                                                    </buttonCell>
-                                                                    <connections>
-                                                                        <action selector="upvoteButton:" target="w7x-0j-qmy" id="Lih-E9-eGH"/>
-                                                                    </connections>
-                                                                </button>
+                                                                <customView placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="16" translatesAutoresizingMaskIntoConstraints="NO" id="ANc-ur-XXw" customClass="ActionView" customModule="HackerNews" customModuleProvider="target">
+                                                                    <rect key="frame" x="148" y="111" width="100" height="16"/>
+                                                                </customView>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="lgz-pZ-abx" firstAttribute="centerY" secondItem="Et2-4D-ecR" secondAttribute="centerY" id="0WY-T2-pBW"/>
@@ -1343,25 +1336,25 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                                                 <constraint firstItem="Et2-4D-ecR" firstAttribute="top" secondItem="w7x-0j-qmy" secondAttribute="top" constant="8" id="7gI-v7-BAm"/>
                                                                 <constraint firstItem="lgz-pZ-abx" firstAttribute="leading" secondItem="h1r-3O-eGj" secondAttribute="trailing" constant="4" id="E32-OR-c6f"/>
                                                                 <constraint firstItem="CE7-Lh-Izx" firstAttribute="top" secondItem="w7x-0j-qmy" secondAttribute="top" constant="8" id="Exc-gh-YCL"/>
+                                                                <constraint firstItem="ANc-ur-XXw" firstAttribute="centerY" secondItem="Et2-4D-ecR" secondAttribute="centerY" id="Fqj-OM-E04"/>
                                                                 <constraint firstItem="Et2-4D-ecR" firstAttribute="leading" secondItem="w7x-0j-qmy" secondAttribute="leading" constant="8" id="OcM-CR-zLD"/>
+                                                                <constraint firstItem="ANc-ur-XXw" firstAttribute="leading" secondItem="lgz-pZ-abx" secondAttribute="trailing" constant="8" id="PLB-BL-YVa"/>
                                                                 <constraint firstItem="h1r-3O-eGj" firstAttribute="leading" secondItem="Et2-4D-ecR" secondAttribute="trailing" constant="2" id="SD0-mM-ms3"/>
                                                                 <constraint firstItem="h1r-3O-eGj" firstAttribute="centerY" secondItem="Et2-4D-ecR" secondAttribute="centerY" id="SZi-PG-XbV"/>
                                                                 <constraint firstItem="Xii-hs-dhb" firstAttribute="centerY" secondItem="CE7-Lh-Izx" secondAttribute="centerY" id="bCd-IH-wMT"/>
-                                                                <constraint firstItem="ZHE-pr-RHH" firstAttribute="centerY" secondItem="Et2-4D-ecR" secondAttribute="centerY" id="bDA-jk-o38"/>
                                                                 <constraint firstItem="CE7-Lh-Izx" firstAttribute="leading" secondItem="Xii-hs-dhb" secondAttribute="trailing" constant="4" id="cUG-gp-bWL"/>
                                                                 <constraint firstAttribute="trailing" secondItem="CE7-Lh-Izx" secondAttribute="trailing" constant="8" id="g9U-1e-iBd"/>
                                                                 <constraint firstItem="2sw-tA-zTi" firstAttribute="top" secondItem="Et2-4D-ecR" secondAttribute="bottom" constant="8" symbolic="YES" id="kgI-qj-LYC"/>
-                                                                <constraint firstItem="ZHE-pr-RHH" firstAttribute="leading" secondItem="lgz-pZ-abx" secondAttribute="trailing" constant="4" id="lZ9-q5-jbI"/>
                                                                 <constraint firstItem="Xii-hs-dhb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lgz-pZ-abx" secondAttribute="trailing" constant="8" symbolic="YES" id="sab-OH-Olf"/>
                                                                 <constraint firstAttribute="bottom" secondItem="2sw-tA-zTi" secondAttribute="bottom" constant="8" id="xb6-Y4-AMU"/>
                                                             </constraints>
                                                             <connections>
+                                                                <outlet property="actionView" destination="ANc-ur-XXw" id="NeE-iJ-ss2"/>
                                                                 <outlet property="authorButton" destination="h1r-3O-eGj" id="cHz-gA-RhS"/>
                                                                 <outlet property="dateLabel" destination="lgz-pZ-abx" id="xPT-YR-KAK"/>
                                                                 <outlet property="textLabel" destination="2sw-tA-zTi" id="nF9-Ao-As2"/>
                                                                 <outlet property="toggleButton" destination="CE7-Lh-Izx" id="lT2-Xl-HDN"/>
                                                                 <outlet property="toggleCountLabel" destination="Xii-hs-dhb" id="tik-T3-NfW"/>
-                                                                <outlet property="upvoteButton" destination="ZHE-pr-RHH" id="bgZ-eH-pbo"/>
                                                             </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
