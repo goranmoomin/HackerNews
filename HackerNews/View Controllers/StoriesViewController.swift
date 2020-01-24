@@ -99,6 +99,11 @@ class StoriesViewController: NSViewController {
         storySearchView.delegate = self
         progressView.labelText = "Loading Stories..."
         storyScrollView.automaticallyAdjustsContentInsets = false
+        firstly {
+            HackerNewsAPI.interactionManager.login(toAccount: "pcr910303", withPassword: "Josungbin3072810")
+        }.catch { error in
+            print(error)
+        }
     }
 
     func updateContentInsets() {

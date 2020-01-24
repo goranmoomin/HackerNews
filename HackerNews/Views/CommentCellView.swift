@@ -11,7 +11,6 @@ protocol CommentCellViewDelegate {
     func formattedToggleCount(for comment: Comment?) -> String
 
     func toggle(_ comment: Comment?)
-    func upvote(_ comment: Comment?)
     func displayPopup(for comment: Comment?, relativeTo rect: NSRect, of view: CommentCellView)
 }
 
@@ -22,9 +21,9 @@ class CommentCellView: NSTableCellView {
     @IBOutlet var authorButton: NSButton!
     @IBOutlet var dateLabel: NSTextField!
     @IBOutlet var textLabel: NSTextField!
-    @IBOutlet var upvoteButton: NSButton!
     @IBOutlet var toggleButton: NSButton!
     @IBOutlet var toggleCountLabel: NSTextField!
+    @IBOutlet var actionView: ActionView!
 
     // MARK: - Delegate
 
@@ -52,10 +51,6 @@ class CommentCellView: NSTableCellView {
         delegate.displayPopup(for: comment, relativeTo: sender.frame, of: self)
     }
 
-    @IBAction func upvoteButton(_ sender: NSButton) {
-        delegate?.upvote(comment)
-    }
-
     @IBAction func toggleButton(_ sender: NSButton) {
         delegate?.toggle(comment)
         updateInterface()
@@ -73,5 +68,6 @@ class CommentCellView: NSTableCellView {
         toggleButton.isHidden = delegate.isToggleHidden(for: comment)
         toggleButton.state = delegate.isToggleExpanded(for: comment) ? .off : .on
         toggleCountLabel.stringValue = delegate.formattedToggleCount(for: comment)
+        actionView.actions = comment?.availableActions ?? []
     }
 }

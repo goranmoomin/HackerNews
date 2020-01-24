@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ActionView" customModule="HackerNews" customModuleProvider="target">
+            <connections>
+                <outlet property="actionsStackView" destination="ZTJ-Hi-4GR" id="jI6-S4-0Zb"/>
+                <outlet property="downvoteButton" destination="1uG-sI-dLU" id="QPQ-sN-8sF"/>
+                <outlet property="upvoteButton" destination="sV0-2H-Cey" id="eyX-5R-9Ef"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="16"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZTJ-Hi-4GR">
+                    <rect key="frame" x="0.0" y="0.0" width="100" height="16"/>
+                    <subviews>
+                        <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sV0-2H-Cey" customClass="ActionButton" customModule="HackerNews" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="19" height="16"/>
+                            <buttonCell key="cell" type="bevel" title="􀁦" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="EKg-cp-UJA">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="executeAction:" target="-2" id="fnS-RB-Vk5"/>
+                            </connections>
+                        </button>
+                        <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1uG-sI-dLU" customClass="ActionButton" customModule="HackerNews" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="19" height="16"/>
+                            <buttonCell key="cell" type="bevel" title="􀁨" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="ifl-DG-Y5n">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="executeAction:" target="-2" id="WFx-cl-R3h"/>
+                            </connections>
+                        </button>
+                        <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hr5-yI-WIB" customClass="ActionButton" customModule="HackerNews" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="19" height="16"/>
+                            <buttonCell key="cell" type="bevel" title="􀁧" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="uVA-Nd-j1E">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="executeAction:" target="-2" id="3f4-Pg-aHM"/>
+                            </connections>
+                        </button>
+                        <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ijW-GL-Q86" customClass="ActionButton" customModule="HackerNews" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="19" height="16"/>
+                            <buttonCell key="cell" type="bevel" title="􀁩" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="f3V-ez-Fb5">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="executeAction:" target="-2" id="SZW-Cv-etU"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="ZTJ-Hi-4GR" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="6YV-r5-eFi"/>
+                <constraint firstItem="ZTJ-Hi-4GR" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="7Sf-Ol-r0A"/>
+                <constraint firstAttribute="bottom" secondItem="ZTJ-Hi-4GR" secondAttribute="bottom" id="Ke9-q0-0Hz"/>
+                <constraint firstAttribute="trailing" secondItem="ZTJ-Hi-4GR" secondAttribute="trailing" id="TXA-M2-A0c"/>
+            </constraints>
+            <point key="canvasLocation" x="27" y="28"/>
+        </customView>
+    </objects>
+</document>

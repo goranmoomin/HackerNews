@@ -37,6 +37,9 @@
 		5BBDA6DC23D14D2900300FB5 /* SidebarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDA6DB23D14D2900300FB5 /* SidebarCellView.swift */; };
 		5BBDA6E023D1B7ED00300FB5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDA6DF23D1B7ED00300FB5 /* Category.swift */; };
 		5BBDA6E223D1C17B00300FB5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDA6E123D1C17B00300FB5 /* User.swift */; };
+		5BC6D87223DB23DB000C85DA /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6D87123DB23DB000C85DA /* ActionView.swift */; };
+		5BC6D87423DB2441000C85DA /* ActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6D87323DB2441000C85DA /* ActionView.xib */; };
+		5BC6D87823DB3E59000C85DA /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6D87723DB3E59000C85DA /* ActionButton.swift */; };
 		5BE425AD23CF20A100BEA641 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5BE425AC23CF20A100BEA641 /* PromiseKit */; };
 		5BE425B023CF20F300BEA641 /* PMKFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 5BE425AF23CF20F300BEA641 /* PMKFoundation */; };
 		5BE425B423CF629000BEA641 /* LoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE425B323CF629000BEA641 /* LoadableView.swift */; };
@@ -77,6 +80,9 @@
 		5BBDA6DB23D14D2900300FB5 /* SidebarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarCellView.swift; sourceTree = "<group>"; };
 		5BBDA6DF23D1B7ED00300FB5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		5BBDA6E123D1C17B00300FB5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5BC6D87123DB23DB000C85DA /* ActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
+		5BC6D87323DB2441000C85DA /* ActionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionView.xib; sourceTree = "<group>"; };
+		5BC6D87723DB3E59000C85DA /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		5BE425B323CF629000BEA641 /* LoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableView.swift; sourceTree = "<group>"; };
 		5BE425B523CF633D00BEA641 /* ProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
 		5BEFBF4F23C1BEF70013153D /* CommentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellView.swift; sourceTree = "<group>"; };
@@ -157,6 +163,9 @@
 				5BBDA6DB23D14D2900300FB5 /* SidebarCellView.swift */,
 				5BA8CBFE23C2CD3400E2500B /* DisclosureTrianglelessOutlineView.swift */,
 				5BE425B323CF629000BEA641 /* LoadableView.swift */,
+				5BC6D87723DB3E59000C85DA /* ActionButton.swift */,
+				5BC6D87123DB23DB000C85DA /* ActionView.swift */,
+				5BC6D87323DB2441000C85DA /* ActionView.xib */,
 				5B67493523C6B3C90062BDFF /* ProgressView.swift */,
 				5BE425B523CF633D00BEA641 /* ProgressView.xib */,
 			);
@@ -261,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC6D87423DB2441000C85DA /* ActionView.xib in Resources */,
 				5BE425B623CF633D00BEA641 /* ProgressView.xib in Resources */,
 				5B1CE42B23BF9E6600064B6A /* Assets.xcassets in Resources */,
 				5B1CE42E23BF9E6600064B6A /* Main.storyboard in Resources */,
@@ -274,6 +284,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC6D87823DB3E59000C85DA /* ActionButton.swift in Sources */,
+				5BC6D87223DB23DB000C85DA /* ActionView.swift in Sources */,
 				5BA8CC0523C3520000E2500B /* StoriesViewController.swift in Sources */,
 				5B331C1B23CA4AE10002938B /* Colors.swift in Sources */,
 				5B76906023CBE88B00FD2516 /* StorySearchView.swift in Sources */,
