@@ -19,19 +19,19 @@ class StoriesViewController: NSViewController {
 
     // MARK: - Properties
 
-    var stories: [Storyable] = [] {
+    var stories: [LegacyStoryable] = [] {
         didSet {
             storyTableView.reloadData()
         }
     }
 
-    var currentCategory: Category = .topStories {
+    var currentCategory: LegacyCategory = .topStories {
         didSet {
             loadAndDisplayStories()
         }
     }
 
-    var selectedStory: Story? {
+    var selectedStory: LegacyStory? {
         get {
             splitViewController.currentStory
         }
@@ -59,7 +59,7 @@ class StoriesViewController: NSViewController {
         storyLoadProgress = progress
         progress.becomeCurrent(withPendingUnitCount: 100)
         firstly {
-            HackerNewsAPI.stories(from: currentCategory, count: count)
+            LegacyHackerNewsAPI.stories(from: currentCategory, count: count)
         }.done { stories in
             guard !progress.isCancelled else {
                 return
@@ -81,7 +81,7 @@ class StoriesViewController: NSViewController {
         storyLoadProgress = progress
         progress.becomeCurrent(withPendingUnitCount: 100)
         firstly {
-            HackerNewsAPI.stories(matching: query)
+            LegacyHackerNewsAPI.stories(matching: query)
         }.done { stories in
             guard !progress.isCancelled else {
                 return
@@ -100,7 +100,7 @@ class StoriesViewController: NSViewController {
         progressView.labelText = "Loading Stories..."
         storyScrollView.automaticallyAdjustsContentInsets = false
         firstly {
-            HackerNewsAPI.interactionManager.login(toAccount: "pcr910303", withPassword: "Josungbin3072810")
+            LegacyHackerNewsAPI.interactionManager.login(toAccount: "pcr910303", withPassword: "Josungbin3072810")
         }.catch { error in
             print(error)
         }
@@ -147,49 +147,49 @@ class StoriesViewController: NSViewController {
 
 extension StoriesViewController: StoryCellViewDelegate {
 
-    func formattedAuthor(for story: Storyable?) -> String {
+    func formattedAuthor(for story: LegacyStoryable?) -> String {
         guard let story = story else {
             return ""
         }
         return story.authorName
     }
 
-    func formattedTitle(for story: Storyable?) -> String {
+    func formattedTitle(for story: LegacyStoryable?) -> String {
         guard let story = story else {
             return ""
         }
         return story.title
     }
 
-    func formattedScore(for story: Storyable?) -> String {
-        guard let story = story, !(story is Job) else {
+    func formattedScore(for story: LegacyStoryable?) -> String {
+        guard let story = story, !(story is LegacyJob) else {
             return ""
         }
         return String(story.score)
     }
 
-    func formattedCommentCount(for story: Storyable?) -> String {
-        guard let story = story as? Story else {
+    func formattedCommentCount(for story: LegacyStoryable?) -> String {
+        guard let story = story as? LegacyStory else {
             return ""
         }
         return String(story.commentCount)
     }
 
-    func isURLHidden(for story: Storyable?) -> Bool {
-        guard let story = story as? Story else {
+    func isURLHidden(for story: LegacyStoryable?) -> Bool {
+        guard let story = story as? LegacyStory else {
             return true
         }
         return story.url == nil
     }
 
-    func formattedURL(for story: Storyable?) -> String {
-        guard let story = story as? Story, let urlHost = story.url?.host else {
+    func formattedURL(for story: LegacyStoryable?) -> String {
+        guard let story = story as? LegacyStory, let urlHost = story.url?.host else {
             return ""
         }
         return urlHost
     }
 
-    func formattedDate(for story: Storyable?) -> String {
+    func formattedDate(for story: LegacyStoryable?) -> String {
         guard let story = story else {
             return ""
         }
@@ -199,14 +199,14 @@ extension StoriesViewController: StoryCellViewDelegate {
         return dateFormatter.localizedString(for: story.time, relativeTo: Date())
     }
 
-    func openURL(for story: Storyable?) {
-        guard let story = story as? Story, let url = story.url else {
+    func openURL(for story: LegacyStoryable?) {
+        guard let story = story as? LegacyStory, let url = story.url else {
             return
         }
         NSWorkspace.shared.open(url)
     }
 
-    func displayPopup(for story: Storyable?, relativeTo rect: NSRect, of view: StoryCellView) {
+    func displayPopup(for story: LegacyStoryable?, relativeTo rect: NSRect, of view: StoryCellView) {
         let storyboard = NSStoryboard(name: .main, bundle: nil)
         let viewController = storyboard.instantiateController(withIdentifier: .authorPopupViewController) as! AuthorPopupViewController
         viewController.userName = story?.authorName
@@ -259,7 +259,7 @@ extension StoriesViewController: NSTableViewDelegate {
     }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
-        selectedStory = stories[storyTableView.selectedRow] as? Story
+        selectedStory = stories[storyTableView.selectedRow] as? LegacyStory
     }
 }
 

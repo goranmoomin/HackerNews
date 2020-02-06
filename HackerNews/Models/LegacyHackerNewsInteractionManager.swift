@@ -4,7 +4,7 @@ import PromiseKit
 import PMKFoundation
 import SwiftSoup
 
-class HackerNewsInteractionManager {
+class LegacyHackerNewsInteractionManager {
 
     // MARK: - Error
 
@@ -65,11 +65,11 @@ class HackerNewsInteractionManager {
 
     // MARK: - Actions
 
-    func loadActions(for story: Story) -> Promise<Story> {
+    func loadActions(for story: LegacyStory) -> Promise<LegacyStory> {
         guard isAuthorized else {
             return .value(story)
         }
-        var actions: [Int : Set<Action>] = [:]
+        var actions: [Int : Set<LegacyAction>] = [:]
         var hackerNews = self.hackerNews
         hackerNews.path = "/item"
         hackerNews.queryItems = [
@@ -91,19 +91,19 @@ class HackerNewsInteractionManager {
                 return
             }
             let voteURL = voteLink.url(relativeTo: hackerNews.url!)!
-            let action: Action = type == "up" ? .upvote(voteURL) : .downvote(voteURL)
+            let action: LegacyAction = type == "up" ? .upvote(voteURL) : .downvote(voteURL)
             if actions[id] == nil {
                 actions[id] = []
             }
             actions[id]?.insert(action)
-        }.map { _ -> Story in
+        }.map { _ -> LegacyStory in
             self.setActions(for: story, from: actions)
             return story
         }
         return promise
     }
 
-    func setActions(for story: Story, from dict: [Int : Set<Action>]) {
+    func setActions(for story: LegacyStory, from dict: [Int : Set<LegacyAction>]) {
         if let actions = dict[story.id] {
             story.availableActions = actions
         }
@@ -112,7 +112,7 @@ class HackerNewsInteractionManager {
         }
     }
 
-    func setActions(for comment: Comment, from dict: [Int : Set<Action>]) {
+    func setActions(for comment: LegacyComment, from dict: [Int : Set<LegacyAction>]) {
         if let actions = dict[comment.id] {
             comment.availableActions = actions
         }
@@ -122,7 +122,7 @@ class HackerNewsInteractionManager {
 
     }
 
-    func execute(_ action: Action) -> Promise<Void> {
+    func execute(_ action: LegacyAction) -> Promise<Void> {
         let request = URLRequest(url: action.url)
         let promise = urlSession.dataTask(.promise, with: request).validate().asVoid()
         return promise

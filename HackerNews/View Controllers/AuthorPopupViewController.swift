@@ -19,7 +19,7 @@ class AuthorPopupViewController: NSViewController {
                 return
             }
             firstly {
-                HackerNewsAPI.user(named: userName)
+                LegacyHackerNewsAPI.user(named: userName)
             }.done { user in
                 self.user = user
             }.catch { error in
@@ -28,7 +28,7 @@ class AuthorPopupViewController: NSViewController {
         }
     }
 
-    var user: User? {
+    var user: LegacyUser? {
         didSet {
             updateInterface()
         }

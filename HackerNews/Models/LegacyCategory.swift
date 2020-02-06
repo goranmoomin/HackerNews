@@ -1,7 +1,7 @@
 
 import Foundation
 
-enum Category: String {
+enum LegacyCategory: String {
     case topStories = "topstories"
     case newStories = "newstories"
     case bestStories = "beststories"

@@ -1,33 +1,33 @@
 
 import Foundation
 
-protocol Itemable: class {
+protocol LegacyItemable: class {
     var id: Int { get }
     var time: Date { get }
-    var author: User? { get set }
+    var author: LegacyUser? { get set }
     var authorName: String { get }
-    var availableActions: Set<Action> { get set }
+    var availableActions: Set<LegacyAction> { get set }
 }
 
-protocol Storyable: Itemable {
+protocol LegacyStoryable: LegacyItemable {
     var score: Int { get }
     var title: String { get }
 }
 
-enum Item {
-    case job(Job)
-    case story(Story)
-    case comment(Comment)
-    case poll(Poll)
-    case pollOption(PollOption)
+enum LegacyItem {
+    case job(LegacyJob)
+    case story(LegacyStory)
+    case comment(LegacyComment)
+    case poll(LegacyPoll)
+    case pollOption(LegacyPollOption)
     case deletedItem
 }
 
-extension Item {
+extension LegacyItem {
 
     // MARK: - Properties
 
-    var item: Itemable? {
+    var item: LegacyItemable? {
         switch self {
         case .job(let job):
             return job
@@ -44,18 +44,18 @@ extension Item {
         }
     }
 
-    var story: Storyable? {
-        item as? Storyable
+    var story: LegacyStoryable? {
+        item as? LegacyStoryable
     }
 
-    var comment: Comment? {
-        item as? Comment
+    var comment: LegacyComment? {
+        item as? LegacyComment
     }
 }
 
 // MARK: - Decodable
 
-extension Item: Decodable {
+extension LegacyItem: Decodable {
 
     enum CodingKeys: CodingKey {
         case type
@@ -73,15 +73,15 @@ extension Item: Decodable {
         let type = try container.decode(String.self, forKey: .type)
         switch type {
         case "job":
-            self = .job(try decoder.singleValueContainer().decode(Job.self))
+            self = .job(try decoder.singleValueContainer().decode(LegacyJob.self))
         case "story":
-            self = .story(try decoder.singleValueContainer().decode(Story.self))
+            self = .story(try decoder.singleValueContainer().decode(LegacyStory.self))
         case "comment":
-            self = .comment(try decoder.singleValueContainer().decode(Comment.self))
+            self = .comment(try decoder.singleValueContainer().decode(LegacyComment.self))
         case "poll":
-            self = .poll(try decoder.singleValueContainer().decode(Poll.self))
+            self = .poll(try decoder.singleValueContainer().decode(LegacyPoll.self))
         case "pollopt":
-            self = .pollOption(try decoder.singleValueContainer().decode(PollOption.self))
+            self = .pollOption(try decoder.singleValueContainer().decode(LegacyPollOption.self))
         default:
             throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: [CodingKeys.type], debugDescription: """
                 The value of key "type" has an incorrect value of \(type).

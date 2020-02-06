@@ -1,7 +1,7 @@
 
 import Foundation
 
-class Comment: Decodable, Itemable {
+class LegacyComment: Decodable, LegacyItemable {
 
     // MARK: - Decodable
 
@@ -18,12 +18,12 @@ class Comment: Decodable, Itemable {
     var id: Int
     var time: Date
     var authorName: String
-    var author: User?
+    var author: LegacyUser?
     var text: String
     var commentIds: [Int]?
-    var comments: [Comment] = []
+    var comments: [LegacyComment] = []
     var commentCount: Int {
         comments.reduce(into: 1) { $0 += $1.commentCount }
     }
-    var availableActions: Set<Action> = []
+    var availableActions: Set<LegacyAction> = []
 }

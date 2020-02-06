@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct User: Decodable {
+struct LegacyUser: Decodable {
 
     // MARK: - Decodable
 

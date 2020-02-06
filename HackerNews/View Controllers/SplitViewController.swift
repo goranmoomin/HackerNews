@@ -20,14 +20,14 @@ class SplitViewController: NSSplitViewController {
     // MARK: - Properties
 
     // Always in sync with it's children view controllers
-    var currentCategory: Category = .topStories {
+    var currentCategory: LegacyCategory = .topStories {
         didSet {
             storiesViewController.currentCategory = currentCategory
         }
     }
 
     // Always in sync with it's children view controllers
-    var currentStory: Story? {
+    var currentStory: LegacyStory? {
         didSet {
             commentsViewController.currentStory = currentStory
         }

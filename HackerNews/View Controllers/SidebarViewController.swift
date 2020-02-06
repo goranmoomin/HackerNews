@@ -40,7 +40,7 @@ extension SidebarViewController: NSOutlineViewDataSource {
 
     // MARK: - Static Variables
 
-    static let sidebarItems: [Category] = [.topStories, .newStories, .bestStories, .askStories, .showStories, .jobStories]
+    static let sidebarItems: [LegacyCategory] = [.topStories, .newStories, .bestStories, .askStories, .showStories, .jobStories]
 
     // MARK: - DataSource Methods
 
@@ -70,7 +70,7 @@ extension SidebarViewController: NSOutlineViewDataSource {
     func outlineView(_ outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: Any?) -> Any? {
         if item is String {
             return item
-        } else if let item = item as? Category {
+        } else if let item = item as? LegacyCategory {
             switch item {
             case .topStories:
                 return "Top Stories"

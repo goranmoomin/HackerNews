@@ -3,15 +3,15 @@ import Cocoa
 
 protocol CommentCellViewDelegate {
 
-    func formattedAuthor(for comment: Comment?) -> String
-    func formattedDate(for comment: Comment?) -> String
-    func formattedText(for comment: Comment?) -> String
-    func isToggleHidden(for comment: Comment?) -> Bool
-    func isToggleExpanded(for comment: Comment?) -> Bool
-    func formattedToggleCount(for comment: Comment?) -> String
+    func formattedAuthor(for comment: LegacyComment?) -> String
+    func formattedDate(for comment: LegacyComment?) -> String
+    func formattedText(for comment: LegacyComment?) -> String
+    func isToggleHidden(for comment: LegacyComment?) -> Bool
+    func isToggleExpanded(for comment: LegacyComment?) -> Bool
+    func formattedToggleCount(for comment: LegacyComment?) -> String
 
-    func toggle(_ comment: Comment?)
-    func displayPopup(for comment: Comment?, relativeTo rect: NSRect, of view: CommentCellView)
+    func toggle(_ comment: LegacyComment?)
+    func displayPopup(for comment: LegacyComment?, relativeTo rect: NSRect, of view: CommentCellView)
 }
 
 class CommentCellView: NSTableCellView {
@@ -38,8 +38,8 @@ class CommentCellView: NSTableCellView {
         }
     }
 
-    var comment: Comment? {
-        objectValue as? Comment
+    var comment: LegacyComment? {
+        objectValue as? LegacyComment
     }
 
     // MARK: - IBActions

@@ -5,5 +5,5 @@ class ActionButton: NSButton {
 
     // MARK: - Properties
 
-    var representedAction: Action?
+    var representedAction: LegacyAction?
 }

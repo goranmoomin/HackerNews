@@ -12,7 +12,7 @@ class CommentsViewController: NSViewController {
     // MARK: - Properties
 
     // Always in sync with it's parent view controller
-    var currentStory: Story? {
+    var currentStory: LegacyStory? {
         didSet {
             loadAndDisplayComments()
         }
@@ -39,9 +39,9 @@ class CommentsViewController: NSViewController {
         progress.becomeCurrent(withPendingUnitCount: 100)
 
         firstly {
-            HackerNewsAPI.loadComments(of: currentStory)
+            LegacyHackerNewsAPI.loadComments(of: currentStory)
         }.then { _ in
-            HackerNewsAPI.interactionManager.loadActions(for: currentStory)
+            LegacyHackerNewsAPI.interactionManager.loadActions(for: currentStory)
         }.done { _ in
             guard !progress.isCancelled else {
                 return
@@ -72,17 +72,17 @@ class CommentsViewController: NSViewController {
 
 extension CommentsViewController: CommentCellViewDelegate {
 
-    func formattedText(for comment: Comment?) -> String {
+    func formattedText(for comment: LegacyComment?) -> String {
         let textData = comment?.text.data(using: .utf16) ?? Data()
         let attributedString = NSAttributedString(html: textData, documentAttributes: nil)
         return attributedString?.string.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
     }
 
-    func formattedAuthor(for comment: Comment?) -> String {
+    func formattedAuthor(for comment: LegacyComment?) -> String {
         comment?.authorName ?? ""
     }
 
-    func formattedDate(for comment: Comment?) -> String {
+    func formattedDate(for comment: LegacyComment?) -> String {
         guard let comment = comment else {
             return ""
         }
@@ -92,7 +92,7 @@ extension CommentsViewController: CommentCellViewDelegate {
         return dateFormatter.localizedString(for: comment.time, relativeTo: Date())
     }
 
-    func toggle(_ comment: Comment?) {
+    func toggle(_ comment: LegacyComment?) {
         guard let comment = comment else {
             return
         }
@@ -103,22 +103,22 @@ extension CommentsViewController: CommentCellViewDelegate {
         }
     }
 
-    func isToggleHidden(for comment: Comment?) -> Bool {
+    func isToggleHidden(for comment: LegacyComment?) -> Bool {
         comment?.comments.isEmpty ?? true
     }
 
-    func isToggleExpanded(for comment: Comment?) -> Bool {
+    func isToggleExpanded(for comment: LegacyComment?) -> Bool {
         commentOutlineView.isItemExpanded(comment)
     }
 
-    func formattedToggleCount(for comment: Comment?) -> String {
+    func formattedToggleCount(for comment: LegacyComment?) -> String {
         guard !isToggleExpanded(for: comment), let comment = comment, comment.commentCount != 1 else {
             return ""
         }
         return "\(comment.commentCount) replies hidden"
     }
 
-    func displayPopup(for comment: Comment?, relativeTo rect: NSRect, of view: CommentCellView) {
+    func displayPopup(for comment: LegacyComment?, relativeTo rect: NSRect, of view: CommentCellView) {
         let storyboard = NSStoryboard(name: .main, bundle: nil)
         let viewController = storyboard.instantiateController(withIdentifier: .authorPopupViewController) as! AuthorPopupViewController
         viewController.userName = comment?.authorName
@@ -134,28 +134,28 @@ extension CommentsViewController: CommentCellViewDelegate {
 extension CommentsViewController: NSOutlineViewDataSource {
 
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        guard let comment = item as? Comment else {
+        guard let comment = item as? LegacyComment else {
             return currentStory!.comments[index]
         }
         return comment.comments[index]
     }
 
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        guard let comment = item as? Comment else {
+        guard let comment = item as? LegacyComment else {
             return false
         }
         return !comment.comments.isEmpty
     }
 
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        guard let comment = item as? Comment else {
+        guard let comment = item as? LegacyComment else {
             return currentStory?.comments.count ?? 0
         }
         return comment.comments.count
     }
 
     func outlineView(_ outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: Any?) -> Any? {
-        guard let comment = item as? Comment else {
+        guard let comment = item as? LegacyComment else {
             return nil
         }
         return comment

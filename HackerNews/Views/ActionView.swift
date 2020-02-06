@@ -6,7 +6,7 @@ class ActionView: NSView, LoadableView {
 
     // MARK: - Properties
 
-    var actions: Set<Action> = [] {
+    var actions: Set<LegacyAction> = [] {
         didSet {
             updateInterface()
         }
@@ -25,7 +25,7 @@ class ActionView: NSView, LoadableView {
             return
         }
         firstly {
-            HackerNewsAPI.interactionManager.execute(action)
+            LegacyHackerNewsAPI.interactionManager.execute(action)
         }.catch { error in
             print(error)
         }

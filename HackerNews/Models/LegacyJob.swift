@@ -1,7 +1,7 @@
 
 import Foundation
 
-class Job: Decodable, Itemable, Storyable {
+class LegacyJob: Decodable, LegacyItemable, LegacyStoryable {
 
     // MARK: - Decodable
 
@@ -20,7 +20,7 @@ class Job: Decodable, Itemable, Storyable {
     var id: Int
     var time: Date
     var authorName: String
-    var author: User?
+    var author: LegacyUser?
     var score: Int
     var title: String
     // Some jobs don't have a URL or an empty string
@@ -28,5 +28,5 @@ class Job: Decodable, Itemable, Storyable {
     lazy var url: URL? = URL(string: rawURL ?? "")
     // but have text.
     var text: String?
-    var availableActions: Set<Action> = []
+    var availableActions: Set<LegacyAction> = []
 }

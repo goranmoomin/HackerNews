@@ -3,16 +3,16 @@ import Cocoa
 
 protocol StoryCellViewDelegate {
 
-    func formattedAuthor(for story: Storyable?) -> String
-    func formattedTitle(for story: Storyable?) -> String
-    func formattedScore(for story: Storyable?) -> String
-    func formattedCommentCount(for story: Storyable?) -> String
-    func isURLHidden(for story: Storyable?) -> Bool
-    func formattedURL(for story: Storyable?) -> String
-    func formattedDate(for story: Storyable?) -> String
+    func formattedAuthor(for story: LegacyStoryable?) -> String
+    func formattedTitle(for story: LegacyStoryable?) -> String
+    func formattedScore(for story: LegacyStoryable?) -> String
+    func formattedCommentCount(for story: LegacyStoryable?) -> String
+    func isURLHidden(for story: LegacyStoryable?) -> Bool
+    func formattedURL(for story: LegacyStoryable?) -> String
+    func formattedDate(for story: LegacyStoryable?) -> String
 
-    func openURL(for story: Storyable?)
-    func displayPopup(for story: Storyable?, relativeTo rect: NSRect, of view: StoryCellView)
+    func openURL(for story: LegacyStoryable?)
+    func displayPopup(for story: LegacyStoryable?, relativeTo rect: NSRect, of view: StoryCellView)
 }
 
 class StoryCellView: NSTableCellView {
@@ -39,8 +39,8 @@ class StoryCellView: NSTableCellView {
         }
     }
 
-    var story: Storyable? {
-        objectValue as? Storyable
+    var story: LegacyStoryable? {
+        objectValue as? LegacyStoryable
     }
 
     // MARK: - IBActions

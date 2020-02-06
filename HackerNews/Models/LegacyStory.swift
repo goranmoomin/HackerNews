@@ -1,7 +1,7 @@
 
 import Foundation
 
-class Story: Decodable, Itemable, Storyable {
+class LegacyStory: Decodable, LegacyItemable, LegacyStoryable {
 
     // MARK: - Decodable
 
@@ -22,7 +22,7 @@ class Story: Decodable, Itemable, Storyable {
     var id: Int
     var time: Date
     var authorName: String
-    var author: User?
+    var author: LegacyUser?
     var score: Int
     var title: String
     // Some stories don't have a URL or an empty string
@@ -31,7 +31,7 @@ class Story: Decodable, Itemable, Storyable {
     // but have text.
     var text: String?
     var commentIds: [Int]?
-    var comments: [Comment] = []
+    var comments: [LegacyComment] = []
     var commentCount: Int
-    var availableActions: Set<Action> = []
+    var availableActions: Set<LegacyAction> = []
 }

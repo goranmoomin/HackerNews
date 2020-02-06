@@ -1,7 +1,7 @@
 
 import Foundation
 
-class PollOption: Decodable, Itemable {
+class LegacyPoll: Decodable, LegacyItemable, LegacyStoryable {
 
     // MARK: - Decodable
 
@@ -10,6 +10,7 @@ class PollOption: Decodable, Itemable {
         case time
         case authorName = "by"
         case score
+        case title
         case text
     }
 
@@ -18,8 +19,9 @@ class PollOption: Decodable, Itemable {
     var id: Int
     var time: Date
     var authorName: String
-    var author: User?
+    var author: LegacyUser?
     var score: Int
+    var title: String
     var text: String
-    var availableActions: Set<Action> = []
+    var availableActions: Set<LegacyAction> = []
 }

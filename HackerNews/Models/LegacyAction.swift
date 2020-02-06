@@ -1,12 +1,12 @@
 
 import Foundation
 
-enum Action: Hashable {
+enum LegacyAction: Hashable {
     case upvote(URL)
     case downvote(URL)
 }
 
-extension Action {
+extension LegacyAction {
 
     // MARK: - Properties
 
