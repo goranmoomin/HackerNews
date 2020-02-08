@@ -1,6 +1,7 @@
 
 import Cocoa
 import PromiseKit
+import HackerNewsAPI
 
 class StoriesViewController: NSViewController {
 
@@ -19,6 +20,12 @@ class StoriesViewController: NSViewController {
 
     // MARK: - Properties
 
+    var items: [ListableItem] = [] {
+        didSet {
+            storyTableView.reloadData()
+        }
+    }
+
     var stories: [LegacyStoryable] = [] {
         didSet {
             storyTableView.reloadData()
@@ -28,6 +35,15 @@ class StoriesViewController: NSViewController {
     var currentCategory: LegacyCategory = .topStories {
         didSet {
             loadAndDisplayStories()
+        }
+    }
+
+    var selectedItem: ListableItem? {
+        get {
+            splitViewController.currentItem
+        }
+        set {
+            splitViewController.currentItem = newValue
         }
     }
 
@@ -54,6 +70,14 @@ class StoriesViewController: NSViewController {
     func loadAndDisplayStories(count: Int = 10) {
         stories = []
         self.storyTableView.isHidden = true
+
+        firstly {
+            HackerNewsAPI.topItems()
+        }.done { items in
+            self.items = items
+        }.catch { error in
+            print(error)
+        }
 
         let progress = Progress(totalUnitCount: 100)
         storyLoadProgress = progress
@@ -143,80 +167,6 @@ class StoriesViewController: NSViewController {
     }
 }
 
-// MARK: - StoryCellViewDelegate
-
-extension StoriesViewController: StoryCellViewDelegate {
-
-    func formattedAuthor(for story: LegacyStoryable?) -> String {
-        guard let story = story else {
-            return ""
-        }
-        return story.authorName
-    }
-
-    func formattedTitle(for story: LegacyStoryable?) -> String {
-        guard let story = story else {
-            return ""
-        }
-        return story.title
-    }
-
-    func formattedScore(for story: LegacyStoryable?) -> String {
-        guard let story = story, !(story is LegacyJob) else {
-            return ""
-        }
-        return String(story.score)
-    }
-
-    func formattedCommentCount(for story: LegacyStoryable?) -> String {
-        guard let story = story as? LegacyStory else {
-            return ""
-        }
-        return String(story.commentCount)
-    }
-
-    func isURLHidden(for story: LegacyStoryable?) -> Bool {
-        guard let story = story as? LegacyStory else {
-            return true
-        }
-        return story.url == nil
-    }
-
-    func formattedURL(for story: LegacyStoryable?) -> String {
-        guard let story = story as? LegacyStory, let urlHost = story.url?.host else {
-            return ""
-        }
-        return urlHost
-    }
-
-    func formattedDate(for story: LegacyStoryable?) -> String {
-        guard let story = story else {
-            return ""
-        }
-        let dateFormatter = RelativeDateTimeFormatter()
-        dateFormatter.formattingContext = .standalone
-        dateFormatter.dateTimeStyle = .named
-        return dateFormatter.localizedString(for: story.time, relativeTo: Date())
-    }
-
-    func openURL(for story: LegacyStoryable?) {
-        guard let story = story as? LegacyStory, let url = story.url else {
-            return
-        }
-        NSWorkspace.shared.open(url)
-    }
-
-    func displayPopup(for story: LegacyStoryable?, relativeTo rect: NSRect, of view: StoryCellView) {
-        let storyboard = NSStoryboard(name: .main, bundle: nil)
-        let viewController = storyboard.instantiateController(withIdentifier: .authorPopupViewController) as! AuthorPopupViewController
-        viewController.userName = story?.authorName
-        let popover = NSPopover()
-        popover.contentViewController = viewController
-        popover.behavior = .transient
-        popover.show(relativeTo: rect, of: view, preferredEdge: .minY)
-    }
-}
-
 // MARK: - StorySearchViewDelegate
 
 extension StoriesViewController: StorySearchViewDelegate {
@@ -235,11 +185,11 @@ extension StoriesViewController: StorySearchViewDelegate {
 extension StoriesViewController: NSTableViewDataSource {
 
     func numberOfRows(in tableView: NSTableView) -> Int {
-        stories.count
+        items.count
     }
 
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        stories[row]
+        items[row]
     }
 }
 
@@ -249,8 +199,7 @@ extension StoriesViewController: NSTableViewDelegate {
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         // objectValue is automatically populated
-        let storyCellView = tableView.makeView(withIdentifier: .storyCellView, owner: self) as! StoryCellView
-        storyCellView.delegate = self
+        let storyCellView = tableView.makeView(withIdentifier: .listableItemCellView, owner: self) as! ListableItemCellView
         return storyCellView
     }
 
@@ -259,6 +208,7 @@ extension StoriesViewController: NSTableViewDelegate {
     }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
+        selectedItem = items[storyTableView.selectedRow]
         selectedStory = stories[storyTableView.selectedRow] as? LegacyStory
     }
 }
@@ -267,6 +217,5 @@ extension StoriesViewController: NSTableViewDelegate {
 
 extension NSUserInterfaceItemIdentifier {
 
-    static let storyCellView = NSUserInterfaceItemIdentifier("StoryCellView")
     static let storyRowView = NSUserInterfaceItemIdentifier("StoryRowView")
 }

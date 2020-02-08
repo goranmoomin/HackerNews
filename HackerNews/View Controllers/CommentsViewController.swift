@@ -1,6 +1,7 @@
 
 import Cocoa
 import PromiseKit
+import HackerNewsAPI
 
 class CommentsViewController: NSViewController {
 
@@ -12,7 +13,16 @@ class CommentsViewController: NSViewController {
     // MARK: - Properties
 
     // Always in sync with it's parent view controller
-    var currentStory: LegacyStory? {
+    var currentItem: ListableItem? {
+        didSet {
+            loadAndDisplayComments()
+        }
+    }
+
+    var currentStory: Story?
+
+    // Always in sync with it's parent view controller
+    var currentLegacyStory: LegacyStory? {
         didSet {
             loadAndDisplayComments()
         }
@@ -23,12 +33,11 @@ class CommentsViewController: NSViewController {
             progressView.progress = commentLoadProgress
         }
     }
-    var observation: NSKeyValueObservation?
 
     // MARK: - Methods
 
     func loadAndDisplayComments() {
-        guard let currentStory = currentStory else {
+        guard let currentItem = currentItem else {
             return
         }
         commentOutlineView.reloadData()
@@ -39,14 +48,10 @@ class CommentsViewController: NSViewController {
         progress.becomeCurrent(withPendingUnitCount: 100)
 
         firstly {
-            LegacyHackerNewsAPI.loadComments(of: currentStory)
-        }.then { _ in
-            LegacyHackerNewsAPI.interactionManager.loadActions(for: currentStory)
-        }.done { _ in
-            guard !progress.isCancelled else {
-                return
-            }
+            HackerNewsAPI.story(withID: currentItem.id)
+        }.done { story in
             self.commentLoadProgress = nil
+            self.currentStory = story
             self.commentOutlineView.reloadData()
             self.commentOutlineView.expandItem(nil, expandChildren: true)
             self.commentOutlineView.isHidden = false
@@ -68,94 +73,33 @@ class CommentsViewController: NSViewController {
     }
 }
 
-// MARK: - CommentOutlineViewDelegate
-
-extension CommentsViewController: CommentCellViewDelegate {
-
-    func formattedText(for comment: LegacyComment?) -> String {
-        let textData = comment?.text.data(using: .utf16) ?? Data()
-        let attributedString = NSAttributedString(html: textData, documentAttributes: nil)
-        return attributedString?.string.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-    }
-
-    func formattedAuthor(for comment: LegacyComment?) -> String {
-        comment?.authorName ?? ""
-    }
-
-    func formattedDate(for comment: LegacyComment?) -> String {
-        guard let comment = comment else {
-            return ""
-        }
-        let dateFormatter = RelativeDateTimeFormatter()
-        dateFormatter.formattingContext = .standalone
-        dateFormatter.dateTimeStyle = .named
-        return dateFormatter.localizedString(for: comment.time, relativeTo: Date())
-    }
-
-    func toggle(_ comment: LegacyComment?) {
-        guard let comment = comment else {
-            return
-        }
-        if commentOutlineView.isItemExpanded(comment) {
-            commentOutlineView.collapseItem(comment, collapseChildren: true)
-        } else {
-            commentOutlineView.expandItem(comment, expandChildren: true)
-        }
-    }
-
-    func isToggleHidden(for comment: LegacyComment?) -> Bool {
-        comment?.comments.isEmpty ?? true
-    }
-
-    func isToggleExpanded(for comment: LegacyComment?) -> Bool {
-        commentOutlineView.isItemExpanded(comment)
-    }
-
-    func formattedToggleCount(for comment: LegacyComment?) -> String {
-        guard !isToggleExpanded(for: comment), let comment = comment, comment.commentCount != 1 else {
-            return ""
-        }
-        return "\(comment.commentCount) replies hidden"
-    }
-
-    func displayPopup(for comment: LegacyComment?, relativeTo rect: NSRect, of view: CommentCellView) {
-        let storyboard = NSStoryboard(name: .main, bundle: nil)
-        let viewController = storyboard.instantiateController(withIdentifier: .authorPopupViewController) as! AuthorPopupViewController
-        viewController.userName = comment?.authorName
-        let popover = NSPopover()
-        popover.contentViewController = viewController
-        popover.behavior = .transient
-        popover.show(relativeTo: rect, of: view, preferredEdge: .minY)
-    }
-}
-
 // MARK: - NSOutlineViewDataSource
 
 extension CommentsViewController: NSOutlineViewDataSource {
 
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        guard let comment = item as? LegacyComment else {
+        guard let comment = item as? Comment else {
             return currentStory!.comments[index]
         }
         return comment.comments[index]
     }
 
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        guard let comment = item as? LegacyComment else {
+        guard let comment = item as? Comment else {
             return false
         }
         return !comment.comments.isEmpty
     }
 
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        guard let comment = item as? LegacyComment else {
+        guard let comment = item as? Comment else {
             return currentStory?.comments.count ?? 0
         }
         return comment.comments.count
     }
 
     func outlineView(_ outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: Any?) -> Any? {
-        guard let comment = item as? LegacyComment else {
+        guard let comment = item as? Comment else {
             return nil
         }
         return comment
@@ -168,7 +112,6 @@ extension CommentsViewController: NSOutlineViewDelegate {
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         // objectValue is automatically populated
         let commentCellView = outlineView.makeView(withIdentifier: .commentCellView, owner: self) as! CommentCellView
-        commentCellView.delegate = self
         return commentCellView
     }
 }
@@ -185,12 +128,4 @@ extension NSStoryboard.Name {
 extension NSStoryboard.SceneIdentifier {
 
     static let authorPopupViewController = NSStoryboard.SceneIdentifier("AuthorPopupViewController")
-}
-
-
-// MARK: - NSUserInterfaceItemIdentifier
-
-extension NSUserInterfaceItemIdentifier {
-
-    static let commentCellView = NSUserInterfaceItemIdentifier("CommentCellView")
 }

@@ -1,5 +1,6 @@
 
 import Cocoa
+import HackerNewsAPI
 
 class SplitViewController: NSSplitViewController {
 
@@ -29,7 +30,14 @@ class SplitViewController: NSSplitViewController {
     // Always in sync with it's children view controllers
     var currentStory: LegacyStory? {
         didSet {
-            commentsViewController.currentStory = currentStory
+            commentsViewController.currentLegacyStory = currentStory
+        }
+    }
+
+    // Always in sync with it's children view controllers
+    var currentItem: ListableItem? {
+        didSet {
+            commentsViewController.currentItem = currentItem
         }
     }
 

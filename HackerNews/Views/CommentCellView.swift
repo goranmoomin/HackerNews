@@ -1,33 +1,15 @@
 
 import Cocoa
-
-protocol CommentCellViewDelegate {
-
-    func formattedAuthor(for comment: LegacyComment?) -> String
-    func formattedDate(for comment: LegacyComment?) -> String
-    func formattedText(for comment: LegacyComment?) -> String
-    func isToggleHidden(for comment: LegacyComment?) -> Bool
-    func isToggleExpanded(for comment: LegacyComment?) -> Bool
-    func formattedToggleCount(for comment: LegacyComment?) -> String
-
-    func toggle(_ comment: LegacyComment?)
-    func displayPopup(for comment: LegacyComment?, relativeTo rect: NSRect, of view: CommentCellView)
-}
+import HackerNewsAPI
+import Atributika
 
 class CommentCellView: NSTableCellView {
 
     // MARK: - IBOutlets
 
     @IBOutlet var authorButton: NSButton!
-    @IBOutlet var dateLabel: NSTextField!
+    @IBOutlet var ageLabel: NSTextField!
     @IBOutlet var textLabel: NSTextField!
-    @IBOutlet var toggleButton: NSButton!
-    @IBOutlet var toggleCountLabel: NSTextField!
-    @IBOutlet var actionView: ActionView!
-
-    // MARK: - Delegate
-
-    var delegate: CommentCellViewDelegate?
 
     // MARK: - Properties
 
@@ -38,36 +20,55 @@ class CommentCellView: NSTableCellView {
         }
     }
 
-    var comment: LegacyComment? {
-        objectValue as? LegacyComment
-    }
-
-    // MARK: - IBActions
-
-    @IBAction func displayPopover(_ sender: NSButton) {
-        guard let delegate = delegate else {
-            return
-        }
-        delegate.displayPopup(for: comment, relativeTo: sender.frame, of: self)
-    }
-
-    @IBAction func toggleButton(_ sender: NSButton) {
-        delegate?.toggle(comment)
-        updateInterface()
+    var comment: Comment? {
+        objectValue as? Comment
     }
 
     // MARK: - Methods
 
-    func updateInterface() {
-        guard let delegate = delegate else {
+    func updateTextLabel() {
+        guard let comment = comment else {
             return
         }
-        textLabel.stringValue = delegate.formattedText(for: comment)
-        authorButton.title = delegate.formattedAuthor(for: comment)
-        dateLabel.stringValue = delegate.formattedDate(for: comment)
-        toggleButton.isHidden = delegate.isToggleHidden(for: comment)
-        toggleButton.state = delegate.isToggleExpanded(for: comment) ? .off : .on
-        toggleCountLabel.stringValue = delegate.formattedToggleCount(for: comment)
-        actionView.actions = comment?.availableActions ?? []
+        textLabel.allowsEditingTextAttributes = true
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.paragraphSpacing = 8
+        let systemFontSize = NSFont.systemFontSize(for: .regular)
+        let all = Style
+            .font(.systemFont(ofSize: systemFontSize))
+            .foregroundColor(.textColor)
+            .paragraphStyle(paragraphStyle)
+        let i = Style("i")
+            .font(.italicSystemFont(ofSize: systemFontSize))
+        let pre = Style("pre")
+            .font(.monospacedSystemFont(ofSize: systemFontSize, weight: .regular))
+        let transformers = [
+            TagTransformer(tagName: "p", tagType: .start, replaceValue: "\n"),
+            .brTransformer
+        ]
+        func tuner(style: Style, tag: Tag) -> Style {
+            if tag.name == "a", let href = tag.attributes["href"], let url = URL(string: href) {
+                return style.link(url)
+            }
+            return style
+        }
+        textLabel.attributedStringValue = comment.text
+            .style(tags: i, pre, transformers: transformers, tuner: tuner(style:tag:))
+            .styleAll(all).attributedString
     }
+
+    func updateInterface() {
+        guard let comment = comment else {
+            return
+        }
+        authorButton.title = comment.authorName
+        ageLabel.stringValue = comment.ageDescription
+        updateTextLabel()
+    }
+}
+
+// MARK: - NSUserInterfaceItemIdentifier
+
+extension NSUserInterfaceItemIdentifier {
+    static let commentCellView = NSUserInterfaceItemIdentifier("CommentCellView")
 }
