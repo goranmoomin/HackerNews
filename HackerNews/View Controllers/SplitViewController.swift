@@ -10,8 +10,8 @@ class SplitViewController: NSSplitViewController {
         children[0] as! SidebarViewController
     }
 
-    var storiesViewController: StoriesViewController {
-        children[1] as! StoriesViewController
+    var storiesViewController: ItemsViewController {
+        children[1] as! ItemsViewController
     }
 
     var commentsViewController: CommentsViewController {
@@ -21,16 +21,9 @@ class SplitViewController: NSSplitViewController {
     // MARK: - Properties
 
     // Always in sync with it's children view controllers
-    var currentCategory: LegacyCategory = .topStories {
+    var currentCategory: ItemListCategory = .top {
         didSet {
             storiesViewController.currentCategory = currentCategory
-        }
-    }
-
-    // Always in sync with it's children view controllers
-    var currentStory: LegacyStory? {
-        didSet {
-            commentsViewController.currentLegacyStory = currentStory
         }
     }
 

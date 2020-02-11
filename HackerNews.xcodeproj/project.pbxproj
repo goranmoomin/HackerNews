@@ -10,35 +10,22 @@
 		5B1CE42723BF9E6300064B6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CE42623BF9E6300064B6A /* AppDelegate.swift */; };
 		5B1CE42B23BF9E6600064B6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B1CE42A23BF9E6600064B6A /* Assets.xcassets */; };
 		5B1CE42E23BF9E6600064B6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1CE42C23BF9E6600064B6A /* Main.storyboard */; };
-		5B1CE43F23BF9EA200064B6A /* LegacyComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CE43623BF9EA100064B6A /* LegacyComment.swift */; };
-		5B1CE44023BF9EA200064B6A /* LegacyHackerNewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CE43723BF9EA100064B6A /* LegacyHackerNewsAPI.swift */; };
-		5B1CE44123BF9EA200064B6A /* LegacyPoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CE43823BF9EA100064B6A /* LegacyPoll.swift */; };
-		5B1CE44223BF9EA200064B6A /* LegacyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CE43923BF9EA100064B6A /* LegacyItem.swift */; };
-		5B1CE44323BF9EA200064B6A /* LegacyStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CE43A23BF9EA100064B6A /* LegacyStory.swift */; };
-		5B1CE44523BF9EA200064B6A /* LegacyJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CE43C23BF9EA100064B6A /* LegacyJob.swift */; };
-		5B1CE44723BF9EA200064B6A /* LegacyPollOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CE43E23BF9EA200064B6A /* LegacyPollOption.swift */; };
 		5B1EF74A23EC1E0600D8A979 /* HackerNewsAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1EF74923EC1E0600D8A979 /* HackerNewsAPI */; };
-		5B331C1623CA3CBB0002938B /* StoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B331C1523CA3CBB0002938B /* StoryRowView.swift */; };
+		5B331C1623CA3CBB0002938B /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B331C1523CA3CBB0002938B /* ItemRowView.swift */; };
 		5B331C1B23CA4AE10002938B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B331C1A23CA4AE10002938B /* Colors.swift */; };
-		5B39472B23D9A52F0073F6E5 /* LegacyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B39472A23D9A52F0073F6E5 /* LegacyAction.swift */; };
 		5B44DE6E23D30A3A001CA13F /* AuthorPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DE6D23D30A3A001CA13F /* AuthorPopupViewController.swift */; };
 		5B44DE7023D498C4001CA13F /* EmphasizableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DE6F23D498C4001CA13F /* EmphasizableTextField.swift */; };
 		5B44DE7223D49A48001CA13F /* EmphasizableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DE7123D49A48001CA13F /* EmphasizableButton.swift */; };
-		5B44DE7E23D614D4001CA13F /* LegacyHackerNewsInteractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DE7D23D614D4001CA13F /* LegacyHackerNewsInteractionManager.swift */; };
 		5B51713223C0B1B50068E7CE /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B51713023C0B1B50068E7CE /* CommentsViewController.swift */; };
 		5B67493623C6B3C90062BDFF /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B67493523C6B3C90062BDFF /* ProgressView.swift */; };
-		5B76906023CBE88B00FD2516 /* StorySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76905F23CBE88B00FD2516 /* StorySearchView.swift */; };
+		5B76906023CBE88B00FD2516 /* ItemSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76905F23CBE88B00FD2516 /* ItemSearchView.swift */; };
 		5B796EBC23C086CE008173A5 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B796EBB23C086CE008173A5 /* SplitViewController.swift */; };
 		5BA8CBFF23C2CD3400E2500B /* DisclosureTrianglelessOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CBFE23C2CD3400E2500B /* DisclosureTrianglelessOutlineView.swift */; };
-		5BA8CC0523C3520000E2500B /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CC0423C3520000E2500B /* StoriesViewController.swift */; };
+		5BA8CC0523C3520000E2500B /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CC0423C3520000E2500B /* ItemsViewController.swift */; };
 		5BBDA6CB23D08D2A00300FB5 /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDA6CA23D08D2A00300FB5 /* SidebarViewController.swift */; };
-		5BBDA6DA23D0CECE00300FB5 /* SidebarHeaderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDA6D923D0CECE00300FB5 /* SidebarHeaderCellView.swift */; };
 		5BBDA6DC23D14D2900300FB5 /* SidebarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDA6DB23D14D2900300FB5 /* SidebarCellView.swift */; };
-		5BBDA6E023D1B7ED00300FB5 /* LegacyCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDA6DF23D1B7ED00300FB5 /* LegacyCategory.swift */; };
-		5BBDA6E223D1C17B00300FB5 /* LegacyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDA6E123D1C17B00300FB5 /* LegacyUser.swift */; };
 		5BC6D87223DB23DB000C85DA /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6D87123DB23DB000C85DA /* ActionView.swift */; };
 		5BC6D87423DB2441000C85DA /* ActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BC6D87323DB2441000C85DA /* ActionView.xib */; };
-		5BC6D87823DB3E59000C85DA /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6D87723DB3E59000C85DA /* ActionButton.swift */; };
 		5BDE252623EC74A600C89BA7 /* ListableItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDE252523EC74A600C89BA7 /* ListableItemCellView.swift */; };
 		5BDE252823ED6C8800C89BA7 /* CommentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDE252723ED6C8800C89BA7 /* CommentCellView.swift */; };
 		5BDE252B23EE84CA00C89BA7 /* Atributika in Frameworks */ = {isa = PBXBuildFile; productRef = 5BDE252A23EE84CA00C89BA7 /* Atributika */; };
@@ -54,34 +41,21 @@
 		5B1CE42D23BF9E6600064B6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B1CE42F23BF9E6700064B6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B1CE43023BF9E6700064B6A /* HackerNews.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HackerNews.entitlements; sourceTree = "<group>"; };
-		5B1CE43623BF9EA100064B6A /* LegacyComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegacyComment.swift; sourceTree = "<group>"; };
-		5B1CE43723BF9EA100064B6A /* LegacyHackerNewsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegacyHackerNewsAPI.swift; sourceTree = "<group>"; };
-		5B1CE43823BF9EA100064B6A /* LegacyPoll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegacyPoll.swift; sourceTree = "<group>"; };
-		5B1CE43923BF9EA100064B6A /* LegacyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegacyItem.swift; sourceTree = "<group>"; };
-		5B1CE43A23BF9EA100064B6A /* LegacyStory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegacyStory.swift; sourceTree = "<group>"; };
-		5B1CE43C23BF9EA100064B6A /* LegacyJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegacyJob.swift; sourceTree = "<group>"; };
-		5B1CE43E23BF9EA200064B6A /* LegacyPollOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegacyPollOption.swift; sourceTree = "<group>"; };
-		5B331C1523CA3CBB0002938B /* StoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRowView.swift; sourceTree = "<group>"; };
+		5B331C1523CA3CBB0002938B /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
 		5B331C1A23CA4AE10002938B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		5B39472A23D9A52F0073F6E5 /* LegacyAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyAction.swift; sourceTree = "<group>"; };
 		5B44DE6D23D30A3A001CA13F /* AuthorPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorPopupViewController.swift; sourceTree = "<group>"; };
 		5B44DE6F23D498C4001CA13F /* EmphasizableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmphasizableTextField.swift; sourceTree = "<group>"; };
 		5B44DE7123D49A48001CA13F /* EmphasizableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmphasizableButton.swift; sourceTree = "<group>"; };
-		5B44DE7D23D614D4001CA13F /* LegacyHackerNewsInteractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyHackerNewsInteractionManager.swift; sourceTree = "<group>"; };
 		5B51713023C0B1B50068E7CE /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		5B67493523C6B3C90062BDFF /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
-		5B76905F23CBE88B00FD2516 /* StorySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySearchView.swift; sourceTree = "<group>"; };
+		5B76905F23CBE88B00FD2516 /* ItemSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearchView.swift; sourceTree = "<group>"; };
 		5B796EBB23C086CE008173A5 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		5BA8CBFE23C2CD3400E2500B /* DisclosureTrianglelessOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureTrianglelessOutlineView.swift; sourceTree = "<group>"; };
-		5BA8CC0423C3520000E2500B /* StoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
+		5BA8CC0423C3520000E2500B /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		5BBDA6CA23D08D2A00300FB5 /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
-		5BBDA6D923D0CECE00300FB5 /* SidebarHeaderCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarHeaderCellView.swift; sourceTree = "<group>"; };
 		5BBDA6DB23D14D2900300FB5 /* SidebarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarCellView.swift; sourceTree = "<group>"; };
-		5BBDA6DF23D1B7ED00300FB5 /* LegacyCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyCategory.swift; sourceTree = "<group>"; };
-		5BBDA6E123D1C17B00300FB5 /* LegacyUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyUser.swift; sourceTree = "<group>"; };
 		5BC6D87123DB23DB000C85DA /* ActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
 		5BC6D87323DB2441000C85DA /* ActionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionView.xib; sourceTree = "<group>"; };
-		5BC6D87723DB3E59000C85DA /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		5BDE252523EC74A600C89BA7 /* ListableItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListableItemCellView.swift; sourceTree = "<group>"; };
 		5BDE252723ED6C8800C89BA7 /* CommentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellView.swift; sourceTree = "<group>"; };
 		5BDE252C23EEB12C00C89BA7 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -156,15 +130,13 @@
 			children = (
 				5B44DE6F23D498C4001CA13F /* EmphasizableTextField.swift */,
 				5B44DE7123D49A48001CA13F /* EmphasizableButton.swift */,
-				5B76905F23CBE88B00FD2516 /* StorySearchView.swift */,
+				5B76905F23CBE88B00FD2516 /* ItemSearchView.swift */,
 				5BDE252523EC74A600C89BA7 /* ListableItemCellView.swift */,
-				5B331C1523CA3CBB0002938B /* StoryRowView.swift */,
+				5B331C1523CA3CBB0002938B /* ItemRowView.swift */,
 				5BDE252723ED6C8800C89BA7 /* CommentCellView.swift */,
-				5BBDA6D923D0CECE00300FB5 /* SidebarHeaderCellView.swift */,
 				5BBDA6DB23D14D2900300FB5 /* SidebarCellView.swift */,
 				5BA8CBFE23C2CD3400E2500B /* DisclosureTrianglelessOutlineView.swift */,
 				5BE425B323CF629000BEA641 /* LoadableView.swift */,
-				5BC6D87723DB3E59000C85DA /* ActionButton.swift */,
 				5BC6D87123DB23DB000C85DA /* ActionView.swift */,
 				5BC6D87323DB2441000C85DA /* ActionView.xib */,
 				5B67493523C6B3C90062BDFF /* ProgressView.swift */,
@@ -178,7 +150,7 @@
 			children = (
 				5B796EBB23C086CE008173A5 /* SplitViewController.swift */,
 				5BBDA6CA23D08D2A00300FB5 /* SidebarViewController.swift */,
-				5BA8CC0423C3520000E2500B /* StoriesViewController.swift */,
+				5BA8CC0423C3520000E2500B /* ItemsViewController.swift */,
 				5B51713023C0B1B50068E7CE /* CommentsViewController.swift */,
 				5B44DE6D23D30A3A001CA13F /* AuthorPopupViewController.swift */,
 			);
@@ -188,17 +160,6 @@
 		5B51712E23C0A0800068E7CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5B1CE43723BF9EA100064B6A /* LegacyHackerNewsAPI.swift */,
-				5B44DE7D23D614D4001CA13F /* LegacyHackerNewsInteractionManager.swift */,
-				5BBDA6DF23D1B7ED00300FB5 /* LegacyCategory.swift */,
-				5B39472A23D9A52F0073F6E5 /* LegacyAction.swift */,
-				5B1CE43923BF9EA100064B6A /* LegacyItem.swift */,
-				5BBDA6E123D1C17B00300FB5 /* LegacyUser.swift */,
-				5B1CE43C23BF9EA100064B6A /* LegacyJob.swift */,
-				5B1CE43A23BF9EA100064B6A /* LegacyStory.swift */,
-				5B1CE43623BF9EA100064B6A /* LegacyComment.swift */,
-				5B1CE43823BF9EA100064B6A /* LegacyPoll.swift */,
-				5B1CE43E23BF9EA200064B6A /* LegacyPollOption.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -283,38 +244,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BC6D87823DB3E59000C85DA /* ActionButton.swift in Sources */,
 				5BC6D87223DB23DB000C85DA /* ActionView.swift in Sources */,
-				5BA8CC0523C3520000E2500B /* StoriesViewController.swift in Sources */,
+				5BA8CC0523C3520000E2500B /* ItemsViewController.swift in Sources */,
 				5B331C1B23CA4AE10002938B /* Colors.swift in Sources */,
-				5B76906023CBE88B00FD2516 /* StorySearchView.swift in Sources */,
+				5B76906023CBE88B00FD2516 /* ItemSearchView.swift in Sources */,
 				5B67493623C6B3C90062BDFF /* ProgressView.swift in Sources */,
 				5B796EBC23C086CE008173A5 /* SplitViewController.swift in Sources */,
-				5B1CE44323BF9EA200064B6A /* LegacyStory.swift in Sources */,
-				5B1CE44123BF9EA200064B6A /* LegacyPoll.swift in Sources */,
-				5B1CE44723BF9EA200064B6A /* LegacyPollOption.swift in Sources */,
 				5B51713223C0B1B50068E7CE /* CommentsViewController.swift in Sources */,
-				5B44DE7E23D614D4001CA13F /* LegacyHackerNewsInteractionManager.swift in Sources */,
 				5BA8CBFF23C2CD3400E2500B /* DisclosureTrianglelessOutlineView.swift in Sources */,
 				5BDE252623EC74A600C89BA7 /* ListableItemCellView.swift in Sources */,
 				5BE425B423CF629000BEA641 /* LoadableView.swift in Sources */,
 				5BDE252823ED6C8800C89BA7 /* CommentCellView.swift in Sources */,
 				5BBDA6CB23D08D2A00300FB5 /* SidebarViewController.swift in Sources */,
-				5BBDA6DA23D0CECE00300FB5 /* SidebarHeaderCellView.swift in Sources */,
 				5BDE252D23EEB12C00C89BA7 /* Fonts.swift in Sources */,
-				5B39472B23D9A52F0073F6E5 /* LegacyAction.swift in Sources */,
 				5B44DE6E23D30A3A001CA13F /* AuthorPopupViewController.swift in Sources */,
-				5B1CE43F23BF9EA200064B6A /* LegacyComment.swift in Sources */,
-				5B1CE44523BF9EA200064B6A /* LegacyJob.swift in Sources */,
 				5B1CE42723BF9E6300064B6A /* AppDelegate.swift in Sources */,
 				5B44DE7223D49A48001CA13F /* EmphasizableButton.swift in Sources */,
-				5B1CE44223BF9EA200064B6A /* LegacyItem.swift in Sources */,
-				5BBDA6E223D1C17B00300FB5 /* LegacyUser.swift in Sources */,
-				5B1CE44023BF9EA200064B6A /* LegacyHackerNewsAPI.swift in Sources */,
-				5B331C1623CA3CBB0002938B /* StoryRowView.swift in Sources */,
+				5B331C1623CA3CBB0002938B /* ItemRowView.swift in Sources */,
 				5BBDA6DC23D14D2900300FB5 /* SidebarCellView.swift in Sources */,
 				5B44DE7023D498C4001CA13F /* EmphasizableTextField.swift in Sources */,
-				5BBDA6E023D1B7ED00300FB5 /* LegacyCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

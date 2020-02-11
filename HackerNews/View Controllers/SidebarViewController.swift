@@ -1,5 +1,6 @@
 
 import Cocoa
+import HackerNewsAPI
 
 class SidebarViewController: NSViewController {
 
@@ -21,26 +22,13 @@ class SidebarViewController: NSViewController {
     }
 }
 
-// MARK: - SidebarHeaderCellViewDelegate
-
-extension SidebarViewController: SidebarHeaderCellViewDelegate {
-
-    func toggle(header: String) {
-        if sidebarOutlineView.isItemExpanded(header) {
-            sidebarOutlineView.collapseItem(header)
-        } else {
-            sidebarOutlineView.expandItem(header)
-        }
-    }
-}
-
 // MARK: - NSOutlineViewDataSource
 
 extension SidebarViewController: NSOutlineViewDataSource {
 
     // MARK: - Static Variables
 
-    static let sidebarItems: [LegacyCategory] = [.topStories, .newStories, .bestStories, .askStories, .showStories, .jobStories]
+    static let sidebarItems: [ItemListCategory] = [.top, .new, .best, .ask, .show, .shownew, .job]
 
     // MARK: - DataSource Methods
 
@@ -70,20 +58,22 @@ extension SidebarViewController: NSOutlineViewDataSource {
     func outlineView(_ outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: Any?) -> Any? {
         if item is String {
             return item
-        } else if let item = item as? LegacyCategory {
+        } else if let item = item as? ItemListCategory {
             switch item {
-            case .topStories:
-                return "Top Stories"
-            case .newStories:
-                return "New Stories"
-            case .bestStories:
-                return "Best Stories"
-            case .askStories:
-                return "Ask Stories"
-            case .showStories:
-                return "Show Stories"
-            case .jobStories:
-                return "Job Stories"
+            case .top:
+                return "Top Items"
+            case .new:
+                return "New Items"
+            case .best:
+                return "Best Items"
+            case .ask:
+                return "Ask Items"
+            case .show:
+                return "Show Items"
+            case .shownew:
+                return "New Show Items"
+            case .job:
+                return "Job Items"
             }
         } else {
             return nil
@@ -104,16 +94,16 @@ extension SidebarViewController: NSOutlineViewDelegate {
 
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         if item as? String == "Stories" {
-            let sidebarHeaderCell = outlineView.makeView(withIdentifier: .sidebarHeaderCell, owner: self) as! SidebarHeaderCellView
-            sidebarHeaderCell.delegate = self
-            return sidebarHeaderCell
+            return outlineView.makeView(withIdentifier: .sidebarHeaderCell, owner: self)
         }
         return outlineView.makeView(withIdentifier: .sidebarDataCell, owner: self)
     }
 
-    func outlineViewSelectionIsChanging(_ notification: Notification) {
-        let selectedRow = sidebarOutlineView.selectedRow
-        sidebarOutlineView.rowView(atRow: selectedRow, makeIfNecessary: false)?.isEmphasized = false
+    func outlineView(_ outlineView: NSOutlineView, isGroupItem item: Any) -> Bool {
+        if item as? String == "Stories" {
+            return true
+        }
+        return false
     }
 
     func outlineViewSelectionDidChange(_ notification: Notification) {

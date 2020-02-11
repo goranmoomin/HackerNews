@@ -21,13 +21,6 @@ class CommentsViewController: NSViewController {
 
     var currentStory: Story?
 
-    // Always in sync with it's parent view controller
-    var currentLegacyStory: LegacyStory? {
-        didSet {
-            loadAndDisplayComments()
-        }
-    }
-
     var commentLoadProgress: Progress? {
         didSet {
             progressView.progress = commentLoadProgress

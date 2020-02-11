@@ -9,6 +9,8 @@
             <connections>
                 <outlet property="actionsStackView" destination="ZTJ-Hi-4GR" id="jI6-S4-0Zb"/>
                 <outlet property="downvoteButton" destination="1uG-sI-dLU" id="QPQ-sN-8sF"/>
+                <outlet property="undownButton" destination="ijW-GL-Q86" id="cI6-1F-Pzp"/>
+                <outlet property="unvoteButton" destination="hr5-yI-WIB" id="K0A-1t-65O"/>
                 <outlet property="upvoteButton" destination="sV0-2H-Cey" id="eyX-5R-9Ef"/>
             </connections>
         </customObject>
@@ -21,7 +23,7 @@
                 <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZTJ-Hi-4GR">
                     <rect key="frame" x="0.0" y="0.0" width="100" height="16"/>
                     <subviews>
-                        <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sV0-2H-Cey" customClass="ActionButton" customModule="HackerNews" customModuleProvider="target">
+                        <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sV0-2H-Cey">
                             <rect key="frame" x="0.0" y="0.0" width="19" height="16"/>
                             <buttonCell key="cell" type="bevel" title="􀁦" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="EKg-cp-UJA">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -31,7 +33,7 @@
                                 <action selector="executeAction:" target="-2" id="fnS-RB-Vk5"/>
                             </connections>
                         </button>
-                        <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1uG-sI-dLU" customClass="ActionButton" customModule="HackerNews" customModuleProvider="target">
+                        <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1uG-sI-dLU">
                             <rect key="frame" x="0.0" y="0.0" width="19" height="16"/>
                             <buttonCell key="cell" type="bevel" title="􀁨" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="ifl-DG-Y5n">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -41,7 +43,7 @@
                                 <action selector="executeAction:" target="-2" id="WFx-cl-R3h"/>
                             </connections>
                         </button>
-                        <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hr5-yI-WIB" customClass="ActionButton" customModule="HackerNews" customModuleProvider="target">
+                        <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hr5-yI-WIB">
                             <rect key="frame" x="0.0" y="0.0" width="19" height="16"/>
                             <buttonCell key="cell" type="bevel" title="􀁧" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="uVA-Nd-j1E">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -51,7 +53,7 @@
                                 <action selector="executeAction:" target="-2" id="3f4-Pg-aHM"/>
                             </connections>
                         </button>
-                        <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ijW-GL-Q86" customClass="ActionButton" customModule="HackerNews" customModuleProvider="target">
+                        <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ijW-GL-Q86">
                             <rect key="frame" x="0.0" y="0.0" width="19" height="16"/>
                             <buttonCell key="cell" type="bevel" title="􀁩" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="f3V-ez-Fb5">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

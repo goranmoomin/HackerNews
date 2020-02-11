@@ -6,6 +6,7 @@ class ListableItemCellView: NSTableCellView {
 
     // MARK: - IBOutlets
 
+    @IBOutlet var authorIcon: NSTextField!
     @IBOutlet var authorButton: NSButton!
     @IBOutlet var titleLabel: NSTextField!
     @IBOutlet var scoreLabel: NSTextField!

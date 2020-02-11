@@ -1,6 +1,7 @@
 
 import Cocoa
 import PromiseKit
+import HackerNewsAPI
 
 class AuthorPopupViewController: NSViewController {
 
@@ -19,7 +20,7 @@ class AuthorPopupViewController: NSViewController {
                 return
             }
             firstly {
-                LegacyHackerNewsAPI.user(named: userName)
+                HackerNewsAPI.user(withName: userName)
             }.done { user in
                 self.user = user
             }.catch { error in
@@ -28,7 +29,7 @@ class AuthorPopupViewController: NSViewController {
         }
     }
 
-    var user: LegacyUser? {
+    var user: User? {
         didSet {
             updateInterface()
         }
@@ -47,13 +48,6 @@ class AuthorPopupViewController: NSViewController {
         return createdDate
     }
 
-    func formattedSelfDescription() -> String {
-        let descriptionData = user?.selfDescription?.data(using: .utf16) ?? Data()
-        let attributedString = NSAttributedString(html: descriptionData, documentAttributes: nil)
-        let selfDescription = attributedString?.string.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        return selfDescription
-    }
-
     func updateInterface() {
         guard let user = user else {
             view.isHidden = true
@@ -62,7 +56,7 @@ class AuthorPopupViewController: NSViewController {
         userNameLabel.stringValue = user.name
         karmaLabel.stringValue = String(user.karma)
         createdDateLabel.stringValue = formattedCreatedDate()
-        selfDescriptionLabel.stringValue = formattedSelfDescription()
+        selfDescriptionLabel.stringValue = user.description
         view.isHidden = false
     }
 

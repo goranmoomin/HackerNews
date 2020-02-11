@@ -3,10 +3,6 @@ import Cocoa
 
 class SidebarCellView: NSTableCellView {
 
-    // MARK: - IBOutlets
-
-    @IBOutlet var categoryLabel: NSTextField!
-
     // MARK: - Properties
 
     override var objectValue: Any? {
@@ -25,6 +21,6 @@ class SidebarCellView: NSTableCellView {
         guard let category = category else {
             return
         }
-        categoryLabel.stringValue = category
+        textField?.stringValue = category
     }
 }

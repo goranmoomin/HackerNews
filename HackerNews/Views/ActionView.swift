@@ -1,12 +1,13 @@
 
 import Cocoa
 import PromiseKit
+import HackerNewsAPI
 
 class ActionView: NSView, LoadableView {
 
     // MARK: - Properties
 
-    var actions: Set<LegacyAction> = [] {
+    var actions: Set<Action> = [] {
         didSet {
             updateInterface()
         }
@@ -15,20 +16,15 @@ class ActionView: NSView, LoadableView {
     // MARK: - IBOutlets
 
     @IBOutlet var actionsStackView: NSStackView!
-    @IBOutlet var upvoteButton: ActionButton!
-    @IBOutlet var downvoteButton: ActionButton!
+    @IBOutlet var upvoteButton: NSButton!
+    @IBOutlet var downvoteButton: NSButton!
+    @IBOutlet var unvoteButton: NSButton!
+    @IBOutlet var undownButton: NSButton!
 
     // MARK: - IBActions
 
-    @IBAction func executeAction(_ sender: ActionButton) {
-        guard let action = sender.representedAction else {
-            return
-        }
-        firstly {
-            LegacyHackerNewsAPI.interactionManager.execute(action)
-        }.catch { error in
-            print(error)
-        }
+    @IBAction func executeAction(_ sender: NSButton) {
+        // TODO
     }
 
     // MARK: - Methods
@@ -36,14 +32,18 @@ class ActionView: NSView, LoadableView {
     func updateInterface() {
         upvoteButton.isHidden = true
         downvoteButton.isHidden = true
+        unvoteButton.isHidden = true
+        undownButton.isHidden = true
         for action in actions {
-            switch action {
+            switch action.kind {
             case .upvote:
                 upvoteButton.isHidden = false
-                upvoteButton.representedAction = action
             case .downvote:
                 downvoteButton.isHidden = false
-                downvoteButton.representedAction = action
+            case .unvote:
+                unvoteButton.isHidden = false
+            case .undown:
+                undownButton.isHidden = false
             }
         }
     }

@@ -3,14 +3,14 @@ import Cocoa
 import PromiseKit
 import HackerNewsAPI
 
-class StoriesViewController: NSViewController {
+class ItemsViewController: NSViewController {
 
     // MARK: - IBOutlets
 
-    @IBOutlet var storyScrollView: NSScrollView!
-    @IBOutlet var storyTableView: NSTableView!
+    @IBOutlet var itemScrollView: NSScrollView!
+    @IBOutlet var itemTableView: NSTableView!
     @IBOutlet var progressView: ProgressView!
-    @IBOutlet var storySearchView: StorySearchView!
+    @IBOutlet var storySearchView: ItemSearchView!
 
     // MARK: - Parent View Controller
 
@@ -22,19 +22,13 @@ class StoriesViewController: NSViewController {
 
     var items: [ListableItem] = [] {
         didSet {
-            storyTableView.reloadData()
+            itemTableView.reloadData()
         }
     }
 
-    var stories: [LegacyStoryable] = [] {
+    var currentCategory: ItemListCategory = .top {
         didSet {
-            storyTableView.reloadData()
-        }
-    }
-
-    var currentCategory: LegacyCategory = .topStories {
-        didSet {
-            loadAndDisplayStories()
+            loadAndDisplayItems()
         }
     }
 
@@ -44,15 +38,6 @@ class StoriesViewController: NSViewController {
         }
         set {
             splitViewController.currentItem = newValue
-        }
-    }
-
-    var selectedStory: LegacyStory? {
-        get {
-            splitViewController.currentStory
-        }
-        set {
-            splitViewController.currentStory = newValue
         }
     }
 
@@ -67,67 +52,36 @@ class StoriesViewController: NSViewController {
 
     // MARK: - Methods
 
-    func loadAndDisplayStories(count: Int = 10) {
-        stories = []
-        self.storyTableView.isHidden = true
-
-        firstly {
-            HackerNewsAPI.topItems()
-        }.done { items in
-            self.items = items
-        }.catch { error in
-            print(error)
-        }
+    func loadAndDisplayItems(count: Int = 10) {
+        items = []
+        itemTableView.isHidden = true
 
         let progress = Progress(totalUnitCount: 100)
         storyLoadProgress = progress
         progress.becomeCurrent(withPendingUnitCount: 100)
         firstly {
-            LegacyHackerNewsAPI.stories(from: currentCategory, count: count)
-        }.done { stories in
+            HackerNewsAPI.items(from: currentCategory)
+        }.done { items in
             guard !progress.isCancelled else {
                 return
             }
             self.storyLoadProgress = nil
-            self.stories = stories
-            self.storyTableView.isHidden = false
+            self.items = items
+            self.itemTableView.isHidden = false
         }.catch { error in
             print(error)
         }
         progress.resignCurrent()
     }
 
-    func searchAndDisplayStories(matching query: String) {
-        stories = []
-        self.storyTableView.isHidden = true
-
-        let progress = Progress(totalUnitCount: 100)
-        storyLoadProgress = progress
-        progress.becomeCurrent(withPendingUnitCount: 100)
-        firstly {
-            LegacyHackerNewsAPI.stories(matching: query)
-        }.done { stories in
-            guard !progress.isCancelled else {
-                return
-            }
-            self.storyLoadProgress = nil
-            self.stories = stories
-            self.storyTableView.isHidden = false
-        }.catch { error in
-            print(error)
-        }
-        progress.resignCurrent()
+    func searchAndDisplayItems(matching query: String) {
+        // TODO
     }
 
     func initializeInterface() {
         storySearchView.delegate = self
-        progressView.labelText = "Loading Stories..."
-        storyScrollView.automaticallyAdjustsContentInsets = false
-        firstly {
-            LegacyHackerNewsAPI.interactionManager.login(toAccount: "pcr910303", withPassword: "Josungbin3072810")
-        }.catch { error in
-            print(error)
-        }
+        progressView.labelText = "Loading Items..."
+        itemScrollView.automaticallyAdjustsContentInsets = false
     }
 
     func updateContentInsets() {
@@ -135,7 +89,7 @@ class StoriesViewController: NSViewController {
         let contentLayoutRect = window.contentLayoutRect
         let storySearchViewHeight = storySearchView.frame.height
         let topInset = (window.contentView!.frame.size.height - contentLayoutRect.height) + storySearchViewHeight
-        storyScrollView.contentInsets = NSEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0)
+        itemScrollView.contentInsets = NSEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0)
     }
 
     // MARK: - Lifecycle Methods
@@ -143,7 +97,7 @@ class StoriesViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeInterface()
-        loadAndDisplayStories()
+        loadAndDisplayItems()
     }
 
     var contentLayoutRectObservation: NSKeyValueObservation?
@@ -167,22 +121,22 @@ class StoriesViewController: NSViewController {
     }
 }
 
-// MARK: - StorySearchViewDelegate
+// MARK: - ItemSearchViewDelegate
 
-extension StoriesViewController: StorySearchViewDelegate {
+extension ItemsViewController: ItemSearchViewDelegate {
 
-    func searchStories(matching query: String) {
-        searchAndDisplayStories(matching: query)
+    func searchItems(matching query: String) {
+        searchAndDisplayItems(matching: query)
     }
 
-    func reloadStories(count: Int) {
-        loadAndDisplayStories(count: count)
+    func reloadItems(count: Int) {
+        loadAndDisplayItems(count: count)
     }
 }
 
 // MARK: - NSTableViewDataSource
 
-extension StoriesViewController: NSTableViewDataSource {
+extension ItemsViewController: NSTableViewDataSource {
 
     func numberOfRows(in tableView: NSTableView) -> Int {
         items.count
@@ -195,7 +149,7 @@ extension StoriesViewController: NSTableViewDataSource {
 
 // MARK: - NSTableViewDelegate
 
-extension StoriesViewController: NSTableViewDelegate {
+extension ItemsViewController: NSTableViewDelegate {
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         // objectValue is automatically populated
@@ -204,18 +158,10 @@ extension StoriesViewController: NSTableViewDelegate {
     }
 
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-        tableView.makeView(withIdentifier: .storyRowView, owner: self) as? StoryRowView
+        tableView.makeView(withIdentifier: .itemRowView, owner: self) as? ItemRowView
     }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
-        selectedItem = items[storyTableView.selectedRow]
-        selectedStory = stories[storyTableView.selectedRow] as? LegacyStory
+        selectedItem = items[itemTableView.selectedRow]
     }
-}
-
-// MARK: - NSUserInterfaceItemIdentifier
-
-extension NSUserInterfaceItemIdentifier {
-
-    static let storyRowView = NSUserInterfaceItemIdentifier("StoryRowView")
 }

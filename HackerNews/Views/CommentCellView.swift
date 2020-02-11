@@ -38,6 +38,7 @@ class CommentCellView: NSTableCellView {
             .font(.systemFont(ofSize: systemFontSize))
             .foregroundColor(.textColor)
             .paragraphStyle(paragraphStyle)
+        let a = Style("a")
         let i = Style("i")
             .font(.italicSystemFont(ofSize: systemFontSize))
         let pre = Style("pre")
@@ -47,13 +48,13 @@ class CommentCellView: NSTableCellView {
             .brTransformer
         ]
         func tuner(style: Style, tag: Tag) -> Style {
-            if tag.name == "a", let href = tag.attributes["href"], let url = URL(string: href) {
+            if tag.name == a.name, let href = tag.attributes["href"], let url = URL(string: href) {
                 return style.link(url)
             }
             return style
         }
         textLabel.attributedStringValue = comment.text
-            .style(tags: i, pre, transformers: transformers, tuner: tuner(style:tag:))
+            .style(tags: a, i, pre, transformers: transformers, tuner: tuner(style:tag:))
             .styleAll(all).attributedString
     }
 
