@@ -6,11 +6,14 @@ class ListableItemCellView: NSTableCellView {
 
     // MARK: - IBOutlets
 
-    @IBOutlet var authorIcon: NSTextField!
+    @IBOutlet var authorGroup: NSStackView!
     @IBOutlet var authorButton: NSButton!
     @IBOutlet var titleLabel: NSTextField!
+    @IBOutlet var scoreGroup: NSStackView!
     @IBOutlet var scoreLabel: NSTextField!
+    @IBOutlet var commentCountGroup: NSStackView!
     @IBOutlet var commentCountLabel: NSTextField!
+    @IBOutlet var ageGroup: NSStackView!
     @IBOutlet var ageLabel: NSTextField!
     @IBOutlet var urlButton: NSButton!
 
@@ -33,14 +36,25 @@ class ListableItemCellView: NSTableCellView {
         guard let item = item else {
             return
         }
-        authorButton.title = item.authorName ?? ""
+        if let authorName = item.authorName {
+            authorButton.title = authorName
+            authorGroup.isHidden = false
+        } else {
+            authorGroup.isHidden = true
+        }
         titleLabel.stringValue = item.title
-        scoreLabel.stringValue = String(item.score ?? 0)
+        if let score = item.score {
+            scoreLabel.stringValue = String(score)
+            scoreGroup.isHidden = false
+        } else {
+            scoreGroup.isHidden = true
+        }
         ageLabel.stringValue = item.ageDescription
         if let commentCount = item.commentCount {
             commentCountLabel.stringValue = String(commentCount)
+            commentCountGroup.isHidden = false
         } else {
-            commentCountLabel.stringValue = ""
+            commentCountGroup.isHidden = true
         }
     }
 }
