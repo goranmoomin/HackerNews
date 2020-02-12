@@ -896,21 +896,34 @@
                                                             <rect key="frame" x="1" y="83" width="297" height="80"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="E9j-Oc-7hH" customClass="EmphasizableTextField" customModule="HackerNews" customModuleProvider="target">
-                                                                    <rect key="frame" x="18" y="56" width="261" height="16"/>
-                                                                    <textFieldCell key="cell" title="Let the Compiler Do the Work" id="wnn-p4-TkE">
-                                                                        <font key="font" metaFont="systemBold"/>
-                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                    </textFieldCell>
-                                                                </textField>
-                                                                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="TuI-7h-2Oo">
-                                                                    <rect key="frame" x="20" y="29" width="73" height="19"/>
-                                                                    <buttonCell key="cell" type="roundRect" title="cliffle.com" bezelStyle="roundedRect" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O4C-rY-0C4">
-                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                        <font key="font" metaFont="label" size="12"/>
-                                                                    </buttonCell>
-                                                                </button>
+                                                                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7TP-do-vA6">
+                                                                    <rect key="frame" x="20" y="30" width="190" height="42"/>
+                                                                    <subviews>
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="E9j-Oc-7hH" customClass="EmphasizableTextField" customModule="HackerNews" customModuleProvider="target">
+                                                                            <rect key="frame" x="-2" y="26" width="194" height="16"/>
+                                                                            <textFieldCell key="cell" title="Let the Compiler Do the Work" id="wnn-p4-TkE">
+                                                                                <font key="font" metaFont="systemBold"/>
+                                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                            </textFieldCell>
+                                                                        </textField>
+                                                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="TuI-7h-2Oo">
+                                                                            <rect key="frame" x="0.0" y="-1" width="73" height="19"/>
+                                                                            <buttonCell key="cell" type="roundRect" title="cliffle.com" bezelStyle="roundedRect" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O4C-rY-0C4">
+                                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                                <font key="font" metaFont="label" size="12"/>
+                                                                            </buttonCell>
+                                                                        </button>
+                                                                    </subviews>
+                                                                    <visibilityPriorities>
+                                                                        <integer value="1000"/>
+                                                                        <integer value="1000"/>
+                                                                    </visibilityPriorities>
+                                                                    <customSpacing>
+                                                                        <real value="3.4028234663852886e+38"/>
+                                                                        <real value="3.4028234663852886e+38"/>
+                                                                    </customSpacing>
+                                                                </stackView>
                                                                 <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="idJ-Y0-i6C">
                                                                     <rect key="frame" x="8" y="8" width="229" height="14"/>
                                                                     <subviews>
@@ -1045,15 +1058,12 @@
                                                                 </stackView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="TuI-7h-2Oo" firstAttribute="top" secondItem="E9j-Oc-7hH" secondAttribute="bottom" constant="8" symbolic="YES" id="0y6-7t-ZJ7"/>
                                                                 <constraint firstItem="idJ-Y0-i6C" firstAttribute="leading" secondItem="DRU-mv-USN" secondAttribute="leading" constant="8" id="Ada-eC-fFQ"/>
-                                                                <constraint firstItem="E9j-Oc-7hH" firstAttribute="top" secondItem="DRU-mv-USN" secondAttribute="top" constant="8" id="Csb-C0-eQe"/>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TuI-7h-2Oo" secondAttribute="trailing" constant="20" symbolic="YES" id="E2a-Nc-9zD"/>
-                                                                <constraint firstItem="idJ-Y0-i6C" firstAttribute="top" secondItem="TuI-7h-2Oo" secondAttribute="bottom" constant="8" symbolic="YES" id="FHe-j2-OOw"/>
+                                                                <constraint firstItem="7TP-do-vA6" firstAttribute="top" secondItem="DRU-mv-USN" secondAttribute="top" constant="8" id="Egg-CA-UAn"/>
+                                                                <constraint firstItem="7TP-do-vA6" firstAttribute="leading" secondItem="DRU-mv-USN" secondAttribute="leading" constant="20" symbolic="YES" id="JR4-MK-YkP"/>
                                                                 <constraint firstAttribute="bottom" secondItem="idJ-Y0-i6C" secondAttribute="bottom" constant="8" id="LOX-zc-qSM"/>
-                                                                <constraint firstItem="TuI-7h-2Oo" firstAttribute="leading" secondItem="DRU-mv-USN" secondAttribute="leading" constant="20" symbolic="YES" id="lrP-6W-xIb"/>
-                                                                <constraint firstAttribute="trailing" secondItem="E9j-Oc-7hH" secondAttribute="trailing" constant="20" symbolic="YES" id="qk5-XI-RgP"/>
-                                                                <constraint firstItem="E9j-Oc-7hH" firstAttribute="leading" secondItem="DRU-mv-USN" secondAttribute="leading" constant="20" symbolic="YES" id="thO-MQ-pgi"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7TP-do-vA6" secondAttribute="trailing" constant="20" symbolic="YES" id="prK-58-BRq"/>
+                                                                <constraint firstItem="idJ-Y0-i6C" firstAttribute="top" secondItem="7TP-do-vA6" secondAttribute="bottom" constant="8" symbolic="YES" id="yPD-n3-H9J"/>
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="ageGroup" destination="iUO-rG-YbL" id="MJ6-9J-zbb"/>
@@ -1338,13 +1348,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="768"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="136" horizontalPageScroll="10" verticalLineScroll="136" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO2-Zo-Y6o">
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="138" horizontalPageScroll="10" verticalLineScroll="138" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO2-Zo-Y6o">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="768"/>
                                 <clipView key="contentView" id="66g-Cr-MgD">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="768"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" multipleSelection="NO" autosaveColumns="NO" rowHeight="134" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" indentationPerLevel="8" outlineTableColumn="Cg0-Az-X4S" id="OeF-ja-08f" customClass="DisclosureTrianglelessOutlineView" customModule="HackerNews" customModuleProvider="target">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" multipleSelection="NO" autosaveColumns="NO" rowHeight="136" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" indentationPerLevel="8" outlineTableColumn="Cg0-Az-X4S" id="OeF-ja-08f" customClass="DisclosureTrianglelessOutlineView" customModule="HackerNews" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="768"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>

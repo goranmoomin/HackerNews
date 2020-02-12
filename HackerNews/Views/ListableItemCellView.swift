@@ -43,6 +43,12 @@ class ListableItemCellView: NSTableCellView {
             authorGroup.isHidden = true
         }
         titleLabel.stringValue = item.title
+        if let url = item.url, let host = url.host {
+            urlButton.title = host
+            urlButton.isHidden = false
+        } else {
+            urlButton.isHidden = true
+        }
         if let score = item.score {
             scoreLabel.stringValue = String(score)
             scoreGroup.isHidden = false
