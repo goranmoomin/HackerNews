@@ -13,13 +13,13 @@ class CommentsViewController: NSViewController {
     // MARK: - Properties
 
     // Always in sync with it's parent view controller
-    var currentItem: ListableItem? {
+    var currentListableItem: ListableItem? {
         didSet {
             loadAndDisplayComments()
         }
     }
 
-    var currentStory: Story?
+    var currentTopLevelItem: TopLevelItem?
 
     var commentLoadProgress: Progress? {
         didSet {
@@ -30,7 +30,7 @@ class CommentsViewController: NSViewController {
     // MARK: - Methods
 
     func loadAndDisplayComments() {
-        guard let currentItem = currentItem else {
+        guard let currentListableItem = currentListableItem else {
             return
         }
         commentOutlineView.reloadData()
@@ -41,10 +41,10 @@ class CommentsViewController: NSViewController {
         progress.becomeCurrent(withPendingUnitCount: 100)
 
         firstly {
-            HackerNewsAPI.story(withID: currentItem.id)
-        }.done { story in
+            HackerNewsAPI.topLevelItem(from: currentListableItem)
+        }.done { topLevelItem in
             self.commentLoadProgress = nil
-            self.currentStory = story
+            self.currentTopLevelItem = topLevelItem
             self.commentOutlineView.reloadData()
             self.commentOutlineView.expandItem(nil, expandChildren: true)
             self.commentOutlineView.isHidden = false
@@ -71,8 +71,11 @@ class CommentsViewController: NSViewController {
 extension CommentsViewController: NSOutlineViewDataSource {
 
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
+        guard case .story(let currentStory) = currentTopLevelItem else {
+            fatalError()
+        }
         guard let comment = item as? Comment else {
-            return currentStory!.comments[index]
+            return currentStory.comments[index]
         }
         return comment.comments[index]
     }
@@ -85,8 +88,11 @@ extension CommentsViewController: NSOutlineViewDataSource {
     }
 
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
+        guard case .story(let currentStory) = currentTopLevelItem else {
+            return 0
+        }
         guard let comment = item as? Comment else {
-            return currentStory?.comments.count ?? 0
+            return currentStory.comments.count
         }
         return comment.comments.count
     }

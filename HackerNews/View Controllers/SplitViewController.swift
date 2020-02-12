@@ -28,9 +28,9 @@ class SplitViewController: NSSplitViewController {
     }
 
     // Always in sync with it's children view controllers
-    var currentItem: ListableItem? {
+    var currentListableItem: ListableItem? {
         didSet {
-            commentsViewController.currentItem = currentItem
+            commentsViewController.currentListableItem = currentListableItem
         }
     }
 

@@ -34,10 +34,10 @@ class ItemsViewController: NSViewController {
 
     var selectedItem: ListableItem? {
         get {
-            splitViewController.currentItem
+            splitViewController.currentListableItem
         }
         set {
-            splitViewController.currentItem = newValue
+            splitViewController.currentListableItem = newValue
         }
     }
 
