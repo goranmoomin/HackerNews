@@ -121,6 +121,18 @@ class ItemsViewController: NSViewController {
     }
 }
 
+// MARK: - ListableItemCellViewDelegate
+
+extension ItemsViewController: ListableItemCellViewDelegate {
+
+    func open(item: ListableItem) {
+        guard let url = item.url else {
+            return
+        }
+        NSWorkspace.shared.open(url)
+    }
+}
+
 // MARK: - ItemSearchViewDelegate
 
 extension ItemsViewController: ItemSearchViewDelegate {
@@ -154,6 +166,7 @@ extension ItemsViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         // objectValue is automatically populated
         let storyCellView = tableView.makeView(withIdentifier: .listableItemCellView, owner: self) as! ListableItemCellView
+        storyCellView.delegate = self
         return storyCellView
     }
 

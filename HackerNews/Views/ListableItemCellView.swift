@@ -2,6 +2,10 @@
 import Cocoa
 import HackerNewsAPI
 
+protocol ListableItemCellViewDelegate {
+    func open(item: ListableItem)
+}
+
 class ListableItemCellView: NSTableCellView {
 
     // MARK: - IBOutlets
@@ -29,6 +33,10 @@ class ListableItemCellView: NSTableCellView {
     var item: ListableItem? {
         objectValue as? ListableItem
     }
+
+    // MARK: - Delegate
+
+    var delegate: ListableItemCellViewDelegate?
 
     // MARK: - Methods
 
@@ -62,6 +70,13 @@ class ListableItemCellView: NSTableCellView {
         } else {
             commentCountGroup.isHidden = true
         }
+    }
+
+    @IBAction func openItem(_ sender: NSButton) {
+        guard let item = item else {
+            return
+        }
+        delegate?.open(item: item)
     }
 }
 
