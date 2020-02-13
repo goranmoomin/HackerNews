@@ -1486,6 +1486,7 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                                                 <constraint firstAttribute="bottom" secondItem="2sw-tA-zTi" secondAttribute="bottom" constant="8" id="xb6-Y4-AMU"/>
                                                             </constraints>
                                                             <connections>
+                                                                <outlet property="actionView" destination="ANc-ur-XXw" id="x7t-yC-Kgo"/>
                                                                 <outlet property="ageLabel" destination="lgz-pZ-abx" id="lbY-oq-OQA"/>
                                                                 <outlet property="authorButton" destination="h1r-3O-eGj" id="cHz-gA-RhS"/>
                                                                 <outlet property="textLabel" destination="2sw-tA-zTi" id="nF9-Ao-As2"/>

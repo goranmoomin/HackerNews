@@ -10,6 +10,7 @@ class CommentCellView: NSTableCellView {
     @IBOutlet var authorButton: NSButton!
     @IBOutlet var ageLabel: NSTextField!
     @IBOutlet var textLabel: NSTextField!
+    @IBOutlet var actionView: ActionView!
 
     // MARK: - Properties
 
@@ -64,6 +65,7 @@ class CommentCellView: NSTableCellView {
         }
         authorButton.title = comment.authorName
         ageLabel.stringValue = comment.ageDescription
+        actionView.actions = comment.actions
         updateTextLabel()
     }
 }
