@@ -71,11 +71,11 @@ class CommentsViewController: NSViewController {
 extension CommentsViewController: CommentCellViewDelegate {
 
     func expandComments(for comment: Comment) {
-        commentOutlineView.expandItem(comment, expandChildren: true)
+        commentOutlineView.expandItem(comment)
     }
 
     func collapseComments(for comment: Comment) {
-        commentOutlineView.collapseItem(comment, collapseChildren: true)
+        commentOutlineView.collapseItem(comment)
     }
 
     func isCommentsHidden(for comment: Comment) -> Bool {
