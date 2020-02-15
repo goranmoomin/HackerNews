@@ -66,6 +66,23 @@ class CommentsViewController: NSViewController {
     }
 }
 
+// MARK: - CommentCellViewDelegate
+
+extension CommentsViewController: CommentCellViewDelegate {
+
+    func expandComments(for comment: Comment) {
+        commentOutlineView.expandItem(comment, expandChildren: true)
+    }
+
+    func collapseComments(for comment: Comment) {
+        commentOutlineView.collapseItem(comment, collapseChildren: true)
+    }
+
+    func isCommentsHidden(for comment: Comment) -> Bool {
+        !commentOutlineView.isItemExpanded(comment)
+    }
+}
+
 // MARK: - NSOutlineViewDataSource
 
 extension CommentsViewController: NSOutlineViewDataSource {
@@ -111,6 +128,7 @@ extension CommentsViewController: NSOutlineViewDelegate {
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         // objectValue is automatically populated
         let commentCellView = outlineView.makeView(withIdentifier: .commentCellView, owner: self) as! CommentCellView
+        commentCellView.delegate = self
         return commentCellView
     }
 }
