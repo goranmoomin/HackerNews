@@ -6,7 +6,11 @@ class ActionButton: NSButton {
 
     // MARK: - Properties
 
-    var displayedAction: Action?
+    var displayedAction: Action? {
+        didSet {
+            needsDisplay = true
+        }
+    }
 
     // MARK: - Overrides
 
