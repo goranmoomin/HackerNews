@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B056D6223FBDA4000ED4950 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B056D6123FBDA4000ED4950 /* ActionButton.swift */; };
+		5B056D6423FBDD7F00ED4950 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B056D6323FBDD7F00ED4950 /* Strings.swift */; };
 		5B1CE42723BF9E6300064B6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CE42623BF9E6300064B6A /* AppDelegate.swift */; };
 		5B1CE42B23BF9E6600064B6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B1CE42A23BF9E6600064B6A /* Assets.xcassets */; };
 		5B1CE42E23BF9E6600064B6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1CE42C23BF9E6600064B6A /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B056D6123FBDA4000ED4950 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		5B056D6323FBDD7F00ED4950 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		5B1CE42323BF9E6300064B6A /* HackerNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B1CE42623BF9E6300064B6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B1CE42A23BF9E6600064B6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 			children = (
 				5B331C1A23CA4AE10002938B /* Colors.swift */,
 				5BDE252C23EEB12C00C89BA7 /* Fonts.swift */,
+				5B056D6323FBDD7F00ED4950 /* Strings.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 				5BA8CBFE23C2CD3400E2500B /* DisclosureTrianglelessOutlineView.swift */,
 				5BE425B323CF629000BEA641 /* LoadableView.swift */,
 				5BC6D87123DB23DB000C85DA /* ActionView.swift */,
+				5B056D6123FBDA4000ED4950 /* ActionButton.swift */,
 				5BC6D87323DB2441000C85DA /* ActionView.xib */,
 				5B67493523C6B3C90062BDFF /* ProgressView.swift */,
 				5BE425B523CF633D00BEA641 /* ProgressView.xib */,
@@ -257,12 +263,14 @@
 				5BDE252823ED6C8800C89BA7 /* CommentCellView.swift in Sources */,
 				5BBDA6CB23D08D2A00300FB5 /* SidebarViewController.swift in Sources */,
 				5BDE252D23EEB12C00C89BA7 /* Fonts.swift in Sources */,
+				5B056D6423FBDD7F00ED4950 /* Strings.swift in Sources */,
 				5B44DE6E23D30A3A001CA13F /* AuthorPopupViewController.swift in Sources */,
 				5B1CE42723BF9E6300064B6A /* AppDelegate.swift in Sources */,
 				5B44DE7223D49A48001CA13F /* EmphasizableButton.swift in Sources */,
 				5B331C1623CA3CBB0002938B /* ItemRowView.swift in Sources */,
 				5BBDA6DC23D14D2900300FB5 /* SidebarCellView.swift in Sources */,
 				5B44DE7023D498C4001CA13F /* EmphasizableTextField.swift in Sources */,
+				5B056D6223FBDA4000ED4950 /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

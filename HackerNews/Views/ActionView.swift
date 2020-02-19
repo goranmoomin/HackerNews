@@ -16,14 +16,12 @@ class ActionView: NSView, LoadableView {
     // MARK: - IBOutlets
 
     @IBOutlet var actionsStackView: NSStackView!
-    @IBOutlet var upvoteButton: NSButton!
-    @IBOutlet var downvoteButton: NSButton!
-    @IBOutlet var unvoteButton: NSButton!
-    @IBOutlet var undownButton: NSButton!
+    @IBOutlet var upvoteButton: ActionButton!
+    @IBOutlet var downvoteButton: ActionButton!
 
     // MARK: - IBActions
 
-    @IBAction func executeAction(_ sender: NSButton) {
+    @IBAction func executeAction(_ sender: ActionButton) {
         // TODO
     }
 
@@ -32,18 +30,14 @@ class ActionView: NSView, LoadableView {
     func updateInterface() {
         upvoteButton.isHidden = true
         downvoteButton.isHidden = true
-        unvoteButton.isHidden = true
-        undownButton.isHidden = true
         for action in actions {
             switch action.kind {
-            case .upvote:
+            case .upvote, .unvote:
+                upvoteButton.displayedAction = action
                 upvoteButton.isHidden = false
-            case .downvote:
+            case .downvote, .undown:
+                downvoteButton.displayedAction = action
                 downvoteButton.isHidden = false
-            case .unvote:
-                unvoteButton.isHidden = false
-            case .undown:
-                undownButton.isHidden = false
             }
         }
     }
