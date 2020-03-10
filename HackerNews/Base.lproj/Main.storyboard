@@ -1351,13 +1351,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="768"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="138" horizontalPageScroll="10" verticalLineScroll="138" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO2-Zo-Y6o">
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="194" horizontalPageScroll="10" verticalLineScroll="194" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO2-Zo-Y6o">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="768"/>
                                 <clipView key="contentView" id="66g-Cr-MgD">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="768"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" multipleSelection="NO" autosaveColumns="NO" rowHeight="136" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" indentationPerLevel="8" outlineTableColumn="Cg0-Az-X4S" id="OeF-ja-08f" customClass="DisclosureTrianglelessOutlineView" customModule="HackerNews" customModuleProvider="target">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" multipleSelection="NO" autosaveColumns="NO" rowHeight="192" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" indentationPerLevel="8" outlineTableColumn="Cg0-Az-X4S" id="OeF-ja-08f" customClass="DisclosureTrianglelessOutlineView" customModule="HackerNews" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="768"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -1378,19 +1378,19 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="CommentCellView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w7x-0j-qmy" customClass="CommentCellView" customModule="HackerNews" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="597" height="136"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="597" height="134"/>
                                                             <subviews>
                                                                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qp7-bP-L2f">
-                                                                    <rect key="frame" x="8" y="8" width="581" height="120"/>
+                                                                    <rect key="frame" x="8" y="8" width="581" height="118"/>
                                                                     <subviews>
-                                                                        <customView verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="znE-vT-0gO">
-                                                                            <rect key="frame" x="0.0" y="104" width="581" height="16"/>
+                                                                        <stackView distribution="equalSpacing" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qMx-eY-I9g">
+                                                                            <rect key="frame" x="0.0" y="104" width="581" height="14"/>
                                                                             <subviews>
                                                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qCc-v5-DfH">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="236" height="16"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="236" height="14"/>
                                                                                     <subviews>
                                                                                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sLm-Xd-bUd">
-                                                                                            <rect key="frame" x="0.0" y="1" width="75" height="14"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="75" height="14"/>
                                                                                             <subviews>
                                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Et2-4D-ecR">
                                                                                                     <rect key="frame" x="-2" y="0.0" width="16" height="14"/>
@@ -1418,7 +1418,7 @@
                                                                                             </customSpacing>
                                                                                         </stackView>
                                                                                         <textField verticalHuggingPriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="lgz-pZ-abx">
-                                                                                            <rect key="frame" x="77" y="3" width="57" height="11"/>
+                                                                                            <rect key="frame" x="77" y="2" width="57" height="11"/>
                                                                                             <textFieldCell key="cell" lineBreakMode="clipping" title="2 hours ago" id="QSP-3T-QSZ">
                                                                                                 <font key="font" metaFont="label" size="9"/>
                                                                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -1426,7 +1426,7 @@
                                                                                             </textFieldCell>
                                                                                         </textField>
                                                                                         <customView placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="16" translatesAutoresizingMaskIntoConstraints="NO" id="ANc-ur-XXw" customClass="ActionView" customModule="HackerNews" customModuleProvider="target">
-                                                                                            <rect key="frame" x="136" y="0.0" width="100" height="16"/>
+                                                                                            <rect key="frame" x="136" y="0.0" width="100" height="14"/>
                                                                                         </customView>
                                                                                     </subviews>
                                                                                     <visibilityPriorities>
@@ -1441,7 +1441,7 @@
                                                                                     </customSpacing>
                                                                                 </stackView>
                                                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GzM-KS-qUE">
-                                                                                    <rect key="frame" x="490" y="1" width="91" height="14"/>
+                                                                                    <rect key="frame" x="490" y="0.0" width="91" height="14"/>
                                                                                     <subviews>
                                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xii-hs-dhb">
                                                                                             <rect key="frame" x="-2" y="2" width="75" height="11"/>
@@ -1472,15 +1472,15 @@
                                                                                     </customSpacing>
                                                                                 </stackView>
                                                                             </subviews>
-                                                                            <constraints>
-                                                                                <constraint firstItem="GzM-KS-qUE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qCc-v5-DfH" secondAttribute="trailing" constant="8" id="C35-eD-hdg"/>
-                                                                                <constraint firstItem="GzM-KS-qUE" firstAttribute="centerY" secondItem="qCc-v5-DfH" secondAttribute="centerY" id="VXu-Lb-06T"/>
-                                                                                <constraint firstItem="qCc-v5-DfH" firstAttribute="top" secondItem="znE-vT-0gO" secondAttribute="top" id="gbJ-Se-Bx6"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="qCc-v5-DfH" secondAttribute="bottom" id="mBF-dQ-0Zu"/>
-                                                                                <constraint firstItem="qCc-v5-DfH" firstAttribute="leading" secondItem="znE-vT-0gO" secondAttribute="leading" id="rmB-6B-fiP"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="GzM-KS-qUE" secondAttribute="trailing" id="x1G-sh-6m7"/>
-                                                                            </constraints>
-                                                                        </customView>
+                                                                            <visibilityPriorities>
+                                                                                <integer value="1000"/>
+                                                                                <integer value="1000"/>
+                                                                            </visibilityPriorities>
+                                                                            <customSpacing>
+                                                                                <real value="3.4028234663852886e+38"/>
+                                                                                <real value="3.4028234663852886e+38"/>
+                                                                            </customSpacing>
+                                                                        </stackView>
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="2sw-tA-zTi">
                                                                             <rect key="frame" x="-2" y="0.0" width="585" height="96"/>
                                                                             <textFieldCell key="cell" selectable="YES" id="N1T-OU-0MH">
@@ -1493,6 +1493,9 @@ Macros in modern C should only be used for code generation (for DRY). If the lan
                                                                             </textFieldCell>
                                                                         </textField>
                                                                     </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="qMx-eY-I9g" firstAttribute="width" secondItem="Qp7-bP-L2f" secondAttribute="width" id="0fX-KG-ANh"/>
+                                                                    </constraints>
                                                                     <visibilityPriorities>
                                                                         <integer value="1000"/>
                                                                         <integer value="1000"/>
