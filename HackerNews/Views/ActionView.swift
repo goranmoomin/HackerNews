@@ -23,16 +23,6 @@ class ActionView: NSView, LoadableView {
 
     @IBAction func executeAction(_ sender: ActionButton) {
         // TODO
-        guard let action = sender.displayedAction else {
-            return
-        }
-        firstly {
-            HackerNewsAPI.execute(action)
-        }.map { action in
-            sender.displayedAction = action
-        }.catch { error in
-            print(error)
-        }
     }
 
     // MARK: - Methods
