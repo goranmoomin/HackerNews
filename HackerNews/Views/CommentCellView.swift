@@ -2,6 +2,7 @@
 import Cocoa
 import HackerNewsAPI
 import Atributika
+import PromiseKit
 
 protocol CommentCellViewDelegate {
     func expandComments(for comment: Comment)
@@ -57,6 +58,13 @@ class CommentCellView: NSTableCellView {
         updateInterface()
     }
 
+    // MARK: - Overrides
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        actionView.delegate = self
+    }
+
     // MARK: - Methods
 
     func commentText() -> NSAttributedString {
@@ -105,6 +113,21 @@ class CommentCellView: NSTableCellView {
             toggleCountLabel.stringValue = ""
             textLabel.attributedStringValue = commentText()
             textLabel.isHidden = false
+        }
+    }
+}
+
+extension CommentCellView: ActionViewDelegateProtocol {
+    func execute(_ action: Action) {
+        guard let comment = comment else {
+            return
+        }
+        firstly {
+            comment.execute(action)
+        }.map {
+            self.updateInterface()
+        }.catch { error in
+            print(error)
         }
     }
 }

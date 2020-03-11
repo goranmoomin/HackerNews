@@ -3,6 +3,10 @@ import Cocoa
 import PromiseKit
 import HackerNewsAPI
 
+protocol ActionViewDelegateProtocol {
+    func execute(_ action: Action)
+}
+
 class ActionView: NSView, LoadableView {
 
     // MARK: - Properties
@@ -13,6 +17,10 @@ class ActionView: NSView, LoadableView {
         }
     }
 
+    // MARK: - Delegate
+
+    var delegate: ActionViewDelegateProtocol?
+
     // MARK: - IBOutlets
 
     @IBOutlet var actionsStackView: NSStackView!
@@ -22,7 +30,10 @@ class ActionView: NSView, LoadableView {
     // MARK: - IBActions
 
     @IBAction func executeAction(_ sender: ActionButton) {
-        // TODO
+        guard let delegate = delegate, let action = sender.underlyingAction else {
+            return
+        }
+        delegate.execute(action)
     }
 
     // MARK: - Methods
@@ -33,10 +44,10 @@ class ActionView: NSView, LoadableView {
         for action in actions {
             switch action.kind {
             case .upvote, .unvote:
-                upvoteButton.displayedAction = action
+                upvoteButton.underlyingAction = action
                 upvoteButton.isHidden = false
             case .downvote, .undown:
-                downvoteButton.displayedAction = action
+                downvoteButton.underlyingAction = action
                 downvoteButton.isHidden = false
             }
         }

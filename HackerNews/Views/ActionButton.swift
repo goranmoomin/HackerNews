@@ -6,7 +6,7 @@ class ActionButton: NSButton {
 
     // MARK: - Properties
 
-    var displayedAction: Action? {
+    var underlyingAction: Action? {
         didSet {
             needsDisplay = true
         }
@@ -17,7 +17,7 @@ class ActionButton: NSButton {
     override func draw(_ dirtyRect: NSRect) {
         // super.draw(dirtyRect)
 
-        switch displayedAction?.kind {
+        switch underlyingAction?.kind {
         case .upvote:
             drawUpvote(in: dirtyRect)
         case .unvote:
