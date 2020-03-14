@@ -7,6 +7,8 @@ class CommentsViewController: NSViewController {
 
     // MARK: - IBOutlets
 
+    @IBOutlet var itemDetailsView: ItemDetailsView!
+    @IBOutlet var commentScrollView: NSScrollView!
     @IBOutlet var commentOutlineView: NSOutlineView!
     @IBOutlet var progressView: ProgressView!
 
@@ -45,6 +47,8 @@ class CommentsViewController: NSViewController {
         }.done { topLevelItem in
             self.commentLoadProgress = nil
             self.currentTopLevelItem = topLevelItem
+            self.itemDetailsView.isHidden = false
+            self.itemDetailsView.item = topLevelItem
             self.commentOutlineView.reloadData()
             self.commentOutlineView.expandItem(nil, expandChildren: true)
             self.commentOutlineView.isHidden = false
@@ -63,6 +67,17 @@ class CommentsViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeInterface()
+    }
+
+    var itemDetailsViewConstraint: NSLayoutConstraint?
+
+    override func updateViewConstraints() {
+        if itemDetailsViewConstraint == nil, let contentLayoutGuide = view.window?.contentLayoutGuide as? NSLayoutGuide {
+            let contentTopAnchor = contentLayoutGuide.topAnchor
+            itemDetailsViewConstraint = itemDetailsView.topAnchor.constraint(equalTo: contentTopAnchor)
+            itemDetailsViewConstraint?.isActive = true
+        }
+        super.updateViewConstraints()
     }
 }
 
