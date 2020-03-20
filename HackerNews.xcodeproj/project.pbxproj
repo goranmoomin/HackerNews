@@ -62,6 +62,7 @@
 		5BC6D87123DB23DB000C85DA /* ActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
 		5BC6D87323DB2441000C85DA /* ActionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionView.xib; sourceTree = "<group>"; };
 		5BDC170E241950B40067327A /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
+		5BDC173424224A0B0067327A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5BDE252523EC74A600C89BA7 /* ListableItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListableItemCellView.swift; sourceTree = "<group>"; };
 		5BDE252723ED6C8800C89BA7 /* CommentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellView.swift; sourceTree = "<group>"; };
 		5BDE252C23EEB12C00C89BA7 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 		5B1CE41A23BF9E6300064B6A = {
 			isa = PBXGroup;
 			children = (
+				5BDC173424224A0B0067327A /* README.md */,
 				5B1CE42523BF9E6300064B6A /* HackerNews */,
 				5B1CE42423BF9E6300064B6A /* Products */,
 			);
