@@ -22,7 +22,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="BNB-l9-Poz" kind="show" id="DIm-ds-BMC"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -700,6 +704,182 @@
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="43" y="-547"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="k6C-qX-bmJ">
+            <objects>
+                <windowController id="BNB-l9-Poz" sceneMemberID="viewController">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="LFH-6d-C5R">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <rect key="contentRect" x="196" y="249" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+                        <connections>
+                            <outlet property="delegate" destination="BNB-l9-Poz" id="nuw-QH-b9A"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="tvW-vi-GqV" kind="relationship" relationship="window.shadowedContentViewController" id="jBV-Oe-kRp"/>
+                    </connections>
+                </windowController>
+                <customObject id="OEW-Es-Oto" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="874" y="-771"/>
+        </scene>
+        <!--Prefs View Controller-->
+        <scene sceneID="aSA-D4-xkR">
+            <objects>
+                <viewController id="tvW-vi-GqV" customClass="PrefsViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="rXb-Zr-HqA">
+                        <rect key="frame" x="0.0" y="0.0" width="283" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g03-hw-peG">
+                                <rect key="frame" x="20" y="20" width="243" height="16"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="750" verticalHuggingPriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="FCW-F9-EVw">
+                                        <rect key="frame" x="-2" y="0.0" width="54" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Account" id="Skq-Ok-xqG">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n4V-Uf-Hgy">
+                                        <rect key="frame" x="56" y="-3" width="190" height="20"/>
+                                        <popUpButtonCell key="cell" type="push" title="Add New..." bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="sK8-Bc-CcN" id="h1A-RT-ga1">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <menu key="menu" id="wDD-g3-rXK">
+                                                <items>
+                                                    <menuItem title="pcr910303" id="3aH-zy-ls6"/>
+                                                    <menuItem title="hntestacc" id="hF1-cL-gh0"/>
+                                                    <menuItem isSeparatorItem="YES" id="bSN-vu-ixx"/>
+                                                    <menuItem title="Add New..." state="on" id="sK8-Bc-CcN"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                    </popUpButton>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="g03-hw-peG" secondAttribute="trailing" constant="20" symbolic="YES" id="4Pm-uw-h5f"/>
+                            <constraint firstItem="g03-hw-peG" firstAttribute="leading" secondItem="rXb-Zr-HqA" secondAttribute="leading" constant="20" symbolic="YES" id="8Ra-15-IbG"/>
+                            <constraint firstAttribute="bottom" secondItem="g03-hw-peG" secondAttribute="bottom" constant="20" symbolic="YES" id="nDZ-zM-vEN"/>
+                            <constraint firstItem="g03-hw-peG" firstAttribute="top" secondItem="rXb-Zr-HqA" secondAttribute="top" constant="20" symbolic="YES" id="uP2-3o-sxR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="accountPopUp" destination="n4V-Uf-Hgy" id="yKs-cn-fCD"/>
+                    </connections>
+                </viewController>
+                <customObject id="143-g6-g53" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1363" y="-878"/>
+        </scene>
+        <!--Account Popup View Controller-->
+        <scene sceneID="OVg-ua-IEz">
+            <objects>
+                <viewController storyboardIdentifier="AccountPopupViewController" id="QyG-KW-luE" customClass="AccountPopupViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Lmq-xE-DTc">
+                        <rect key="frame" x="0.0" y="0.0" width="283" height="93"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <gridView horizontalHuggingPriority="750" verticalHuggingPriority="750" xPlacement="leading" yPlacement="center" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="ptf-Ly-sqG">
+                                <rect key="frame" x="8" y="37" width="267" height="48"/>
+                                <rows>
+                                    <gridRow id="Snr-WW-ylK"/>
+                                    <gridRow id="rgC-L5-Dup"/>
+                                </rows>
+                                <columns>
+                                    <gridColumn xPlacement="trailing" id="FcC-y2-X7U"/>
+                                    <gridColumn xPlacement="leading" id="R2Z-h4-dOQ"/>
+                                </columns>
+                                <gridCells>
+                                    <gridCell row="Snr-WW-ylK" column="FcC-y2-X7U" id="nqq-8J-8iz">
+                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="mT9-xl-RYV">
+                                            <rect key="frame" x="-2" y="27" width="66" height="21"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Username" id="hud-wc-Fjf">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="Snr-WW-ylK" column="R2Z-h4-dOQ" id="uH8-Yh-toO">
+                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tIs-2J-ihq">
+                                            <rect key="frame" x="68" y="27" width="199" height="21"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="txF-tI-B5z">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="rgC-L5-Dup" column="FcC-y2-X7U" id="xhw-ox-g20">
+                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="x1E-2a-0Sr">
+                                            <rect key="frame" x="-2" y="3" width="66" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Password" id="6xj-R1-nOe">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="rgC-L5-Dup" column="R2Z-h4-dOQ" id="Dkd-uO-Fql">
+                                        <secureTextField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YC6-GZ-j0h">
+                                            <rect key="frame" x="68" y="0.0" width="199" height="21"/>
+                                            <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="gZ0-3u-mpC">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                <allowedInputSourceLocales>
+                                                    <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                                </allowedInputSourceLocales>
+                                            </secureTextFieldCell>
+                                        </secureTextField>
+                                    </gridCell>
+                                </gridCells>
+                            </gridView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Iw-LC-ypV">
+                                <rect key="frame" x="207" y="1" width="74" height="32"/>
+                                <buttonCell key="cell" type="push" title="Login" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Gh1-Th-Z1I">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="performLogin:" target="QyG-KW-luE" id="QMm-uC-6Cs"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ptf-Ly-sqG" firstAttribute="leading" secondItem="Lmq-xE-DTc" secondAttribute="leading" constant="8" id="Gmt-d3-po1"/>
+                            <constraint firstAttribute="trailing" secondItem="ptf-Ly-sqG" secondAttribute="trailing" constant="8" id="KxH-jf-CK8"/>
+                            <constraint firstItem="ptf-Ly-sqG" firstAttribute="top" secondItem="Lmq-xE-DTc" secondAttribute="top" constant="8" id="TKM-Gq-Wmn"/>
+                            <constraint firstAttribute="trailing" secondItem="0Iw-LC-ypV" secondAttribute="trailing" constant="8" id="WLD-Du-8BL"/>
+                            <constraint firstItem="0Iw-LC-ypV" firstAttribute="top" secondItem="ptf-Ly-sqG" secondAttribute="bottom" constant="8" id="eDi-JV-kq5"/>
+                            <constraint firstAttribute="bottom" secondItem="0Iw-LC-ypV" secondAttribute="bottom" constant="8" id="yjO-mt-YW4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="YC6-GZ-j0h" id="DQv-Wk-Ymf"/>
+                        <outlet property="usernameTextField" destination="tIs-2J-ihq" id="Gui-rh-UMj"/>
+                    </connections>
+                </viewController>
+                <customObject id="gvy-5l-pEs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1362.5" y="-654.5"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="nbi-U8-hK5">
