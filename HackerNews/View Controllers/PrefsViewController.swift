@@ -2,6 +2,12 @@
 import Cocoa
 import PromiseKit
 import HackerNewsAPI
+import Defaults
+
+extension Defaults.Keys {
+    static let accounts = Key<[String: String]>("accounts", default: [:])
+    static let selectedAccount = Key<String?>("selectedAccount", default: nil)
+}
 
 class PrefsViewController: NSViewController {
 
@@ -26,13 +32,13 @@ class PrefsViewController: NSViewController {
         guard accountPopUp.selectedItem != addNewMenuItem, let account = accountPopUp.selectedItem?.title else {
             return
         }
-        if let selectedAccount = UserDefaults.standard.string(forKey: "selectedAccount"), selectedAccount == account {
+        if let selectedAccount = Defaults[.selectedAccount], selectedAccount == account {
             HackerNewsAPI.logout()
-            UserDefaults.standard.set(nil, forKey: "selectedAccount")
+            Defaults[.selectedAccount] = nil
             accountPopUp.select(addNewMenuItem)
         } else {
-            UserDefaults.standard.set(account, forKey: "selectedAccount")
-            if let accounts = UserDefaults.standard.dictionary(forKey: "accounts") as? [String: String], let password = accounts[account] {
+            Defaults[.selectedAccount] = account
+            if let password = Defaults[.accounts][account] {
                 firstly {
                     HackerNewsAPI.login(toAccount: account, password: password)
                 }.catch { error in
@@ -44,13 +50,12 @@ class PrefsViewController: NSViewController {
 
     func updateInterface() {
         accountPopUp.removeAllItems()
-        let accounts = UserDefaults.standard.dictionary(forKey: "accounts") ?? [:]
-        for (username, _) in accounts {
+        for (username, _) in Defaults[.accounts] {
             accountPopUp.menu?.addItem(NSMenuItem(title: username, action: #selector(setAccount), keyEquivalent: ""))
         }
         accountPopUp.menu?.addItem(.separator())
         accountPopUp.menu?.addItem(addNewMenuItem)
-        if let selectedAccount = UserDefaults.standard.string(forKey: "selectedAccount") {
+        if let selectedAccount = Defaults[.selectedAccount] {
             accountPopUp.selectItem(withTitle: selectedAccount)
         } else {
             accountPopUp.select(addNewMenuItem)
@@ -68,11 +73,7 @@ class PrefsViewController: NSViewController {
 
 extension PrefsViewController: AccountPopupViewControllerDelegate {
     func addAccount(withUsername username: String, password: String) {
-        print(username)
-        print(password)
-        var accounts = UserDefaults.standard.dictionary(forKey: "accounts") ?? [:]
-        accounts[username] = password
-        UserDefaults.standard.set(accounts, forKey: "accounts")
+        Defaults[.accounts][username] = password
         updateInterface()
     }
 }
