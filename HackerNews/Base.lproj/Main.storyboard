@@ -709,8 +709,8 @@
         <scene sceneID="k6C-qX-bmJ">
             <objects>
                 <windowController id="BNB-l9-Poz" sceneMemberID="viewController">
-                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="LFH-6d-C5R">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                    <window key="window" title="HackerNews Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="LFH-6d-C5R">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <rect key="contentRect" x="196" y="249" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
                         <connections>
@@ -1558,7 +1558,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="CommentCellView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w7x-0j-qmy" customClass="CommentCellView" customModule="HackerNews" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="601" height="134"/>
+                                                            <rect key="frame" x="1" y="1" width="601" height="134"/>
                                                             <subviews>
                                                                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qp7-bP-L2f">
                                                                     <rect key="frame" x="8" y="8" width="585" height="118"/>
