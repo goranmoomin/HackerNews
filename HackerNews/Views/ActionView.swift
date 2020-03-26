@@ -4,7 +4,7 @@ import PromiseKit
 import HackerNewsAPI
 
 protocol ActionViewDelegateProtocol {
-    func execute(_ action: Action)
+    func execute(_ action: Action, token: Token)
 }
 
 class ActionView: NSView, LoadableView {
@@ -30,10 +30,10 @@ class ActionView: NSView, LoadableView {
     // MARK: - IBActions
 
     @IBAction func executeAction(_ sender: ActionButton) {
-        guard let delegate = delegate, let action = sender.underlyingAction else {
+        guard let delegate = delegate, let action = sender.underlyingAction, let token = State.shared.currentToken else {
             return
         }
-        delegate.execute(action)
+        delegate.execute(action, token: token)
     }
 
     // MARK: - Methods

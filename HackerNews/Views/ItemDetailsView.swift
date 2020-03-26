@@ -62,10 +62,10 @@ class ItemDetailsView: NSView {
 }
 
 extension ItemDetailsView: ActionViewDelegateProtocol {
-    func execute(_ action: Action) {
+    func execute(_ action: Action, token: Token) {
         if case let .story(story) = item {
             firstly {
-                story.execute(action)
+                story.execute(action, token: token)
             }.map {
                 self.updateInterface()
             }.catch { error in

@@ -33,19 +33,12 @@ class PrefsViewController: NSViewController {
             return
         }
         if let selectedAccount = Defaults[.selectedAccount], selectedAccount == account {
-            HackerNewsAPI.logout()
             Defaults[.selectedAccount] = nil
             accountPopUp.select(addNewMenuItem)
         } else {
             Defaults[.selectedAccount] = account
-            if let password = Defaults[.accounts][account] {
-                firstly {
-                    HackerNewsAPI.login(toAccount: account, password: password)
-                }.catch { error in
-                    print(error)
-                }
-            }
         }
+        State.performLogin()
     }
 
     func updateInterface() {

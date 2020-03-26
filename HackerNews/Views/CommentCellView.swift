@@ -118,12 +118,12 @@ class CommentCellView: NSTableCellView {
 }
 
 extension CommentCellView: ActionViewDelegateProtocol {
-    func execute(_ action: Action) {
+    func execute(_ action: Action, token: Token) {
         guard let comment = comment else {
             return
         }
         firstly {
-            comment.execute(action)
+            comment.execute(action, token: token)
         }.map {
             self.updateInterface()
         }.catch { error in

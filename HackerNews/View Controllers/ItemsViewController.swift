@@ -32,6 +32,10 @@ class ItemsViewController: NSViewController {
         }
     }
 
+    var currentToken: Token? {
+        State.shared.currentToken
+    }
+
     var selectedItem: ListableItem? {
         get {
             splitViewController.currentListableItem
@@ -60,7 +64,7 @@ class ItemsViewController: NSViewController {
         storyLoadProgress = progress
         progress.becomeCurrent(withPendingUnitCount: 100)
         firstly {
-            HackerNewsAPI.items(from: currentCategory)
+            HackerNewsAPI.items(from: currentCategory, token: currentToken)
         }.done { items in
             guard !progress.isCancelled else {
                 return

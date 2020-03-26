@@ -21,6 +21,10 @@ class CommentsViewController: NSViewController {
         }
     }
 
+    var currentToken: Token? {
+        State.shared.currentToken
+    }
+
     var currentTopLevelItem: TopLevelItem?
 
     var commentLoadProgress: Progress? {
@@ -43,7 +47,7 @@ class CommentsViewController: NSViewController {
         progress.becomeCurrent(withPendingUnitCount: 100)
 
         firstly {
-            HackerNewsAPI.topLevelItem(from: currentListableItem)
+            HackerNewsAPI.topLevelItem(from: currentListableItem, token: currentToken)
         }.done { topLevelItem in
             self.commentLoadProgress = nil
             self.currentTopLevelItem = topLevelItem
