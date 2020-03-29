@@ -84,6 +84,7 @@ class ItemsViewController: NSViewController {
 
     func initializeInterface() {
         storySearchView.delegate = self
+        storySearchView.isHidden = true
         progressView.labelText = "Loading Items..."
         itemScrollView.automaticallyAdjustsContentInsets = false
     }
@@ -91,8 +92,8 @@ class ItemsViewController: NSViewController {
     func updateContentInsets() {
         let window = view.window!
         let contentLayoutRect = window.contentLayoutRect
-        let storySearchViewHeight = storySearchView.frame.height
-        let topInset = (window.contentView!.frame.size.height - contentLayoutRect.height) + storySearchViewHeight
+//        let storySearchViewHeight = storySearchView.frame.height
+        let topInset = (window.contentView!.frame.size.height - contentLayoutRect.height) // + storySearchViewHeight
         itemScrollView.contentInsets = NSEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0)
     }
 
