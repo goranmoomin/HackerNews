@@ -29,6 +29,14 @@ but it'll have much more features and a better UI as development proceeds.
 
 You can download it in the [releases tab](https://github.com/pcr910303/HackerNews/releases).
 
+## Development
+
+I tried to extract all of the HN parsing/commenting, etc... logic in the
+[HackerNewsAPI](https://github.com/pcr910303/HackerNewsAPI) package, and this app has a dependency on it.
+I eventually decided that relying on the site is too fragile and limited, and I'm writing a new
+[HNAPI](https://github.com/pcr910303/HNAPI) package. Most of the commits are going there, and once it has an 
+acceptable amount of features I'll rewrite the app to use the new package. 
+
 ## Features
 
 ### Voting stories and comments
