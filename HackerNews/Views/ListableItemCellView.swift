@@ -1,9 +1,9 @@
 
 import Cocoa
-import HackerNewsAPI
+import HNAPI
 
 protocol ListableItemCellViewDelegate {
-    func open(item: ListableItem)
+    func open(item: TopLevelItem)
 }
 
 class ListableItemCellView: NSTableCellView {
@@ -30,8 +30,8 @@ class ListableItemCellView: NSTableCellView {
         }
     }
 
-    var item: ListableItem? {
-        objectValue as? ListableItem
+    var item: TopLevelItem? {
+        objectValue as? TopLevelItem
     }
 
     // MARK: - Delegate
@@ -44,31 +44,38 @@ class ListableItemCellView: NSTableCellView {
         guard let item = item else {
             return
         }
-        if let authorName = item.authorName {
-            authorButton.title = authorName
+        switch item {
+        case let .story(story):
+            authorButton.title = story.author
             authorGroup.isHidden = false
-        } else {
-            authorGroup.isHidden = true
-        }
-        titleLabel.stringValue = item.title
-        if let url = item.url, let host = url.host {
-            urlButton.title = host
-            urlButton.isHidden = false
-        } else {
-            urlButton.isHidden = true
-        }
-        if let score = item.score {
-            scoreLabel.stringValue = String(score)
+            titleLabel.stringValue = story.title
+            switch story.content {
+            case .text:
+                urlButton.isHidden = true
+            case let .url(url):
+                urlButton.title = url.host ?? ""
+                urlButton.isHidden = false
+            }
+            scoreLabel.stringValue = "\(story.points)"
             scoreGroup.isHidden = false
-        } else {
-            scoreGroup.isHidden = true
-        }
-        ageLabel.stringValue = item.ageDescription
-        if let commentCount = item.commentCount {
-            commentCountLabel.stringValue = String(commentCount)
+            // TODO: Use DateFormatter
+            ageLabel.stringValue = story.creation.description
+            commentCountLabel.stringValue = "\(story.commentCount)"
             commentCountGroup.isHidden = false
-        } else {
-            commentCountGroup.isHidden = true
+        case let .job(job):
+            authorGroup.isHidden = true
+            titleLabel.stringValue = job.title
+            switch job.content {
+            case .text:
+                urlButton.isHidden = true
+            case let .url(url):
+                urlButton.title = url.host ?? ""
+                urlButton.isHidden = false
+            }
+            scoreLabel.isHidden = true
+            // TODO: Use DateFromatter
+            ageLabel.stringValue = job.creation.description
+            commentCountGroup.isHidden = false
         }
     }
 

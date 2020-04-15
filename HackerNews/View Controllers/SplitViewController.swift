@@ -1,6 +1,6 @@
 
 import Cocoa
-import HackerNewsAPI
+import HNAPI
 
 class SplitViewController: NSSplitViewController {
 
@@ -21,16 +21,16 @@ class SplitViewController: NSSplitViewController {
     // MARK: - Properties
 
     // Always in sync with it's children view controllers
-    var currentCategory: ItemListCategory = .top {
+    var category: HNAPI.Category = .top {
         didSet {
-            storiesViewController.currentCategory = currentCategory
+            storiesViewController.category = category
         }
     }
 
     // Always in sync with it's children view controllers
-    var currentListableItem: ListableItem? {
+    var item: TopLevelItem? {
         didSet {
-            commentsViewController.currentListableItem = currentListableItem
+            commentsViewController.item = item
         }
     }
 

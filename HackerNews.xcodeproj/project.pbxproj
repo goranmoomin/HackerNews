@@ -12,7 +12,6 @@
 		5B1CE42723BF9E6300064B6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CE42623BF9E6300064B6A /* AppDelegate.swift */; };
 		5B1CE42B23BF9E6600064B6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B1CE42A23BF9E6600064B6A /* Assets.xcassets */; };
 		5B1CE42E23BF9E6600064B6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1CE42C23BF9E6600064B6A /* Main.storyboard */; };
-		5B1EF74A23EC1E0600D8A979 /* HackerNewsAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1EF74923EC1E0600D8A979 /* HackerNewsAPI */; };
 		5B331C1623CA3CBB0002938B /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B331C1523CA3CBB0002938B /* ItemRowView.swift */; };
 		5B331C1B23CA4AE10002938B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B331C1A23CA4AE10002938B /* Colors.swift */; };
 		5B3414152427945200B72D7F /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 5B3414142427945200B72D7F /* Defaults */; };
@@ -26,6 +25,7 @@
 		5B78A0482426892E00579420 /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B78A0462426892E00579420 /* PrefsViewController.swift */; };
 		5B78A04B2426905000579420 /* AccountPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B78A04A2426905000579420 /* AccountPopupViewController.swift */; };
 		5B796EBC23C086CE008173A5 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B796EBB23C086CE008173A5 /* SplitViewController.swift */; };
+		5B99F24B24461BE6009D2EC8 /* HNAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5B99F24A24461BE6009D2EC8 /* HNAPI */; };
 		5BA8CBFF23C2CD3400E2500B /* DisclosureTrianglelessOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CBFE23C2CD3400E2500B /* DisclosureTrianglelessOutlineView.swift */; };
 		5BA8CC0523C3520000E2500B /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CC0423C3520000E2500B /* ItemsViewController.swift */; };
 		5BBDA6CB23D08D2A00300FB5 /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDA6CA23D08D2A00300FB5 /* SidebarViewController.swift */; };
@@ -82,9 +82,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B99F24B24461BE6009D2EC8 /* HNAPI in Frameworks */,
 				5B3414152427945200B72D7F /* Defaults in Frameworks */,
 				5BDE252B23EE84CA00C89BA7 /* Atributika in Frameworks */,
-				5B1EF74A23EC1E0600D8A979 /* HackerNewsAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,9 +203,9 @@
 			);
 			name = HackerNews;
 			packageProductDependencies = (
-				5B1EF74923EC1E0600D8A979 /* HackerNewsAPI */,
 				5BDE252A23EE84CA00C89BA7 /* Atributika */,
 				5B3414142427945200B72D7F /* Defaults */,
+				5B99F24A24461BE6009D2EC8 /* HNAPI */,
 			);
 			productName = HackerNews;
 			productReference = 5B1CE42323BF9E6300064B6A /* HackerNews.app */;
@@ -236,9 +236,9 @@
 			);
 			mainGroup = 5B1CE41A23BF9E6300064B6A;
 			packageReferences = (
-				5B1EF74823EC1E0600D8A979 /* XCRemoteSwiftPackageReference "HackerNewsAPI" */,
 				5BDE252923EE84CA00C89BA7 /* XCRemoteSwiftPackageReference "Atributika" */,
 				5B3414132427945200B72D7F /* XCRemoteSwiftPackageReference "Defaults" */,
+				5B99F24924461BE6009D2EC8 /* XCRemoteSwiftPackageReference "HNAPI" */,
 			);
 			productRefGroup = 5B1CE42423BF9E6300064B6A /* Products */;
 			projectDirPath = "";
@@ -485,20 +485,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5B1EF74823EC1E0600D8A979 /* XCRemoteSwiftPackageReference "HackerNewsAPI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pcr910303/HackerNewsAPI.git";
-			requirement = {
-				kind = exactVersion;
-				version = 0.0.1;
-			};
-		};
 		5B3414132427945200B72D7F /* XCRemoteSwiftPackageReference "Defaults" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/Defaults.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 3.1.1;
+			};
+		};
+		5B99F24924461BE6009D2EC8 /* XCRemoteSwiftPackageReference "HNAPI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pcr910303/HNAPI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 		5BDE252923EE84CA00C89BA7 /* XCRemoteSwiftPackageReference "Atributika" */ = {
@@ -512,15 +512,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5B1EF74923EC1E0600D8A979 /* HackerNewsAPI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5B1EF74823EC1E0600D8A979 /* XCRemoteSwiftPackageReference "HackerNewsAPI" */;
-			productName = HackerNewsAPI;
-		};
 		5B3414142427945200B72D7F /* Defaults */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5B3414132427945200B72D7F /* XCRemoteSwiftPackageReference "Defaults" */;
 			productName = Defaults;
+		};
+		5B99F24A24461BE6009D2EC8 /* HNAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B99F24924461BE6009D2EC8 /* XCRemoteSwiftPackageReference "HNAPI" */;
+			productName = HNAPI;
 		};
 		5BDE252A23EE84CA00C89BA7 /* Atributika */ = {
 			isa = XCSwiftPackageProductDependency;

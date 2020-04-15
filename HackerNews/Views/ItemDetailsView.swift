@@ -1,7 +1,6 @@
 
 import Cocoa
-import HackerNewsAPI
-import PromiseKit
+import HNAPI
 
 class ItemDetailsView: NSView {
 
@@ -16,19 +15,27 @@ class ItemDetailsView: NSView {
 
     // MARK: - Properties
 
-    var item: TopLevelItem? {
+    var page: Page? {
         didSet {
             updateInterface()
         }
+    }
+
+    var item: TopLevelItem? {
+        guard let page = page else {
+            return nil
+        }
+        return page.topLevelItem
     }
 
     // MARK: - IBActions
 
     @IBAction func toggleContent(_ sender: NSButton) {
         if case let .story(story) = item {
-            if story.text != nil {
+            switch story.content {
+            case .text:
                 textLabel.isHidden.toggle()
-            } else if story.url != nil {
+            case .url:
                 urlButton.isHidden.toggle()
             }
         }
@@ -45,31 +52,31 @@ class ItemDetailsView: NSView {
 
     func updateInterface() {
         if case let .story(story) = item {
-            authorButton.title = story.authorName
-            ageLabel.stringValue = story.ageDescription
-            if let text = story.text {
+            authorButton.title = story.author
+            // TODO: Use DateFormatter
+            ageLabel.stringValue = story.creation.description
+            switch story.content {
+            case let .text(text):
                 textLabel.stringValue = text
                 textLabel.isHidden = false
                 urlButton.isHidden = true
-            } else if let url = story.url, let host = url.host {
+            case let .url(url):
+                let host = url.host ?? ""
                 textLabel.isHidden = true
                 urlButton.title = host
                 urlButton.isHidden = false
             }
-            actionView.actions = story.actions
         }
     }
 }
 
 extension ItemDetailsView: ActionViewDelegateProtocol {
     func execute(_ action: Action, token: Token) {
-        if case let .story(story) = item {
-            firstly {
-                story.execute(action, token: token)
-            }.map {
-                self.updateInterface()
-            }.catch { error in
-                print(error)
+        // TODO: How to get Page instance?
+        State.shared.client.execute(action: action, token: token) { result in
+            guard case .success = result else {
+                // TODO: Error handling
+                return
             }
         }
     }

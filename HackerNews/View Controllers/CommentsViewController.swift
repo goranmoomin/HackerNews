@@ -1,7 +1,6 @@
 
 import Cocoa
-import PromiseKit
-import HackerNewsAPI
+import HNAPI
 
 class CommentsViewController: NSViewController {
 
@@ -14,18 +13,21 @@ class CommentsViewController: NSViewController {
 
     // MARK: - Properties
 
-    // Always in sync with it's parent view controller
-    var currentListableItem: ListableItem? {
+    var client: APIClient {
+        State.shared.client
+    }
+
+    var token: Token? {
+        State.shared.token
+    }
+
+    var item: TopLevelItem? {
         didSet {
             loadAndDisplayComments()
         }
     }
 
-    var currentToken: Token? {
-        State.shared.currentToken
-    }
-
-    var currentTopLevelItem: TopLevelItem?
+    var page: Page?
 
     var commentLoadProgress: Progress? {
         didSet {
@@ -36,7 +38,7 @@ class CommentsViewController: NSViewController {
     // MARK: - Methods
 
     func loadAndDisplayComments() {
-        guard let currentListableItem = currentListableItem else {
+        guard let item = item else {
             return
         }
         commentOutlineView.reloadData()
@@ -45,19 +47,19 @@ class CommentsViewController: NSViewController {
         let progress = Progress(totalUnitCount: 100)
         commentLoadProgress = progress
         progress.becomeCurrent(withPendingUnitCount: 100)
-
-        firstly {
-            HackerNewsAPI.topLevelItem(from: currentListableItem, token: currentToken)
-        }.done { topLevelItem in
-            self.commentLoadProgress = nil
-            self.currentTopLevelItem = topLevelItem
-            self.itemDetailsView.isHidden = false
-            self.itemDetailsView.item = topLevelItem
-            self.commentOutlineView.reloadData()
-            self.commentOutlineView.expandItem(nil, expandChildren: true)
-            self.commentOutlineView.isHidden = false
-        }.catch { error in
-            print(error)
+        client.page(item: item) { result in
+            DispatchQueue.main.async {
+                self.commentLoadProgress = nil
+                guard case let .success(page) = result else {
+                    return
+                }
+                self.page = page
+                self.itemDetailsView.isHidden = false
+                self.itemDetailsView.page = page
+                self.commentOutlineView.reloadData()
+                self.commentOutlineView.expandItem(nil, expandChildren: true)
+                self.commentOutlineView.isHidden = false
+            }
         }
         progress.resignCurrent()
     }
@@ -107,30 +109,36 @@ extension CommentsViewController: CommentCellViewDelegate {
 extension CommentsViewController: NSOutlineViewDataSource {
 
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        guard case .story(let currentStory) = currentTopLevelItem else {
+        guard let page = page else {
             fatalError()
         }
-        guard let comment = item as? Comment else {
-            return currentStory.comments[index]
+        if item == nil {
+            return page.children[index]
+        } else if let comment = item as? Comment {
+            return comment.children[index]
+        } else {
+            fatalError()
         }
-        return comment.comments[index]
     }
 
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         guard let comment = item as? Comment else {
             return false
         }
-        return !comment.comments.isEmpty
+        return !comment.children.isEmpty
     }
 
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        guard case .story(let currentStory) = currentTopLevelItem else {
+        guard let page = page else {
             return 0
         }
-        guard let comment = item as? Comment else {
-            return currentStory.comments.count
+        if item == nil {
+            return page.children.count
+        } else if let comment = item as? Comment {
+            return comment.children.count
+        } else {
+            fatalError()
         }
-        return comment.comments.count
     }
 
     func outlineView(_ outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: Any?) -> Any? {

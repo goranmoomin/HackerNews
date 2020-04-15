@@ -1,27 +1,26 @@
 
 import Foundation
-import PromiseKit
-import HackerNewsAPI
+import HNAPI
 import Defaults
 
 class State {
     static var shared = State()
-    var currentToken: Token? = nil
+    var client = APIClient()
+    var token: Token? = nil
 
     static func performLogin() {
         guard
             let account = Defaults[.selectedAccount],
             let password = Defaults[.accounts][account] else {
-            shared.currentToken = nil
+            shared.token = nil
             return
         }
-        firstly {
-            HackerNewsAPI.login(toAccount: account, password: password)
-        }.map { token in
-            shared.currentToken = token
-        }.catch { error in
-            print(error)
-            shared.currentToken = nil
+        shared.client.login(userName: account, password: password) { result in
+            guard case let .success(token) = result else {
+                // TODO: Handle failure
+                return
+            }
+            shared.token = token
         }
     }
 }

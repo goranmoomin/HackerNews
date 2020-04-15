@@ -1,6 +1,6 @@
 
 import Cocoa
-import HackerNewsAPI
+import HNAPI
 
 class ActionButton: NSButton {
 
@@ -17,7 +17,7 @@ class ActionButton: NSButton {
     override func draw(_ dirtyRect: NSRect) {
         // super.draw(dirtyRect)
 
-        switch underlyingAction?.kind {
+        switch underlyingAction {
         case .upvote:
             drawUpvote(in: dirtyRect)
         case .unvote:
@@ -26,7 +26,8 @@ class ActionButton: NSButton {
             drawDownvote(in: dirtyRect)
         case .undown:
             drawUndown(in: dirtyRect)
-        case nil: break
+        // TODO: Add drawing other symbols
+        default: break
         }
     }
 

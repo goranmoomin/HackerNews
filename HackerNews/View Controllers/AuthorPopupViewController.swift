@@ -1,7 +1,6 @@
 
 import Cocoa
-import PromiseKit
-import HackerNewsAPI
+import HNAPI
 
 class AuthorPopupViewController: NSViewController {
 

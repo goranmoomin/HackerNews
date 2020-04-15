@@ -1,7 +1,6 @@
 
 import Cocoa
-import PromiseKit
-import HackerNewsAPI
+import HNAPI
 
 class ItemsViewController: NSViewController {
 
@@ -20,28 +19,32 @@ class ItemsViewController: NSViewController {
 
     // MARK: - Properties
 
-    var items: [ListableItem] = [] {
+    var items: [TopLevelItem] = [] {
         didSet {
             itemTableView.reloadData()
         }
     }
 
-    var currentCategory: ItemListCategory = .top {
+    var category: HNAPI.Category = .top {
         didSet {
             loadAndDisplayItems()
         }
     }
 
-    var currentToken: Token? {
-        State.shared.currentToken
+    var client: APIClient {
+        State.shared.client
     }
 
-    var selectedItem: ListableItem? {
+    var token: Token? {
+        State.shared.token
+    }
+
+    var item: TopLevelItem? {
         get {
-            splitViewController.currentListableItem
+            splitViewController.item
         }
         set {
-            splitViewController.currentListableItem = newValue
+            splitViewController.item = newValue
         }
     }
 
@@ -63,17 +66,16 @@ class ItemsViewController: NSViewController {
         let progress = Progress(totalUnitCount: 100)
         storyLoadProgress = progress
         progress.becomeCurrent(withPendingUnitCount: 100)
-        firstly {
-            HackerNewsAPI.items(from: currentCategory, token: currentToken)
-        }.done { items in
-            guard !progress.isCancelled else {
-                return
+        client.items(category: category) { result in
+            DispatchQueue.main.async {
+                self.storyLoadProgress = nil
+                guard case let .success(items) = result else {
+                    // TODO: Error handling
+                    return
+                }
+                self.items = items
+                self.itemTableView.isHidden = false
             }
-            self.storyLoadProgress = nil
-            self.items = items
-            self.itemTableView.isHidden = false
-        }.catch { error in
-            print(error)
         }
         progress.resignCurrent()
     }
@@ -130,8 +132,15 @@ class ItemsViewController: NSViewController {
 
 extension ItemsViewController: ListableItemCellViewDelegate {
 
-    func open(item: ListableItem) {
-        guard let url = item.url else {
+    func open(item: TopLevelItem) {
+        let content: Content
+        switch item {
+        case let .story(story):
+            content = story.content
+        case let .job(job):
+            content = job.content
+        }
+        guard let url = content.url else {
             return
         }
         NSWorkspace.shared.open(url)
@@ -180,6 +189,6 @@ extension ItemsViewController: NSTableViewDelegate {
     }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
-        selectedItem = items[itemTableView.selectedRow]
+        item = items[itemTableView.selectedRow]
     }
 }

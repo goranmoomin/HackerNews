@@ -1,7 +1,6 @@
 
 import Cocoa
-import PromiseKit
-import HackerNewsAPI
+import HNAPI
 
 protocol ActionViewDelegateProtocol {
     func execute(_ action: Action, token: Token)
@@ -30,7 +29,7 @@ class ActionView: NSView, LoadableView {
     // MARK: - IBActions
 
     @IBAction func executeAction(_ sender: ActionButton) {
-        guard let delegate = delegate, let action = sender.underlyingAction, let token = State.shared.currentToken else {
+        guard let delegate = delegate, let action = sender.underlyingAction, let token = State.shared.token else {
             return
         }
         delegate.execute(action, token: token)
@@ -42,13 +41,15 @@ class ActionView: NSView, LoadableView {
         upvoteButton.isHidden = true
         downvoteButton.isHidden = true
         for action in actions {
-            switch action.kind {
+            switch action {
             case .upvote, .unvote:
                 upvoteButton.underlyingAction = action
                 upvoteButton.isHidden = false
             case .downvote, .undown:
                 downvoteButton.underlyingAction = action
                 downvoteButton.isHidden = false
+            // TODO: Handle other cases
+            default: break
             }
         }
     }

@@ -1,6 +1,6 @@
 
 import Cocoa
-import HackerNewsAPI
+import HNAPI
 
 class SidebarViewController: NSViewController {
 
@@ -28,7 +28,7 @@ extension SidebarViewController: NSOutlineViewDataSource {
 
     // MARK: - Static Variables
 
-    static let sidebarItems: [ItemListCategory] = [.top, .new, .best, .ask, .show, .shownew, .job]
+    static let sidebarItems: [HNAPI.Category] = [.top, .new, .best, .ask, .show, .job]
 
     // MARK: - DataSource Methods
 
@@ -58,7 +58,7 @@ extension SidebarViewController: NSOutlineViewDataSource {
     func outlineView(_ outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: Any?) -> Any? {
         if item is String {
             return item
-        } else if let item = item as? ItemListCategory {
+        } else if let item = item as? HNAPI.Category {
             switch item {
             case .top:
                 return "Top Items"
@@ -70,8 +70,6 @@ extension SidebarViewController: NSOutlineViewDataSource {
                 return "Ask Items"
             case .show:
                 return "Show Items"
-            case .shownew:
-                return "New Show Items"
             case .job:
                 return "Job Items"
             }
@@ -111,7 +109,7 @@ extension SidebarViewController: NSOutlineViewDelegate {
         guard selectedRow > 0 else {
             return
         }
-        splitViewController.currentCategory = Self.sidebarItems[selectedRow - 1]
+        splitViewController.category = Self.sidebarItems[selectedRow - 1]
     }
 }
 

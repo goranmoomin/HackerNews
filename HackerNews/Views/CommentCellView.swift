@@ -1,8 +1,7 @@
 
 import Cocoa
-import HackerNewsAPI
+import HNAPI
 import Atributika
-import PromiseKit
 
 protocol CommentCellViewDelegate {
     func expandComments(for comment: Comment)
@@ -103,9 +102,11 @@ class CommentCellView: NSTableCellView {
         guard let comment = comment else {
             return
         }
-        authorButton.title = comment.authorName
-        ageLabel.stringValue = comment.ageDescription
-        actionView.actions = comment.actions
+        authorButton.title = comment.author
+        // TODO: Use DateFormatter
+        ageLabel.stringValue = comment.creation.description
+        // TODO: Get actions from Page instance
+        actionView.actions = []
         if isCommentHidden {
             toggleCountLabel.stringValue = "\(comment.commentCount) comments hidden"
             textLabel.isHidden = true
@@ -119,15 +120,12 @@ class CommentCellView: NSTableCellView {
 
 extension CommentCellView: ActionViewDelegateProtocol {
     func execute(_ action: Action, token: Token) {
-        guard let comment = comment else {
-            return
-        }
-        firstly {
-            comment.execute(action, token: token)
-        }.map {
-            self.updateInterface()
-        }.catch { error in
-            print(error)
+        // TODO: How to get Page instance?
+        State.shared.client.execute(action: action, token: token) { result in
+            guard case .success = result else {
+                // TODO: Error handling
+                return
+            }
         }
     }
 }
