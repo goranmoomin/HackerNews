@@ -46,6 +46,8 @@ class CommentCellView: NSTableCellView {
         }
     }
 
+    let formatter = RelativeDateTimeFormatter()
+
     // MARK: - Delegate
 
     var delegate: CommentCellViewDelegate?
@@ -103,8 +105,7 @@ class CommentCellView: NSTableCellView {
             return
         }
         authorButton.title = comment.author
-        // TODO: Use DateFormatter
-        ageLabel.stringValue = comment.creation.description
+        ageLabel.stringValue = formatter.localizedString(for: comment.creation, relativeTo: Date())
         // TODO: Get actions from Page instance
         actionView.actions = []
         if isCommentHidden {

@@ -34,6 +34,8 @@ class ListableItemCellView: NSTableCellView {
         objectValue as? TopLevelItem
     }
 
+    let formatter = RelativeDateTimeFormatter()
+
     // MARK: - Delegate
 
     var delegate: ListableItemCellViewDelegate?
@@ -58,8 +60,7 @@ class ListableItemCellView: NSTableCellView {
             }
             scoreLabel.stringValue = "\(story.points)"
             scoreGroup.isHidden = false
-            // TODO: Use DateFormatter
-            ageLabel.stringValue = story.creation.description
+            ageLabel.stringValue = formatter.localizedString(for: story.creation, relativeTo: Date())
             commentCountLabel.stringValue = "\(story.commentCount)"
             commentCountGroup.isHidden = false
         case let .job(job):
@@ -73,8 +74,7 @@ class ListableItemCellView: NSTableCellView {
                 urlButton.isHidden = false
             }
             scoreLabel.isHidden = true
-            // TODO: Use DateFromatter
-            ageLabel.stringValue = job.creation.description
+            ageLabel.stringValue = formatter.localizedString(for: job.creation, relativeTo: Date())
             commentCountGroup.isHidden = false
         }
     }

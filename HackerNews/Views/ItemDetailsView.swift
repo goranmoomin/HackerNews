@@ -17,6 +17,7 @@ class ItemDetailsView: NSView {
     // MARK: - Properties
 
     var storage: Set<AnyCancellable> = []
+    let formatter = RelativeDateTimeFormatter()
 
     // MARK: - IBActions
 
@@ -44,8 +45,7 @@ class ItemDetailsView: NSView {
     func updateInterface(page: Page?) {
         if case let .story(story) = page?.topLevelItem {
             authorButton.title = story.author
-            // TODO: Use DateFormatter
-            ageLabel.stringValue = story.creation.description
+            ageLabel.stringValue = formatter.localizedString(for: story.creation, relativeTo: Date())
             switch story.content {
             case let .text(text):
                 textLabel.stringValue = text
