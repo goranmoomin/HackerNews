@@ -1,5 +1,6 @@
 
 import Cocoa
+import Combine
 import HNAPI
 
 class ItemsViewController: NSViewController {
@@ -11,13 +12,9 @@ class ItemsViewController: NSViewController {
     @IBOutlet var progressView: ProgressView!
     @IBOutlet var storySearchView: ItemSearchView!
 
-    // MARK: - Parent View Controller
-
-    var splitViewController: SplitViewController {
-        parent as! SplitViewController
-    }
-
     // MARK: - Properties
+
+    var storage: Set<AnyCancellable> = []
 
     var items: [TopLevelItem] = [] {
         didSet {
@@ -25,27 +22,8 @@ class ItemsViewController: NSViewController {
         }
     }
 
-    var category: HNAPI.Category = .top {
-        didSet {
-            loadAndDisplayItems()
-        }
-    }
-
     var client: APIClient {
         State.shared.client
-    }
-
-    var token: Token? {
-        State.shared.token
-    }
-
-    var item: TopLevelItem? {
-        get {
-            splitViewController.item
-        }
-        set {
-            splitViewController.item = newValue
-        }
     }
 
     var storyLoadProgress: Progress? {
@@ -59,7 +37,7 @@ class ItemsViewController: NSViewController {
 
     // MARK: - Methods
 
-    func loadAndDisplayItems(count: Int = 10) {
+    func loadAndDisplayItems(category: HNAPI.Category, count: Int = 10) {
         items = []
         itemTableView.isHidden = true
 
@@ -89,6 +67,9 @@ class ItemsViewController: NSViewController {
         storySearchView.isHidden = true
         progressView.labelText = "Loading Items..."
         itemScrollView.automaticallyAdjustsContentInsets = false
+        State.shared.$category.sink { category in
+            self.loadAndDisplayItems(category: category)
+        }.store(in: &storage)
     }
 
     func updateContentInsets() {
@@ -104,7 +85,7 @@ class ItemsViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeInterface()
-        loadAndDisplayItems()
+        loadAndDisplayItems(category: State.shared.category)
     }
 
     var contentLayoutRectObservation: NSKeyValueObservation?
@@ -156,7 +137,7 @@ extension ItemsViewController: ItemSearchViewDelegate {
     }
 
     func reloadItems(count: Int) {
-        loadAndDisplayItems(count: count)
+        loadAndDisplayItems(category: State.shared.category, count: count)
     }
 }
 
@@ -189,6 +170,6 @@ extension ItemsViewController: NSTableViewDelegate {
     }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
-        item = items[itemTableView.selectedRow]
+        State.shared.item = items[itemTableView.selectedRow]
     }
 }

@@ -2,11 +2,15 @@
 import Foundation
 import HNAPI
 import Defaults
+import Combine
 
 class State {
     static var shared = State()
-    var client = APIClient()
-    var token: Token? = nil
+    let client = APIClient()
+    @Published var token: Token?
+    @Published var category: HNAPI.Category = .top
+    @Published var item: TopLevelItem?
+    @Published var page: Page?
 
     static func performLogin() {
         guard
