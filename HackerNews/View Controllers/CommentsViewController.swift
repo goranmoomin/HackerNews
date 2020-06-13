@@ -1,6 +1,5 @@
 
 import Cocoa
-import Combine
 import HNAPI
 
 class CommentsViewController: NSViewController {
@@ -14,11 +13,21 @@ class CommentsViewController: NSViewController {
 
     // MARK: - Properties
 
-    var storage: Set<AnyCancellable> = []
-
     var client: APIClient {
         State.shared.client
     }
+
+    var token: Token? {
+        State.shared.token
+    }
+
+    var item: TopLevelItem? {
+        didSet {
+            loadAndDisplayComments()
+        }
+    }
+
+    var page: Page?
 
     var commentLoadProgress: Progress? {
         didSet {
@@ -28,7 +37,7 @@ class CommentsViewController: NSViewController {
 
     // MARK: - Methods
 
-    func loadAndDisplayComments(item: TopLevelItem?) {
+    func loadAndDisplayComments() {
         guard let item = item else {
             return
         }
@@ -38,14 +47,15 @@ class CommentsViewController: NSViewController {
         let progress = Progress(totalUnitCount: 100)
         commentLoadProgress = progress
         progress.becomeCurrent(withPendingUnitCount: 100)
-        client.page(item: item, token: State.shared.token) { result in
+        client.page(item: item) { result in
             DispatchQueue.main.async {
                 self.commentLoadProgress = nil
                 guard case let .success(page) = result else {
                     return
                 }
-                State.shared.page = page
+                self.page = page
                 self.itemDetailsView.isHidden = false
+                self.itemDetailsView.page = page
                 self.commentOutlineView.reloadData()
                 self.commentOutlineView.expandItem(nil, expandChildren: true)
                 self.commentOutlineView.isHidden = false
@@ -56,7 +66,6 @@ class CommentsViewController: NSViewController {
 
     func initializeInterface() {
         progressView.labelText = "Loading Comments..."
-        State.shared.$item.sink(receiveValue: loadAndDisplayComments(item:)).store(in: &storage)
     }
 
     // MARK: - Lifecycle Methods
@@ -100,7 +109,7 @@ extension CommentsViewController: CommentCellViewDelegate {
 extension CommentsViewController: NSOutlineViewDataSource {
 
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        guard let page = State.shared.page else {
+        guard let page = page else {
             fatalError()
         }
         if item == nil {
@@ -120,7 +129,7 @@ extension CommentsViewController: NSOutlineViewDataSource {
     }
 
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        guard let page = State.shared.page else {
+        guard let page = page else {
             return 0
         }
         if item == nil {

@@ -24,6 +24,7 @@
 		5B76906023CBE88B00FD2516 /* ItemSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76905F23CBE88B00FD2516 /* ItemSearchView.swift */; };
 		5B78A0482426892E00579420 /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B78A0462426892E00579420 /* PrefsViewController.swift */; };
 		5B78A04B2426905000579420 /* AccountPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B78A04A2426905000579420 /* AccountPopupViewController.swift */; };
+		5B796EBC23C086CE008173A5 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B796EBB23C086CE008173A5 /* SplitViewController.swift */; };
 		5B99F24B24461BE6009D2EC8 /* HNAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5B99F24A24461BE6009D2EC8 /* HNAPI */; };
 		5BA8CBFF23C2CD3400E2500B /* DisclosureTrianglelessOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CBFE23C2CD3400E2500B /* DisclosureTrianglelessOutlineView.swift */; };
 		5BA8CC0523C3520000E2500B /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8CC0423C3520000E2500B /* ItemsViewController.swift */; };
@@ -60,6 +61,7 @@
 		5B76905F23CBE88B00FD2516 /* ItemSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearchView.swift; sourceTree = "<group>"; };
 		5B78A0462426892E00579420 /* PrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefsViewController.swift; sourceTree = "<group>"; };
 		5B78A04A2426905000579420 /* AccountPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPopupViewController.swift; sourceTree = "<group>"; };
+		5B796EBB23C086CE008173A5 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		5BA8CBFE23C2CD3400E2500B /* DisclosureTrianglelessOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureTrianglelessOutlineView.swift; sourceTree = "<group>"; };
 		5BA8CC0423C3520000E2500B /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		5BBDA6CA23D08D2A00300FB5 /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		5B51712D23C0A03D0068E7CE /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5B796EBB23C086CE008173A5 /* SplitViewController.swift */,
 				5BBDA6CA23D08D2A00300FB5 /* SidebarViewController.swift */,
 				5BA8CC0423C3520000E2500B /* ItemsViewController.swift */,
 				5B51713023C0B1B50068E7CE /* CommentsViewController.swift */,
@@ -270,6 +273,7 @@
 				5B331C1B23CA4AE10002938B /* Colors.swift in Sources */,
 				5B76906023CBE88B00FD2516 /* ItemSearchView.swift in Sources */,
 				5B67493623C6B3C90062BDFF /* ProgressView.swift in Sources */,
+				5B796EBC23C086CE008173A5 /* SplitViewController.swift in Sources */,
 				5B51713223C0B1B50068E7CE /* CommentsViewController.swift in Sources */,
 				5BA8CBFF23C2CD3400E2500B /* DisclosureTrianglelessOutlineView.swift in Sources */,
 				5BDE252623EC74A600C89BA7 /* ListableItemCellView.swift in Sources */,

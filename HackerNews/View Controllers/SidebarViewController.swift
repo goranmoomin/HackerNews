@@ -8,6 +8,12 @@ class SidebarViewController: NSViewController {
 
     @IBOutlet var sidebarOutlineView: NSOutlineView!
 
+    // MARK: - Parent View Controller
+
+    var splitViewController: SplitViewController {
+        parent as! SplitViewController
+    }
+
     // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
@@ -103,7 +109,7 @@ extension SidebarViewController: NSOutlineViewDelegate {
         guard selectedRow > 0 else {
             return
         }
-        State.shared.category = Self.sidebarItems[selectedRow - 1]
+        splitViewController.category = Self.sidebarItems[selectedRow - 1]
     }
 }
 
