@@ -85,8 +85,8 @@ class CommentCellView: NSTableCellView {
             .font(.italicSystemFont(ofSize: systemFontSize))
         let pre = Style("pre")
             .font(.monospacedSystemFont(ofSize: systemFontSize, weight: .regular))
-        let transformers = [
-            TagTransformer(tagName: "p", tagType: .start, replaceValue: "\n"),
+        let transformers: [TagTransformer] = [
+            .pTransformer(),
             .brTransformer
         ]
         func tuner(style: Style, tag: Tag) -> Style {
