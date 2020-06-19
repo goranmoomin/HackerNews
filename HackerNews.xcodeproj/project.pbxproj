@@ -20,7 +20,7 @@
 		5B44DE7223D49A48001CA13F /* EmphasizableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B44DE7123D49A48001CA13F /* EmphasizableButton.swift */; };
 		5B51713223C0B1B50068E7CE /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B51713023C0B1B50068E7CE /* CommentsViewController.swift */; };
 		5B67493623C6B3C90062BDFF /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B67493523C6B3C90062BDFF /* ProgressView.swift */; };
-		5B71AFA5242D1D6E0031E145 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71AFA4242D1D6E0031E145 /* State.swift */; };
+		5B71AFA5242D1D6E0031E145 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B71AFA4242D1D6E0031E145 /* APIClient.swift */; };
 		5B76906023CBE88B00FD2516 /* ItemSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76905F23CBE88B00FD2516 /* ItemSearchView.swift */; };
 		5B78A0482426892E00579420 /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B78A0462426892E00579420 /* PrefsViewController.swift */; };
 		5B78A04B2426905000579420 /* AccountPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B78A04A2426905000579420 /* AccountPopupViewController.swift */; };
@@ -57,7 +57,7 @@
 		5B44DE7123D49A48001CA13F /* EmphasizableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmphasizableButton.swift; sourceTree = "<group>"; };
 		5B51713023C0B1B50068E7CE /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		5B67493523C6B3C90062BDFF /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
-		5B71AFA4242D1D6E0031E145 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		5B71AFA4242D1D6E0031E145 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		5B76905F23CBE88B00FD2516 /* ItemSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearchView.swift; sourceTree = "<group>"; };
 		5B78A0462426892E00579420 /* PrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefsViewController.swift; sourceTree = "<group>"; };
 		5B78A04A2426905000579420 /* AccountPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPopupViewController.swift; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 		5B51712E23C0A0800068E7CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5B71AFA4242D1D6E0031E145 /* State.swift */,
+				5B71AFA4242D1D6E0031E145 /* APIClient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -291,7 +291,7 @@
 				5BBDA6DC23D14D2900300FB5 /* SidebarCellView.swift in Sources */,
 				5B44DE7023D498C4001CA13F /* EmphasizableTextField.swift in Sources */,
 				5B056D6223FBDA4000ED4950 /* ActionButton.swift in Sources */,
-				5B71AFA5242D1D6E0031E145 /* State.swift in Sources */,
+				5B71AFA5242D1D6E0031E145 /* APIClient.swift in Sources */,
 				5BDC170F241950B40067327A /* ItemDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

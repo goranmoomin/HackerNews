@@ -13,14 +13,6 @@ class CommentsViewController: NSViewController {
 
     // MARK: - Properties
 
-    var client: APIClient {
-        State.shared.client
-    }
-
-    var token: Token? {
-        State.shared.token
-    }
-
     var item: TopLevelItem? {
         didSet {
             loadAndDisplayComments()
@@ -47,7 +39,7 @@ class CommentsViewController: NSViewController {
         let progress = Progress(totalUnitCount: 100)
         commentLoadProgress = progress
         progress.becomeCurrent(withPendingUnitCount: 100)
-        client.page(item: item) { result in
+        APIClient.shared.page(item: item) { result in
             DispatchQueue.main.async {
                 self.commentLoadProgress = nil
                 guard case let .success(page) = result else {

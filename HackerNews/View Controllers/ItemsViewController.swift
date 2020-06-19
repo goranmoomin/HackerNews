@@ -31,14 +31,6 @@ class ItemsViewController: NSViewController {
         }
     }
 
-    var client: APIClient {
-        State.shared.client
-    }
-
-    var token: Token? {
-        State.shared.token
-    }
-
     var item: TopLevelItem? {
         get {
             splitViewController.item
@@ -66,7 +58,7 @@ class ItemsViewController: NSViewController {
         let progress = Progress(totalUnitCount: 100)
         storyLoadProgress = progress
         progress.becomeCurrent(withPendingUnitCount: 100)
-        client.items(category: category) { result in
+        APIClient.shared.items(category: category) { result in
             DispatchQueue.main.async {
                 self.storyLoadProgress = nil
                 guard case let .success(items) = result else {

@@ -29,7 +29,7 @@ class ActionView: NSView, LoadableView {
     // MARK: - IBActions
 
     @IBAction func executeAction(_ sender: ActionButton) {
-        guard let delegate = delegate, let action = sender.underlyingAction, let token = State.shared.token else {
+        guard let delegate = delegate, let action = sender.underlyingAction, let token = AppDelegate.shared.token else {
             return
         }
         delegate.execute(action, token: token)

@@ -37,7 +37,7 @@ class PrefsViewController: NSViewController {
         } else {
             Defaults[.selectedAccount] = account
         }
-        State.performLogin()
+        AppDelegate.shared.performLogin()
     }
 
     func updateInterface() {

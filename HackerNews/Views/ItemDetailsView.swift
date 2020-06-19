@@ -74,7 +74,7 @@ class ItemDetailsView: NSView {
 extension ItemDetailsView: ActionViewDelegateProtocol {
     func execute(_ action: Action, token: Token) {
         // TODO: How to get Page instance?
-        State.shared.client.execute(action: action, token: token) { result in
+        APIClient.shared.execute(action: action, token: token) { result in
             guard case .success = result else {
                 // TODO: Error handling
                 return
