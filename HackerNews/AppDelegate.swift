@@ -1,5 +1,6 @@
 
 import Cocoa
+import Combine
 import HNAPI
 import Defaults
 
@@ -13,6 +14,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     var token: Token?
+
+    // MARK: - Global State
+
+    @Published var category: HNAPI.Category = .top
+    @Published var item: TopLevelItem?
+    @Published var page: Page?
 
     // MARK: - Methods
 

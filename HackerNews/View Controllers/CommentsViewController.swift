@@ -1,5 +1,6 @@
 
 import Cocoa
+import Combine
 import HNAPI
 
 class CommentsViewController: NSViewController {
@@ -13,12 +14,6 @@ class CommentsViewController: NSViewController {
 
     // MARK: - Properties
 
-    var item: TopLevelItem? {
-        didSet {
-            loadAndDisplayComments()
-        }
-    }
-
     var page: Page?
 
     var commentLoadProgress: Progress? {
@@ -27,10 +22,13 @@ class CommentsViewController: NSViewController {
         }
     }
 
+    var cancellables: Set<AnyCancellable> = []
+
     // MARK: - Methods
 
-    func loadAndDisplayComments() {
+    func loadAndDisplayComments(item: TopLevelItem?) {
         guard let item = item else {
+            // Clear UI
             return
         }
         commentOutlineView.reloadData()
@@ -58,6 +56,9 @@ class CommentsViewController: NSViewController {
 
     func initializeInterface() {
         progressView.labelText = "Loading Comments..."
+        AppDelegate.shared.$item
+            .sink(receiveValue: loadAndDisplayComments(item:))
+            .store(in: &cancellables)
     }
 
     // MARK: - Lifecycle Methods

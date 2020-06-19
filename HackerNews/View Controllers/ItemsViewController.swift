@@ -1,5 +1,6 @@
 
 import Cocoa
+import Combine
 import HNAPI
 
 class ItemsViewController: NSViewController {
@@ -11,32 +12,11 @@ class ItemsViewController: NSViewController {
     @IBOutlet var progressView: ProgressView!
     @IBOutlet var storySearchView: ItemSearchView!
 
-    // MARK: - Parent View Controller
-
-    var splitViewController: SplitViewController {
-        parent as! SplitViewController
-    }
-
     // MARK: - Properties
 
     var items: [TopLevelItem] = [] {
         didSet {
             itemTableView.reloadData()
-        }
-    }
-
-    var category: HNAPI.Category = .top {
-        didSet {
-            loadAndDisplayItems()
-        }
-    }
-
-    var item: TopLevelItem? {
-        get {
-            splitViewController.item
-        }
-        set {
-            splitViewController.item = newValue
         }
     }
 
@@ -49,9 +29,11 @@ class ItemsViewController: NSViewController {
         }
     }
 
+    var cancellables: Set<AnyCancellable> = []
+
     // MARK: - Methods
 
-    func loadAndDisplayItems(count: Int = 10) {
+    func loadAndDisplayItems(category: HNAPI.Category, count: Int = 10) {
         items = []
         itemTableView.isHidden = true
 
@@ -81,6 +63,9 @@ class ItemsViewController: NSViewController {
         storySearchView.isHidden = true
         progressView.labelText = "Loading Items..."
         itemScrollView.automaticallyAdjustsContentInsets = false
+        AppDelegate.shared.$category
+            .sink { self.loadAndDisplayItems(category: $0) }
+            .store(in: &cancellables)
     }
 
     func updateContentInsets() {
@@ -96,7 +81,6 @@ class ItemsViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeInterface()
-        loadAndDisplayItems()
     }
 
     var contentLayoutRectObservation: NSKeyValueObservation?
@@ -148,7 +132,7 @@ extension ItemsViewController: ItemSearchViewDelegate {
     }
 
     func reloadItems(count: Int) {
-        loadAndDisplayItems(count: count)
+        loadAndDisplayItems(category: AppDelegate.shared.category, count: count)
     }
 }
 
@@ -181,6 +165,6 @@ extension ItemsViewController: NSTableViewDelegate {
     }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
-        item = items[itemTableView.selectedRow]
+        AppDelegate.shared.item = items[itemTableView.selectedRow]
     }
 }
