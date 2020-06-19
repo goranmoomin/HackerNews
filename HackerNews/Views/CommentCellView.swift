@@ -107,7 +107,7 @@ class CommentCellView: NSTableCellView {
         authorButton.title = comment.author
         ageLabel.stringValue = formatter.localizedString(for: comment.creation, relativeTo: Date())
         // TODO: Get actions from Page instance
-        actionView.actions = []
+        actionView.actions = AppDelegate.shared.page?.actions[comment.id] ?? []
         if isCommentHidden {
             toggleCountLabel.stringValue = "\(comment.commentCount) comments hidden"
             textLabel.isHidden = true

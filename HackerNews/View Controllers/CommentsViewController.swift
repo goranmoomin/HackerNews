@@ -14,7 +14,14 @@ class CommentsViewController: NSViewController {
 
     // MARK: - Properties
 
-    var page: Page?
+    var page: Page? {
+        get {
+            AppDelegate.shared.page
+        }
+        set {
+            AppDelegate.shared.page = newValue
+        }
+    }
 
     var commentLoadProgress: Progress? {
         didSet {
@@ -37,7 +44,7 @@ class CommentsViewController: NSViewController {
         let progress = Progress(totalUnitCount: 100)
         commentLoadProgress = progress
         progress.becomeCurrent(withPendingUnitCount: 100)
-        APIClient.shared.page(item: item) { result in
+        APIClient.shared.page(item: item, token: AppDelegate.shared.token) { result in
             DispatchQueue.main.async {
                 self.commentLoadProgress = nil
                 guard case let .success(page) = result else {
