@@ -14,15 +14,6 @@ class CommentsViewController: NSViewController {
 
     // MARK: - Properties
 
-    var page: Page? {
-        get {
-            AppDelegate.shared.page
-        }
-        set {
-            AppDelegate.shared.page = newValue
-        }
-    }
-
     var commentLoadProgress: Progress? {
         didSet {
             progressView.progress = commentLoadProgress
@@ -50,9 +41,8 @@ class CommentsViewController: NSViewController {
                 guard case let .success(page) = result else {
                     return
                 }
-                self.page = page
+                AppDelegate.shared.page = page
                 self.itemDetailsView.isHidden = false
-                self.itemDetailsView.page = page
                 self.commentOutlineView.reloadData()
                 self.commentOutlineView.expandItem(nil, expandChildren: true)
                 self.commentOutlineView.isHidden = false
@@ -109,7 +99,7 @@ extension CommentsViewController: CommentCellViewDelegate {
 extension CommentsViewController: NSOutlineViewDataSource {
 
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        guard let page = page else {
+        guard let page = AppDelegate.shared.page else {
             fatalError()
         }
         if item == nil {
@@ -129,7 +119,7 @@ extension CommentsViewController: NSOutlineViewDataSource {
     }
 
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        guard let page = page else {
+        guard let page = AppDelegate.shared.page else {
             return 0
         }
         if item == nil {

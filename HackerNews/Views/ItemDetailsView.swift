@@ -1,5 +1,6 @@
 
 import Cocoa
+import Combine
 import HNAPI
 
 class ItemDetailsView: NSView {
@@ -15,25 +16,13 @@ class ItemDetailsView: NSView {
 
     // MARK: - Properties
 
-    var page: Page? {
-        didSet {
-            updateInterface()
-        }
-    }
-
-    var item: TopLevelItem? {
-        guard let page = page else {
-            return nil
-        }
-        return page.topLevelItem
-    }
-
+    var cancellables: Set<AnyCancellable> = []
     let formatter = RelativeDateTimeFormatter()
 
     // MARK: - IBActions
 
     @IBAction func toggleContent(_ sender: NSButton) {
-        if case let .story(story) = item {
+        if case let .story(story) = AppDelegate.shared.page?.topLevelItem {
             switch story.content {
             case .text:
                 textLabel.isHidden.toggle()
@@ -48,12 +37,15 @@ class ItemDetailsView: NSView {
     override func awakeFromNib() {
         super.awakeFromNib()
         actionView.delegate = self
+        AppDelegate.shared.$page
+            .sink(receiveValue: updateInterface(page:))
+            .store(in: &cancellables)
     }
 
     // MARK: - Methods
 
-    func updateInterface() {
-        if case let .story(story) = item {
+    func updateInterface(page: Page?) {
+        if case let .story(story) = page?.topLevelItem {
             authorButton.title = story.author
             ageLabel.stringValue = formatter.localizedString(for: story.creation, relativeTo: Date())
             switch story.content {

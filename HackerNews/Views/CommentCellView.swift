@@ -121,8 +121,7 @@ class CommentCellView: NSTableCellView {
 
 extension CommentCellView: ActionViewDelegateProtocol {
     func execute(_ action: Action, token: Token) {
-        // TODO: How to get Page instance?
-        APIClient.shared.execute(action: action, token: token) { result in
+        APIClient.shared.execute(action: action, token: token, page: AppDelegate.shared.page) { result in
             guard case .success = result else {
                 // TODO: Error handling
                 return
