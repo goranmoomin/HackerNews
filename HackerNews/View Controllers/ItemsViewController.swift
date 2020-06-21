@@ -55,12 +55,28 @@ class ItemsViewController: NSViewController {
     }
 
     func searchAndDisplayItems(matching query: String) {
-        // TODO
+        items = []
+        itemTableView.isHidden = true
+
+        let progress = Progress(totalUnitCount: 100)
+        storyLoadProgress = progress
+        progress.becomeCurrent(withPendingUnitCount: 100)
+        APIClient.shared.items(query: query) { result in
+            DispatchQueue.main.async {
+                self.storyLoadProgress = nil
+                guard case let .success(items) = result else {
+                    // TODO: Error handling
+                    return
+                }
+                self.items = items
+                self.itemTableView.isHidden = false
+            }
+        }
+        progress.resignCurrent()
     }
 
     func initializeInterface() {
         storySearchView.delegate = self
-        storySearchView.isHidden = true
         progressView.labelText = "Loading Items..."
         itemScrollView.automaticallyAdjustsContentInsets = false
         AppDelegate.shared.$category
@@ -71,8 +87,8 @@ class ItemsViewController: NSViewController {
     func updateContentInsets() {
         let window = view.window!
         let contentLayoutRect = window.contentLayoutRect
-//        let storySearchViewHeight = storySearchView.frame.height
-        let topInset = (window.contentView!.frame.size.height - contentLayoutRect.height) // + storySearchViewHeight
+        let storySearchViewHeight = storySearchView.frame.height
+        let topInset = (window.contentView!.frame.size.height - contentLayoutRect.height) + storySearchViewHeight
         itemScrollView.contentInsets = NSEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0)
     }
 
