@@ -1,5 +1,9 @@
 #  HackerNews.app
 
+## Rewrite in process
+I'm rewriting this after I upgraded to macOS Big Sur, so that's the reason there's not a lot of activity lately.
+I'm halfway through, and if it gets feature-parity to the current one I'll get it merged here.
+
 ![screenshot](https://user-images.githubusercontent.com/37990858/76960123-2feb1800-695e-11ea-98f7-e044fba8e305.png)
 
 ---
