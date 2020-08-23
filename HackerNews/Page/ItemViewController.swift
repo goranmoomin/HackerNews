@@ -1,10 +1,12 @@
 
 import Cocoa
 import HNAPI
+import Atributika
 
 class ItemViewController: NSViewController {
 
     @IBOutlet var titleLabel: NSTextField!
+    @IBOutlet var textLabel: NSTextField!
     @IBOutlet var urlButton: NSButton!
     @IBOutlet var authorGroup: NSStackView!
     @IBOutlet var authorLabel: NSTextField!
@@ -23,9 +25,15 @@ class ItemViewController: NSViewController {
             case .story(let story):
                 titleLabel.stringValue = story.title
                 if let host = story.content.url?.host {
+                    textLabel.isHidden = true
                     urlButton.isHidden = false
                     urlButton.title = host
+                } else if let text = story.content.text {
+                    textLabel.attributedStringValue = text.styledAttributedString
+                    textLabel.isHidden = false
+                    urlButton.isHidden = true
                 } else {
+                    textLabel.isHidden = true
                     urlButton.isHidden = true
                 }
                 authorGroup.isHidden = false

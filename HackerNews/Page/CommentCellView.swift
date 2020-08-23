@@ -56,37 +56,7 @@ class CommentCellView: NSTableCellView {
             }
         }
         authorLabel.stringValue = comment.author
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.paragraphSpacing = 8
-        let systemFontSize = NSFont.systemFontSize(for: .regular)
-        let textColor: NSColor
-        switch comment.color {
-        case .c00: textColor = .labelColor
-        case .c5a, .c73, .c82: textColor = .secondaryLabelColor
-        case .c88, .c9c, .cae: textColor = .tertiaryLabelColor
-        case .cbe, .cce, .cdd: textColor = .quaternaryLabelColor
-        }
-        let all = Style
-            .font(.systemFont(ofSize: systemFontSize))
-            .foregroundColor(textColor)
-            .paragraphStyle(paragraphStyle)
-        let a = Style("a")
-        let i = Style("i")
-            .font(.italicSystemFont(ofSize: systemFontSize))
-        let pre = Style("pre")
-            .font(.monospacedSystemFont(ofSize: systemFontSize, weight: .regular))
-        let transformers: [TagTransformer] = [
-            .pTransformer(),
-            .brTransformer
-        ]
-        func tuner(style: Style, tag: Tag) -> Style {
-            if tag.name == a.name, let href = tag.attributes["href"], let url = URL(string: href) {
-                return style.link(url)
-            }
-            return style
-        }
-        textLabel.attributedStringValue = comment.text.style(tags: a, i, pre, transformers: transformers, tuner: tuner(style:tag:))
-            .styleAll(all).attributedString
+        textLabel.attributedStringValue = comment.text.styledAttributedString
         creationLabel.stringValue = formatter.localizedString(for: comment.creation, relativeTo: Date())
     }
 
