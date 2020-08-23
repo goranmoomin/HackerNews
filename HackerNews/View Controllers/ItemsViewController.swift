@@ -176,9 +176,9 @@ extension ItemsViewController: NSTableViewDelegate {
         return storyCellView
     }
 
-    func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-        tableView.makeView(withIdentifier: .itemRowView, owner: self) as? ItemRowView
-    }
+//    func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+//        tableView.makeView(withIdentifier: .itemRowView, owner: self) as? ItemRowView
+//    }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
         AppDelegate.shared.item = items[itemTableView.selectedRow]

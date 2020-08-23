@@ -22,15 +22,9 @@
 	<string>1</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2020 조성빈. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>NSSupportsAutomaticTermination</key>
-	<true/>
-	<key>NSSupportsSuddenTermination</key>
-	<true/>
 </dict>
 </plist>
