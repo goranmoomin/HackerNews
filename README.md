@@ -1,10 +1,6 @@
 #  HackerNews.app
 
-## Rewrite in process
-I'm rewriting this after I upgraded to macOS Big Sur, so that's the reason there's not a lot of activity lately.
-I'm halfway through, and if it gets feature-parity to the current one I'll get it merged here.
-
-![screenshot](https://user-images.githubusercontent.com/37990858/76960123-2feb1800-695e-11ea-98f7-e044fba8e305.png)
+![Screenshot of main window](https://user-images.githubusercontent.com/37990858/90976617-77af4480-e579-11ea-9d34-753395d01642.png)
 
 ---
 
@@ -18,7 +14,17 @@ So I'm building on my own.
 This app is still highly WIP, and it's not the best code in the world.
 If you have any ideas to make the code cleaner, Swiftier, or really have any idea, PRs or issues are welcomed!
 
-### Pre-pre-pre release
+### Rewrite
+
+I did a rewrite of this app, partially because I didn't want to spend days to find out why my old storyboard broke
+working in Big Sur, and partially because I really wanted to replace my terrible code to less terrible code.
+Thankfully, the rewrite was successful and you can see the commit 96db15a now!
+
+The new app has a few features that the old app didn't have (and now has more reliable upvoting/unvoting!), but
+notably search is not implemented yet. I'll probably do another release after implementing search, although I'm not
+sure if anyone will use it.
+
+### (A pre-rewrite, outdated) Pre-pre-pre release
 
 As people say, if you've released something that you're not ashamed for, it's too late.
 So I decided to add an release the current version (which isn't really an app, really more of an MVP).
@@ -35,11 +41,12 @@ You can download it in the [releases tab](https://github.com/pcr910303/HackerNew
 
 ## Development
 
-I tried to extract all of the HN parsing/commenting, etc... logic in the
-[HackerNewsAPI](https://github.com/pcr910303/HackerNewsAPI) package, and this app has a dependency on it.
-I eventually decided that relying on the site is too fragile and limited, and I'm writing a new
-[HNAPI](https://github.com/pcr910303/HNAPI) package. Most of the commits are going there, and once it has an 
-acceptable amount of features I'll rewrite the app to use the new package. 
+I wrote a new [HNAPI](https://github.com/pcr910303/HNAPI) package for interfacing with HN. It handles
+communicating with both the [HN official API](https://github.com/HackerNews/API), the
+[Algolia HN API](https://hn.algolia.com/api), and the [HackerNews site](https://news.ycombinator.com).
+
+If you're writing a new HN client (for any platform), you might want to gleam the code, I've put in a lot of thoughts in
+the design. It's IMO the fastest & most robust approach to interfacing HN.
 
 ## Features
 
