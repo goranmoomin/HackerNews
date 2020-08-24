@@ -15,8 +15,16 @@ class PageViewController: NSSplitViewController {
     var item: TopLevelItem? {
         didSet {
             itemViewController.item = item
-            guard let item = item else { return }
+            guard let item = item else {
+                splitView.isHidden = true
+                return
+            }
+            splitView.isHidden = false
+            commentViewController.view.isHidden = true
             APIClient.shared.page(item: item, token: Account.selectedAccount?.token) { result in
+                DispatchQueue.main.async {
+                    self.commentViewController.view.isHidden = false
+                }
                 switch result {
                 case .success(let page): self.page = page
                 case .failure(let error):
@@ -34,5 +42,6 @@ class PageViewController: NSSplitViewController {
 
         itemViewController = (splitViewItems[0].viewController as! ItemViewController)
         commentViewController = (splitViewItems[1].viewController as! CommentViewController)
+        item = nil
     }
 }
