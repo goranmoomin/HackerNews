@@ -1408,6 +1408,7 @@ Gw
                             </containerView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="R4k-a3-teF" firstAttribute="height" relation="lessThanOrEqual" secondItem="BMa-o1-HNL" secondAttribute="height" multiplier="0.5" id="2VR-bd-Vb6"/>
                             <constraint firstItem="A5c-fA-2Gc" firstAttribute="top" secondItem="Mqk-Tn-m7N" secondAttribute="bottom" id="3nq-oI-ByF"/>
                             <constraint firstAttribute="trailing" secondItem="Mqk-Tn-m7N" secondAttribute="trailing" id="4y9-Gi-zFQ"/>
                             <constraint firstAttribute="trailing" secondItem="R4k-a3-teF" secondAttribute="trailing" id="7nU-K0-cP2"/>
@@ -1434,13 +1435,13 @@ Gw
             <objects>
                 <viewController id="bvi-xf-WO0" customClass="ItemViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="X17-aX-G3z">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="104"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="138"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box boxType="custom" borderType="none" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="On8-FS-Kpl">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="104"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="138"/>
                                 <view key="contentView" id="24H-x1-JR1">
-                                    <rect key="frame" x="0.0" y="0.0" width="450" height="104"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="138"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <color key="fillColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1563,24 +1564,47 @@ Gw
                                 </customSpacing>
                             </stackView>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IOm-dt-qAa">
-                                <rect key="frame" x="20" y="30" width="410" height="66"/>
+                                <rect key="frame" x="20" y="30" width="410" height="100"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="wUm-u7-mke">
-                                        <rect key="frame" x="-2" y="50" width="258" height="16"/>
+                                        <rect key="frame" x="-2" y="84" width="258" height="16"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Turning the IDE Inside Out with Datalog" id="l2v-dh-9jd">
                                             <font key="font" metaFont="systemBold"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="wxP-xY-xEk">
-                                        <rect key="frame" x="-2" y="26" width="63" height="16"/>
-                                        <textFieldCell key="cell" title="Story text" id="p6V-Rr-e4y">
-                                            <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
+                                    <scrollView verticalHuggingPriority="750" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JaL-09-1kw">
+                                        <rect key="frame" x="0.0" y="26" width="410" height="50"/>
+                                        <clipView key="contentView" id="IXc-1g-cf9">
+                                            <rect key="frame" x="0.0" y="0.0" width="410" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="wxP-xY-xEk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="410" height="50"/>
+                                                    <textFieldCell key="cell" title="Story text" id="p6V-Rr-e4y">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="wxP-xY-xEk" secondAttribute="trailing" constant="2" id="19W-Bw-MPe"/>
+                                                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="wxP-xY-xEk" secondAttribute="bottom" id="CGZ-Eb-rCd"/>
+                                                <constraint firstItem="wxP-xY-xEk" firstAttribute="leading" secondItem="IXc-1g-cf9" secondAttribute="leading" constant="2" id="TFO-Tv-Rfd"/>
+                                                <constraint firstItem="wxP-xY-xEk" firstAttribute="top" secondItem="IXc-1g-cf9" secondAttribute="top" id="o96-zI-YXV"/>
+                                            </constraints>
+                                        </clipView>
+                                        <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.5" horizontal="YES" id="T5l-Rl-Fsd">
+                                            <rect key="frame" x="0.0" y="34" width="410" height="16"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="qxe-8U-TUy">
+                                            <rect key="frame" x="394" y="0.0" width="16" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                    </scrollView>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JwD-ss-eeN">
                                         <rect key="frame" x="0.0" y="-1" width="88" height="19"/>
                                         <buttonCell key="cell" type="roundRect" title="petevilter.me" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kYT-KQ-nkz">
@@ -1624,13 +1648,14 @@ Gw
                         <outlet property="pointsGroup" destination="fgP-R0-nGH" id="k46-4l-0ZA"/>
                         <outlet property="pointsLabel" destination="5d9-mq-8gF" id="BBk-nT-dMl"/>
                         <outlet property="textLabel" destination="wxP-xY-xEk" id="TxY-KI-EJY"/>
+                        <outlet property="textScrollView" destination="JaL-09-1kw" id="gj8-rx-GZK"/>
                         <outlet property="titleLabel" destination="wUm-u7-mke" id="N8m-8h-SVJ"/>
                         <outlet property="urlButton" destination="JwD-ss-eeN" id="vtj-sX-NeO"/>
                     </connections>
                 </viewController>
                 <customObject id="EVA-LR-DrV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1506" y="1478"/>
+            <point key="canvasLocation" x="1506" y="1459"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="SQ1-HM-XjI">
