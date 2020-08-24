@@ -39,6 +39,21 @@ class ItemListViewController: NSViewController {
         // Do view setup here.
         category = .top
     }
+
+    @IBAction func search(_ sender: NSSearchField) {
+        let query = sender.stringValue
+        guard query != "" else { return }
+        APIClient.shared.items(query: query) { result in
+            switch result {
+            case .success(let items):
+                self.items = items
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    NSApplication.shared.presentError(error)
+                }
+            }
+        }
+    }
 }
 
 extension ItemListViewController: NSTableViewDataSource {
