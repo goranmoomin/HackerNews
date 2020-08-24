@@ -66,7 +66,6 @@ extension MainWindowController: NSToolbarDelegate {
         let item = notification.userInfo?["item"] as! NSToolbarItem
         if item.itemIdentifier == .search {
             let searchItem = item as! NSSearchToolbarItem
-            searchItem.searchField.sendsWholeSearchString = true
             searchItem.searchField.target = itemListViewController
             searchItem.searchField.action = #selector(ItemListViewController.search(_:))
         }
