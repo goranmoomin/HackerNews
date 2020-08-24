@@ -21,14 +21,18 @@ class ItemListViewController: NSViewController {
     }
     var category: HNAPI.Category! {
         didSet {
-            APIClient.shared.items(category: category) { result in
-                switch result {
-                case .success(let items):
-                    self.items = items
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        NSApplication.shared.presentError(error)
-                    }
+            reloadData()
+        }
+    }
+
+    func reloadData() {
+        APIClient.shared.items(category: category) { result in
+            switch result {
+            case .success(let items):
+                self.items = items
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    NSApplication.shared.presentError(error)
                 }
             }
         }
@@ -42,14 +46,17 @@ class ItemListViewController: NSViewController {
 
     @IBAction func search(_ sender: NSSearchField) {
         let query = sender.stringValue
-        guard query != "" else { return }
-        APIClient.shared.items(query: query) { result in
-            switch result {
-            case .success(let items):
-                self.items = items
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    NSApplication.shared.presentError(error)
+        if query == "" {
+            reloadData()
+        } else {
+            APIClient.shared.items(query: query) { result in
+                switch result {
+                case .success(let items):
+                    self.items = items
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        NSApplication.shared.presentError(error)
+                    }
                 }
             }
         }
