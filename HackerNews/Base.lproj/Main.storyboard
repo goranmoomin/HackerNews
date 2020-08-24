@@ -957,6 +957,16 @@ Gw
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="960" height="540"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1280" height="775"/>
+                        <toolbar key="toolbar" implicitIdentifier="891F2959-8C32-4BB7-AED8-68CD262A6E63" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="Y9G-qJ-Vpx">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="TsX-xz-hDT"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="bCq-8x-Ifg"/>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems/>
+                            <connections>
+                                <outlet property="delegate" destination="B8D-0N-5wS" id="8Kx-tr-YMh"/>
+                            </connections>
+                        </toolbar>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>

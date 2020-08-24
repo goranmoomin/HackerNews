@@ -41,3 +41,26 @@ extension MainWindowController: ItemListViewControllerDelegate {
         pageViewController.item = selectedItem
     }
 }
+
+extension MainWindowController: NSToolbarDelegate {
+    func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        [.itemListTrackingSeparator]
+    }
+
+    func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        [.space, .flexibleSpace, .toggleSidebar, .itemListTrackingSeparator]
+    }
+
+    func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
+        switch itemIdentifier {
+        case .itemListTrackingSeparator:
+            return NSTrackingSeparatorToolbarItem(identifier: .itemListTrackingSeparator, splitView: splitViewController.splitView, dividerIndex: 1)
+        default:
+            return NSToolbarItem(itemIdentifier: itemIdentifier)
+        }
+    }
+}
+
+extension NSToolbarItem.Identifier {
+    static let itemListTrackingSeparator = NSToolbarItem.Identifier("ItemListTrackingSeparator")
+}
