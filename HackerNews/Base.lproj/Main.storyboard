@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17154" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17154"/>
+        <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
         <capability name="Search Toolbar Item" minToolsVersion="12.0" minSystemVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -999,7 +1000,7 @@ Gw
                     <splitViewItems>
                         <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="tZ6-Kb-1Yk"/>
                         <splitViewItem holdingPriority="255" behavior="contentList" id="PDv-Wh-Mwc"/>
-                        <splitViewItem id="YH7-5F-yvL"/>
+                        <splitViewItem id="uQT-zy-l6b"/>
                     </splitViewItems>
                     <splitView key="splitView" dividerStyle="thin" vertical="YES" id="pM2-k3-bw0">
                         <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
@@ -1012,7 +1013,7 @@ Gw
                         <outlet property="splitView" destination="pM2-k3-bw0" id="oIL-86-DYg"/>
                         <segue destination="td8-xr-zX8" kind="relationship" relationship="splitItems" id="caW-Im-rNd"/>
                         <segue destination="A8L-MO-AOD" kind="relationship" relationship="splitItems" id="Q0W-ke-BHE"/>
-                        <segue destination="x82-tE-luK" kind="relationship" relationship="splitItems" id="ZgA-B1-345"/>
+                        <segue destination="Kqr-UI-G4h" kind="relationship" relationship="splitItems" id="yyC-sm-NzY"/>
                     </connections>
                 </splitViewController>
                 <customObject id="mZd-lG-U5q" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1180,14 +1181,14 @@ Gw
                                                             <rect key="frame" x="18" y="0.0" width="348" height="80"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Db-Aj-lLo">
+                                                                <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Db-Aj-lLo">
                                                                     <rect key="frame" x="20" y="8" width="243" height="14"/>
                                                                     <subviews>
-                                                                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f6a-VG-4Wi">
+                                                                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f6a-VG-4Wi">
                                                                             <rect key="frame" x="0.0" y="0.0" width="91" height="14"/>
                                                                             <subviews>
                                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zUL-wP-CMx">
-                                                                                    <rect key="frame" x="0.0" y="0.5" width="15.5" height="14"/>
+                                                                                    <rect key="frame" x="0.0" y="-2.5" width="15.5" height="19"/>
                                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="person" catalog="system" id="gbr-Vr-g8M"/>
                                                                                 </imageView>
                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fOl-TI-u1m">
@@ -1208,11 +1209,11 @@ Gw
                                                                                 <real value="3.4028234663852886e+38"/>
                                                                             </customSpacing>
                                                                         </stackView>
-                                                                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zNg-1C-mGs">
+                                                                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zNg-1C-mGs">
                                                                             <rect key="frame" x="95" y="0.0" width="39" height="14"/>
                                                                             <subviews>
                                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qts-tq-0gZ">
-                                                                                    <rect key="frame" x="0.0" y="-0.5" width="16.5" height="17"/>
+                                                                                    <rect key="frame" x="0.0" y="-3.5" width="16.5" height="22"/>
                                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="hand.thumbsup" catalog="system" id="8y2-Ke-Cat"/>
                                                                                 </imageView>
                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QPb-Ip-GQg">
@@ -1233,11 +1234,11 @@ Gw
                                                                                 <real value="3.4028234663852886e+38"/>
                                                                             </customSpacing>
                                                                         </stackView>
-                                                                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tjG-43-qEX">
+                                                                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tjG-43-qEX">
                                                                             <rect key="frame" x="138" y="0.0" width="34" height="14"/>
                                                                             <subviews>
                                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CJT-z3-O5P">
-                                                                                    <rect key="frame" x="0.0" y="-0.5" width="17" height="16"/>
+                                                                                    <rect key="frame" x="0.0" y="-3.5" width="17" height="21"/>
                                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="text.bubble" catalog="system" id="cDf-la-90r"/>
                                                                                 </imageView>
                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iNB-MI-lDJ">
@@ -1258,11 +1259,11 @@ Gw
                                                                                 <real value="3.4028234663852886e+38"/>
                                                                             </customSpacing>
                                                                         </stackView>
-                                                                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8s6-bk-xZz">
+                                                                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8s6-bk-xZz">
                                                                             <rect key="frame" x="176" y="0.0" width="67" height="14"/>
                                                                             <subviews>
                                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d12-66-fxL">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                                                                    <rect key="frame" x="0.0" y="-3" width="15" height="20"/>
                                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="clock" catalog="system" id="Cdl-2j-XZM"/>
                                                                                 </imageView>
                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="e4z-ZE-y0H">
@@ -1384,76 +1385,54 @@ Gw
             <point key="canvasLocation" x="930" y="1041"/>
         </scene>
         <!--Page View Controller-->
-        <scene sceneID="JSZ-uj-6RR">
+        <scene sceneID="KPX-r2-jxg">
             <objects>
-                <viewController id="x82-tE-luK" customClass="PageViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="BMa-o1-HNL">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="540"/>
+                <splitViewController id="Kqr-UI-G4h" customClass="PageViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <splitViewItems>
+                        <splitViewItem id="JLH-KI-Srp"/>
+                        <splitViewItem id="5Dy-rr-sFZ"/>
+                    </splitViewItems>
+                    <splitView key="splitView" dividerStyle="thin" id="wVJ-SF-ycQ">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <containerView verticalHuggingPriority="750" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="108" translatesAutoresizingMaskIntoConstraints="NO" id="R4k-a3-teF">
-                                <rect key="frame" x="0.0" y="432" width="450" height="108"/>
-                                <connections>
-                                    <segue destination="bvi-xf-WO0" kind="embed" destinationCreationSelector="showItemViewController:" id="7cF-vG-4yd"/>
-                                </connections>
-                            </containerView>
-                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Mqk-Tn-m7N">
-                                <rect key="frame" x="0.0" y="430" width="450" height="4"/>
-                            </box>
-                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="A5c-fA-2Gc">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="432"/>
-                                <connections>
-                                    <segue destination="STR-2b-H8u" kind="embed" destinationCreationSelector="showCommentViewController:" id="6CK-jB-Qlg"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="R4k-a3-teF" firstAttribute="height" relation="lessThanOrEqual" secondItem="BMa-o1-HNL" secondAttribute="height" multiplier="0.5" id="2VR-bd-Vb6"/>
-                            <constraint firstItem="A5c-fA-2Gc" firstAttribute="top" secondItem="Mqk-Tn-m7N" secondAttribute="bottom" id="3nq-oI-ByF"/>
-                            <constraint firstAttribute="trailing" secondItem="Mqk-Tn-m7N" secondAttribute="trailing" id="4y9-Gi-zFQ"/>
-                            <constraint firstAttribute="trailing" secondItem="R4k-a3-teF" secondAttribute="trailing" id="7nU-K0-cP2"/>
-                            <constraint firstAttribute="bottom" secondItem="A5c-fA-2Gc" secondAttribute="bottom" id="AiQ-wb-rIZ"/>
-                            <constraint firstItem="A5c-fA-2Gc" firstAttribute="top" secondItem="R4k-a3-teF" secondAttribute="bottom" id="Gzh-T9-k1M"/>
-                            <constraint firstItem="Mqk-Tn-m7N" firstAttribute="top" secondItem="R4k-a3-teF" secondAttribute="bottom" id="P1A-zy-XIh"/>
-                            <constraint firstItem="Mqk-Tn-m7N" firstAttribute="leading" secondItem="BMa-o1-HNL" secondAttribute="leading" id="QBl-ye-arR"/>
-                            <constraint firstItem="A5c-fA-2Gc" firstAttribute="leading" secondItem="BMa-o1-HNL" secondAttribute="leading" id="jdn-Q3-CAb"/>
-                            <constraint firstItem="R4k-a3-teF" firstAttribute="leading" secondItem="BMa-o1-HNL" secondAttribute="leading" id="l7y-Nc-7Ob"/>
-                            <constraint firstItem="R4k-a3-teF" firstAttribute="top" secondItem="BMa-o1-HNL" secondAttribute="top" placeholder="YES" id="lVB-pJ-aH7"/>
-                            <constraint firstAttribute="trailing" secondItem="A5c-fA-2Gc" secondAttribute="trailing" id="voX-UP-Ldn"/>
-                        </constraints>
-                    </view>
+                        <connections>
+                            <outlet property="delegate" destination="Kqr-UI-G4h" id="8GU-B5-a9a"/>
+                        </connections>
+                    </splitView>
                     <connections>
-                        <outlet property="itemContainer" destination="R4k-a3-teF" id="4Ej-jU-uPR"/>
+                        <outlet property="splitView" destination="wVJ-SF-ycQ" id="xuJ-BJ-GMa"/>
+                        <segue destination="bvi-xf-WO0" kind="relationship" relationship="splitItems" id="e7U-lv-uaL"/>
+                        <segue destination="STR-2b-H8u" kind="relationship" relationship="splitItems" id="3vn-Dr-uSn"/>
                     </connections>
-                </viewController>
-                <customObject id="QqO-sA-d2o" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                </splitViewController>
+                <customObject id="XRk-dw-Whl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="971" y="1732"/>
+            <point key="canvasLocation" x="731" y="1651"/>
         </scene>
         <!--Item View Controller-->
         <scene sceneID="x4y-DB-yO2">
             <objects>
                 <viewController id="bvi-xf-WO0" customClass="ItemViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="X17-aX-G3z">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="138"/>
+                    <view key="view" misplaced="YES" id="X17-aX-G3z">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="176"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box boxType="custom" borderType="none" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="On8-FS-Kpl">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="138"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="176"/>
                                 <view key="contentView" id="24H-x1-JR1">
-                                    <rect key="frame" x="0.0" y="0.0" width="450" height="138"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="176"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <color key="fillColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </box>
-                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Byd-6o-CM7">
+                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Byd-6o-CM7">
                                 <rect key="frame" x="20" y="8" width="243" height="14"/>
                                 <subviews>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z5z-Ad-A8P">
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z5z-Ad-A8P">
                                         <rect key="frame" x="0.0" y="0.0" width="91" height="14"/>
                                         <subviews>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tHb-9j-U1L">
-                                                <rect key="frame" x="0.0" y="0.5" width="15.5" height="14"/>
+                                                <rect key="frame" x="0.0" y="-2.5" width="15.5" height="19"/>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="person" catalog="system" id="uNm-EO-pLi"/>
                                             </imageView>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qON-Hy-o8Q">
@@ -1474,11 +1453,11 @@ Gw
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fgP-R0-nGH">
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fgP-R0-nGH">
                                         <rect key="frame" x="95" y="0.0" width="39" height="14"/>
                                         <subviews>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EaY-ye-g5k">
-                                                <rect key="frame" x="0.0" y="-0.5" width="16.5" height="17"/>
+                                                <rect key="frame" x="0.0" y="-3.5" width="16.5" height="22"/>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="hand.thumbsup" catalog="system" id="lE8-7L-rGu"/>
                                             </imageView>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5d9-mq-8gF">
@@ -1499,11 +1478,11 @@ Gw
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H0C-EO-dpz">
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H0C-EO-dpz">
                                         <rect key="frame" x="138" y="0.0" width="34" height="14"/>
                                         <subviews>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3KF-8h-7zu">
-                                                <rect key="frame" x="0.0" y="-0.5" width="17" height="16"/>
+                                                <rect key="frame" x="0.0" y="-3.5" width="17" height="21"/>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="text.bubble" catalog="system" id="P4b-ee-I0M"/>
                                             </imageView>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xJ8-Xk-GuZ">
@@ -1524,11 +1503,11 @@ Gw
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dba-8R-qod">
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dba-8R-qod">
                                         <rect key="frame" x="176" y="0.0" width="67" height="14"/>
                                         <subviews>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fK6-Nu-Gaz">
-                                                <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                                <rect key="frame" x="0.0" y="-3" width="15" height="20"/>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="clock" catalog="system" id="Tz1-HJ-bOP"/>
                                             </imageView>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BAW-jr-4Je">
@@ -1564,10 +1543,10 @@ Gw
                                 </customSpacing>
                             </stackView>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IOm-dt-qAa">
-                                <rect key="frame" x="20" y="30" width="410" height="100"/>
+                                <rect key="frame" x="20" y="30" width="410" height="86"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="wUm-u7-mke">
-                                        <rect key="frame" x="-2" y="84" width="258" height="16"/>
+                                        <rect key="frame" x="-2" y="70" width="258" height="16"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Turning the IDE Inside Out with Datalog" id="l2v-dh-9jd">
                                             <font key="font" metaFont="systemBold"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1575,13 +1554,13 @@ Gw
                                         </textFieldCell>
                                     </textField>
                                     <scrollView verticalHuggingPriority="750" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JaL-09-1kw">
-                                        <rect key="frame" x="0.0" y="26" width="410" height="50"/>
+                                        <rect key="frame" x="0.0" y="26" width="410" height="36"/>
                                         <clipView key="contentView" id="IXc-1g-cf9">
-                                            <rect key="frame" x="0.0" y="0.0" width="410" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="410" height="36"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="wxP-xY-xEk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="410" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="410" height="36"/>
                                                     <textFieldCell key="cell" title="Story text" id="p6V-Rr-e4y">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1597,11 +1576,11 @@ Gw
                                             </constraints>
                                         </clipView>
                                         <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.5" horizontal="YES" id="T5l-Rl-Fsd">
-                                            <rect key="frame" x="0.0" y="34" width="410" height="16"/>
+                                            <rect key="frame" x="0.0" y="20" width="410" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="qxe-8U-TUy">
-                                            <rect key="frame" x="394" y="0.0" width="16" height="50"/>
+                                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="qxe-8U-TUy">
+                                            <rect key="frame" x="394" y="0.0" width="16" height="36"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
@@ -1626,18 +1605,20 @@ Gw
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="IOm-dt-qAa" firstAttribute="top" secondItem="X17-aX-G3z" secondAttribute="top" constant="8" id="2It-ul-v6g"/>
-                            <constraint firstAttribute="bottom" secondItem="Byd-6o-CM7" secondAttribute="bottom" constant="8" id="3c3-0k-aoa"/>
-                            <constraint firstItem="On8-FS-Kpl" firstAttribute="leading" secondItem="X17-aX-G3z" secondAttribute="leading" id="45o-rr-OLG"/>
-                            <constraint firstAttribute="trailing" secondItem="On8-FS-Kpl" secondAttribute="trailing" id="4Ka-GS-TTC"/>
-                            <constraint firstAttribute="bottom" secondItem="On8-FS-Kpl" secondAttribute="bottom" id="8ew-JZ-Mmf"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Byd-6o-CM7" secondAttribute="trailing" constant="20" symbolic="YES" id="CGT-lH-Klg"/>
+                            <constraint firstItem="IOm-dt-qAa" firstAttribute="top" secondItem="XJd-m8-ZZb" secondAttribute="top" constant="8" id="2It-ul-v6g"/>
+                            <constraint firstItem="XJd-m8-ZZb" firstAttribute="bottom" secondItem="Byd-6o-CM7" secondAttribute="bottom" constant="8" id="3c3-0k-aoa"/>
+                            <constraint firstItem="On8-FS-Kpl" firstAttribute="leading" secondItem="XJd-m8-ZZb" secondAttribute="leading" id="45o-rr-OLG"/>
+                            <constraint firstItem="XJd-m8-ZZb" firstAttribute="trailing" secondItem="On8-FS-Kpl" secondAttribute="trailing" id="4Ka-GS-TTC"/>
+                            <constraint firstItem="XJd-m8-ZZb" firstAttribute="bottom" secondItem="On8-FS-Kpl" secondAttribute="bottom" id="8ew-JZ-Mmf"/>
+                            <constraint firstItem="XJd-m8-ZZb" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Byd-6o-CM7" secondAttribute="trailing" constant="20" symbolic="YES" id="CGT-lH-Klg"/>
                             <constraint firstItem="Byd-6o-CM7" firstAttribute="top" secondItem="IOm-dt-qAa" secondAttribute="bottom" constant="8" id="TNQ-DW-AfD"/>
                             <constraint firstItem="On8-FS-Kpl" firstAttribute="top" secondItem="X17-aX-G3z" secondAttribute="top" id="V4m-U9-m3K"/>
-                            <constraint firstAttribute="trailing" secondItem="IOm-dt-qAa" secondAttribute="trailing" constant="20" symbolic="YES" id="VbQ-Pe-eYJ"/>
-                            <constraint firstItem="IOm-dt-qAa" firstAttribute="leading" secondItem="X17-aX-G3z" secondAttribute="leading" constant="20" symbolic="YES" id="Xo6-1J-1Ng"/>
-                            <constraint firstItem="Byd-6o-CM7" firstAttribute="leading" secondItem="X17-aX-G3z" secondAttribute="leading" constant="20" symbolic="YES" id="kz3-ds-6Oh"/>
+                            <constraint firstItem="XJd-m8-ZZb" firstAttribute="trailing" secondItem="IOm-dt-qAa" secondAttribute="trailing" constant="20" symbolic="YES" id="VbQ-Pe-eYJ"/>
+                            <constraint firstItem="IOm-dt-qAa" firstAttribute="leading" secondItem="XJd-m8-ZZb" secondAttribute="leading" constant="20" symbolic="YES" id="Xo6-1J-1Ng"/>
+                            <constraint firstItem="Byd-6o-CM7" firstAttribute="leading" secondItem="XJd-m8-ZZb" secondAttribute="leading" constant="20" symbolic="YES" id="kz3-ds-6Oh"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="XJd-m8-ZZb"/>
+                        <viewLayoutGuide key="layoutMargins" id="xQy-Dy-zJH"/>
                     </view>
                     <connections>
                         <outlet property="authorGroup" destination="z5z-Ad-A8P" id="GOw-ip-h9w"/>
@@ -1655,7 +1636,7 @@ Gw
                 </viewController>
                 <customObject id="EVA-LR-DrV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1506" y="1459"/>
+            <point key="canvasLocation" x="1496" y="1431"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="SQ1-HM-XjI">

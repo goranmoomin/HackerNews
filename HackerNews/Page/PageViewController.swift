@@ -2,9 +2,7 @@
 import Cocoa
 import HNAPI
 
-class PageViewController: NSViewController {
-
-    @IBOutlet var itemContainer: NSView!
+class PageViewController: NSSplitViewController {
 
     var itemViewController: ItemViewController!
     var commentViewController: CommentViewController!
@@ -30,31 +28,11 @@ class PageViewController: NSViewController {
         }
     }
 
-    @IBSegueAction func showItemViewController(_ coder: NSCoder) -> ItemViewController? {
-        let itemViewController = ItemViewController(coder: coder)
-        self.itemViewController = itemViewController
-        return itemViewController
-    }
-
-    @IBSegueAction func showCommentViewController(_ coder: NSCoder) -> CommentViewController? {
-        let commentViewController = CommentViewController(coder: coder)
-        self.commentViewController = commentViewController
-        return commentViewController
-    }
-
-    var itemContainerViewConstraint: NSLayoutConstraint?
-
-    override func updateViewConstraints() {
-        if itemContainerViewConstraint == nil, let contentLayoutGuide = view.window?.contentLayoutGuide as? NSLayoutGuide {
-            let contentTopAnchor = contentLayoutGuide.topAnchor
-            itemContainerViewConstraint = itemContainer.topAnchor.constraint(equalTo: contentTopAnchor)
-            itemContainerViewConstraint?.isActive = true
-        }
-        super.updateViewConstraints()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+
+        itemViewController = (splitViewItems[0].viewController as! ItemViewController)
+        commentViewController = (splitViewItems[1].viewController as! CommentViewController)
     }
 }
