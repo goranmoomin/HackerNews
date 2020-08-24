@@ -44,23 +44,36 @@ extension MainWindowController: ItemListViewControllerDelegate {
 
 extension MainWindowController: NSToolbarDelegate {
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        [.itemListTrackingSeparator]
+        [.search, .itemListTrackingSeparator]
     }
 
     func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        [.space, .flexibleSpace, .toggleSidebar, .itemListTrackingSeparator]
+        [.space, .flexibleSpace, .toggleSidebar, .search, .itemListTrackingSeparator]
     }
 
     func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
         switch itemIdentifier {
         case .itemListTrackingSeparator:
             return NSTrackingSeparatorToolbarItem(identifier: .itemListTrackingSeparator, splitView: splitViewController.splitView, dividerIndex: 1)
+        case .search:
+            return NSSearchToolbarItem(itemIdentifier: .search)
         default:
             return NSToolbarItem(itemIdentifier: itemIdentifier)
+        }
+    }
+
+    func toolbarWillAddItem(_ notification: Notification) {
+        let item = notification.userInfo?["item"] as! NSToolbarItem
+        if item.itemIdentifier == .search {
+            let searchItem = item as! NSSearchToolbarItem
+            searchItem.searchField.sendsWholeSearchString = true
+            searchItem.searchField.target = itemListViewController
+            searchItem.searchField.action = #selector(ItemListViewController.search(_:))
         }
     }
 }
 
 extension NSToolbarItem.Identifier {
     static let itemListTrackingSeparator = NSToolbarItem.Identifier("ItemListTrackingSeparator")
+    static let search = NSToolbarItem.Identifier("Search")
 }
