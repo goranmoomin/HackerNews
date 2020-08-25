@@ -18,12 +18,13 @@ extension TagTransformer {
 }
 
 extension String {
-    var styledAttributedString: NSAttributedString {
+    func styledAttributedString(textColor: Color) -> NSAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.paragraphSpacing = 8
         let systemFontSize = NSFont.systemFontSize(for: .regular)
         let all = Style
             .font(.systemFont(ofSize: systemFontSize))
+            .foregroundColor(textColor)
             .paragraphStyle(paragraphStyle)
         let a = Style("a")
         let i = Style("i")

@@ -56,7 +56,14 @@ class CommentCellView: NSTableCellView {
             }
         }
         authorLabel.stringValue = comment.author
-        textLabel.attributedStringValue = comment.text.styledAttributedString
+        let textColor: NSColor
+        switch comment.color {
+        case .c00: textColor = .labelColor
+        case .c5a, .c73, .c82: textColor = .secondaryLabelColor
+        case .c88, .c9c, .cae: textColor = .tertiaryLabelColor
+        case .cbe, .cce, .cdd: textColor = .quaternaryLabelColor
+        }
+        textLabel.attributedStringValue = comment.text.styledAttributedString(textColor: textColor)
         creationLabel.stringValue = formatter.localizedString(for: comment.creation, relativeTo: Date())
     }
 
