@@ -458,8 +458,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pcr910303/HNAPI.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = exactVersion;
+				version = 0.0.1;
 			};
 		};
 		5B9216C524DC6F1C00C51FF1 /* XCRemoteSwiftPackageReference "Atributika" */ = {
