@@ -1315,6 +1315,9 @@ Gw
                                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                                 <font key="font" metaFont="cellTitle"/>
                                                                             </buttonCell>
+                                                                            <connections>
+                                                                                <action selector="openURL:" target="0A2-e5-fyj" id="GsW-Zy-yPi"/>
+                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                     <visibilityPriorities>
@@ -1590,6 +1593,9 @@ Gw
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="cellTitle"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="openURL:" target="bvi-xf-WO0" id="Ttq-gc-Nh4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <visibilityPriorities>

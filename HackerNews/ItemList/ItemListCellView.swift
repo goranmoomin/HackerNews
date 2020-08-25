@@ -53,4 +53,22 @@ class ItemListCellView: NSTableCellView {
             }
         }
     }
+
+    @IBAction func openURL(_ sender: NSButton) {
+        guard objectValue != nil else {
+            return
+        }
+        let item = objectValue as! TopLevelItem
+
+        let url: URL
+        switch item {
+        case .story(let story):
+            guard story.content.url != nil else { return }
+            url = story.content.url!
+        case .job(let job):
+            guard job.content.url != nil else { return }
+            url = job.content.url!
+        }
+        NSWorkspace.shared.open(url)
+    }
 }
