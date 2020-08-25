@@ -54,8 +54,14 @@ extension MainWindowController: NSToolbarDelegate {
     func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
         switch itemIdentifier {
         case .itemListTrackingSeparator:
+            guard #available(macOS 11.0, *) else {
+                return nil
+            }
             return NSTrackingSeparatorToolbarItem(identifier: .itemListTrackingSeparator, splitView: splitViewController.splitView, dividerIndex: 1)
         case .search:
+            guard #available(macOS 11.0, *) else {
+                return NSToolbarItem(itemIdentifier: itemIdentifier)
+            }
             return NSSearchToolbarItem(itemIdentifier: .search)
         default:
             return NSToolbarItem(itemIdentifier: itemIdentifier)
@@ -65,9 +71,15 @@ extension MainWindowController: NSToolbarDelegate {
     func toolbarWillAddItem(_ notification: Notification) {
         let item = notification.userInfo?["item"] as! NSToolbarItem
         if item.itemIdentifier == .search {
-            let searchItem = item as! NSSearchToolbarItem
-            searchItem.searchField.target = itemListViewController
-            searchItem.searchField.action = #selector(ItemListViewController.search(_:))
+            if #available(macOS 11.0, *)  {
+                let searchItem = item as! NSSearchToolbarItem
+                searchItem.searchField.target = itemListViewController
+                searchItem.searchField.action = #selector(ItemListViewController.search(_:))
+            } else {
+                let searchField = item.view as! NSSearchField
+                searchField.target = itemListViewController
+                searchField.action = #selector(ItemListViewController.search(_:))
+            }
         }
     }
 }

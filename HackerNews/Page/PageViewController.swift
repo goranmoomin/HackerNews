@@ -36,6 +36,21 @@ class PageViewController: NSSplitViewController {
         }
     }
 
+    var itemContainerViewConstraint: NSLayoutConstraint?
+
+    override func updateViewConstraints() {
+        if #available(macOS 11.0, *) {
+            super.updateViewConstraints()
+            return
+        }
+        if itemContainerViewConstraint == nil, let contentLayoutGuide = view.window?.contentLayoutGuide as? NSLayoutGuide {
+            let contentTopAnchor = contentLayoutGuide.topAnchor
+            itemContainerViewConstraint = itemViewController.view.topAnchor.constraint(equalTo: contentTopAnchor)
+            itemContainerViewConstraint?.isActive = true
+        }
+        super.updateViewConstraints()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
