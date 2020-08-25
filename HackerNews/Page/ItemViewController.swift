@@ -54,6 +54,20 @@ class ItemViewController: NSViewController {
         }
     }
 
+    @IBAction func openURL(_ sender: NSButton) {
+        let url: URL
+        switch item {
+        case .story(let story):
+            guard story.content.url != nil else { return }
+            url = story.content.url!
+        case .job(let job):
+            guard job.content.url != nil else { return }
+            url = job.content.url!
+        default: return
+        }
+        NSWorkspace.shared.open(url)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
