@@ -30,7 +30,7 @@ class ItemViewController: NSViewController {
                     urlButton.isHidden = false
                     urlButton.title = host
                 } else if let text = story.content.text {
-                    textLabel.attributedStringValue = text.styledAttributedString
+                    textLabel.attributedStringValue = text.styledAttributedString(textColor: .labelColor)
                     textScrollView.isHidden = false
                     urlButton.isHidden = true
                 } else {
