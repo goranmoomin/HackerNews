@@ -1,6 +1,6 @@
 #  HackerNews.app
 
-![Screenshot of main window](https://user-images.githubusercontent.com/37990858/90976617-77af4480-e579-11ea-9d34-753395d01642.png)
+![Screenshot of main window](https://user-images.githubusercontent.com/37990858/91111480-93baff00-e6bb-11ea-8e00-d11790f9720c.png)
 
 ---
 
@@ -20,24 +20,20 @@ I did a rewrite of this app, partially because I didn't want to spend days to fi
 working in Big Sur, and partially because I really wanted to replace my terrible code to less terrible code.
 Thankfully, the rewrite was successful and you can see the commit 96db15a now!
 
-The new app has a few features that the old app didn't have (and now has more reliable upvoting/unvoting!), but
-notably search is not implemented yet. I'll probably do another release after implementing search, although I'm not
-sure if anyone will use it.
+The new app has a few features that the old app didn't have like comment colors, and now have more reliable 
+upvoting/unvoting!
 
-### (A pre-rewrite, outdated) Pre-pre-pre release
+### Pre release
 
-As people say, if you've released something that you're not ashamed for, it's too late.
-So I decided to add an release the current version (which isn't really an app, really more of an MVP).
-Don't worry if you're disappointed after trying out, 
-I can definitely ensure you that this app isn't going to be distributed as it currently is.
+I did a pre release, you might want to try it out by downloading it from the
+[releases tab](https://github.com/pcr910303/HackerNews/releases).
 
-The app currently has a lot of (pretty basic) features disabled - for example,
+The app currently has a lot of basic features disabled - for example,
 the commenting code is already written but I couldn't decide the optimal UI for commenting, so I removed it for now.
-It also once had search (as in the screenshot) but I also removed it mostly because I wanted to make it more reliable.
-All-in-all, this pre-pre-pre release only is able to view HN, login and upvote/downvote, and has a non-optimal UI,
-but it'll have much more features and a better UI as development proceeds.
-
-You can download it in the [releases tab](https://github.com/pcr910303/HackerNews/releases).
+The comment was once selectable, but due to a Big Sur bug I disabled selecting, which means you won't be able to
+copy text from comments (which will be a dealbreaker I guess?).
+All-in-all, this pre release only is able to view HN, login and upvote/downvote, and has a non-optimal UI,
+but it'll gain more features and a better UI as development proceeds.
 
 ## Development
 
