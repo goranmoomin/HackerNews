@@ -1003,7 +1003,7 @@ Gw
                         <splitViewItem id="uQT-zy-l6b"/>
                     </splitViewItems>
                     <splitView key="splitView" dividerStyle="thin" vertical="YES" id="pM2-k3-bw0">
-                        <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
+                        <rect key="frame" x="0.0" y="0.0" width="942" height="540"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
                             <outlet property="delegate" destination="daz-Qk-COY" id="O4h-kd-IMF"/>
@@ -1412,6 +1412,89 @@ Gw
             </objects>
             <point key="canvasLocation" x="903" y="1129"/>
         </scene>
+        <!--Reply Popover View Controller-->
+        <scene sceneID="Fv5-9j-XCG">
+            <objects>
+                <viewController storyboardIdentifier="ReplyPopoverViewController" id="hC2-n7-AD6" customClass="ReplyPopoverViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="n3R-aw-gUt">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="98"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="nCT-72-Hn6">
+                                <rect key="frame" x="6" y="74" width="438" height="16"/>
+                                <textFieldCell key="cell" selectable="YES" sendsActionOnEndEditing="YES" title="Comment Text" allowsEditingTextAttributes="YES" id="yL2-ph-D2g">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="9uw-LE-rBq">
+                                <rect key="frame" x="0.0" y="63" width="450" height="5"/>
+                            </box>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="y7M-Uw-wUM">
+                                <rect key="frame" x="8" y="36" width="434" height="21"/>
+                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="cVz-kC-A6g">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pMX-Lq-L2K">
+                                <rect key="frame" x="369" y="1" width="80" height="32"/>
+                                <buttonCell key="cell" type="push" title="Reply" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bXW-3t-Yh3">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="reply:" target="hC2-n7-AD6" id="bBs-7c-gnV"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SHR-A4-MLI">
+                                <rect key="frame" x="283" y="1" width="88" height="32"/>
+                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nhK-gP-nul">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="cancel:" target="hC2-n7-AD6" id="MeB-4g-MUe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="y7M-Uw-wUM" secondAttribute="trailing" constant="8" id="1dZ-Wq-OHL"/>
+                            <constraint firstItem="9uw-LE-rBq" firstAttribute="leading" secondItem="n3R-aw-gUt" secondAttribute="leading" id="2AD-gi-FNc"/>
+                            <constraint firstItem="nCT-72-Hn6" firstAttribute="leading" secondItem="n3R-aw-gUt" secondAttribute="leading" constant="8" id="7i0-HY-6VC"/>
+                            <constraint firstAttribute="trailing" secondItem="nCT-72-Hn6" secondAttribute="trailing" constant="8" id="8QH-k3-apB"/>
+                            <constraint firstItem="SHR-A4-MLI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n3R-aw-gUt" secondAttribute="leading" constant="8" id="CON-AM-Tmm"/>
+                            <constraint firstAttribute="trailing" secondItem="9uw-LE-rBq" secondAttribute="trailing" id="Ncd-FK-foi"/>
+                            <constraint firstItem="pMX-Lq-L2K" firstAttribute="top" secondItem="y7M-Uw-wUM" secondAttribute="bottom" constant="8" symbolic="YES" id="STW-yH-s2Q"/>
+                            <constraint firstAttribute="bottom" secondItem="SHR-A4-MLI" secondAttribute="bottom" constant="8" id="V0A-TL-ury"/>
+                            <constraint firstAttribute="bottom" secondItem="pMX-Lq-L2K" secondAttribute="bottom" constant="8" id="W7K-X2-idx"/>
+                            <constraint firstItem="SHR-A4-MLI" firstAttribute="top" secondItem="y7M-Uw-wUM" secondAttribute="bottom" constant="8" symbolic="YES" id="Xyh-FU-Aoe"/>
+                            <constraint firstItem="y7M-Uw-wUM" firstAttribute="leading" secondItem="n3R-aw-gUt" secondAttribute="leading" constant="8" id="Z1R-WX-bxq"/>
+                            <constraint firstItem="y7M-Uw-wUM" firstAttribute="top" secondItem="9uw-LE-rBq" secondAttribute="bottom" constant="8" symbolic="YES" id="aZ4-hb-s7t"/>
+                            <constraint firstAttribute="trailing" secondItem="pMX-Lq-L2K" secondAttribute="trailing" constant="8" id="joe-6n-J0P"/>
+                            <constraint firstItem="9uw-LE-rBq" firstAttribute="top" secondItem="nCT-72-Hn6" secondAttribute="bottom" constant="8" symbolic="YES" id="r4g-Ss-Odn"/>
+                            <constraint firstItem="nCT-72-Hn6" firstAttribute="top" secondItem="n3R-aw-gUt" secondAttribute="top" constant="8" id="uvm-WF-68Q"/>
+                            <constraint firstItem="pMX-Lq-L2K" firstAttribute="leading" secondItem="SHR-A4-MLI" secondAttribute="trailing" constant="12" symbolic="YES" id="yeT-y7-yYo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="commentLabel" destination="nCT-72-Hn6" id="fqz-Y0-Vni"/>
+                        <outlet property="commentTopConstraint" destination="uvm-WF-68Q" id="lwu-YW-E8a"/>
+                        <outlet property="replyTextField" destination="y7M-Uw-wUM" id="TlK-Pe-imQ"/>
+                    </connections>
+                </viewController>
+                <customObject id="acQ-o8-adO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="903" y="1443"/>
+        </scene>
         <!--Item View Controller-->
         <scene sceneID="x4y-DB-yO2">
             <objects>
@@ -1682,7 +1765,7 @@ Gw
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xxl-bq-x8F">
-                                                                    <rect key="frame" x="8" y="32" width="182" height="14"/>
+                                                                    <rect key="frame" x="8" y="32" width="201" height="14"/>
                                                                     <subviews>
                                                                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ia1-HJ-dtv">
                                                                             <rect key="frame" x="0.0" y="0.0" width="56" height="14"/>
@@ -1735,7 +1818,7 @@ Gw
                                                                             </customSpacing>
                                                                         </stackView>
                                                                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Fn-kC-zVf">
-                                                                            <rect key="frame" x="154" y="0.0" width="28" height="14"/>
+                                                                            <rect key="frame" x="154" y="0.0" width="47" height="14"/>
                                                                             <subviews>
                                                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="dMf-sN-KS5" customClass="VoteButton" customModule="HackerNews" customModuleProvider="target">
                                                                                     <rect key="frame" x="0.0" y="-2.5" width="13" height="19"/>
@@ -1757,12 +1840,24 @@ Gw
                                                                                         <action selector="executeAction:" target="VrP-vM-LDn" id="ull-aH-AzS"/>
                                                                                     </connections>
                                                                                 </button>
+                                                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="IFV-fG-DXd">
+                                                                                    <rect key="frame" x="30" y="-2.5" width="17.5" height="19"/>
+                                                                                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="arrowshape.turn.up.left" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="U11-2F-YIU">
+                                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                                        <font key="font" metaFont="system"/>
+                                                                                    </buttonCell>
+                                                                                    <connections>
+                                                                                        <action selector="reply:" target="VrP-vM-LDn" id="enH-w3-9r4"/>
+                                                                                    </connections>
+                                                                                </button>
                                                                             </subviews>
                                                                             <visibilityPriorities>
                                                                                 <integer value="1000"/>
                                                                                 <integer value="1000"/>
+                                                                                <integer value="1000"/>
                                                                             </visibilityPriorities>
                                                                             <customSpacing>
+                                                                                <real value="3.4028234663852886e+38"/>
                                                                                 <real value="3.4028234663852886e+38"/>
                                                                                 <real value="3.4028234663852886e+38"/>
                                                                             </customSpacing>
@@ -1801,6 +1896,7 @@ Gw
                                                                 <outlet property="authorLabel" destination="RkO-Ok-6jQ" id="2Qg-Iq-KJJ"/>
                                                                 <outlet property="creationLabel" destination="163-c2-GO3" id="TfW-hR-pT1"/>
                                                                 <outlet property="downvoteButton" destination="rcY-Lh-Kab" id="a0k-Tr-lQI"/>
+                                                                <outlet property="replyButton" destination="IFV-fG-DXd" id="iAa-ID-hZu"/>
                                                                 <outlet property="textLabel" destination="RUJ-DK-bxA" id="CBl-Uf-f7k"/>
                                                                 <outlet property="upvoteButton" destination="dMf-sN-KS5" id="J2m-fB-Ze8"/>
                                                             </connections>
@@ -1847,6 +1943,7 @@ Gw
         <image name="NSRemoveTemplate" width="11" height="11"/>
         <image name="arrow.down" catalog="system" width="13" height="14"/>
         <image name="arrow.up" catalog="system" width="13" height="14"/>
+        <image name="arrowshape.turn.up.left" catalog="system" width="17" height="14"/>
         <image name="clock" catalog="system" width="15" height="15"/>
         <image name="hand.thumbsup" catalog="system" width="16" height="17"/>
         <image name="person" catalog="system" width="15" height="14"/>

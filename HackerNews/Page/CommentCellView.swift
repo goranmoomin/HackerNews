@@ -6,6 +6,7 @@ import Atributika
 protocol CommentCellViewDelegate {
     func commentCellView(_ commentCellView: CommentCellView, actionsOf comment: Comment) -> Set<Action>
     func commentCellView(_ commentCellView: CommentCellView, execute action: Action, for comment: Comment)
+    func commentCellView(_ commentCellView: CommentCellView, replyTo comment: Comment)
 }
 
 class CommentCellView: NSTableCellView {
@@ -15,6 +16,7 @@ class CommentCellView: NSTableCellView {
     @IBOutlet var textLabel: NSTextField!
     @IBOutlet var upvoteButton: VoteButton!
     @IBOutlet var downvoteButton: VoteButton!
+    @IBOutlet var replyButton: NSButton!
 
     let formatter = RelativeDateTimeFormatter()
 
@@ -65,6 +67,11 @@ class CommentCellView: NSTableCellView {
         }
         textLabel.attributedStringValue = comment.text.styledAttributedString(textColor: textColor)
         creationLabel.stringValue = formatter.localizedString(for: comment.creation, relativeTo: Date())
+        if Account.selectedAccount != nil {
+            replyButton.isHidden = false
+        } else {
+            replyButton.isHidden = true
+        }
     }
 
     @IBAction func executeAction(_ sender: VoteButton) {
@@ -74,6 +81,11 @@ class CommentCellView: NSTableCellView {
         }
         let comment = objectValue as! Comment
         delegate?.commentCellView(self, execute: action, for: comment)
+    }
+
+    @IBAction func reply(_ sender: NSButton) {
+        let comment = objectValue as! Comment
+        delegate?.commentCellView(self, replyTo: comment)
     }
 }
 

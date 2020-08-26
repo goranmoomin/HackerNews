@@ -48,6 +48,15 @@ extension CommentViewController: CommentCellViewDelegate {
             }
         }
     }
+
+    func commentCellView(_ commentCellView: CommentCellView, replyTo comment: Comment) {
+        let replyPopoverViewController = NSStoryboard.main?.instantiateController(withIdentifier: .replyPopoverViewController) as! ReplyPopoverViewController
+        replyPopoverViewController.comment = comment
+        let popover = NSPopover()
+        popover.contentViewController = replyPopoverViewController
+        popover.delegate = replyPopoverViewController
+        popover.show(relativeTo: .zero, of: commentCellView.replyButton, preferredEdge: .minY)
+    }
 }
 
 extension CommentViewController: NSOutlineViewDataSource {
