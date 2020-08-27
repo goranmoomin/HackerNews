@@ -5,9 +5,8 @@ import HNAPI
 class ReplyPopoverViewController: NSViewController {
 
     @IBOutlet var commentLabel: NSTextField!
+    @IBOutlet var dragLabel: NSTextField!
     @IBOutlet var replyTextField: NSTextField!
-
-    @IBOutlet var commentTopConstraint: NSLayoutConstraint!
 
     var comment: Comment! {
         didSet {
@@ -67,7 +66,7 @@ class ReplyPopoverViewController: NSViewController {
 extension ReplyPopoverViewController: NSPopoverDelegate {
 
     func popoverDidDetach(_ popover: NSPopover) {
-        commentTopConstraint.animator().constant = 20.0
+        dragLabel.stringValue = "Drag here to move"
     }
 
     func popoverShouldDetach(_ popover: NSPopover) -> Bool {

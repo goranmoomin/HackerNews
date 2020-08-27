@@ -1417,7 +1417,7 @@ Gw
             <objects>
                 <viewController storyboardIdentifier="ReplyPopoverViewController" id="hC2-n7-AD6" customClass="ReplyPopoverViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="n3R-aw-gUt">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="98"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="110"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="nCT-72-Hn6">
@@ -1465,6 +1465,14 @@ Gw
                                     <action selector="cancel:" target="hC2-n7-AD6" id="MeB-4g-MUe"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ROd-oz-MqZ">
+                                <rect key="frame" x="179" y="93" width="92" height="11"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Drag here to detach" id="CkX-uT-P0e">
+                                    <font key="font" metaFont="miniSystem"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="y7M-Uw-wUM" secondAttribute="trailing" constant="8" id="1dZ-Wq-OHL"/>
@@ -1472,6 +1480,8 @@ Gw
                             <constraint firstItem="nCT-72-Hn6" firstAttribute="leading" secondItem="n3R-aw-gUt" secondAttribute="leading" constant="8" id="7i0-HY-6VC"/>
                             <constraint firstAttribute="trailing" secondItem="nCT-72-Hn6" secondAttribute="trailing" constant="8" id="8QH-k3-apB"/>
                             <constraint firstItem="SHR-A4-MLI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n3R-aw-gUt" secondAttribute="leading" constant="8" id="CON-AM-Tmm"/>
+                            <constraint firstItem="ROd-oz-MqZ" firstAttribute="centerX" secondItem="n3R-aw-gUt" secondAttribute="centerX" id="Hxm-M7-lul"/>
+                            <constraint firstItem="ROd-oz-MqZ" firstAttribute="top" secondItem="n3R-aw-gUt" secondAttribute="top" constant="6" id="NTH-LI-ufD"/>
                             <constraint firstAttribute="trailing" secondItem="9uw-LE-rBq" secondAttribute="trailing" id="Ncd-FK-foi"/>
                             <constraint firstItem="pMX-Lq-L2K" firstAttribute="top" secondItem="y7M-Uw-wUM" secondAttribute="bottom" constant="8" symbolic="YES" id="STW-yH-s2Q"/>
                             <constraint firstAttribute="bottom" secondItem="SHR-A4-MLI" secondAttribute="bottom" constant="8" id="V0A-TL-ury"/>
@@ -1481,13 +1491,13 @@ Gw
                             <constraint firstItem="y7M-Uw-wUM" firstAttribute="top" secondItem="9uw-LE-rBq" secondAttribute="bottom" constant="8" symbolic="YES" id="aZ4-hb-s7t"/>
                             <constraint firstAttribute="trailing" secondItem="pMX-Lq-L2K" secondAttribute="trailing" constant="8" id="joe-6n-J0P"/>
                             <constraint firstItem="9uw-LE-rBq" firstAttribute="top" secondItem="nCT-72-Hn6" secondAttribute="bottom" constant="8" symbolic="YES" id="r4g-Ss-Odn"/>
-                            <constraint firstItem="nCT-72-Hn6" firstAttribute="top" secondItem="n3R-aw-gUt" secondAttribute="top" constant="8" id="uvm-WF-68Q"/>
+                            <constraint firstItem="nCT-72-Hn6" firstAttribute="top" secondItem="n3R-aw-gUt" secondAttribute="top" constant="20" symbolic="YES" id="uvm-WF-68Q"/>
                             <constraint firstItem="pMX-Lq-L2K" firstAttribute="leading" secondItem="SHR-A4-MLI" secondAttribute="trailing" constant="12" symbolic="YES" id="yeT-y7-yYo"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="commentLabel" destination="nCT-72-Hn6" id="fqz-Y0-Vni"/>
-                        <outlet property="commentTopConstraint" destination="uvm-WF-68Q" id="lwu-YW-E8a"/>
+                        <outlet property="dragLabel" destination="ROd-oz-MqZ" id="hRX-Sl-Is5"/>
                         <outlet property="replyTextField" destination="y7M-Uw-wUM" id="TlK-Pe-imQ"/>
                     </connections>
                 </viewController>
