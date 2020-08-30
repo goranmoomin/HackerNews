@@ -1522,7 +1522,7 @@ Gw
                                 <color key="fillColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </box>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Byd-6o-CM7">
-                                <rect key="frame" x="20" y="8" width="243" height="14"/>
+                                <rect key="frame" x="20" y="8" width="279" height="14"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z5z-Ad-A8P">
                                         <rect key="frame" x="0.0" y="0.0" width="91" height="14"/>
@@ -1624,14 +1624,46 @@ Gw
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3di-mI-fmv">
+                                        <rect key="frame" x="247" y="0.0" width="32" height="14"/>
+                                        <subviews>
+                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="i3B-TT-CRC" customClass="VoteButton" customModule="HackerNews" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="-2.5" width="13" height="19"/>
+                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="arrow.up" catalog="system" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="3lL-4J-qd6">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="executeAction:" target="bvi-xf-WO0" id="s46-s2-M2k"/>
+                                                </connections>
+                                            </button>
+                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="Szj-NT-ceP">
+                                                <rect key="frame" x="15" y="-2.5" width="17.5" height="19"/>
+                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="arrowshape.turn.up.left" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="ynj-z6-Dep">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
                                 </subviews>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
@@ -1727,9 +1759,11 @@ Gw
                         <outlet property="creationLabel" destination="BAW-jr-4Je" id="zy4-a4-9HT"/>
                         <outlet property="pointsGroup" destination="fgP-R0-nGH" id="k46-4l-0ZA"/>
                         <outlet property="pointsLabel" destination="5d9-mq-8gF" id="BBk-nT-dMl"/>
+                        <outlet property="replyButton" destination="Szj-NT-ceP" id="hj3-hy-OvS"/>
                         <outlet property="textLabel" destination="wxP-xY-xEk" id="TxY-KI-EJY"/>
                         <outlet property="textScrollView" destination="JaL-09-1kw" id="gj8-rx-GZK"/>
                         <outlet property="titleLabel" destination="wUm-u7-mke" id="N8m-8h-SVJ"/>
+                        <outlet property="upvoteButton" destination="i3B-TT-CRC" id="M4I-T0-aFF"/>
                         <outlet property="urlButton" destination="JwD-ss-eeN" id="vtj-sX-NeO"/>
                     </connections>
                 </viewController>

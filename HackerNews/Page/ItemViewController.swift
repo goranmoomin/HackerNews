@@ -16,11 +16,14 @@ class ItemViewController: NSViewController {
     @IBOutlet var commentCountGroup: NSStackView!
     @IBOutlet var commentCountLabel: NSTextField!
     @IBOutlet var creationLabel: NSTextField!
+    @IBOutlet var upvoteButton: VoteButton!
+    @IBOutlet var replyButton: NSButton!
 
     let formatter = RelativeDateTimeFormatter()
 
     var item: TopLevelItem? {
         didSet {
+            actions = []
             guard let item = item else { return }
             switch item {
             case .story(let story):
@@ -54,6 +57,39 @@ class ItemViewController: NSViewController {
         }
     }
 
+    var page: Page? {
+        didSet {
+            DispatchQueue.main.async {
+                self.item = self.page?.topLevelItem
+                if let item = self.item {
+                    self.actions = self.page?.actions[item.id] ?? []
+                }
+            }
+        }
+    }
+
+    var actions: Set<Action> = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.upvoteButton.isHidden = true
+                for action in self.actions {
+                    switch action {
+                    case .upvote(let url):
+                        self.upvoteButton.font = NSFont.systemFont(ofSize: NSFont.systemFontSize)
+                        self.upvoteButton.isHidden = false
+                        self.upvoteButton.voteAction = .upvote(url)
+                    case .unvote(let url):
+                        self.upvoteButton.font = NSFont.boldSystemFont(ofSize: NSFont.systemFontSize)
+                        self.upvoteButton.isHidden = false
+                        self.upvoteButton.voteAction = .unvote(url)
+                    default:
+                        break
+                    }
+                }
+            }
+        }
+    }
+
     @IBAction func openURL(_ sender: NSButton) {
         let url: URL
         switch item {
@@ -66,6 +102,24 @@ class ItemViewController: NSViewController {
         default: return
         }
         NSWorkspace.shared.open(url)
+    }
+
+    @IBAction func executeAction(_ sender: VoteButton) {
+        guard let action = sender.voteAction,
+              let token = Account.selectedAccount?.token else { return }
+        APIClient.shared.execute(action: action, token: token, page: page) { result in
+            switch result {
+            case .success:
+                guard let id = self.item?.id else { return }
+                DispatchQueue.main.async {
+                    self.actions = self.page?.actions[id] ?? []
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    NSApplication.shared.presentError(error)
+                }
+            }
+        }
     }
 
     override func viewDidLoad() {

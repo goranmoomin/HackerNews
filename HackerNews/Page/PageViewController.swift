@@ -10,6 +10,7 @@ class PageViewController: NSSplitViewController {
     var page: Page? {
         didSet {
             commentViewController.page = page
+            itemViewController.page = page
         }
     }
     var item: TopLevelItem? {
