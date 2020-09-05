@@ -11,9 +11,10 @@ protocol CommentCellViewDelegate {
 
 class CommentCellView: NSTableCellView {
 
+    @IBOutlet var propertiesStackView: NSStackView!
     @IBOutlet var authorLabel: NSTextField!
     @IBOutlet var creationLabel: NSTextField!
-    @IBOutlet var textLabel: NSTextField!
+    @IBOutlet var textView: NSTextView!
     @IBOutlet var upvoteButton: VoteButton!
     @IBOutlet var downvoteButton: VoteButton!
     @IBOutlet var replyButton: NSButton!
@@ -65,7 +66,7 @@ class CommentCellView: NSTableCellView {
         case .c88, .c9c, .cae: textColor = .tertiaryLabelColor
         case .cbe, .cce, .cdd: textColor = .quaternaryLabelColor
         }
-        textLabel.attributedStringValue = comment.text.styledAttributedString(textColor: textColor)
+        textView.textStorage!.setAttributedString(comment.text.styledAttributedString(textColor: textColor))
         creationLabel.stringValue = formatter.localizedString(for: comment.creation, relativeTo: Date())
         if Account.selectedAccount != nil {
             replyButton.isHidden = false

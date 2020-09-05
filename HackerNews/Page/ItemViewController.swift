@@ -6,8 +6,8 @@ import Atributika
 class ItemViewController: NSViewController {
 
     @IBOutlet var titleLabel: NSTextField!
-    @IBOutlet var textScrollView: NSScrollView!
-    @IBOutlet var textLabel: NSTextField!
+    @IBOutlet var storyTextScrollView: NSScrollView!
+    @IBOutlet var storyTextView: NSTextView!
     @IBOutlet var urlButton: NSButton!
     @IBOutlet var authorGroup: NSStackView!
     @IBOutlet var authorLabel: NSTextField!
@@ -29,15 +29,15 @@ class ItemViewController: NSViewController {
             case .story(let story):
                 titleLabel.stringValue = story.title
                 if let host = story.content.url?.host {
-                    textScrollView.isHidden = true
+                    storyTextScrollView.isHidden = true
                     urlButton.isHidden = false
                     urlButton.title = host
                 } else if let text = story.content.text {
-                    textLabel.attributedStringValue = text.styledAttributedString(textColor: .labelColor)
-                    textScrollView.isHidden = false
+                    storyTextView.textStorage?.setAttributedString(text.styledAttributedString(textColor: .labelColor))
+                    storyTextScrollView.isHidden = false
                     urlButton.isHidden = true
                 } else {
-                    textScrollView.isHidden = true
+                    storyTextScrollView.isHidden = true
                     urlButton.isHidden = true
                 }
                 authorGroup.isHidden = false
