@@ -7,6 +7,7 @@ class CommentTextView: AutoLayoutTextView {
         super.init(coder: coder)
         isEditable = false
         isSelectable = true
-        backgroundColor = .windowBackgroundColor
+        isHorizontalContentSizeConstraintActive = false
+        backgroundColor = .controlBackgroundColor
     }
 }
