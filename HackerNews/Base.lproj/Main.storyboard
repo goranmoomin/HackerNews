@@ -1687,7 +1687,7 @@ Gw
                                             <rect key="frame" x="0.0" y="0.0" width="410" height="50"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <textView editable="NO" verticallyResizable="YES" allowsDocumentBackgroundColorChange="YES" spellingCorrection="YES" smartInsertDelete="YES" id="2u6-ur-hpE">
+                                                <textView editable="NO" drawsBackground="NO" verticallyResizable="YES" allowsDocumentBackgroundColorChange="YES" spellingCorrection="YES" smartInsertDelete="YES" id="2u6-ur-hpE">
                                                     <rect key="frame" x="0.0" y="0.0" width="410" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>

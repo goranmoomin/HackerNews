@@ -8,6 +8,6 @@ class CommentTextView: AutoLayoutTextView {
         isEditable = false
         isSelectable = true
         isHorizontalContentSizeConstraintActive = false
-        backgroundColor = .controlBackgroundColor
+        drawsBackground = false
     }
 }
