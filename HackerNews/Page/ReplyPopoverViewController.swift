@@ -6,7 +6,7 @@ class ReplyPopoverViewController: NSViewController {
 
     @IBOutlet var commentLabel: NSTextField!
     @IBOutlet var dragLabel: NSTextField!
-    @IBOutlet var replyTextField: NSTextField!
+    @IBOutlet var replyTextView: NSTextView!
 
     var comment: Comment! {
         didSet {
@@ -25,11 +25,12 @@ class ReplyPopoverViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+
+        replyTextView.font = NSFont.systemFont(ofSize: NSFont.systemFontSize)
     }
 
     @IBAction func reply(_ sender: NSButton) {
-        let text = replyTextField.stringValue
+        let text = replyTextView.string
         guard let token = Account.selectedAccount?.token else {
             return
         }
