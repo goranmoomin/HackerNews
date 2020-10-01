@@ -975,6 +975,10 @@ Gw
                                         </searchFieldCell>
                                     </searchField>
                                 </searchToolbarItem>
+                                <toolbarItem implicitItemIdentifier="A6EB0E34-B921-4CD3-A5C8-8BE2844F44F1" explicitItemIdentifier="Refresh" label="Refresh" paletteLabel="Refresh" tag="-1" id="Zge-qJ-NrF">
+                                    <size key="minSize" width="32" height="32"/>
+                                    <size key="maxSize" width="32" height="32"/>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems/>
                             <connections>

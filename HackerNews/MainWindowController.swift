@@ -44,11 +44,11 @@ extension MainWindowController: ItemListViewControllerDelegate {
 
 extension MainWindowController: NSToolbarDelegate {
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        [.search, .itemListTrackingSeparator]
+        [.search, .itemListTrackingSeparator, .flexibleSpace, .refresh]
     }
 
     func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        [.space, .flexibleSpace, .toggleSidebar, .search, .itemListTrackingSeparator]
+        [.space, .flexibleSpace, .toggleSidebar, .search, .itemListTrackingSeparator, .refresh]
     }
 
     func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
@@ -68,6 +68,10 @@ extension MainWindowController: NSToolbarDelegate {
             let searchItem = item as! NSSearchToolbarItem
             searchItem.searchField.target = itemListViewController
             searchItem.searchField.action = #selector(ItemListViewController.search(_:))
+        } else if item.itemIdentifier == .refresh {
+            item.image = NSImage(systemSymbolName: "arrow.clockwise", accessibilityDescription: "Refresh Item")
+            item.target = pageViewController
+            item.action = #selector(PageViewController.refresh(_:))
         }
     }
 }
@@ -75,4 +79,5 @@ extension MainWindowController: NSToolbarDelegate {
 extension NSToolbarItem.Identifier {
     static let itemListTrackingSeparator = NSToolbarItem.Identifier("ItemListTrackingSeparator")
     static let search = NSToolbarItem.Identifier("Search")
+    static let refresh = NSToolbarItem.Identifier("Refresh")
 }
