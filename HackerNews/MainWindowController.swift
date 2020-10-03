@@ -38,7 +38,7 @@ extension MainWindowController: SidebarDelegate {
 
 extension MainWindowController: ItemListViewControllerDelegate {
     func itemListSelectionDidChange(_ itemListViewController: ItemListViewController, selectedItem: TopLevelItem) {
-        pageViewController.item = selectedItem
+        pageViewController.state = .item(selectedItem)
     }
 }
 

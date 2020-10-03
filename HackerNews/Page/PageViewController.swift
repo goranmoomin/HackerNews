@@ -4,39 +4,48 @@ import HNAPI
 
 class PageViewController: NSSplitViewController {
 
+    enum State {
+        case item(TopLevelItem)
+        case page(Page)
+        case error(Error)
+        case none
+    }
+
     var itemViewController: ItemViewController!
     var commentViewController: CommentViewController!
 
-    var page: Page? {
+    var state: State = .none {
         didSet {
-            commentViewController.page = page
-            itemViewController.page = page
-        }
-    }
-    var item: TopLevelItem? {
-        didSet {
-            itemViewController.item = item
-            reloadPage()
+            reload()
         }
     }
 
-    func reloadPage() {
-        guard let item = item else {
+    func reload() {
+        switch state {
+        case .none:
             splitView.isHidden = true
-            return
-        }
-        splitView.isHidden = false
-        commentViewController.view.isHidden = true
-        APIClient.shared.page(item: item, token: Account.selectedAccount?.token) { result in
-            DispatchQueue.main.async {
-                self.commentViewController.view.isHidden = false
-            }
-            switch result {
-            case .success(let page): self.page = page
-            case .failure(let error):
+        case .item(let item):
+            itemViewController.item = item
+            splitView.isHidden = false
+            APIClient.shared.page(item: item, token: Account.selectedAccount?.token) { result in
                 DispatchQueue.main.async {
-                    NSApplication.shared.presentError(error)
+                    self.commentViewController.view.isHidden = false
                 }
+                switch result {
+                case .success(let page): self.state = .page(page)
+                case .failure(let error): self.state = .error(error)
+                }
+            }
+        case .page(let page):
+            DispatchQueue.main.async {
+                self.splitView.isHidden = false
+                self.commentViewController.page = page
+                self.itemViewController.page = page
+            }
+        case .error(let error):
+            DispatchQueue.main.async {
+                self.splitView.isHidden = false
+                NSApplication.shared.presentError(error)
             }
         }
     }
@@ -47,18 +56,21 @@ class PageViewController: NSSplitViewController {
 
         itemViewController = (splitViewItems[0].viewController as! ItemViewController)
         commentViewController = (splitViewItems[1].viewController as! CommentViewController)
-        item = nil
+        state = .none
     }
 
     @objc func refresh(_ sender: NSToolbarItem) {
-        reloadPage()
+        reload()
     }
 }
 
 extension PageViewController: NSToolbarItemValidation {
     func validateToolbarItem(_ item: NSToolbarItem) -> Bool {
         if item.itemIdentifier == .refresh {
-            return self.item != nil
+            switch state {
+            case .none: return false
+            default: return true
+            }
         }
         return true
     }
