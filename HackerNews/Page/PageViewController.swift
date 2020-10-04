@@ -27,10 +27,8 @@ class PageViewController: NSSplitViewController {
         case .item(let item):
             itemViewController.item = item
             splitView.isHidden = false
+            commentViewController.page = nil
             APIClient.shared.page(item: item, token: Account.selectedAccount?.token) { result in
-                DispatchQueue.main.async {
-                    self.commentViewController.view.isHidden = false
-                }
                 switch result {
                 case .success(let page): self.state = .page(page)
                 case .failure(let error): self.state = .error(error)
@@ -39,9 +37,9 @@ class PageViewController: NSSplitViewController {
         case .page(let page):
             DispatchQueue.main.async {
                 self.splitView.isHidden = false
-                self.commentViewController.page = page
-                self.itemViewController.page = page
             }
+            self.commentViewController.page = page
+            self.itemViewController.page = page
         case .error(let error):
             DispatchQueue.main.async {
                 self.splitView.isHidden = false
