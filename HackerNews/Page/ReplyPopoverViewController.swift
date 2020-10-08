@@ -36,6 +36,7 @@ class ReplyPopoverViewController: NSViewController {
             return
         }
         spinner.startAnimation(self)
+        replyTextView.isEditable = false
         APIClient.shared.reply(toID: comment.id, text: text, token: token) { result in
             DispatchQueue.main.async {
                 self.spinner.stopAnimation(self)
