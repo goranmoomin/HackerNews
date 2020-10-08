@@ -1498,6 +1498,9 @@ Gw
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <progressIndicator maxValue="100" displayedWhenStopped="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="5np-S4-vfZ">
+                                <rect key="frame" x="217" y="68" width="16" height="16"/>
+                            </progressIndicator>
                         </subviews>
                         <constraints>
                             <constraint firstItem="9uw-LE-rBq" firstAttribute="leading" secondItem="n3R-aw-gUt" secondAttribute="leading" id="2AD-gi-FNc"/>
@@ -1509,9 +1512,11 @@ Gw
                             <constraint firstItem="ROd-oz-MqZ" firstAttribute="top" secondItem="n3R-aw-gUt" secondAttribute="top" constant="6" id="NTH-LI-ufD"/>
                             <constraint firstAttribute="trailing" secondItem="9uw-LE-rBq" secondAttribute="trailing" id="Ncd-FK-foi"/>
                             <constraint firstAttribute="trailing" secondItem="C4n-H1-HAt" secondAttribute="trailing" constant="8" id="Pji-nT-T2n"/>
+                            <constraint firstItem="5np-S4-vfZ" firstAttribute="centerY" secondItem="pRC-qR-Zis" secondAttribute="centerY" id="RJp-ge-VTE"/>
                             <constraint firstAttribute="bottom" secondItem="SHR-A4-MLI" secondAttribute="bottom" constant="8" id="V0A-TL-ury"/>
                             <constraint firstAttribute="bottom" secondItem="pMX-Lq-L2K" secondAttribute="bottom" constant="8" id="W7K-X2-idx"/>
                             <constraint firstItem="C4n-H1-HAt" firstAttribute="top" secondItem="9uw-LE-rBq" secondAttribute="bottom" constant="8" symbolic="YES" id="fdn-WV-tsN"/>
+                            <constraint firstItem="5np-S4-vfZ" firstAttribute="centerX" secondItem="pRC-qR-Zis" secondAttribute="centerX" id="fpZ-sb-WBK"/>
                             <constraint firstItem="pMX-Lq-L2K" firstAttribute="top" secondItem="C4n-H1-HAt" secondAttribute="bottom" constant="8" id="hen-Fs-95g"/>
                             <constraint firstAttribute="trailing" secondItem="pMX-Lq-L2K" secondAttribute="trailing" constant="8" id="joe-6n-J0P"/>
                             <constraint firstItem="9uw-LE-rBq" firstAttribute="top" secondItem="nCT-72-Hn6" secondAttribute="bottom" constant="8" symbolic="YES" id="r4g-Ss-Odn"/>
@@ -1523,6 +1528,7 @@ Gw
                         <outlet property="commentLabel" destination="nCT-72-Hn6" id="fqz-Y0-Vni"/>
                         <outlet property="dragLabel" destination="ROd-oz-MqZ" id="hRX-Sl-Is5"/>
                         <outlet property="replyTextView" destination="pRC-qR-Zis" id="umi-KR-iwM"/>
+                        <outlet property="spinner" destination="5np-S4-vfZ" id="FYC-EV-x9c"/>
                     </connections>
                 </viewController>
                 <customObject id="acQ-o8-adO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

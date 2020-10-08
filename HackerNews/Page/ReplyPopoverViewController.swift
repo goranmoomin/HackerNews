@@ -7,6 +7,7 @@ class ReplyPopoverViewController: NSViewController {
     @IBOutlet var commentLabel: NSTextField!
     @IBOutlet var dragLabel: NSTextField!
     @IBOutlet var replyTextView: NSTextView!
+    @IBOutlet var spinner: NSProgressIndicator!
 
     var comment: Comment! {
         didSet {
@@ -34,8 +35,10 @@ class ReplyPopoverViewController: NSViewController {
         guard let token = Account.selectedAccount?.token else {
             return
         }
+        spinner.startAnimation(self)
         APIClient.shared.reply(toID: comment.id, text: text, token: token) { result in
             DispatchQueue.main.async {
+                self.spinner.stopAnimation(self)
                 switch result {
                 case .success:
                     if self.presentingViewController != nil {
