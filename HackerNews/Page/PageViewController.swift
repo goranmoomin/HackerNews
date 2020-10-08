@@ -58,7 +58,11 @@ class PageViewController: NSSplitViewController {
     }
 
     @objc func refresh(_ sender: NSToolbarItem) {
-        reload()
+        switch state {
+        case .page(let page):
+            state = .item(page.topLevelItem)
+        default: break
+        }
     }
 }
 
