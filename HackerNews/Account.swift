@@ -11,7 +11,7 @@ extension Account {
     static var accounts: [Account] = {
         var accounts: [Account] = []
         let dictionary = UserDefaults.standard.dictionary(forKey: "account") as? [String : [HTTPCookiePropertyKey : Any]] ?? [:]
-        for (name, properties) in dictionary {
+        for (name, properties) in dictionary.sorted(by: { $0.key > $1.key }) {
             guard let token = Token(properties: properties) else {
                 print(properties)
                 continue
