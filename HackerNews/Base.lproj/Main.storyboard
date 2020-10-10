@@ -1375,16 +1375,22 @@ Gw
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <progressIndicator misplaced="YES" maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Fb7-5p-no6">
+                                <rect key="frame" x="184" y="262" width="16" height="16"/>
+                            </progressIndicator>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Fb7-5p-no6" firstAttribute="centerX" secondItem="0fk-Ud-kqD" secondAttribute="centerX" id="CAg-2M-OFi"/>
                             <constraint firstItem="fgb-w8-23b" firstAttribute="top" secondItem="ERb-Fp-n1I" secondAttribute="top" id="CGr-Cq-G8x"/>
                             <constraint firstAttribute="bottom" secondItem="fgb-w8-23b" secondAttribute="bottom" id="P5f-ap-Tg6"/>
                             <constraint firstAttribute="trailing" secondItem="fgb-w8-23b" secondAttribute="trailing" id="U9b-Fl-64a"/>
                             <constraint firstItem="fgb-w8-23b" firstAttribute="leading" secondItem="ERb-Fp-n1I" secondAttribute="leading" id="iJm-zL-50D"/>
+                            <constraint firstItem="Fb7-5p-no6" firstAttribute="centerY" secondItem="0fk-Ud-kqD" secondAttribute="centerY" id="pRE-FJ-b6t"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="itemListTableView" destination="0fk-Ud-kqD" id="IqI-WQ-2cZ"/>
+                        <outlet property="spinner" destination="Fb7-5p-no6" id="qDy-3R-LIc"/>
                     </connections>
                 </viewController>
                 <customObject id="AJF-7m-vp1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

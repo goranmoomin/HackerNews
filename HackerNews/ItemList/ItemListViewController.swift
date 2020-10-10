@@ -9,6 +9,7 @@ protocol ItemListViewControllerDelegate {
 class ItemListViewController: NSViewController {
 
     @IBOutlet var itemListTableView: NSTableView!
+    @IBOutlet var spinner: NSProgressIndicator!
 
     var delegate: ItemListViewControllerDelegate?
 
@@ -26,7 +27,12 @@ class ItemListViewController: NSViewController {
     }
 
     func reloadData() {
+        items = []
+        spinner.startAnimation(self)
         APIClient.shared.items(category: category) { result in
+            DispatchQueue.main.async {
+                self.spinner.stopAnimation(self)
+            }
             switch result {
             case .success(let items):
                 self.items = items
@@ -49,7 +55,12 @@ class ItemListViewController: NSViewController {
         if query == "" {
             reloadData()
         } else {
+            items = []
+            spinner.startAnimation(self)
             APIClient.shared.items(query: query) { result in
+                DispatchQueue.main.async {
+                    self.spinner.stopAnimation(self)
+                }
                 switch result {
                 case .success(let items):
                     self.items = items
