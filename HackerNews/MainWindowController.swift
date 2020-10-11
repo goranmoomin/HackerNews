@@ -69,7 +69,8 @@ extension MainWindowController: NSToolbarDelegate {
             searchItem.searchField.target = itemListViewController
             searchItem.searchField.action = #selector(ItemListViewController.search(_:))
         } else if item.itemIdentifier == .refresh {
-            item.image = NSImage(systemSymbolName: "arrow.clockwise", accessibilityDescription: "Refresh Item")
+            item.isBordered = true
+            item.image = NSImage(named: "NSRefreshTemplate")
             item.target = pageViewController
             item.action = #selector(PageViewController.refresh(_:))
         }

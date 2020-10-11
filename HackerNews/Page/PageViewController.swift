@@ -70,8 +70,8 @@ extension PageViewController: NSToolbarItemValidation {
     func validateToolbarItem(_ item: NSToolbarItem) -> Bool {
         if item.itemIdentifier == .refresh {
             switch state {
-            case .none: return false
-            default: return true
+            case .page: return true
+            default: return false
             }
         }
         return true
