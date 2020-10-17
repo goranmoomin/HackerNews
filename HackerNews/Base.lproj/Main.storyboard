@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17503.1" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17503.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
         <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
         <capability name="Search Toolbar Item" minToolsVersion="12.0" minSystemVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1478,7 +1478,7 @@ Gw
                                     <rect key="frame" x="1" y="1" width="432" height="78"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="pRC-qR-Zis">
+                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" allowsUndo="YES" spellingCorrection="YES" smartInsertDelete="YES" id="pRC-qR-Zis">
                                             <rect key="frame" x="0.0" y="0.0" width="432" height="78"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1504,9 +1504,52 @@ Gw
                             <progressIndicator maxValue="100" displayedWhenStopped="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="5np-S4-vfZ">
                                 <rect key="frame" x="217" y="68" width="16" height="16"/>
                             </progressIndicator>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q0l-4K-cli">
+                                <rect key="frame" x="34" y="9.5" width="26.5" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="dkT-qn-i9b"/>
+                                    <constraint firstAttribute="height" constant="23" id="jXI-gl-UMg"/>
+                                </constraints>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="link" catalog="system" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="2wY-bo-TfZ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="insertMarkup:" target="hC2-n7-AD6" id="ObZ-aZ-wVQ"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q7F-Ga-tJ5">
+                                <rect key="frame" x="60" y="9.5" width="26" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="Kjw-E4-exa"/>
+                                    <constraint firstAttribute="height" constant="23" id="OXg-DJ-a3M"/>
+                                </constraints>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="chevron.left.slash.chevron.right" catalog="system" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="oyK-p4-E5E">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="insertMarkup:" target="hC2-n7-AD6" id="B4f-Vb-lL3"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vjc-qb-dyV">
+                                <rect key="frame" x="8" y="12" width="26" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="XjP-BD-bLY"/>
+                                    <constraint firstAttribute="height" constant="23" id="h2G-8f-Zgo"/>
+                                </constraints>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="italic" catalog="system" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="HGF-Dt-1cL">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="insertMarkup:" target="hC2-n7-AD6" id="Ee5-2c-0BZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="9uw-LE-rBq" firstAttribute="leading" secondItem="n3R-aw-gUt" secondAttribute="leading" id="2AD-gi-FNc"/>
+                            <constraint firstItem="Vjc-qb-dyV" firstAttribute="leading" secondItem="C4n-H1-HAt" secondAttribute="leading" id="5fE-BW-UBF"/>
                             <constraint firstItem="nCT-72-Hn6" firstAttribute="leading" secondItem="n3R-aw-gUt" secondAttribute="leading" constant="8" id="7i0-HY-6VC"/>
                             <constraint firstAttribute="trailing" secondItem="nCT-72-Hn6" secondAttribute="trailing" constant="8" id="8QH-k3-apB"/>
                             <constraint firstItem="C4n-H1-HAt" firstAttribute="leading" secondItem="n3R-aw-gUt" secondAttribute="leading" constant="8" id="9Bw-41-9Cz"/>
@@ -1522,14 +1565,22 @@ Gw
                             <constraint firstItem="5np-S4-vfZ" firstAttribute="centerX" secondItem="pRC-qR-Zis" secondAttribute="centerX" id="fpZ-sb-WBK"/>
                             <constraint firstItem="pMX-Lq-L2K" firstAttribute="top" secondItem="C4n-H1-HAt" secondAttribute="bottom" constant="8" id="hen-Fs-95g"/>
                             <constraint firstAttribute="trailing" secondItem="pMX-Lq-L2K" secondAttribute="trailing" constant="8" id="joe-6n-J0P"/>
+                            <constraint firstItem="Q0l-4K-cli" firstAttribute="leading" secondItem="Vjc-qb-dyV" secondAttribute="trailing" id="lox-WU-ExL"/>
                             <constraint firstItem="9uw-LE-rBq" firstAttribute="top" secondItem="nCT-72-Hn6" secondAttribute="bottom" constant="8" symbolic="YES" id="r4g-Ss-Odn"/>
+                            <constraint firstItem="Q0l-4K-cli" firstAttribute="top" secondItem="C4n-H1-HAt" secondAttribute="bottom" id="toe-7G-Rt5"/>
                             <constraint firstItem="nCT-72-Hn6" firstAttribute="top" secondItem="n3R-aw-gUt" secondAttribute="top" constant="20" symbolic="YES" id="uvm-WF-68Q"/>
+                            <constraint firstItem="q7F-Ga-tJ5" firstAttribute="top" secondItem="C4n-H1-HAt" secondAttribute="bottom" id="wmt-B3-mnA"/>
                             <constraint firstItem="pMX-Lq-L2K" firstAttribute="leading" secondItem="SHR-A4-MLI" secondAttribute="trailing" constant="12" symbolic="YES" id="yeT-y7-yYo"/>
+                            <constraint firstItem="q7F-Ga-tJ5" firstAttribute="leading" secondItem="Q0l-4K-cli" secondAttribute="trailing" id="z7d-ga-Vju"/>
+                            <constraint firstItem="Vjc-qb-dyV" firstAttribute="top" secondItem="C4n-H1-HAt" secondAttribute="bottom" id="zwI-wM-jWz"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="commentLabel" destination="nCT-72-Hn6" id="fqz-Y0-Vni"/>
                         <outlet property="dragLabel" destination="ROd-oz-MqZ" id="hRX-Sl-Is5"/>
+                        <outlet property="insertCodeButton" destination="q7F-Ga-tJ5" id="Q6M-XM-PhQ"/>
+                        <outlet property="insertItalicsButton" destination="Vjc-qb-dyV" id="a6r-E6-bHJ"/>
+                        <outlet property="insertLinkButton" destination="Q0l-4K-cli" id="jQ1-xP-vEG"/>
                         <outlet property="replyTextView" destination="pRC-qR-Zis" id="umi-KR-iwM"/>
                         <outlet property="spinner" destination="5np-S4-vfZ" id="FYC-EV-x9c"/>
                     </connections>
@@ -2025,8 +2076,11 @@ Gw
         <image name="arrow.down" catalog="system" width="13" height="14"/>
         <image name="arrow.up" catalog="system" width="13" height="14"/>
         <image name="arrowshape.turn.up.left" catalog="system" width="17" height="14"/>
+        <image name="chevron.left.slash.chevron.right" catalog="system" width="22" height="17"/>
         <image name="clock" catalog="system" width="15" height="15"/>
         <image name="hand.thumbsup" catalog="system" width="16" height="17"/>
+        <image name="italic" catalog="system" width="10" height="12"/>
+        <image name="link" catalog="system" width="17" height="17"/>
         <image name="person" catalog="system" width="15" height="14"/>
         <image name="text.bubble" catalog="system" width="17" height="16"/>
     </resources>
