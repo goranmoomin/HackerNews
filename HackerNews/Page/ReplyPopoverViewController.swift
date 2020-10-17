@@ -5,7 +5,6 @@ import HNAPI
 class ReplyPopoverViewController: NSViewController {
 
     @IBOutlet var commentLabel: NSTextField!
-    @IBOutlet var dragLabel: NSTextField!
     @IBOutlet var replyTextView: NSTextView!
     @IBOutlet var spinner: NSProgressIndicator!
 
@@ -97,11 +96,6 @@ class ReplyPopoverViewController: NSViewController {
 }
 
 extension ReplyPopoverViewController: NSPopoverDelegate {
-
-    func popoverDidDetach(_ popover: NSPopover) {
-        dragLabel.stringValue = "Drag here to move"
-    }
-
     func popoverShouldDetach(_ popover: NSPopover) -> Bool {
         true
     }

@@ -1424,7 +1424,7 @@ Gw
             <objects>
                 <viewController storyboardIdentifier="ReplyPopoverViewController" id="hC2-n7-AD6" customClass="ReplyPopoverViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="n3R-aw-gUt">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="169"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="157"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="nCT-72-Hn6">
@@ -1464,14 +1464,6 @@ Gw
                                     <action selector="cancel:" target="hC2-n7-AD6" id="MeB-4g-MUe"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ROd-oz-MqZ">
-                                <rect key="frame" x="179" y="152" width="92" height="11"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Drag here to detach" id="CkX-uT-P0e">
-                                    <font key="font" metaFont="miniSystem"/>
-                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4n-H1-HAt">
                                 <rect key="frame" x="8" y="36" width="434" height="80"/>
                                 <clipView key="contentView" drawsBackground="NO" id="o66-ys-k39">
@@ -1554,8 +1546,6 @@ Gw
                             <constraint firstAttribute="trailing" secondItem="nCT-72-Hn6" secondAttribute="trailing" constant="8" id="8QH-k3-apB"/>
                             <constraint firstItem="C4n-H1-HAt" firstAttribute="leading" secondItem="n3R-aw-gUt" secondAttribute="leading" constant="8" id="9Bw-41-9Cz"/>
                             <constraint firstItem="SHR-A4-MLI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n3R-aw-gUt" secondAttribute="leading" constant="8" id="CON-AM-Tmm"/>
-                            <constraint firstItem="ROd-oz-MqZ" firstAttribute="centerX" secondItem="n3R-aw-gUt" secondAttribute="centerX" id="Hxm-M7-lul"/>
-                            <constraint firstItem="ROd-oz-MqZ" firstAttribute="top" secondItem="n3R-aw-gUt" secondAttribute="top" constant="6" id="NTH-LI-ufD"/>
                             <constraint firstAttribute="trailing" secondItem="9uw-LE-rBq" secondAttribute="trailing" id="Ncd-FK-foi"/>
                             <constraint firstAttribute="trailing" secondItem="C4n-H1-HAt" secondAttribute="trailing" constant="8" id="Pji-nT-T2n"/>
                             <constraint firstItem="5np-S4-vfZ" firstAttribute="centerY" secondItem="pRC-qR-Zis" secondAttribute="centerY" id="RJp-ge-VTE"/>
@@ -1568,7 +1558,7 @@ Gw
                             <constraint firstItem="Q0l-4K-cli" firstAttribute="leading" secondItem="Vjc-qb-dyV" secondAttribute="trailing" id="lox-WU-ExL"/>
                             <constraint firstItem="9uw-LE-rBq" firstAttribute="top" secondItem="nCT-72-Hn6" secondAttribute="bottom" constant="8" symbolic="YES" id="r4g-Ss-Odn"/>
                             <constraint firstItem="Q0l-4K-cli" firstAttribute="top" secondItem="C4n-H1-HAt" secondAttribute="bottom" id="toe-7G-Rt5"/>
-                            <constraint firstItem="nCT-72-Hn6" firstAttribute="top" secondItem="n3R-aw-gUt" secondAttribute="top" constant="20" symbolic="YES" id="uvm-WF-68Q"/>
+                            <constraint firstItem="nCT-72-Hn6" firstAttribute="top" secondItem="n3R-aw-gUt" secondAttribute="top" constant="8" id="uvm-WF-68Q"/>
                             <constraint firstItem="q7F-Ga-tJ5" firstAttribute="top" secondItem="C4n-H1-HAt" secondAttribute="bottom" id="wmt-B3-mnA"/>
                             <constraint firstItem="pMX-Lq-L2K" firstAttribute="leading" secondItem="SHR-A4-MLI" secondAttribute="trailing" constant="12" symbolic="YES" id="yeT-y7-yYo"/>
                             <constraint firstItem="q7F-Ga-tJ5" firstAttribute="leading" secondItem="Q0l-4K-cli" secondAttribute="trailing" id="z7d-ga-Vju"/>
@@ -1577,7 +1567,6 @@ Gw
                     </view>
                     <connections>
                         <outlet property="commentLabel" destination="nCT-72-Hn6" id="fqz-Y0-Vni"/>
-                        <outlet property="dragLabel" destination="ROd-oz-MqZ" id="hRX-Sl-Is5"/>
                         <outlet property="insertCodeButton" destination="q7F-Ga-tJ5" id="Q6M-XM-PhQ"/>
                         <outlet property="insertItalicsButton" destination="Vjc-qb-dyV" id="a6r-E6-bHJ"/>
                         <outlet property="insertLinkButton" destination="Q0l-4K-cli" id="jQ1-xP-vEG"/>

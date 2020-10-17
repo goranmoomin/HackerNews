@@ -51,6 +51,7 @@ extension CommentViewController: CommentCellViewDelegate {
 
     func commentCellView(_ commentCellView: CommentCellView, replyTo comment: Comment) {
         let replyPopoverViewController = NSStoryboard.main?.instantiateController(withIdentifier: .replyPopoverViewController) as! ReplyPopoverViewController
+        replyPopoverViewController.title = "Comment to \(comment.author)"
         replyPopoverViewController.comment = comment
         let popover = NSPopover()
         popover.contentViewController = replyPopoverViewController
