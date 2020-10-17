@@ -4,7 +4,7 @@ import HNAPI
 
 class ReplyPopoverViewController: NSViewController {
 
-    @IBOutlet var commentLabel: NSTextField!
+    @IBOutlet var commentTextView: CommentTextView!
     @IBOutlet var replyTextView: NSTextView!
     @IBOutlet var spinner: NSProgressIndicator!
 
@@ -22,7 +22,7 @@ class ReplyPopoverViewController: NSViewController {
             case .cbe, .cce, .cdd: textColor = .quaternaryLabelColor
             }
             DispatchQueue.main.async {
-                self.commentLabel.attributedStringValue = self.comment.text.styledAttributedString(textColor: textColor)
+                self.commentTextView.textStorage?.setAttributedString(self.comment.text.styledAttributedString(textColor: textColor))
             }
         }
     }

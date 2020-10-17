@@ -1427,14 +1427,6 @@ Gw
                         <rect key="frame" x="0.0" y="0.0" width="450" height="157"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="nCT-72-Hn6">
-                                <rect key="frame" x="6" y="133" width="438" height="16"/>
-                                <textFieldCell key="cell" selectable="YES" sendsActionOnEndEditing="YES" title="Comment Text" allowsEditingTextAttributes="YES" id="yL2-ph-D2g">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="9uw-LE-rBq">
                                 <rect key="frame" x="0.0" y="122" width="450" height="5"/>
                             </box>
@@ -1538,27 +1530,30 @@ Gw
                                     <action selector="insertMarkup:" target="hC2-n7-AD6" id="Ee5-2c-0BZ"/>
                                 </connections>
                             </button>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="MkM-4C-UWb" customClass="CommentTextView" customModule="HackerNews" customModuleProvider="target">
+                                <rect key="frame" x="8" y="133" width="434" height="16"/>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="9uw-LE-rBq" firstAttribute="leading" secondItem="n3R-aw-gUt" secondAttribute="leading" id="2AD-gi-FNc"/>
                             <constraint firstItem="Vjc-qb-dyV" firstAttribute="leading" secondItem="C4n-H1-HAt" secondAttribute="leading" id="5fE-BW-UBF"/>
-                            <constraint firstItem="nCT-72-Hn6" firstAttribute="leading" secondItem="n3R-aw-gUt" secondAttribute="leading" constant="8" id="7i0-HY-6VC"/>
-                            <constraint firstAttribute="trailing" secondItem="nCT-72-Hn6" secondAttribute="trailing" constant="8" id="8QH-k3-apB"/>
+                            <constraint firstItem="MkM-4C-UWb" firstAttribute="leading" secondItem="n3R-aw-gUt" secondAttribute="leading" constant="8" id="6Mf-ES-z7F"/>
                             <constraint firstItem="C4n-H1-HAt" firstAttribute="leading" secondItem="n3R-aw-gUt" secondAttribute="leading" constant="8" id="9Bw-41-9Cz"/>
                             <constraint firstItem="SHR-A4-MLI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n3R-aw-gUt" secondAttribute="leading" constant="8" id="CON-AM-Tmm"/>
+                            <constraint firstAttribute="trailing" secondItem="MkM-4C-UWb" secondAttribute="trailing" constant="8" id="Clu-Yw-dDX"/>
                             <constraint firstAttribute="trailing" secondItem="9uw-LE-rBq" secondAttribute="trailing" id="Ncd-FK-foi"/>
+                            <constraint firstItem="MkM-4C-UWb" firstAttribute="top" secondItem="n3R-aw-gUt" secondAttribute="top" constant="8" id="Ofs-NK-7e4"/>
                             <constraint firstAttribute="trailing" secondItem="C4n-H1-HAt" secondAttribute="trailing" constant="8" id="Pji-nT-T2n"/>
                             <constraint firstItem="5np-S4-vfZ" firstAttribute="centerY" secondItem="pRC-qR-Zis" secondAttribute="centerY" id="RJp-ge-VTE"/>
                             <constraint firstAttribute="bottom" secondItem="SHR-A4-MLI" secondAttribute="bottom" constant="8" id="V0A-TL-ury"/>
                             <constraint firstAttribute="bottom" secondItem="pMX-Lq-L2K" secondAttribute="bottom" constant="8" id="W7K-X2-idx"/>
+                            <constraint firstItem="9uw-LE-rBq" firstAttribute="top" secondItem="MkM-4C-UWb" secondAttribute="bottom" constant="8" symbolic="YES" id="a0p-kX-p2a"/>
                             <constraint firstItem="C4n-H1-HAt" firstAttribute="top" secondItem="9uw-LE-rBq" secondAttribute="bottom" constant="8" symbolic="YES" id="fdn-WV-tsN"/>
                             <constraint firstItem="5np-S4-vfZ" firstAttribute="centerX" secondItem="pRC-qR-Zis" secondAttribute="centerX" id="fpZ-sb-WBK"/>
                             <constraint firstItem="pMX-Lq-L2K" firstAttribute="top" secondItem="C4n-H1-HAt" secondAttribute="bottom" constant="8" id="hen-Fs-95g"/>
                             <constraint firstAttribute="trailing" secondItem="pMX-Lq-L2K" secondAttribute="trailing" constant="8" id="joe-6n-J0P"/>
                             <constraint firstItem="Q0l-4K-cli" firstAttribute="leading" secondItem="Vjc-qb-dyV" secondAttribute="trailing" id="lox-WU-ExL"/>
-                            <constraint firstItem="9uw-LE-rBq" firstAttribute="top" secondItem="nCT-72-Hn6" secondAttribute="bottom" constant="8" symbolic="YES" id="r4g-Ss-Odn"/>
                             <constraint firstItem="Q0l-4K-cli" firstAttribute="top" secondItem="C4n-H1-HAt" secondAttribute="bottom" id="toe-7G-Rt5"/>
-                            <constraint firstItem="nCT-72-Hn6" firstAttribute="top" secondItem="n3R-aw-gUt" secondAttribute="top" constant="8" id="uvm-WF-68Q"/>
                             <constraint firstItem="q7F-Ga-tJ5" firstAttribute="top" secondItem="C4n-H1-HAt" secondAttribute="bottom" id="wmt-B3-mnA"/>
                             <constraint firstItem="pMX-Lq-L2K" firstAttribute="leading" secondItem="SHR-A4-MLI" secondAttribute="trailing" constant="12" symbolic="YES" id="yeT-y7-yYo"/>
                             <constraint firstItem="q7F-Ga-tJ5" firstAttribute="leading" secondItem="Q0l-4K-cli" secondAttribute="trailing" id="z7d-ga-Vju"/>
@@ -1566,7 +1561,7 @@ Gw
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="commentLabel" destination="nCT-72-Hn6" id="fqz-Y0-Vni"/>
+                        <outlet property="commentTextView" destination="MkM-4C-UWb" id="blL-L5-Xmg"/>
                         <outlet property="insertCodeButton" destination="q7F-Ga-tJ5" id="Q6M-XM-PhQ"/>
                         <outlet property="insertItalicsButton" destination="Vjc-qb-dyV" id="a6r-E6-bHJ"/>
                         <outlet property="insertLinkButton" destination="Q0l-4K-cli" id="jQ1-xP-vEG"/>
