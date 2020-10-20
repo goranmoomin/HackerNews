@@ -122,6 +122,21 @@ class ItemViewController: NSViewController {
         }
     }
 
+    @IBAction func showReplyPopover(_ sender: NSButton) {
+        let replyPopoverViewController = NSStoryboard.main?.instantiateController(withIdentifier: .itemReplyPopoverViewController) as! ReplyPopoverViewController
+        let title: String
+        switch item! {
+        case .story(let story): title = story.title
+        case .job(let job): title = job.title
+        }
+        replyPopoverViewController.title = "Comment to \(title)"
+        replyPopoverViewController.commentable = item
+        let popover = NSPopover()
+        popover.contentViewController = replyPopoverViewController
+        popover.delegate = replyPopoverViewController
+        popover.show(relativeTo: .zero, of: replyButton, preferredEdge: .minY)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
