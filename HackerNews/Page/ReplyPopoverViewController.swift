@@ -12,8 +12,9 @@ class ReplyPopoverViewController: NSViewController {
     @IBOutlet var insertLinkButton: NSButton!
     @IBOutlet var insertCodeButton: NSButton!
 
-    var comment: Comment! {
+    var commentable: Commentable! {
         didSet {
+            guard let comment = commentable as? Comment else { return }
             let textColor: NSColor
             switch comment.color {
             case .c00: textColor = .labelColor
@@ -22,7 +23,7 @@ class ReplyPopoverViewController: NSViewController {
             case .cbe, .cce, .cdd: textColor = .quaternaryLabelColor
             }
             DispatchQueue.main.async {
-                self.commentTextView.textStorage?.setAttributedString(self.comment.text.styledAttributedString(textColor: textColor))
+                self.commentTextView.textStorage?.setAttributedString(comment.text.styledAttributedString(textColor: textColor))
             }
         }
     }
@@ -40,7 +41,7 @@ class ReplyPopoverViewController: NSViewController {
         }
         spinner.startAnimation(self)
         replyTextView.isEditable = false
-        APIClient.shared.reply(toID: comment.id, text: text, token: token) { result in
+        APIClient.shared.reply(to: commentable, text: text, token: token) { result in
             DispatchQueue.main.async {
                 self.spinner.stopAnimation(self)
                 switch result {
