@@ -1562,7 +1562,6 @@ Gw
                     </view>
                     <connections>
                         <outlet property="commentTextView" destination="MkM-4C-UWb" id="blL-L5-Xmg"/>
-                        <outlet property="divider" destination="9uw-LE-rBq" id="NgB-s4-WdP"/>
                         <outlet property="insertCodeButton" destination="q7F-Ga-tJ5" id="Q6M-XM-PhQ"/>
                         <outlet property="insertItalicsButton" destination="Vjc-qb-dyV" id="a6r-E6-bHJ"/>
                         <outlet property="insertLinkButton" destination="Q0l-4K-cli" id="jQ1-xP-vEG"/>
