@@ -64,6 +64,16 @@ class PageViewController: NSSplitViewController {
         default: break
         }
     }
+
+    @objc func openInSafari(_ sender: NSToolbarItem) {
+        switch state {
+        case .item(let item):
+            NSWorkspace.shared.open(item.url)
+        case .page(let page):
+            NSWorkspace.shared.open(page.topLevelItem.url)
+        default: break
+        }
+    }
 }
 
 extension PageViewController: NSToolbarItemValidation {
@@ -71,6 +81,11 @@ extension PageViewController: NSToolbarItemValidation {
         if item.itemIdentifier == .refresh {
             switch state {
             case .page: return true
+            default: return false
+            }
+        } else if item.itemIdentifier == .openInSafari {
+            switch state {
+            case .page, .item: return true
             default: return false
             }
         }
