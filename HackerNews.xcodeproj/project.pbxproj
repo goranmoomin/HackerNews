@@ -23,6 +23,7 @@
 		5B92AA9824D8E58D00C3B5DC /* CommentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92AA9724D8E58D00C3B5DC /* CommentCellView.swift */; };
 		5B92AA9E24D8EB2A00C3B5DC /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92AA9D24D8EB2A00C3B5DC /* CommentViewController.swift */; };
 		5B92AAA124D8EB3A00C3B5DC /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92AA9F24D8EB3A00C3B5DC /* ItemViewController.swift */; };
+		5B94BE2725DC203E00AA0DFD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5B94BE2625DC203E00AA0DFD /* README.md */; };
 		5B9E236A24DF17CF00483918 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E236924DF17CF00483918 /* PreferencesViewController.swift */; };
 		5BA55BB424DFE42700F6CBD0 /* AccountCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA55BB324DFE42700F6CBD0 /* AccountCellView.swift */; };
 		5BA55BC924E6DFFD00F6CBD0 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA55BC824E6DFFD00F6CBD0 /* Account.swift */; };
@@ -50,6 +51,7 @@
 		5B92AA9724D8E58D00C3B5DC /* CommentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellView.swift; sourceTree = "<group>"; };
 		5B92AA9D24D8EB2A00C3B5DC /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		5B92AA9F24D8EB3A00C3B5DC /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		5B94BE2625DC203E00AA0DFD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5B9E236924DF17CF00483918 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		5BA55BB324DFE42700F6CBD0 /* AccountCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCellView.swift; sourceTree = "<group>"; };
 		5BA55BC824E6DFFD00F6CBD0 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		5BAB933B24C14FB900D433AD = {
 			isa = PBXGroup;
 			children = (
+				5B94BE2625DC203E00AA0DFD /* README.md */,
 				5BAB934624C14FB900D433AD /* HackerNews */,
 				5BAB934524C14FB900D433AD /* Products */,
 			);
@@ -237,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B94BE2725DC203E00AA0DFD /* README.md in Resources */,
 				5BAB934C24C14FBB00D433AD /* Assets.xcassets in Resources */,
 				5BAB934F24C14FBB00D433AD /* Main.storyboard in Resources */,
 			);
@@ -419,7 +423,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.pcr910303.HackerNews;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goranmoomin.HackerNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -442,7 +446,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.pcr910303.HackerNews;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goranmoomin.HackerNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

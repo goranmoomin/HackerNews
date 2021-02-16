@@ -26,7 +26,7 @@ upvoting/unvoting!
 ### Pre release
 
 I did a pre release, you might want to try it out by downloading it from the
-[releases tab](https://github.com/pcr910303/HackerNews/releases).
+[releases tab](https://github.com/goranmoomin/HackerNews/releases).
 
 The app currently has a lot of basic features disabled - for example,
 the commenting code is already written but I couldn't decide the optimal UI for commenting, so I removed it for now.
@@ -37,7 +37,7 @@ but it'll gain more features and a better UI as development proceeds.
 
 ## Development
 
-I wrote a new [HNAPI](https://github.com/pcr910303/HNAPI) package for interfacing with HN. It handles
+I wrote a new [HNAPI](https://github.com/goranmoomin/HNAPI) package for interfacing with HN. It handles
 communicating with both the [HN official API](https://github.com/HackerNews/API), the
 [Algolia HN API](https://hn.algolia.com/api), and the [HackerNews site](https://news.ycombinator.com).
 
