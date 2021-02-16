@@ -1,6 +1,6 @@
 
 import Cocoa
-import AutoLayoutTextView
+import MAKAutoLayoutTextView
 
 class CommentTextView: AutoLayoutTextView {
 

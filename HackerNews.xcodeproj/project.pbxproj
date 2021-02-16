@@ -10,7 +10,7 @@
 		5B422F2524D1522E00392FB7 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B422F2424D1522E00392FB7 /* APIClient.swift */; };
 		5B422F2724D1D22400392FB7 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B422F2624D1D22400392FB7 /* MainWindowController.swift */; };
 		5B42C3B824C57ADD0087CB9E /* HNAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5B42C3B724C57ADD0087CB9E /* HNAPI */; };
-		5B544ABE25DBDBAF00A3127E /* AutoLayoutTextView in Frameworks */ = {isa = PBXBuildFile; productRef = 5B544ABD25DBDBAF00A3127E /* AutoLayoutTextView */; };
+		5B544AC525DC121B00A3127E /* MAKAutoLayoutTextView in Frameworks */ = {isa = PBXBuildFile; productRef = 5B544AC425DC121B00A3127E /* MAKAutoLayoutTextView */; };
 		5B6FB64724F77AAB00F49770 /* CommentTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FB64624F77AAB00F49770 /* CommentTextView.swift */; };
 		5B70C7FC24F277E300B6B865 /* VoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B70C7FB24F277E300B6B865 /* VoteButton.swift */; };
 		5B82985424F6118200B7E91A /* ReplyPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B82985324F6118200B7E91A /* ReplyPopoverViewController.swift */; };
@@ -71,9 +71,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B544AC525DC121B00A3127E /* MAKAutoLayoutTextView in Frameworks */,
 				5B9216C724DC6F1C00C51FF1 /* Atributika in Frameworks */,
 				5B42C3B824C57ADD0087CB9E /* HNAPI in Frameworks */,
-				5B544ABE25DBDBAF00A3127E /* AutoLayoutTextView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +188,7 @@
 			packageProductDependencies = (
 				5B42C3B724C57ADD0087CB9E /* HNAPI */,
 				5B9216C624DC6F1C00C51FF1 /* Atributika */,
-				5B544ABD25DBDBAF00A3127E /* AutoLayoutTextView */,
+				5B544AC425DC121B00A3127E /* MAKAutoLayoutTextView */,
 			);
 			productName = HackerNews;
 			productReference = 5BAB934424C14FB900D433AD /* HackerNews.app */;
@@ -221,7 +221,7 @@
 			packageReferences = (
 				5B42C3B624C57ADD0087CB9E /* XCRemoteSwiftPackageReference "HNAPI" */,
 				5B9216C524DC6F1C00C51FF1 /* XCRemoteSwiftPackageReference "Atributika" */,
-				5B544ABC25DBDBAF00A3127E /* XCRemoteSwiftPackageReference "AutoLayoutTextView" */,
+				5B544AC325DC121B00A3127E /* XCRemoteSwiftPackageReference "ModernAppKit" */,
 			);
 			productRefGroup = 5BAB934524C14FB900D433AD /* Products */;
 			projectDirPath = "";
@@ -480,12 +480,12 @@
 				kind = branch;
 			};
 		};
-		5B544ABC25DBDBAF00A3127E /* XCRemoteSwiftPackageReference "AutoLayoutTextView" */ = {
+		5B544AC325DC121B00A3127E /* XCRemoteSwiftPackageReference "ModernAppKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/goranmoomin/AutoLayoutTextView.git";
+			repositoryURL = "https://github.com/fumoboy007/ModernAppKit.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 		5B9216C524DC6F1C00C51FF1 /* XCRemoteSwiftPackageReference "Atributika" */ = {
@@ -504,10 +504,10 @@
 			package = 5B42C3B624C57ADD0087CB9E /* XCRemoteSwiftPackageReference "HNAPI" */;
 			productName = HNAPI;
 		};
-		5B544ABD25DBDBAF00A3127E /* AutoLayoutTextView */ = {
+		5B544AC425DC121B00A3127E /* MAKAutoLayoutTextView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5B544ABC25DBDBAF00A3127E /* XCRemoteSwiftPackageReference "AutoLayoutTextView" */;
-			productName = AutoLayoutTextView;
+			package = 5B544AC325DC121B00A3127E /* XCRemoteSwiftPackageReference "ModernAppKit" */;
+			productName = MAKAutoLayoutTextView;
 		};
 		5B9216C624DC6F1C00C51FF1 /* Atributika */ = {
 			isa = XCSwiftPackageProductDependency;
