@@ -1,5 +1,6 @@
 
 import Cocoa
+import AutoLayoutTextView
 
 class CommentTextView: AutoLayoutTextView {
 

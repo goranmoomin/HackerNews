@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B18CB9C2503C8C300EF034C /* EagerTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B18CB982503C8C300EF034C /* EagerTextStorage.m */; };
-		5B18CB9D2503C8C300EF034C /* AutoLayoutTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B18CB992503C8C300EF034C /* AutoLayoutTextView.swift */; };
-		5B18CB9E2503C8C300EF034C /* EagerLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B18CB9A2503C8C300EF034C /* EagerLayoutManager.swift */; };
 		5B422F2524D1522E00392FB7 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B422F2424D1522E00392FB7 /* APIClient.swift */; };
 		5B422F2724D1D22400392FB7 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B422F2624D1D22400392FB7 /* MainWindowController.swift */; };
 		5B42C3B824C57ADD0087CB9E /* HNAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5B42C3B724C57ADD0087CB9E /* HNAPI */; };
+		5B544ABE25DBDBAF00A3127E /* AutoLayoutTextView in Frameworks */ = {isa = PBXBuildFile; productRef = 5B544ABD25DBDBAF00A3127E /* AutoLayoutTextView */; };
 		5B6FB64724F77AAB00F49770 /* CommentTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6FB64624F77AAB00F49770 /* CommentTextView.swift */; };
 		5B70C7FC24F277E300B6B865 /* VoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B70C7FB24F277E300B6B865 /* VoteButton.swift */; };
 		5B82985424F6118200B7E91A /* ReplyPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B82985324F6118200B7E91A /* ReplyPopoverViewController.swift */; };
@@ -39,11 +37,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B18CB972503C8C200EF034C /* HackerNews-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackerNews-Bridging-Header.h"; sourceTree = "<group>"; };
-		5B18CB982503C8C300EF034C /* EagerTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EagerTextStorage.m; sourceTree = "<group>"; };
-		5B18CB992503C8C300EF034C /* AutoLayoutTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutTextView.swift; sourceTree = "<group>"; };
-		5B18CB9A2503C8C300EF034C /* EagerLayoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EagerLayoutManager.swift; sourceTree = "<group>"; };
-		5B18CB9B2503C8C300EF034C /* EagerTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EagerTextStorage.h; sourceTree = "<group>"; };
 		5B422F2424D1522E00392FB7 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		5B422F2624D1D22400392FB7 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		5B6FB64624F77AAB00F49770 /* CommentTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTextView.swift; sourceTree = "<group>"; };
@@ -80,23 +73,13 @@
 			files = (
 				5B9216C724DC6F1C00C51FF1 /* Atributika in Frameworks */,
 				5B42C3B824C57ADD0087CB9E /* HNAPI in Frameworks */,
+				5B544ABE25DBDBAF00A3127E /* AutoLayoutTextView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5B18CB962503C89C00EF034C /* AutoLayoutTextView */ = {
-			isa = PBXGroup;
-			children = (
-				5B18CB992503C8C300EF034C /* AutoLayoutTextView.swift */,
-				5B18CB9A2503C8C300EF034C /* EagerLayoutManager.swift */,
-				5B18CB9B2503C8C300EF034C /* EagerTextStorage.h */,
-				5B18CB982503C8C300EF034C /* EagerTextStorage.m */,
-			);
-			path = AutoLayoutTextView;
-			sourceTree = "<group>";
-		};
 		5B8EA2B224D0898D00013393 /* Sidebar */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,12 +153,10 @@
 		5BAB934624C14FB900D433AD /* HackerNews */ = {
 			isa = PBXGroup;
 			children = (
-				5B18CB972503C8C200EF034C /* HackerNews-Bridging-Header.h */,
 				5BAB934724C14FB900D433AD /* AppDelegate.swift */,
 				5BAB934D24C14FBB00D433AD /* Main.storyboard */,
 				5B422F2624D1D22400392FB7 /* MainWindowController.swift */,
 				5BA55BC824E6DFFD00F6CBD0 /* Account.swift */,
-				5B18CB962503C89C00EF034C /* AutoLayoutTextView */,
 				5B9E236C24DF17ED00483918 /* Preferences */,
 				5B8EA2B224D0898D00013393 /* Sidebar */,
 				5B8EA2B324D0899700013393 /* ItemList */,
@@ -207,6 +188,7 @@
 			packageProductDependencies = (
 				5B42C3B724C57ADD0087CB9E /* HNAPI */,
 				5B9216C624DC6F1C00C51FF1 /* Atributika */,
+				5B544ABD25DBDBAF00A3127E /* AutoLayoutTextView */,
 			);
 			productName = HackerNews;
 			productReference = 5BAB934424C14FB900D433AD /* HackerNews.app */;
@@ -239,6 +221,7 @@
 			packageReferences = (
 				5B42C3B624C57ADD0087CB9E /* XCRemoteSwiftPackageReference "HNAPI" */,
 				5B9216C524DC6F1C00C51FF1 /* XCRemoteSwiftPackageReference "Atributika" */,
+				5B544ABC25DBDBAF00A3127E /* XCRemoteSwiftPackageReference "AutoLayoutTextView" */,
 			);
 			productRefGroup = 5BAB934524C14FB900D433AD /* Products */;
 			projectDirPath = "";
@@ -266,14 +249,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B18CB9E2503C8C300EF034C /* EagerLayoutManager.swift in Sources */,
 				5BAB934824C14FB900D433AD /* AppDelegate.swift in Sources */,
 				5BAB935B24C1814E00D433AD /* PageViewController.swift in Sources */,
-				5B18CB9D2503C8C300EF034C /* AutoLayoutTextView.swift in Sources */,
 				5B8EA2FE24D10E0800013393 /* ItemListCellView.swift in Sources */,
 				5BA55BB424DFE42700F6CBD0 /* AccountCellView.swift in Sources */,
 				5B9216CA24DD224900C51FF1 /* Atributika.swift in Sources */,
-				5B18CB9C2503C8C300EF034C /* EagerTextStorage.m in Sources */,
 				5BA55BC924E6DFFD00F6CBD0 /* Account.swift in Sources */,
 				5B92AAA124D8EB3A00C3B5DC /* ItemViewController.swift in Sources */,
 				5B422F2524D1522E00392FB7 /* APIClient.swift in Sources */,
@@ -440,7 +420,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.pcr910303.HackerNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HackerNews/HackerNews-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -463,7 +442,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.pcr910303.HackerNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HackerNews/HackerNews-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -500,6 +478,14 @@
 				kind = branch;
 			};
 		};
+		5B544ABC25DBDBAF00A3127E /* XCRemoteSwiftPackageReference "AutoLayoutTextView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/goranmoomin/AutoLayoutTextView.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		5B9216C524DC6F1C00C51FF1 /* XCRemoteSwiftPackageReference "Atributika" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/psharanda/Atributika";
@@ -515,6 +501,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5B42C3B624C57ADD0087CB9E /* XCRemoteSwiftPackageReference "HNAPI" */;
 			productName = HNAPI;
+		};
+		5B544ABD25DBDBAF00A3127E /* AutoLayoutTextView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B544ABC25DBDBAF00A3127E /* XCRemoteSwiftPackageReference "AutoLayoutTextView" */;
+			productName = AutoLayoutTextView;
 		};
 		5B9216C624DC6F1C00C51FF1 /* Atributika */ = {
 			isa = XCSwiftPackageProductDependency;
