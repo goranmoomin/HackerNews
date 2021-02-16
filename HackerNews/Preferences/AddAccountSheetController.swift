@@ -19,7 +19,7 @@ class AddAccountSheetController: NSViewController {
             switch result {
             case .success(let token):
                 Account.accounts.append(Account(username: username, token: token))
-                Account.selectedAccountIndex = Account.accounts.count
+                Account.selectedAccountUsername = username
             case .failure(let error):
                 DispatchQueue.main.async {
                     NSApplication.shared.presentError(error)

@@ -19,11 +19,6 @@ class PreferencesViewController: NSViewController {
             return
         }
         Account.accounts.remove(at: tableView.selectedRow)
-        if Account.accounts.count > 1 {
-            Account.selectedAccountIndex! -= 1
-        } else {
-            Account.selectedAccountIndex = nil
-        }
         tableView.reloadData()
     }
 }
@@ -43,6 +38,7 @@ extension PreferencesViewController: NSTableViewDelegate {
         guard tableView.selectedRow != -1 else {
             return
         }
-        Account.selectedAccountIndex = tableView.selectedRow
+        let account = Account.accounts[tableView.selectedRow]
+        Account.selectedAccountUsername = account.username
     }
 }
