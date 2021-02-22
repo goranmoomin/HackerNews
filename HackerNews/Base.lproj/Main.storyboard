@@ -716,121 +716,100 @@
             <objects>
                 <viewController id="REo-tR-wdW" customClass="PreferencesViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="2KK-aE-yXB">
-                        <rect key="frame" x="0.0" y="0.0" width="460" height="242"/>
+                        <rect key="frame" x="0.0" y="0.0" width="460" height="240"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView borderType="line" autohidesScrollers="YES" horizontalLineScroll="42" horizontalPageScroll="10" verticalLineScroll="42" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2l-9V-kio">
-                                <rect key="frame" x="20" y="20" width="420" height="202"/>
-                                <clipView key="contentView" id="5aI-JG-jOJ">
-                                    <rect key="frame" x="1" y="1" width="418" height="200"/>
+                            <scrollView borderType="line" autohidesScrollers="YES" horizontalLineScroll="40" horizontalPageScroll="10" verticalLineScroll="40" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0c-6L-oN9">
+                                <rect key="frame" x="20" y="48" width="420" height="172"/>
+                                <clipView key="contentView" id="l0E-3d-6wY">
+                                    <rect key="frame" x="1" y="1" width="418" height="170"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="40" headerView="6Vi-wc-uWD" viewBased="YES" id="UoQ-fb-nqF">
-                                            <rect key="frame" x="0.0" y="0.0" width="438" height="172"/>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" tableStyle="fullWidth" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="40" headerView="ABO-6v-5OV" viewBased="YES" id="lit-p4-gGz">
+                                            <rect key="frame" x="0.0" y="0.0" width="418" height="142"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <size key="intercellSpacing" width="3" height="2"/>
+                                            <size key="intercellSpacing" width="17" height="0.0"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="426" minWidth="40" maxWidth="1000" id="qAb-f0-nVg">
+                                                <tableColumn width="406" minWidth="40" maxWidth="1000" id="TG0-Av-lcg">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Account">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="zuv-YT-jC7">
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="jVq-kC-0ee">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="F7J-lW-Tom" customClass="AccountCellView" customModule="HackerNews" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="1" width="435" height="40"/>
+                                                        <tableCellView id="lHK-S0-XXf" customClass="AccountCellView" customModule="HackerNews" customModuleProvider="target">
+                                                            <rect key="frame" x="8" y="0.0" width="401" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="etQ-Ww-zup">
-                                                                    <rect key="frame" x="0.0" y="12" width="435" height="16"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Account Name" id="G9W-0i-bOW">
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O2h-C8-MgA">
+                                                                    <rect key="frame" x="0.0" y="12" width="401" height="16"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Account Name" id="b2D-Zi-wmr">
                                                                         <font key="font" usesAppearanceFont="YES"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="etQ-Ww-zup" firstAttribute="centerY" secondItem="F7J-lW-Tom" secondAttribute="centerY" id="Ki3-5B-vpX"/>
-                                                                <constraint firstItem="etQ-Ww-zup" firstAttribute="leading" secondItem="F7J-lW-Tom" secondAttribute="leading" constant="2" id="w29-GZ-Nlg"/>
-                                                                <constraint firstAttribute="trailing" secondItem="etQ-Ww-zup" secondAttribute="trailing" constant="2" id="ydq-Qw-IDY"/>
-                                                            </constraints>
                                                             <connections>
-                                                                <outlet property="textField" destination="etQ-Ww-zup" id="rYC-Gl-xxG"/>
+                                                                <outlet property="textField" destination="O2h-C8-MgA" id="PeQ-K0-1MT"/>
                                                             </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
                                             <connections>
-                                                <outlet property="dataSource" destination="REo-tR-wdW" id="uH3-Nm-vnY"/>
-                                                <outlet property="delegate" destination="REo-tR-wdW" id="EUW-Bc-VCa"/>
+                                                <outlet property="dataSource" destination="REo-tR-wdW" id="FA9-xZ-MgV"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Sog-Hb-dxc">
-                                    <rect key="frame" x="1" y="185" width="418" height="16"/>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Ehr-vL-li1">
+                                    <rect key="frame" x="1" y="155" width="418" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="RRM-Wh-OJl">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="5Hi-6V-R99">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <tableHeaderView key="headerView" wantsLayer="YES" id="6Vi-wc-uWD">
-                                    <rect key="frame" x="0.0" y="0.0" width="438" height="28"/>
+                                <tableHeaderView key="headerView" wantsLayer="YES" id="ABO-6v-5OV">
+                                    <rect key="frame" x="0.0" y="0.0" width="418" height="28"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nDV-w8-8AY">
-                                <rect key="frame" x="20" y="18.5" width="26.5" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="26" id="Gn8-Hu-MYx"/>
-                                    <constraint firstAttribute="height" constant="23" id="gq6-gS-0U9"/>
-                                </constraints>
-                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="900-3q-PwW">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oo4-oW-A9a">
+                                <rect key="frame" x="17" y="18" width="55" height="24"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="momentary" id="vOT-7b-bpU">
                                     <font key="font" metaFont="system"/>
-                                </buttonCell>
+                                    <segments>
+                                        <segment image="NSAddTemplate"/>
+                                        <segment image="NSRemoveTemplate" tag="1"/>
+                                    </segments>
+                                </segmentedCell>
                                 <connections>
-                                    <segue destination="gcQ-sX-W0F" kind="sheet" id="vVg-kV-4mJ"/>
+                                    <action selector="addOrRemoveAccount:" target="REo-tR-wdW" id="Pb5-mU-g4h"/>
                                 </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ovp-oe-hlW">
-                                <rect key="frame" x="46" y="23" width="26.5" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="Ogg-gY-Owp"/>
-                                    <constraint firstAttribute="width" constant="26" id="Zou-1d-gbu"/>
-                                </constraints>
-                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="H0L-5c-kHN">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="removeAccount:" target="REo-tR-wdW" id="AL3-Pa-MkX"/>
-                                </connections>
-                            </button>
+                            </segmentedControl>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="w2l-9V-kio" firstAttribute="leading" secondItem="2KK-aE-yXB" secondAttribute="leading" constant="20" symbolic="YES" id="9sL-Lh-Dbl"/>
-                            <constraint firstAttribute="trailing" secondItem="w2l-9V-kio" secondAttribute="trailing" constant="20" symbolic="YES" id="AW3-KW-aPb"/>
-                            <constraint firstItem="Ovp-oe-hlW" firstAttribute="leading" secondItem="nDV-w8-8AY" secondAttribute="trailing" id="JC2-P2-0Gf"/>
-                            <constraint firstItem="w2l-9V-kio" firstAttribute="top" secondItem="2KK-aE-yXB" secondAttribute="top" constant="20" symbolic="YES" id="OGm-76-H18"/>
-                            <constraint firstItem="nDV-w8-8AY" firstAttribute="bottom" secondItem="w2l-9V-kio" secondAttribute="bottom" id="PH3-nP-VTT"/>
-                            <constraint firstAttribute="bottom" secondItem="w2l-9V-kio" secondAttribute="bottom" constant="20" symbolic="YES" id="Xz8-XC-zbw"/>
-                            <constraint firstItem="nDV-w8-8AY" firstAttribute="leading" secondItem="w2l-9V-kio" secondAttribute="leading" id="Yyo-1t-qxf"/>
-                            <constraint firstItem="Ovp-oe-hlW" firstAttribute="bottom" secondItem="w2l-9V-kio" secondAttribute="bottom" id="dba-Me-T5E"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oo4-oW-A9a" secondAttribute="trailing" constant="20" symbolic="YES" id="7fC-MH-ncI"/>
+                            <constraint firstItem="a0c-6L-oN9" firstAttribute="top" secondItem="2KK-aE-yXB" secondAttribute="top" constant="20" symbolic="YES" id="OFI-8x-MeD"/>
+                            <constraint firstAttribute="bottom" secondItem="oo4-oW-A9a" secondAttribute="bottom" constant="20" symbolic="YES" id="Om5-fJ-HDD"/>
+                            <constraint firstItem="oo4-oW-A9a" firstAttribute="top" secondItem="a0c-6L-oN9" secondAttribute="bottom" constant="8" symbolic="YES" id="fu7-wm-VR3"/>
+                            <constraint firstItem="oo4-oW-A9a" firstAttribute="leading" secondItem="2KK-aE-yXB" secondAttribute="leading" constant="20" symbolic="YES" id="mRK-4O-aGn"/>
+                            <constraint firstItem="a0c-6L-oN9" firstAttribute="leading" secondItem="2KK-aE-yXB" secondAttribute="leading" constant="20" symbolic="YES" id="ubt-qf-Dcs"/>
+                            <constraint firstAttribute="trailing" secondItem="a0c-6L-oN9" secondAttribute="trailing" constant="20" symbolic="YES" id="xh2-dH-YPd"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="UoQ-fb-nqF" id="HX0-t3-L8S"/>
+                        <outlet property="tableView" destination="lit-p4-gGz" id="xzS-d5-h7M"/>
                     </connections>
                 </viewController>
                 <customObject id="1TF-8p-Y92" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -840,7 +819,7 @@
         <!--Add Account Sheet Controller-->
         <scene sceneID="guD-j5-MEX">
             <objects>
-                <viewController id="gcQ-sX-W0F" customClass="AddAccountSheetController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddAccountSheetController" id="gcQ-sX-W0F" customClass="AddAccountSheetController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="y1A-so-9R9">
                         <rect key="frame" x="0.0" y="0.0" width="360" height="128"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -949,7 +928,7 @@ Gw
                 </viewController>
                 <customObject id="97Z-eT-UTO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1321" y="70"/>
+            <point key="canvasLocation" x="1321" y="36"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">

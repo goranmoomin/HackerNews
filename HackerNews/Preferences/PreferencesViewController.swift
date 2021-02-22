@@ -14,12 +14,17 @@ class PreferencesViewController: NSViewController {
         }
     }
 
-    @IBAction func removeAccount(_ sender: NSButton) {
-        guard tableView.selectedRow != -1 else {
-            return
+    @IBAction func addOrRemoveAccount(_ sender: NSSegmentedControl) {
+        if sender.selectedSegment == 0 {
+            let addAccountSheetController = NSStoryboard.main?.instantiateController(withIdentifier: .addAccountSheetController) as! AddAccountSheetController
+            presentAsSheet(addAccountSheetController)
+        } else if sender.selectedSegment == 1 {
+            guard tableView.selectedRow != -1 else {
+                return
+            }
+            Account.accounts.remove(at: tableView.selectedRow)
+            tableView.reloadData()
         }
-        Account.accounts.remove(at: tableView.selectedRow)
-        tableView.reloadData()
     }
 }
 
@@ -41,4 +46,8 @@ extension PreferencesViewController: NSTableViewDelegate {
         let account = Account.accounts[tableView.selectedRow]
         Account.selectedAccountUsername = account.username
     }
+}
+
+extension NSStoryboard.SceneIdentifier {
+    static var addAccountSheetController = NSStoryboard.SceneIdentifier("AddAccountSheetController")
 }
