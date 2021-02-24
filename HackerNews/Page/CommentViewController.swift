@@ -7,6 +7,7 @@ class CommentViewController: NSViewController {
     var page: Page? {
         didSet {
             DispatchQueue.main.async {
+                self.noCommentLabel.isHidden = self.page == nil || self.comments.count > 0
                 self.commentOutlineView.reloadData()
             }
         }
@@ -21,6 +22,7 @@ class CommentViewController: NSViewController {
     }
 
     @IBOutlet var commentOutlineView: CommentOutlineView!
+    @IBOutlet var noCommentLabel: NSTextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()

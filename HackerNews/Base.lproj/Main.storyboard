@@ -2163,16 +2163,27 @@ Gw
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7WW-HO-1JK">
+                                <rect key="frame" x="180" y="139" width="111" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="No comments yet" id="Ynn-QA-XRJ">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="7WW-HO-1JK" firstAttribute="centerY" secondItem="QYa-jd-OM5" secondAttribute="centerY" id="06I-CP-TKL"/>
                             <constraint firstItem="f3g-Le-fPV" firstAttribute="top" secondItem="QYa-jd-OM5" secondAttribute="top" id="8Ye-aC-Wen"/>
                             <constraint firstAttribute="trailing" secondItem="f3g-Le-fPV" secondAttribute="trailing" id="RRF-LU-VOL"/>
+                            <constraint firstItem="7WW-HO-1JK" firstAttribute="centerX" secondItem="QYa-jd-OM5" secondAttribute="centerX" id="ehd-Em-jkn"/>
                             <constraint firstItem="f3g-Le-fPV" firstAttribute="leading" secondItem="QYa-jd-OM5" secondAttribute="leading" id="k15-8D-jTy"/>
                             <constraint firstAttribute="bottom" secondItem="f3g-Le-fPV" secondAttribute="bottom" id="ys7-ed-RXG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="commentOutlineView" destination="Ccl-b6-UEi" id="tYn-ka-Kac"/>
+                        <outlet property="noCommentLabel" destination="7WW-HO-1JK" id="bbX-h3-M37"/>
                     </connections>
                 </viewController>
                 <customObject id="Ag6-zP-M7R" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
