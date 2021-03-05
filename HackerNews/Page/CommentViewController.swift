@@ -95,4 +95,22 @@ extension CommentViewController: NSOutlineViewDelegate {
         view.delegate = self
         return view
     }
+
+    func outlineView(_ outlineView: NSOutlineView, rowViewForItem item: Any) -> NSTableRowView? {
+        func level(of targetComment: Comment, in comments: [Comment]) -> Int? {
+            if comments.contains(where: { $0 === targetComment }) { return 0 }
+            for comment in comments {
+                if let level = level(of: targetComment, in: comment.children) {
+                    return level + 1
+                }
+            }
+            return nil
+        }
+
+        let comment = item as! Comment
+        guard let level = level(of: comment, in: comments) else { return nil }
+        let isExpandable = comment.children.count != 0
+        let indentationPerLevel = outlineView.indentationPerLevel
+        return CommentOutlineRowView(withLevel: level, isExpandable: isExpandable, indentationPerLevel: indentationPerLevel)
+    }
 }

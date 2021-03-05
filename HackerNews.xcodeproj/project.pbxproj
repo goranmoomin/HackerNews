@@ -25,6 +25,7 @@
 		5B92AAA124D8EB3A00C3B5DC /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92AA9F24D8EB3A00C3B5DC /* ItemViewController.swift */; };
 		5B94BE2725DC203E00AA0DFD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5B94BE2625DC203E00AA0DFD /* README.md */; };
 		5B9E236A24DF17CF00483918 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E236924DF17CF00483918 /* PreferencesViewController.swift */; };
+		5BA2A9EF25F2168F00636823 /* CommentOutlineRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA2A9EE25F2168F00636823 /* CommentOutlineRowView.swift */; };
 		5BA55BB424DFE42700F6CBD0 /* AccountCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA55BB324DFE42700F6CBD0 /* AccountCellView.swift */; };
 		5BA55BC924E6DFFD00F6CBD0 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA55BC824E6DFFD00F6CBD0 /* Account.swift */; };
 		5BA55BCB24E6E47000F6CBD0 /* AddAccountSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA55BCA24E6E47000F6CBD0 /* AddAccountSheetController.swift */; };
@@ -53,6 +54,7 @@
 		5B92AA9F24D8EB3A00C3B5DC /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		5B94BE2625DC203E00AA0DFD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5B9E236924DF17CF00483918 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		5BA2A9EE25F2168F00636823 /* CommentOutlineRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentOutlineRowView.swift; sourceTree = "<group>"; };
 		5BA55BB324DFE42700F6CBD0 /* AccountCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCellView.swift; sourceTree = "<group>"; };
 		5BA55BC824E6DFFD00F6CBD0 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		5BA55BCA24E6E47000F6CBD0 /* AddAccountSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountSheetController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				5B92AA9D24D8EB2A00C3B5DC /* CommentViewController.swift */,
 				5B82985324F6118200B7E91A /* ReplyPopoverViewController.swift */,
 				5BA776D824DD5241009A32B6 /* CommentOutlineView.swift */,
+				5BA2A9EE25F2168F00636823 /* CommentOutlineRowView.swift */,
 				5B92AA9724D8E58D00C3B5DC /* CommentCellView.swift */,
 				5B6FB64624F77AAB00F49770 /* CommentTextView.swift */,
 				5B70C7FB24F277E300B6B865 /* VoteButton.swift */,
@@ -266,6 +269,7 @@
 				5B9216CC24DD226400C51FF1 /* NSFont.swift in Sources */,
 				5B6FB64724F77AAB00F49770 /* CommentTextView.swift in Sources */,
 				5B8EA2B624D089B800013393 /* SidebarItem.swift in Sources */,
+				5BA2A9EF25F2168F00636823 /* CommentOutlineRowView.swift in Sources */,
 				5BA55BCB24E6E47000F6CBD0 /* AddAccountSheetController.swift in Sources */,
 				5B92AA9824D8E58D00C3B5DC /* CommentCellView.swift in Sources */,
 				5B70C7FC24F277E300B6B865 /* VoteButton.swift in Sources */,

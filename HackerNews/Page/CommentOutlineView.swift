@@ -4,8 +4,7 @@ import Cocoa
 class CommentOutlineView: NSOutlineView {
 
     override func frameOfOutlineCell(atRow row: Int) -> NSRect {
-        var frame = super.frameOfOutlineCell(atRow: row)
-        frame.size.height = 19.0
-        return frame
+        let frame = super.frameOfOutlineCell(atRow: row)
+        return NSRect(x: frame.minX, y: frame.minY + 1, width: frame.width, height: 18)
     }
 }
