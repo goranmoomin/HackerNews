@@ -767,6 +767,7 @@
                                             </tableColumns>
                                             <connections>
                                                 <outlet property="dataSource" destination="REo-tR-wdW" id="FA9-xZ-MgV"/>
+                                                <outlet property="delegate" destination="REo-tR-wdW" id="MMu-9T-FhF"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
