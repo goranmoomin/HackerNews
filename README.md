@@ -1,6 +1,6 @@
 #  HackerNews.app
 
-![Screenshot of main window](https://user-images.githubusercontent.com/37990858/91111480-93baff00-e6bb-11ea-8e00-d11790f9720c.png)
+![Screenshot of main window](https://user-images.githubusercontent.com/37990858/110665546-d2ee0f00-820b-11eb-86f2-290395bcd2ba.png)
 
 ---
 
@@ -12,37 +12,26 @@ So I'm building on my own.
 ## ⚠️ Warning
 
 This app is still highly WIP, and it's not the best code in the world.
-If you have any ideas to make the code cleaner, Swiftier, or really have any idea, PRs or issues are welcomed!
+If you have any ideas to make the code cleaner, Swiftier, or really have any idea, PRs are welcomed!
 
-### Rewrite
-
-I did a rewrite of this app, partially because I didn't want to spend days to find out why my old storyboard broke
-working in Big Sur, and partially because I really wanted to replace my terrible code to less terrible code.
-Thankfully, the rewrite was successful and you can see the commit 96db15a now!
-
-The new app has a few features that the old app didn't have like comment colors, and now have more reliable 
-upvoting/unvoting!
+Also welcomed is trivial bug reports, I would like to fix bugs that are lying on the ground but
+as I use the app daily, it's hard for me to find out very obvious bugs because I'm so used to it.
+Every bug report helps, including very trivial ones. Thanks in advance.
 
 ### Pre release
 
 I did a pre release, you might want to try it out by downloading it from the
 [releases tab](https://github.com/goranmoomin/HackerNews/releases).
 
-The app currently has a lot of basic features disabled - for example,
-the commenting code is already written but I couldn't decide the optimal UI for commenting, so I removed it for now.
-The comment was once selectable, but due to a Big Sur bug I disabled selecting, which means you won't be able to
-copy text from comments (which will be a dealbreaker I guess?).
-All-in-all, this pre release only is able to view HN, login and upvote/downvote, and has a non-optimal UI,
-but it'll gain more features and a better UI as development proceeds.
-
 ## Development
 
-I wrote a new [HNAPI](https://github.com/goranmoomin/HNAPI) package for interfacing with HN. It handles
+I wrote the [HNAPI](https://github.com/goranmoomin/HNAPI) package for interfacing with HN. It handles
 communicating with both the [HN official API](https://github.com/HackerNews/API), the
 [Algolia HN API](https://hn.algolia.com/api), and the [HackerNews site](https://news.ycombinator.com).
 
 If you're writing a new HN client (for any platform), you might want to gleam the code, I've put in a lot of thoughts in
-the design. It's IMO the fastest & most robust approach to interfacing HN.
+the design. There's probably a bit more design aspects that I have to think about, but it's pretty much the fastest and 
+the most robust approach to interfacing HN that I could think.
 
 ## Features
 
