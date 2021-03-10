@@ -482,7 +482,7 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		5B42C3B624C57ADD0087CB9E /* XCRemoteSwiftPackageReference "HNAPI" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pcr910303/HNAPI.git";
+			repositoryURL = "https://github.com/goranmoomin/HNAPI.git";
 			requirement = {
 				branch = master;
 				kind = branch;
