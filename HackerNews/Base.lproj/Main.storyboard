@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19115.2"/>
         <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
         <capability name="Search Toolbar Item" minToolsVersion="12.0" minSystemVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1485,7 +1486,7 @@ Gw
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q7F-Ga-tJ5">
-                                <rect key="frame" x="60" y="9.5" width="26" height="31"/>
+                                <rect key="frame" x="60" y="10.5" width="26" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="26" id="Kjw-E4-exa"/>
                                     <constraint firstAttribute="height" constant="23" id="OXg-DJ-a3M"/>
@@ -1637,7 +1638,7 @@ Gw
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DH2-fy-v2O">
-                                <rect key="frame" x="60" y="9.5" width="26" height="31"/>
+                                <rect key="frame" x="60" y="10.5" width="26" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="26" id="lHI-pb-mvk"/>
                                     <constraint firstAttribute="height" constant="23" id="y3e-06-wBg"/>
@@ -2199,7 +2200,7 @@ Gw
         <image name="arrow.down" catalog="system" width="13" height="14"/>
         <image name="arrow.up" catalog="system" width="13" height="14"/>
         <image name="arrowshape.turn.up.left" catalog="system" width="17" height="14"/>
-        <image name="chevron.left.slash.chevron.right" catalog="system" width="22" height="17"/>
+        <image name="chevron.left.slash.chevron.right" catalog="system" width="21" height="15"/>
         <image name="clock" catalog="system" width="15" height="15"/>
         <image name="hand.thumbsup" catalog="system" width="16" height="17"/>
         <image name="italic" catalog="system" width="10" height="12"/>
