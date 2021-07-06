@@ -29,6 +29,9 @@ class PageViewController: NSSplitViewController {
             splitView.isHidden = false
             commentViewController.page = nil
             APIClient.shared.page(item: item, token: Account.selectedAccount?.token) { result in
+                guard case .item(let currentItem) = self.state, currentItem.id == item.id else {
+                    return
+                }
                 switch result {
                 case .success(let page): self.state = .page(page)
                 case .failure(let error): self.state = .error(error)

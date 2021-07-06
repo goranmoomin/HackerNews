@@ -29,7 +29,9 @@ class ItemListViewController: NSViewController {
     func reloadData() {
         items = []
         spinner.startAnimation(self)
+        let category = category!
         APIClient.shared.items(category: category) { result in
+            guard self.category == category else { return }
             DispatchQueue.main.async {
                 self.spinner.stopAnimation(self)
             }
@@ -58,6 +60,9 @@ class ItemListViewController: NSViewController {
             items = []
             spinner.startAnimation(self)
             APIClient.shared.items(query: query) { result in
+                guard sender.stringValue == query else {
+                    return
+                }
                 DispatchQueue.main.async {
                     self.spinner.stopAnimation(self)
                 }
