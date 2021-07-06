@@ -48,5 +48,5 @@ It is developed using the AppKit APIs, and doesn't use webviews or Catalyst.
 
 ## Thanks to...
 
-[Collin Donnel](https://keyandnib.com) ([@collindonnell](https://twitter.com/collindonnell) on Twitter),
+[Collin Donnell](https://keyandnib.com) ([@collindonnell](https://twitter.com/collindonnell) on Twitter),
 who has generously provided code review and design advice on this project.
