@@ -1,4 +1,3 @@
-
 import Cocoa
 
 class CommentOutlineView: NSOutlineView {

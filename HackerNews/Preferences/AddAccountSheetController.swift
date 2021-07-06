@@ -1,4 +1,3 @@
-
 import Cocoa
 import HNAPI
 
@@ -8,8 +7,7 @@ class AddAccountSheetController: NSViewController {
     @IBOutlet var passwordTextField: NSTextField!
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
+        super.viewDidLoad()  // Do view setup here.
     }
 
     @IBAction func signIn(_ sender: NSButton) {
@@ -21,19 +19,16 @@ class AddAccountSheetController: NSViewController {
                 Account.accounts.append(Account(username: username, token: token))
                 Account.selectedAccountUsername = username
             case .failure(let error):
-                DispatchQueue.main.async {
-                    NSApplication.shared.presentError(error)
-                }
+                DispatchQueue.main.async { NSApplication.shared.presentError(error) }
             }
             DispatchQueue.main.async {
-                let preferencesViewController = self.presentingViewController as! PreferencesViewController
+                let preferencesViewController =
+                    self.presentingViewController as! PreferencesViewController
                 self.dismiss(self)
                 preferencesViewController.tableView.reloadData()
             }
         }
     }
 
-    @IBAction func cancel(_ sender: NSButton) {
-        dismiss(self)
-    }
+    @IBAction func cancel(_ sender: NSButton) { dismiss(self) }
 }

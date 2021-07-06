@@ -1,4 +1,3 @@
-
 import Cocoa
 import HNAPI
 
@@ -23,7 +22,8 @@ class ReplyPopoverViewController: NSViewController {
             case .cbe, .cce, .cdd: textColor = .quaternaryLabelColor
             }
             DispatchQueue.main.async {
-                self.commentTextView?.textStorage?.setAttributedString(comment.text.styledAttributedString(textColor: textColor))
+                self.commentTextView?.textStorage?
+                    .setAttributedString(comment.text.styledAttributedString(textColor: textColor))
             }
         }
     }
@@ -36,9 +36,7 @@ class ReplyPopoverViewController: NSViewController {
 
     @IBAction func reply(_ sender: NSButton) {
         let text = replyTextView.string
-        guard let token = Account.selectedAccount?.token else {
-            return
-        }
+        guard let token = Account.selectedAccount?.token else { return }
         spinner.startAnimation(self)
         replyTextView.isEditable = false
         APIClient.shared.reply(to: commentable, text: text, token: token) { result in
@@ -89,7 +87,8 @@ class ReplyPopoverViewController: NSViewController {
             replyTextView.insertText("[\(linkNumber)]", replacementRange: selectedRange)
             replyTextView.moveToEndOfDocument(self)
             replyTextView.insertNewline(self)
-            replyTextView.insertText("[\(linkNumber)]: ", replacementRange: replyTextView.selectedRange())
+            replyTextView.insertText(
+                "[\(linkNumber)]: ", replacementRange: replyTextView.selectedRange())
             linkNumber += 1
         }
         replyTextView.undoManager?.endUndoGrouping()
@@ -97,12 +96,12 @@ class ReplyPopoverViewController: NSViewController {
 }
 
 extension ReplyPopoverViewController: NSPopoverDelegate {
-    func popoverShouldDetach(_ popover: NSPopover) -> Bool {
-        true
-    }
+    func popoverShouldDetach(_ popover: NSPopover) -> Bool { true }
 }
 
 extension NSStoryboard.SceneIdentifier {
-    static var commentReplyPopoverViewController = NSStoryboard.SceneIdentifier("CommentReplyPopoverViewController")
-    static var itemReplyPopoverViewController = NSStoryboard.SceneIdentifier("ItemReplyPopoverViewController")
+    static var commentReplyPopoverViewController = NSStoryboard.SceneIdentifier(
+        "CommentReplyPopoverViewController")
+    static var itemReplyPopoverViewController = NSStoryboard.SceneIdentifier(
+        "ItemReplyPopoverViewController")
 }

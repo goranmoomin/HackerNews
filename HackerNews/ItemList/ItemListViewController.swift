@@ -1,9 +1,9 @@
-
 import Cocoa
 import HNAPI
 
 protocol ItemListViewControllerDelegate {
-    func itemListSelectionDidChange(_ itemListViewController: ItemListViewController, selectedItem: TopLevelItem)
+    func itemListSelectionDidChange(
+        _ itemListViewController: ItemListViewController, selectedItem: TopLevelItem)
 }
 
 class ItemListViewController: NSViewController {
@@ -14,17 +14,9 @@ class ItemListViewController: NSViewController {
     var delegate: ItemListViewControllerDelegate?
 
     var items: [TopLevelItem] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.itemListTableView.reloadData()
-            }
-        }
+        didSet { DispatchQueue.main.async { self.itemListTableView.reloadData() } }
     }
-    var category: HNAPI.Category! {
-        didSet {
-            reloadData()
-        }
-    }
+    var category: HNAPI.Category! { didSet { reloadData() } }
 
     func reloadData() {
         items = []
@@ -32,16 +24,11 @@ class ItemListViewController: NSViewController {
         let category = category!
         APIClient.shared.items(category: category) { result in
             guard self.category == category else { return }
-            DispatchQueue.main.async {
-                self.spinner.stopAnimation(self)
-            }
+            DispatchQueue.main.async { self.spinner.stopAnimation(self) }
             switch result {
-            case .success(let items):
-                self.items = items
+            case .success(let items): self.items = items
             case .failure(let error):
-                DispatchQueue.main.async {
-                    NSApplication.shared.presentError(error)
-                }
+                DispatchQueue.main.async { NSApplication.shared.presentError(error) }
             }
         }
     }
@@ -60,19 +47,12 @@ class ItemListViewController: NSViewController {
             items = []
             spinner.startAnimation(self)
             APIClient.shared.items(query: query) { result in
-                guard sender.stringValue == query else {
-                    return
-                }
-                DispatchQueue.main.async {
-                    self.spinner.stopAnimation(self)
-                }
+                guard sender.stringValue == query else { return }
+                DispatchQueue.main.async { self.spinner.stopAnimation(self) }
                 switch result {
-                case .success(let items):
-                    self.items = items
+                case .success(let items): self.items = items
                 case .failure(let error):
-                    DispatchQueue.main.async {
-                        NSApplication.shared.presentError(error)
-                    }
+                    DispatchQueue.main.async { NSApplication.shared.presentError(error) }
                 }
             }
         }
@@ -80,20 +60,17 @@ class ItemListViewController: NSViewController {
 }
 
 extension ItemListViewController: NSTableViewDataSource {
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        items.count
-    }
+    func numberOfRows(in tableView: NSTableView) -> Int { items.count }
 
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        items[row]
-    }
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int)
+        -> Any?
+    { items[row] }
 }
 
 extension ItemListViewController: NSTableViewDelegate {
     func tableViewSelectionDidChange(_ notification: Notification) {
-        guard itemListTableView.selectedRow >= 0 else {
-            return
-        }
-        delegate?.itemListSelectionDidChange(self, selectedItem: items[itemListTableView.selectedRow])
+        guard itemListTableView.selectedRow >= 0 else { return }
+        delegate?
+            .itemListSelectionDidChange(self, selectedItem: items[itemListTableView.selectedRow])
     }
 }

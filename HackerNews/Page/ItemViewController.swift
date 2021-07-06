@@ -1,7 +1,6 @@
-
+import Atributika
 import Cocoa
 import HNAPI
-import Atributika
 
 class ItemViewController: NSViewController {
 
@@ -33,7 +32,8 @@ class ItemViewController: NSViewController {
                     urlButton.isHidden = false
                     urlButton.title = host
                 } else if let text = story.content.text {
-                    storyTextView.textStorage?.setAttributedString(text.styledAttributedString(textColor: .labelColor))
+                    storyTextView.textStorage?
+                        .setAttributedString(text.styledAttributedString(textColor: .labelColor))
                     storyTextScrollView.isHidden = false
                     urlButton.isHidden = true
                 } else {
@@ -46,13 +46,15 @@ class ItemViewController: NSViewController {
                 pointsLabel.stringValue = String(story.points)
                 commentCountGroup.isHidden = false
                 commentCountLabel.stringValue = String(story.commentCount)
-                creationLabel.stringValue = formatter.localizedString(for: story.creation, relativeTo: Date())
+                creationLabel.stringValue = formatter.localizedString(
+                    for: story.creation, relativeTo: Date())
             case .job(let job):
                 titleLabel.stringValue = job.title
                 authorGroup.isHidden = true
                 pointsGroup.isHidden = true
                 commentCountGroup.isHidden = true
-                creationLabel.stringValue = formatter.localizedString(for: job.creation, relativeTo: Date())
+                creationLabel.stringValue = formatter.localizedString(
+                    for: job.creation, relativeTo: Date())
             }
         }
     }
@@ -61,9 +63,7 @@ class ItemViewController: NSViewController {
         didSet {
             DispatchQueue.main.async {
                 self.item = self.page?.topLevelItem
-                if let item = self.item {
-                    self.actions = self.page?.actions[item.id] ?? []
-                }
+                if let item = self.item { self.actions = self.page?.actions[item.id] ?? [] }
             }
         }
     }
@@ -79,11 +79,11 @@ class ItemViewController: NSViewController {
                         self.upvoteButton.isHidden = false
                         self.upvoteButton.voteAction = .upvote(url)
                     case .unvote(let url):
-                        self.upvoteButton.font = NSFont.boldSystemFont(ofSize: NSFont.systemFontSize)
+                        self.upvoteButton.font = NSFont.boldSystemFont(
+                            ofSize: NSFont.systemFontSize)
                         self.upvoteButton.isHidden = false
                         self.upvoteButton.voteAction = .unvote(url)
-                    default:
-                        break
+                    default: break
                     }
                 }
             }
@@ -105,25 +105,25 @@ class ItemViewController: NSViewController {
     }
 
     @IBAction func executeAction(_ sender: VoteButton) {
-        guard let action = sender.voteAction,
-              let token = Account.selectedAccount?.token else { return }
+        guard let action = sender.voteAction, let token = Account.selectedAccount?.token else {
+            return
+        }
         APIClient.shared.execute(action: action, token: token, page: page) { result in
             switch result {
             case .success:
                 guard let id = self.item?.id else { return }
-                DispatchQueue.main.async {
-                    self.actions = self.page?.actions[id] ?? []
-                }
+                DispatchQueue.main.async { self.actions = self.page?.actions[id] ?? [] }
             case .failure(let error):
-                DispatchQueue.main.async {
-                    NSApplication.shared.presentError(error)
-                }
+                DispatchQueue.main.async { NSApplication.shared.presentError(error) }
             }
         }
     }
 
     @IBAction func showReplyPopover(_ sender: NSButton) {
-        let replyPopoverViewController = NSStoryboard.main?.instantiateController(withIdentifier: .itemReplyPopoverViewController) as! ReplyPopoverViewController
+        let replyPopoverViewController =
+            NSStoryboard.main?
+            .instantiateController(withIdentifier: .itemReplyPopoverViewController)
+            as! ReplyPopoverViewController
         let title: String
         switch item! {
         case .story(let story): title = story.title
@@ -138,7 +138,6 @@ class ItemViewController: NSViewController {
     }
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
+        super.viewDidLoad()  // Do view setup here.
     }
 }

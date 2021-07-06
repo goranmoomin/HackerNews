@@ -1,4 +1,3 @@
-
 import Cocoa
 import HNAPI
 
@@ -16,12 +15,12 @@ class PreferencesViewController: NSViewController {
 
     @IBAction func addOrRemoveAccount(_ sender: NSSegmentedControl) {
         if sender.selectedSegment == 0 {
-            let addAccountSheetController = NSStoryboard.main?.instantiateController(withIdentifier: .addAccountSheetController) as! AddAccountSheetController
+            let addAccountSheetController =
+                NSStoryboard.main?.instantiateController(withIdentifier: .addAccountSheetController)
+                as! AddAccountSheetController
             presentAsSheet(addAccountSheetController)
         } else if sender.selectedSegment == 1 {
-            guard tableView.selectedRow != -1 else {
-                return
-            }
+            guard tableView.selectedRow != -1 else { return }
             Account.accounts.remove(at: tableView.selectedRow)
             tableView.reloadData()
         }
@@ -29,20 +28,16 @@ class PreferencesViewController: NSViewController {
 }
 
 extension PreferencesViewController: NSTableViewDataSource {
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        Account.accounts.count
-    }
+    func numberOfRows(in tableView: NSTableView) -> Int { Account.accounts.count }
 
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        Account.accounts[row].username
-    }
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int)
+        -> Any?
+    { Account.accounts[row].username }
 }
 
 extension PreferencesViewController: NSTableViewDelegate {
     func tableViewSelectionDidChange(_ notification: Notification) {
-        guard tableView.selectedRow != -1 else {
-            return
-        }
+        guard tableView.selectedRow != -1 else { return }
         let account = Account.accounts[tableView.selectedRow]
         Account.selectedAccountUsername = account.username
     }

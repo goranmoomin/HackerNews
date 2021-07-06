@@ -1,4 +1,3 @@
-
 import Cocoa
 import HNAPI
 
@@ -14,16 +13,11 @@ class PageViewController: NSSplitViewController {
     var itemViewController: ItemViewController!
     var commentViewController: CommentViewController!
 
-    var state: State = .none {
-        didSet {
-            reload()
-        }
-    }
+    var state: State = .none { didSet { reload() } }
 
     func reload() {
         switch state {
-        case .none:
-            splitView.isHidden = true
+        case .none: splitView.isHidden = true
         case .item(let item):
             itemViewController.item = item
             splitView.isHidden = false
@@ -38,9 +32,7 @@ class PageViewController: NSSplitViewController {
                 }
             }
         case .page(let page):
-            DispatchQueue.main.async {
-                self.splitView.isHidden = false
-            }
+            DispatchQueue.main.async { self.splitView.isHidden = false }
             self.commentViewController.page = page
             self.itemViewController.page = page
         case .error(let error):
@@ -62,18 +54,15 @@ class PageViewController: NSSplitViewController {
 
     @objc func refresh(_ sender: NSToolbarItem) {
         switch state {
-        case .page(let page):
-            state = .item(page.topLevelItem)
+        case .page(let page): state = .item(page.topLevelItem)
         default: break
         }
     }
 
     @objc func openInSafari(_ sender: NSToolbarItem) {
         switch state {
-        case .item(let item):
-            NSWorkspace.shared.open(item.url)
-        case .page(let page):
-            NSWorkspace.shared.open(page.topLevelItem.url)
+        case .item(let item): NSWorkspace.shared.open(item.url)
+        case .page(let page): NSWorkspace.shared.open(page.topLevelItem.url)
         default: break
         }
     }

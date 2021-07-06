@@ -1,4 +1,3 @@
-
 import Cocoa
 import HNAPI
 
@@ -29,7 +28,9 @@ class MainWindowController: NSWindowController {
 }
 
 extension MainWindowController: SidebarDelegate {
-    func sidebarSelectionDidChange(_ sidebarViewController: SidebarViewController, selectedCategory: HNAPI.Category) {
+    func sidebarSelectionDidChange(
+        _ sidebarViewController: SidebarViewController, selectedCategory: HNAPI.Category
+    ) {
         if itemListViewController.category != selectedCategory {
             itemListViewController.category = selectedCategory
         }
@@ -37,9 +38,9 @@ extension MainWindowController: SidebarDelegate {
 }
 
 extension MainWindowController: ItemListViewControllerDelegate {
-    func itemListSelectionDidChange(_ itemListViewController: ItemListViewController, selectedItem: TopLevelItem) {
-        pageViewController.state = .item(selectedItem)
-    }
+    func itemListSelectionDidChange(
+        _ itemListViewController: ItemListViewController, selectedItem: TopLevelItem
+    ) { pageViewController.state = .item(selectedItem) }
 }
 
 extension MainWindowController: NSToolbarDelegate {
@@ -48,17 +49,23 @@ extension MainWindowController: NSToolbarDelegate {
     }
 
     func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        [.space, .flexibleSpace, .toggleSidebar, .search, .itemListTrackingSeparator, .refresh, .openInSafari]
+        [
+            .space, .flexibleSpace, .toggleSidebar, .search, .itemListTrackingSeparator, .refresh,
+            .openInSafari,
+        ]
     }
 
-    func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
+    func toolbar(
+        _ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier,
+        willBeInsertedIntoToolbar flag: Bool
+    ) -> NSToolbarItem? {
         switch itemIdentifier {
         case .itemListTrackingSeparator:
-            return NSTrackingSeparatorToolbarItem(identifier: .itemListTrackingSeparator, splitView: splitViewController.splitView, dividerIndex: 1)
-        case .search:
-            return NSSearchToolbarItem(itemIdentifier: .search)
-        default:
-            return NSToolbarItem(itemIdentifier: itemIdentifier)
+            return NSTrackingSeparatorToolbarItem(
+                identifier: .itemListTrackingSeparator, splitView: splitViewController.splitView,
+                dividerIndex: 1)
+        case .search: return NSSearchToolbarItem(itemIdentifier: .search)
+        default: return NSToolbarItem(itemIdentifier: itemIdentifier)
         }
     }
 
@@ -75,7 +82,8 @@ extension MainWindowController: NSToolbarDelegate {
             item.action = #selector(PageViewController.refresh(_:))
         } else if item.itemIdentifier == .openInSafari {
             item.isBordered = true
-            item.image = NSImage(systemSymbolName: "safari", accessibilityDescription: "Open in Safari")
+            item.image = NSImage(
+                systemSymbolName: "safari", accessibilityDescription: "Open in Safari")
             item.target = pageViewController
             item.action = #selector(PageViewController.openInSafari(_:))
         }

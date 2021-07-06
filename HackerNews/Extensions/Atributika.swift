@@ -1,6 +1,5 @@
-
-import Cocoa
 import Atributika
+import Cocoa
 
 extension TagTransformer {
     static func pTransformer() -> TagTransformer {
@@ -22,19 +21,12 @@ extension String {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.paragraphSpacing = 8
         let systemFontSize = NSFont.systemFontSize(for: .regular)
-        let all = Style
-            .font(.systemFont(ofSize: systemFontSize))
-            .foregroundColor(textColor)
+        let all = Style.font(.systemFont(ofSize: systemFontSize)).foregroundColor(textColor)
             .paragraphStyle(paragraphStyle)
         let a = Style("a")
-        let i = Style("i")
-            .font(.italicSystemFont(ofSize: systemFontSize))
-        let pre = Style("pre")
-            .font(.monospacedSystemFont(ofSize: systemFontSize, weight: .regular))
-        let transformers: [TagTransformer] = [
-            .pTransformer(),
-            .brTransformer
-        ]
+        let i = Style("i").font(.italicSystemFont(ofSize: systemFontSize))
+        let pre = Style("pre").font(.monospacedSystemFont(ofSize: systemFontSize, weight: .regular))
+        let transformers: [TagTransformer] = [.pTransformer(), .brTransformer]
         func tuner(style: Style, tag: Tag) -> Style {
             if tag.name == a.name, let href = tag.attributes["href"], let url = URL(string: href) {
                 return style.link(url)

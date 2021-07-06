@@ -182,6 +182,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BAB935424C14FBB00D433AD /* Build configuration list for PBXNativeTarget "HackerNews" */;
 			buildPhases = (
+				5BD62E9226949BE300C7F95C /* ShellScript */,
 				5BAB934024C14FB900D433AD /* Sources */,
 				5BAB934124C14FB900D433AD /* Frameworks */,
 				5BAB934224C14FB900D433AD /* Resources */,
@@ -250,6 +251,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5BD62E9226949BE300C7F95C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=/opt/local/bin:$PATH\n\nif ! command -v swift-format &> /dev/null; then\n    echo 'warning: swift-format not found. Skipping formatting.'\nelse\n    swift-format format -ir .\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5BAB934024C14FB900D433AD /* Sources */ = {

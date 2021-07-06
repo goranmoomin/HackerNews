@@ -1,11 +1,13 @@
-
+import Atributika
 import Cocoa
 import HNAPI
-import Atributika
 
 protocol CommentCellViewDelegate {
-    func commentCellView(_ commentCellView: CommentCellView, actionsOf comment: Comment) -> Set<Action>
-    func commentCellView(_ commentCellView: CommentCellView, execute action: Action, for comment: Comment)
+    func commentCellView(_ commentCellView: CommentCellView, actionsOf comment: Comment) -> Set<
+        Action
+    >
+    func commentCellView(
+        _ commentCellView: CommentCellView, execute action: Action, for comment: Comment)
     func commentCellView(_ commentCellView: CommentCellView, replyTo comment: Comment)
 }
 
@@ -23,16 +25,10 @@ class CommentCellView: NSTableCellView {
 
     var delegate: CommentCellViewDelegate?
 
-    override var objectValue: Any? {
-        didSet {
-            reloadData()
-        }
-    }
+    override var objectValue: Any? { didSet { reloadData() } }
 
     func reloadData() {
-        guard objectValue != nil else {
-            return
-        }
+        guard objectValue != nil else { return }
         let comment = objectValue as! Comment
         let actions = delegate?.commentCellView(self, actionsOf: comment) ?? []
         upvoteButton.isHidden = true
@@ -66,8 +62,10 @@ class CommentCellView: NSTableCellView {
         case .c88, .c9c, .cae: textColor = .tertiaryLabelColor
         case .cbe, .cce, .cdd: textColor = .quaternaryLabelColor
         }
-        textView.textStorage!.setAttributedString(comment.text.styledAttributedString(textColor: textColor))
-        creationLabel.stringValue = formatter.localizedString(for: comment.creation, relativeTo: Date())
+        textView.textStorage!
+            .setAttributedString(comment.text.styledAttributedString(textColor: textColor))
+        creationLabel.stringValue = formatter.localizedString(
+            for: comment.creation, relativeTo: Date())
         if Account.selectedAccount != nil {
             replyButton.isHidden = false
         } else {
@@ -76,10 +74,7 @@ class CommentCellView: NSTableCellView {
     }
 
     @IBAction func executeAction(_ sender: VoteButton) {
-        guard objectValue != nil,
-              let action = sender.voteAction else {
-            return
-        }
+        guard objectValue != nil, let action = sender.voteAction else { return }
         let comment = objectValue as! Comment
         delegate?.commentCellView(self, execute: action, for: comment)
     }

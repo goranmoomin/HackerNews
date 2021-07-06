@@ -1,4 +1,3 @@
-
 import Cocoa
 import Combine
 import HNAPI
@@ -14,19 +13,11 @@ class ItemsViewController: NSViewController {
 
     // MARK: - Properties
 
-    var items: [TopLevelItem] = [] {
-        didSet {
-            itemTableView.reloadData()
-        }
-    }
+    var items: [TopLevelItem] = [] { didSet { itemTableView.reloadData() } }
 
     var storyLoadProgress: Progress? {
-        willSet {
-            storyLoadProgress?.cancel()
-        }
-        didSet {
-            progressView.progress = storyLoadProgress
-        }
+        willSet { storyLoadProgress?.cancel() }
+        didSet { progressView.progress = storyLoadProgress }
     }
 
     var cancellables: Set<AnyCancellable> = []
@@ -79,8 +70,7 @@ class ItemsViewController: NSViewController {
         storySearchView.delegate = self
         progressView.labelText = "Loading Items..."
         itemScrollView.automaticallyAdjustsContentInsets = false
-        AppDelegate.shared.$category
-            .sink { self.loadAndDisplayItems(category: $0) }
+        AppDelegate.shared.$category.sink { self.loadAndDisplayItems(category: $0) }
             .store(in: &cancellables)
     }
 
@@ -88,7 +78,9 @@ class ItemsViewController: NSViewController {
         let window = view.window!
         let contentLayoutRect = window.contentLayoutRect
         let storySearchViewHeight = storySearchView.frame.height
-        let topInset = (window.contentView!.frame.size.height - contentLayoutRect.height) + storySearchViewHeight
+        let topInset =
+            (window.contentView!.frame.size.height - contentLayoutRect.height)
+            + storySearchViewHeight
         itemScrollView.contentInsets = NSEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0)
     }
 
@@ -103,17 +95,19 @@ class ItemsViewController: NSViewController {
 
     override func viewWillAppear() {
         super.viewWillAppear()
-        contentLayoutRectObservation = view.window!.observe(\.contentLayoutRect) { _, _ in
-            self.updateContentInsets()
-        }
+        contentLayoutRectObservation = view.window!
+            .observe(\.contentLayoutRect) { _, _ in self.updateContentInsets() }
     }
 
     var storySearchViewConstraint: NSLayoutConstraint?
 
     override func updateViewConstraints() {
-        if storySearchViewConstraint == nil, let contentLayoutGuide = view.window?.contentLayoutGuide as? NSLayoutGuide {
+        if storySearchViewConstraint == nil,
+            let contentLayoutGuide = view.window?.contentLayoutGuide as? NSLayoutGuide
+        {
             let contentTopAnchor = contentLayoutGuide.topAnchor
-            storySearchViewConstraint = storySearchView.topAnchor.constraint(equalTo: contentTopAnchor)
+            storySearchViewConstraint = storySearchView.topAnchor.constraint(
+                equalTo: contentTopAnchor)
             storySearchViewConstraint?.isActive = true
         }
         super.updateViewConstraints()
@@ -127,14 +121,10 @@ extension ItemsViewController: ListableItemCellViewDelegate {
     func open(item: TopLevelItem) {
         let content: Content
         switch item {
-        case let .story(story):
-            content = story.content
-        case let .job(job):
-            content = job.content
+        case let .story(story): content = story.content
+        case let .job(job): content = job.content
         }
-        guard let url = content.url else {
-            return
-        }
+        guard let url = content.url else { return }
         NSWorkspace.shared.open(url)
     }
 }
@@ -143,9 +133,7 @@ extension ItemsViewController: ListableItemCellViewDelegate {
 
 extension ItemsViewController: ItemSearchViewDelegate {
 
-    func searchItems(matching query: String) {
-        searchAndDisplayItems(matching: query)
-    }
+    func searchItems(matching query: String) { searchAndDisplayItems(matching: query) }
 
     func reloadItems(count: Int) {
         loadAndDisplayItems(category: AppDelegate.shared.category, count: count)
@@ -156,29 +144,31 @@ extension ItemsViewController: ItemSearchViewDelegate {
 
 extension ItemsViewController: NSTableViewDataSource {
 
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        items.count
-    }
+    func numberOfRows(in tableView: NSTableView) -> Int { items.count }
 
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        items[row]
-    }
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int)
+        -> Any?
+    { items[row] }
 }
 
 // MARK: - NSTableViewDelegate
 
 extension ItemsViewController: NSTableViewDelegate {
 
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int)
+        -> NSView?
+    {
         // objectValue is automatically populated
-        let storyCellView = tableView.makeView(withIdentifier: .listableItemCellView, owner: self) as! ListableItemCellView
+        let storyCellView =
+            tableView.makeView(withIdentifier: .listableItemCellView, owner: self)
+            as! ListableItemCellView
         storyCellView.delegate = self
         return storyCellView
     }
 
-//    func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-//        tableView.makeView(withIdentifier: .itemRowView, owner: self) as? ItemRowView
-//    }
+    //    func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+    //        tableView.makeView(withIdentifier: .itemRowView, owner: self) as? ItemRowView
+    //    }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
         AppDelegate.shared.item = items[itemTableView.selectedRow]

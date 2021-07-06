@@ -1,4 +1,3 @@
-
 import Cocoa
 import HNAPI
 
@@ -18,9 +17,7 @@ class ItemListCellView: NSTableCellView {
 
     override var objectValue: Any? {
         didSet {
-            guard objectValue != nil else {
-                return
-            }
+            guard objectValue != nil else { return }
             let item = objectValue as! TopLevelItem
             switch item {
             case .story(let story):
@@ -37,7 +34,8 @@ class ItemListCellView: NSTableCellView {
                 pointsLabel.stringValue = String(story.points)
                 commentCountGroup.isHidden = false
                 commentCountLabel.stringValue = String(story.commentCount)
-                creationLabel.stringValue = formatter.localizedString(for: story.creation, relativeTo: Date())
+                creationLabel.stringValue = formatter.localizedString(
+                    for: story.creation, relativeTo: Date())
             case .job(let job):
                 titleLabel.stringValue = job.title
                 if let host = job.content.url?.host {
@@ -49,15 +47,14 @@ class ItemListCellView: NSTableCellView {
                 authorGroup.isHidden = true
                 pointsGroup.isHidden = true
                 commentCountGroup.isHidden = true
-                creationLabel.stringValue = formatter.localizedString(for: job.creation, relativeTo: Date())
+                creationLabel.stringValue = formatter.localizedString(
+                    for: job.creation, relativeTo: Date())
             }
         }
     }
 
     @IBAction func openURL(_ sender: NSButton) {
-        guard objectValue != nil else {
-            return
-        }
+        guard objectValue != nil else { return }
         let item = objectValue as! TopLevelItem
 
         let url: URL
