@@ -46,3 +46,7 @@ In contrast, HackerNews.app loads the HN site, parses it and allows users to vot
 This app tries to be a [Mac-assed Mac app](https://inessential.com/2020/03/19/proxyman).
 It is developed using the AppKit APIs, and doesn't use webviews or Catalyst.
 
+## Thanks to...
+
+[Collin Donnel](https://keyandnib.com) ([@collindonnell](https://twitter.com/collindonnell) on Twitter),
+who has generously provided code review and design advice on this project.
