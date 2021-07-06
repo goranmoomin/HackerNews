@@ -16,6 +16,7 @@ class SidebarViewController: NSViewController {
         super.viewDidLoad()
 
         sidebarOutlineView.expandItem(nil, expandChildren: true)
+        sidebarOutlineView.selectRowIndexes(IndexSet([1]), byExtendingSelection: false)
     }
 }
 
