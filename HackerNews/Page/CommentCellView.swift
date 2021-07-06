@@ -17,9 +17,11 @@ class CommentCellView: NSTableCellView {
     @IBOutlet var authorLabel: NSTextField!
     @IBOutlet var creationLabel: NSTextField!
     @IBOutlet var textView: NSTextView!
-    @IBOutlet var upvoteButton: VoteButton!
-    @IBOutlet var downvoteButton: VoteButton!
+    @IBOutlet var upvoteButton: NSButton!
+    @IBOutlet var downvoteButton: NSButton!
     @IBOutlet var replyButton: NSButton!
+    var upvoteAction: Action?
+    var downvoteAction: Action?
 
     let formatter = RelativeDateTimeFormatter()
 
@@ -38,19 +40,19 @@ class CommentCellView: NSTableCellView {
             case .upvote:
                 upvoteButton.font = NSFont.systemFont(ofSize: NSFont.systemFontSize)
                 upvoteButton.isHidden = false
-                upvoteButton.voteAction = action
+                upvoteAction = action
             case .unvote:
                 upvoteButton.font = NSFont.boldSystemFont(ofSize: NSFont.systemFontSize)
                 upvoteButton.isHidden = false
-                upvoteButton.voteAction = action
+                upvoteAction = action
             case .downvote:
                 downvoteButton.font = NSFont.systemFont(ofSize: NSFont.systemFontSize)
                 downvoteButton.isHidden = false
-                downvoteButton.voteAction = action
+                downvoteAction = action
             case .undown:
                 downvoteButton.font = NSFont.boldSystemFont(ofSize: NSFont.systemFontSize)
                 downvoteButton.isHidden = false
-                downvoteButton.voteAction = action
+                downvoteAction = action
             default: break
             }
         }
@@ -73,9 +75,17 @@ class CommentCellView: NSTableCellView {
         }
     }
 
-    @IBAction func executeAction(_ sender: VoteButton) {
-        guard objectValue != nil, let action = sender.voteAction else { return }
+    @IBAction func executeAction(_ sender: NSButton) {
+        guard objectValue != nil else { return }
         let comment = objectValue as! Comment
+        let action: Action
+        if sender == upvoteButton {
+            action = upvoteAction!
+        } else if sender == downvoteButton {
+            action = downvoteAction!
+        } else {
+            fatalError()
+        }
         delegate?.commentCellView(self, execute: action, for: comment)
     }
 

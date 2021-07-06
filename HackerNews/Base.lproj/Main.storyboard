@@ -1821,7 +1821,7 @@ Gw
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3di-mI-fmv">
                                         <rect key="frame" x="247" y="0.0" width="32" height="14"/>
                                         <subviews>
-                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="i3B-TT-CRC" customClass="VoteButton" customModule="HackerNews" customModuleProvider="target">
+                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="i3B-TT-CRC">
                                                 <rect key="frame" x="0.0" y="-2.5" width="13" height="19"/>
                                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="arrow.up" catalog="system" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="3lL-4J-qd6">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -2069,7 +2069,7 @@ Gw
                                                                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Fn-kC-zVf">
                                                                             <rect key="frame" x="154" y="0.0" width="47" height="14"/>
                                                                             <subviews>
-                                                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="dMf-sN-KS5" customClass="VoteButton" customModule="HackerNews" customModuleProvider="target">
+                                                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="dMf-sN-KS5">
                                                                                     <rect key="frame" x="0.0" y="-2.5" width="13" height="19"/>
                                                                                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="arrow.up" catalog="system" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="QB4-9G-gSU">
                                                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -2079,7 +2079,7 @@ Gw
                                                                                         <action selector="executeAction:" target="VrP-vM-LDn" id="fgm-6x-IV7"/>
                                                                                     </connections>
                                                                                 </button>
-                                                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="rcY-Lh-Kab" customClass="VoteButton" customModule="HackerNews" customModuleProvider="target">
+                                                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="rcY-Lh-Kab">
                                                                                     <rect key="frame" x="15" y="-2.5" width="13" height="19"/>
                                                                                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="arrow.down" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="jVT-3f-QGn">
                                                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

@@ -15,8 +15,9 @@ class ItemViewController: NSViewController {
     @IBOutlet var commentCountGroup: NSStackView!
     @IBOutlet var commentCountLabel: NSTextField!
     @IBOutlet var creationLabel: NSTextField!
-    @IBOutlet var upvoteButton: VoteButton!
+    @IBOutlet var upvoteButton: NSButton!
     @IBOutlet var replyButton: NSButton!
+    var upvoteAction: Action?
 
     let formatter = RelativeDateTimeFormatter()
 
@@ -74,15 +75,15 @@ class ItemViewController: NSViewController {
                 self.upvoteButton.isHidden = true
                 for action in self.actions {
                     switch action {
-                    case .upvote(let url):
+                    case .upvote:
                         self.upvoteButton.font = NSFont.systemFont(ofSize: NSFont.systemFontSize)
                         self.upvoteButton.isHidden = false
-                        self.upvoteButton.voteAction = .upvote(url)
-                    case .unvote(let url):
+                        self.upvoteAction = action
+                    case .unvote:
                         self.upvoteButton.font = NSFont.boldSystemFont(
                             ofSize: NSFont.systemFontSize)
                         self.upvoteButton.isHidden = false
-                        self.upvoteButton.voteAction = .unvote(url)
+                        self.upvoteAction = action
                     default: break
                     }
                 }
@@ -104,11 +105,9 @@ class ItemViewController: NSViewController {
         NSWorkspace.shared.open(url)
     }
 
-    @IBAction func executeAction(_ sender: VoteButton) {
-        guard let action = sender.voteAction, let token = Account.selectedAccount?.token else {
-            return
-        }
-        APIClient.shared.execute(action: action, token: token, page: page) { result in
+    @IBAction func executeAction(_ sender: NSButton) {
+        guard let token = Account.selectedAccount?.token else { return }
+        APIClient.shared.execute(action: upvoteAction!, token: token, page: page) { result in
             switch result {
             case .success:
                 guard let id = self.item?.id else { return }
