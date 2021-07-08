@@ -118,11 +118,15 @@ class ItemViewController: NSViewController {
         }
     }
 
+    var isReplyPopoverShown = false
+
     @IBAction func showReplyPopover(_ sender: NSButton) {
+        guard !isReplyPopoverShown else { return }
         let replyPopoverViewController =
             NSStoryboard.main?
             .instantiateController(withIdentifier: .itemReplyPopoverViewController)
             as! ReplyPopoverViewController
+        replyPopoverViewController.delegate = self
         let title: String
         switch item! {
         case .story(let story): title = story.title
@@ -134,9 +138,19 @@ class ItemViewController: NSViewController {
         popover.contentViewController = replyPopoverViewController
         popover.delegate = replyPopoverViewController
         popover.show(relativeTo: .zero, of: replyButton, preferredEdge: .minY)
+        isReplyPopoverShown = true
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()  // Do view setup here.
+    }
+}
+
+extension ItemViewController: ReplyPopoverViewControllerDelegate {
+    func replyDidSubmit(_ replyPopoverViewController: ReplyPopoverViewController) {
+        isReplyPopoverShown = false
+    }
+    func replyDidCancel(_ replyPopoverViewController: ReplyPopoverViewController) {
+        isReplyPopoverShown = false
     }
 }

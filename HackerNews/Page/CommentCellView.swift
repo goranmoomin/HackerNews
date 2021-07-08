@@ -20,8 +20,11 @@ class CommentCellView: NSTableCellView {
     @IBOutlet var upvoteButton: NSButton!
     @IBOutlet var downvoteButton: NSButton!
     @IBOutlet var replyButton: NSButton!
+
     var upvoteAction: Action?
     var downvoteAction: Action?
+
+    var isReplyPopoverShown = false
 
     let formatter = RelativeDateTimeFormatter()
 
@@ -92,6 +95,16 @@ class CommentCellView: NSTableCellView {
     @IBAction func reply(_ sender: NSButton) {
         let comment = objectValue as! Comment
         delegate?.commentCellView(self, replyTo: comment)
+    }
+}
+
+extension CommentCellView: ReplyPopoverViewControllerDelegate {
+    func replyDidSubmit(_ replyPopoverViewController: ReplyPopoverViewController) {
+        isReplyPopoverShown = false
+    }
+
+    func replyDidCancel(_ replyPopoverViewController: ReplyPopoverViewController) {
+        isReplyPopoverShown = false
     }
 }
 

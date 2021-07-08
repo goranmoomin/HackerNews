@@ -1,6 +1,11 @@
 import Cocoa
 import HNAPI
 
+protocol ReplyPopoverViewControllerDelegate {
+    func replyDidSubmit(_ replyPopoverViewController: ReplyPopoverViewController)
+    func replyDidCancel(_ replyPopoverViewController: ReplyPopoverViewController)
+}
+
 class ReplyPopoverViewController: NSViewController {
 
     @IBOutlet var commentTextView: CommentTextView?
@@ -10,6 +15,8 @@ class ReplyPopoverViewController: NSViewController {
     @IBOutlet var insertItalicsButton: NSButton!
     @IBOutlet var insertLinkButton: NSButton!
     @IBOutlet var insertCodeButton: NSButton!
+
+    var delegate: ReplyPopoverViewControllerDelegate?
 
     var commentable: Commentable! {
         didSet {
@@ -57,6 +64,7 @@ class ReplyPopoverViewController: NSViewController {
                     }
                     NSApplication.shared.presentError(error)
                 }
+                self.delegate?.replyDidSubmit(self)
             }
         }
     }
@@ -67,6 +75,7 @@ class ReplyPopoverViewController: NSViewController {
         } else {
             self.view.window?.close()
         }
+        self.delegate?.replyDidCancel(self)
     }
 
     var linkNumber = 0
