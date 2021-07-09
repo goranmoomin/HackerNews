@@ -958,6 +958,7 @@ Gw
                                     </searchField>
                                 </searchToolbarItem>
                                 <toolbarItem implicitItemIdentifier="A6EB0E34-B921-4CD3-A5C8-8BE2844F44F1" explicitItemIdentifier="Refresh" label="Refresh" paletteLabel="Refresh" tag="-1" sizingBehavior="auto" id="Zge-qJ-NrF"/>
+                                <toolbarItem implicitItemIdentifier="5504FC52-607C-4070-9E73-828799710B01" explicitItemIdentifier="RefreshList" label="Refresh List" paletteLabel="Refresh List" tag="-1" sizingBehavior="auto" id="nEd-y8-Fwd"/>
                                 <toolbarItem implicitItemIdentifier="AD3578A1-E72F-4CD7-ACF0-3C42BA1CCC34" explicitItemIdentifier="OpenInSafari" label="Open in Safari" paletteLabel="Open in Safari" tag="-1" sizingBehavior="auto" id="YC1-qP-BXd"/>
                             </allowedToolbarItems>
                             <defaultToolbarItems/>

@@ -45,13 +45,16 @@ extension MainWindowController: ItemListViewControllerDelegate {
 
 extension MainWindowController: NSToolbarDelegate {
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        [.search, .itemListTrackingSeparator, .flexibleSpace, .openInSafari, .refresh]
+        [
+            .refreshList, .search, .itemListTrackingSeparator, .flexibleSpace, .openInSafari,
+            .refresh,
+        ]
     }
 
     func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
         [
             .space, .flexibleSpace, .toggleSidebar, .search, .itemListTrackingSeparator, .refresh,
-            .openInSafari,
+            .refreshList, .openInSafari,
         ]
     }
 
@@ -80,6 +83,12 @@ extension MainWindowController: NSToolbarDelegate {
             item.image = NSImage(named: "NSRefreshTemplate")
             item.target = pageViewController
             item.action = #selector(PageViewController.refresh(_:))
+        } else if item.itemIdentifier == .refreshList {
+            item.isBordered = true
+            item.image = NSImage(named: "NSRefreshTemplate")
+            item.target = itemListViewController
+            item.action = #selector(ItemListViewController.refresh(_:))
+
         } else if item.itemIdentifier == .openInSafari {
             item.isBordered = true
             item.image = NSImage(
@@ -94,5 +103,6 @@ extension NSToolbarItem.Identifier {
     static let itemListTrackingSeparator = NSToolbarItem.Identifier("ItemListTrackingSeparator")
     static let search = NSToolbarItem.Identifier("Search")
     static let refresh = NSToolbarItem.Identifier("Refresh")
+    static let refreshList = NSToolbarItem.Identifier("RefreshList")
     static let openInSafari = NSToolbarItem.Identifier("OpenInSafari")
 }
