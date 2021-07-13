@@ -35,6 +35,7 @@
 		5BAB935B24C1814E00D433AD /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB935924C1814E00D433AD /* PageViewController.swift */; };
 		5BAB935F24C1816F00D433AD /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB935D24C1816F00D433AD /* ItemListViewController.swift */; };
 		5BAB936324C1817A00D433AD /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB936124C1817A00D433AD /* SidebarViewController.swift */; };
+		5BE17957269D0A4B00202FA6 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE17956269D0A4B00202FA6 /* Token.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		5BAB935924C1814E00D433AD /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		5BAB935D24C1816F00D433AD /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		5BAB936124C1817A00D433AD /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
+		5BE17956269D0A4B00202FA6 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				5BAB934D24C14FBB00D433AD /* Main.storyboard */,
 				5B422F2624D1D22400392FB7 /* MainWindowController.swift */,
 				5BA55BC824E6DFFD00F6CBD0 /* Account.swift */,
+				5BE17956269D0A4B00202FA6 /* Token.swift */,
 				5B9E236C24DF17ED00483918 /* Preferences */,
 				5B8EA2B224D0898D00013393 /* Sidebar */,
 				5B8EA2B324D0899700013393 /* ItemList */,
@@ -293,6 +296,7 @@
 				5BA776D924DD5241009A32B6 /* CommentOutlineView.swift in Sources */,
 				5B9E236A24DF17CF00483918 /* PreferencesViewController.swift in Sources */,
 				5B92AA9E24D8EB2A00C3B5DC /* CommentViewController.swift in Sources */,
+				5BE17957269D0A4B00202FA6 /* Token.swift in Sources */,
 				5B8EA2B124D05E5A00013393 /* SidebarCellView.swift in Sources */,
 				5BAB936324C1817A00D433AD /* SidebarViewController.swift in Sources */,
 				5B422F2724D1D22400392FB7 /* MainWindowController.swift in Sources */,

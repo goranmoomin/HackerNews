@@ -71,7 +71,7 @@ class CommentCellView: NSTableCellView {
             .setAttributedString(comment.text.styledAttributedString(textColor: textColor))
         creationLabel.stringValue = formatter.localizedString(
             for: comment.creation, relativeTo: Date())
-        if Account.selectedAccount != nil {
+        if Token.current != nil {
             replyButton.isHidden = false
         } else {
             replyButton.isHidden = true

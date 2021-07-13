@@ -43,7 +43,7 @@ class ReplyPopoverViewController: NSViewController {
 
     @IBAction func reply(_ sender: NSButton) {
         let text = replyTextView.string
-        guard let token = Account.selectedAccount?.token else { return }
+        guard let token = Token.current else { return }
         spinner.startAnimation(self)
         replyTextView.isEditable = false
         APIClient.shared.reply(to: commentable, text: text, token: token) { result in

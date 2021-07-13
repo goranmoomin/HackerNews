@@ -22,7 +22,7 @@ class PageViewController: NSSplitViewController {
             itemViewController.item = item
             splitView.isHidden = false
             commentViewController.page = nil
-            APIClient.shared.page(item: item, token: Account.selectedAccount?.token) { result in
+            APIClient.shared.page(item: item, token: Token.current) { result in
                 guard case .item(let currentItem) = self.state, currentItem.id == item.id else {
                     return
                 }

@@ -106,7 +106,7 @@ class ItemViewController: NSViewController {
     }
 
     @IBAction func executeAction(_ sender: NSButton) {
-        guard let token = Account.selectedAccount?.token else { return }
+        guard let token = Token.current else { return }
         APIClient.shared.execute(action: upvoteAction!, token: token, page: page) { result in
             switch result {
             case .success:

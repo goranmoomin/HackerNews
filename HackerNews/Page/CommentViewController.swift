@@ -32,7 +32,7 @@ extension CommentViewController: CommentCellViewDelegate {
     func commentCellView(
         _ commentCellView: CommentCellView, execute action: Action, for comment: Comment
     ) {
-        guard let token = Account.selectedAccount?.token else { return }
+        guard let token = Token.current else { return }
         APIClient.shared.execute(action: action, token: token, page: page) { result in
             switch result {
             case .success: DispatchQueue.main.async { commentCellView.reloadData() }
