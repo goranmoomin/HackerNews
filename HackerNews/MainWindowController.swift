@@ -22,10 +22,13 @@ class MainWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+        MainWindowController.shared = self
         sidebarViewController.delegate = self
         itemListViewController.delegate = self
     }
 }
+
+extension MainWindowController { static private(set) var shared: MainWindowController! }
 
 extension MainWindowController: SidebarDelegate {
     func sidebarSelectionDidChange(
