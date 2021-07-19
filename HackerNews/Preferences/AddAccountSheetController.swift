@@ -16,8 +16,8 @@ class AddAccountSheetController: NSViewController {
         APIClient.shared.login(userName: username, password: password) { result in
             switch result {
             case .success(let token):
-                Account.accounts.append(Account(username: username, password: password))
-                Account.selectedAccountUsername = username
+                Account.addAccount(Account(username: username, password: password))
+                Account.selectAccount(withUsername: username)
                 Token.current = token
             case .failure(let error):
                 DispatchQueue.main.async { NSApplication.shared.presentError(error) }
