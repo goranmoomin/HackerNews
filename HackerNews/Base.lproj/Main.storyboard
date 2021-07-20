@@ -30,6 +30,12 @@
                                                 <segue destination="uwT-Ja-3hA" kind="show" id="lYa-IS-s3Y"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Check for Updates…" id="WSB-BP-BaV">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="checkForUpdates:" target="F94-QY-Tor" id="FyD-Eh-GVG"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -683,6 +689,7 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="HackerNews" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+                <customObject id="F94-QY-Tor" customClass="SUUpdater"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="76" y="-325"/>
