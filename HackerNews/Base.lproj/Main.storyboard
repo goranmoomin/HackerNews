@@ -915,10 +915,14 @@ Gw
                                     <action selector="cancel:" target="gcQ-sX-W0F" id="i9c-I2-vCV"/>
                                 </connections>
                             </button>
+                            <progressIndicator maxValue="100" displayedWhenStopped="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="LAR-BT-VgO">
+                                <rect key="frame" x="320" y="90" width="16" height="16"/>
+                            </progressIndicator>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="H9L-Ce-9f5" secondAttribute="bottom" constant="20" symbolic="YES" id="0dR-vv-ZMf"/>
                             <constraint firstItem="jgG-61-0pP" firstAttribute="width" secondItem="H9L-Ce-9f5" secondAttribute="width" id="2CC-rq-dL4"/>
+                            <constraint firstItem="LAR-BT-VgO" firstAttribute="trailing" secondItem="fjz-dN-Fkm" secondAttribute="trailing" constant="-4" id="4Cr-6G-7Lp"/>
                             <constraint firstItem="H9L-Ce-9f5" firstAttribute="top" secondItem="JLi-si-tJZ" secondAttribute="bottom" constant="20" symbolic="YES" id="77X-Ld-zwv"/>
                             <constraint firstAttribute="trailing" secondItem="JLi-si-tJZ" secondAttribute="trailing" constant="20" symbolic="YES" id="A4k-0p-cbg"/>
                             <constraint firstItem="jgG-61-0pP" firstAttribute="top" secondItem="JLi-si-tJZ" secondAttribute="bottom" constant="20" symbolic="YES" id="FRN-DF-H4n"/>
@@ -928,10 +932,12 @@ Gw
                             <constraint firstItem="H9L-Ce-9f5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="y1A-so-9R9" secondAttribute="leading" constant="20" symbolic="YES" id="dTt-cJ-aYN"/>
                             <constraint firstItem="JLi-si-tJZ" firstAttribute="top" secondItem="y1A-so-9R9" secondAttribute="top" constant="20" symbolic="YES" id="oN3-Hd-3Sm"/>
                             <constraint firstAttribute="trailing" secondItem="jgG-61-0pP" secondAttribute="trailing" constant="20" symbolic="YES" id="vWV-wK-Uiu"/>
+                            <constraint firstItem="LAR-BT-VgO" firstAttribute="centerY" secondItem="fjz-dN-Fkm" secondAttribute="centerY" id="vZb-BD-krJ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="passwordTextField" destination="0Oy-Xi-Ueh" id="FjD-et-l4B"/>
+                        <outlet property="spinner" destination="LAR-BT-VgO" id="iaV-AX-gWv"/>
                         <outlet property="usernameTextField" destination="fjz-dN-Fkm" id="B6C-uW-51t"/>
                     </connections>
                 </viewController>
