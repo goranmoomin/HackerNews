@@ -97,7 +97,6 @@ extension Account {
             return nil
         }
         guard let item = item as? [String: Any] else { return nil }
-        print(item)
         guard let passwordData = item[kSecValueData as String] as? Data,
             let password = String(data: passwordData, encoding: .utf8),
             let username = item[kSecAttrAccount as String] as? String
