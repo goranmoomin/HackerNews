@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B2AA82D26A6565C001315E9 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 5B2AA82C26A6565C001315E9 /* Sparkle */; };
 		5B422F2524D1522E00392FB7 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B422F2424D1522E00392FB7 /* APIClient.swift */; };
 		5B422F2724D1D22400392FB7 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B422F2624D1D22400392FB7 /* MainWindowController.swift */; };
 		5B42C3B824C57ADD0087CB9E /* HNAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 5B42C3B724C57ADD0087CB9E /* HNAPI */; };
@@ -76,6 +77,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B544AC525DC121B00A3127E /* MAKAutoLayoutTextView in Frameworks */,
+				5B2AA82D26A6565C001315E9 /* Sparkle in Frameworks */,
 				5B9216C724DC6F1C00C51FF1 /* Atributika in Frameworks */,
 				5B42C3B824C57ADD0087CB9E /* HNAPI in Frameworks */,
 			);
@@ -182,7 +184,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BAB935424C14FBB00D433AD /* Build configuration list for PBXNativeTarget "HackerNews" */;
 			buildPhases = (
-				5BD62E9226949BE300C7F95C /* ShellScript */,
+				5BD62E9226949BE300C7F95C /* Run Script */,
+				5B2AA82E26A66F17001315E9 /* ShellScript */,
 				5BAB934024C14FB900D433AD /* Sources */,
 				5BAB934124C14FB900D433AD /* Frameworks */,
 				5BAB934224C14FB900D433AD /* Resources */,
@@ -196,6 +199,7 @@
 				5B42C3B724C57ADD0087CB9E /* HNAPI */,
 				5B9216C624DC6F1C00C51FF1 /* Atributika */,
 				5B544AC425DC121B00A3127E /* MAKAutoLayoutTextView */,
+				5B2AA82C26A6565C001315E9 /* Sparkle */,
 			);
 			productName = HackerNews;
 			productReference = 5BAB934424C14FB900D433AD /* HackerNews.app */;
@@ -229,6 +233,7 @@
 				5B42C3B624C57ADD0087CB9E /* XCRemoteSwiftPackageReference "HNAPI" */,
 				5B9216C524DC6F1C00C51FF1 /* XCRemoteSwiftPackageReference "Atributika" */,
 				5B544AC325DC121B00A3127E /* XCRemoteSwiftPackageReference "ModernAppKit" */,
+				5B2AA82B26A6565C001315E9 /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			productRefGroup = 5BAB934524C14FB900D433AD /* Products */;
 			projectDirPath = "";
@@ -253,7 +258,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5BD62E9226949BE300C7F95C /* ShellScript */ = {
+		5B2AA82E26A66F17001315E9 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -262,6 +267,24 @@
 			);
 			inputPaths = (
 			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "build_number=\"$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" ${PROJECT_DIR}/${INFOPLIST_FILE})\"\nbuild_number=$(($build_number + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $build_number\" ${PROJECT_DIR}/${INFOPLIST_FILE}\n";
+		};
+		5BD62E9226949BE300C7F95C /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -503,6 +526,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5B2AA82B26A6565C001315E9 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.26.0;
+			};
+		};
 		5B42C3B624C57ADD0087CB9E /* XCRemoteSwiftPackageReference "HNAPI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/goranmoomin/HNAPI.git";
@@ -521,7 +552,7 @@
 		};
 		5B9216C524DC6F1C00C51FF1 /* XCRemoteSwiftPackageReference "Atributika" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/psharanda/Atributika";
+			repositoryURL = "https://github.com/psharanda/Atributika.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 4.9.9;
@@ -530,6 +561,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5B2AA82C26A6565C001315E9 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B2AA82B26A6565C001315E9 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
 		5B42C3B724C57ADD0087CB9E /* HNAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5B42C3B624C57ADD0087CB9E /* XCRemoteSwiftPackageReference "HNAPI" */;
