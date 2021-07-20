@@ -1363,7 +1363,7 @@ Gw
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <progressIndicator maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Fb7-5p-no6">
+                            <progressIndicator maxValue="100" displayedWhenStopped="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Fb7-5p-no6">
                                 <rect key="frame" x="185" y="262" width="16" height="16"/>
                             </progressIndicator>
                         </subviews>
