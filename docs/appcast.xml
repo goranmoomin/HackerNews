@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <channel>
-        <title>HackerNews.app Changelog</title>
-        <description>Most recent changes with links to updates.</description>
-        <language>en</language>
-    </channel>
+  <channel>
+    <title>HackerNews.app Changelog</title>
+    <description>Most recent changes with links to updates.</description>
+    <language>en</language>
+    <item>
+      <title>0.0.6</title>
+      <pubDate>Tue, 20 Jul 2021 18:00:14 +0900</pubDate>
+      <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/goranmoomin/HackerNews/releases/download/v0.0.6/HackerNews-v0.0.6.app.zip" sparkle:version="13" sparkle:shortVersionString="0.0.6" length="3774573" type="application/octet-stream" sparkle:edSignature="l3jxaXJbs/quC0Za5xHVAfbMe/maYRL0hOTHWGvJNgoZWYfkiL1DbJYuQRXsXXYga03BAiqUGfGJh3/y4ZByCw=="/>
+    </item>
+  </channel>
 </rss>
