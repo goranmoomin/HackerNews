@@ -49,12 +49,13 @@ class ItemListViewController: NSViewController {
             items = []
             spinner.startAnimation(self)
             APIClient.shared.items(query: query) { result in
-                guard sender.stringValue == query else { return }
-                DispatchQueue.main.async { self.spinner.stopAnimation(self) }
-                switch result {
-                case .success(let items): self.items = items
-                case .failure(let error):
-                    DispatchQueue.main.async { NSApplication.shared.presentError(error) }
+                DispatchQueue.main.async {
+                    guard sender.stringValue == query else { return }
+                    self.spinner.stopAnimation(self)
+                    switch result {
+                    case .success(let items): self.items = items
+                    case .failure(let error): NSApplication.shared.presentError(error)
+                    }
                 }
             }
         }
