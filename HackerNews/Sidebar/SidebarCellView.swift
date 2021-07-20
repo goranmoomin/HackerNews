@@ -7,6 +7,7 @@ class SidebarCellView: NSTableCellView {
             guard objectValue != nil else { return }
             let item = objectValue as! SidebarItem
             textField?.stringValue = item.description
+            imageView?.image = item.icon
         }
     }
 }
