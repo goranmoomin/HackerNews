@@ -184,8 +184,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BAB935424C14FBB00D433AD /* Build configuration list for PBXNativeTarget "HackerNews" */;
 			buildPhases = (
-				5BD62E9226949BE300C7F95C /* Run Script */,
 				5B2AA82E26A66F17001315E9 /* ShellScript */,
+				5BD62E9226949BE300C7F95C /* Run Script */,
 				5BAB934024C14FB900D433AD /* Sources */,
 				5BAB934124C14FB900D433AD /* Frameworks */,
 				5BAB934224C14FB900D433AD /* Resources */,
@@ -273,7 +273,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "build_number=\"$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" ${PROJECT_DIR}/${INFOPLIST_FILE})\"\nbuild_number=$(($build_number + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $build_number\" ${PROJECT_DIR}/${INFOPLIST_FILE}\n";
+			shellScript = "if test -n \"$(git status --porcelain)\"; then\n    build_number=\"$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" ${PROJECT_DIR}/${INFOPLIST_FILE})\"\n    build_number=$(($build_number + 1))\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $build_number\" ${PROJECT_DIR}/${INFOPLIST_FILE}\nfi\n";
 		};
 		5BD62E9226949BE300C7F95C /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
