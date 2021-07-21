@@ -1,11 +1,6 @@
 import Cocoa
 import HNAPI
 
-protocol ReplyPopoverViewControllerDelegate {
-    func replyDidSubmit(_ replyPopoverViewController: ReplyPopoverViewController)
-    func replyDidCancel(_ replyPopoverViewController: ReplyPopoverViewController)
-}
-
 class ReplyPopoverViewController: NSViewController {
 
     @IBOutlet var commentTextView: CommentTextView?
@@ -16,7 +11,7 @@ class ReplyPopoverViewController: NSViewController {
     @IBOutlet var insertLinkButton: NSButton!
     @IBOutlet var insertCodeButton: NSButton!
 
-    var delegate: ReplyPopoverViewControllerDelegate?
+    var popover: NSPopover?
 
     var commentable: Commentable! {
         didSet {
@@ -49,33 +44,16 @@ class ReplyPopoverViewController: NSViewController {
         APIClient.shared.reply(to: commentable, text: text, token: token) { result in
             DispatchQueue.main.async {
                 self.spinner.stopAnimation(self)
-                switch result {
-                case .success:
-                    if self.presentingViewController != nil {
-                        self.dismiss(self)
-                    } else {
-                        self.view.window?.close()
-                    }
-                case .failure(let error):
-                    if self.presentingViewController != nil {
-                        self.dismiss(self)
-                    } else {
-                        self.view.window?.close()
-                    }
-                    NSApplication.shared.presentError(error)
-                }
-                self.delegate?.replyDidSubmit(self)
+                self.popover?.performClose(self)
+                self.popover = nil
+                if case .failure(let error) = result { NSApplication.shared.presentError(error) }
             }
         }
     }
 
     @IBAction func cancel(_ sender: NSButton) {
-        if self.presentingViewController != nil {
-            self.dismiss(self)
-        } else {
-            self.view.window?.close()
-        }
-        self.delegate?.replyDidCancel(self)
+        self.popover?.performClose(self)
+        self.popover = nil
     }
 
     var linkNumber = 0
@@ -102,10 +80,6 @@ class ReplyPopoverViewController: NSViewController {
         }
         replyTextView.undoManager?.endUndoGrouping()
     }
-}
-
-extension ReplyPopoverViewController: NSPopoverDelegate {
-    func popoverShouldDetach(_ popover: NSPopover) -> Bool { true }
 }
 
 extension NSStoryboard.SceneIdentifier {

@@ -50,12 +50,11 @@ extension CommentViewController: CommentCellViewDelegate {
             as! ReplyPopoverViewController
         replyPopoverViewController.title = "Comment to \(comment.author)"
         replyPopoverViewController.commentable = comment
-        replyPopoverViewController.delegate = commentCellView
         let popover = NSPopover()
+        replyPopoverViewController.popover = popover
         popover.contentViewController = replyPopoverViewController
-        popover.delegate = replyPopoverViewController
+        popover.delegate = commentCellView
         popover.show(relativeTo: .zero, of: commentCellView.replyButton, preferredEdge: .minY)
-        commentCellView.isReplyPopoverShown = true
     }
 }
 

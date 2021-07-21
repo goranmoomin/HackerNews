@@ -126,7 +126,6 @@ class ItemViewController: NSViewController {
             NSStoryboard.main?
             .instantiateController(withIdentifier: .itemReplyPopoverViewController)
             as! ReplyPopoverViewController
-        replyPopoverViewController.delegate = self
         let title: String
         switch item! {
         case .story(let story): title = story.title
@@ -135,10 +134,10 @@ class ItemViewController: NSViewController {
         replyPopoverViewController.title = "Comment to \(title)"
         replyPopoverViewController.commentable = item
         let popover = NSPopover()
+        replyPopoverViewController.popover = popover
         popover.contentViewController = replyPopoverViewController
-        popover.delegate = replyPopoverViewController
+        popover.delegate = self
         popover.show(relativeTo: .zero, of: replyButton, preferredEdge: .minY)
-        isReplyPopoverShown = true
     }
 
     override func viewDidLoad() {
@@ -146,11 +145,8 @@ class ItemViewController: NSViewController {
     }
 }
 
-extension ItemViewController: ReplyPopoverViewControllerDelegate {
-    func replyDidSubmit(_ replyPopoverViewController: ReplyPopoverViewController) {
-        isReplyPopoverShown = false
-    }
-    func replyDidCancel(_ replyPopoverViewController: ReplyPopoverViewController) {
-        isReplyPopoverShown = false
-    }
+extension ItemViewController: NSPopoverDelegate {
+    func popoverShouldDetach(_ popover: NSPopover) -> Bool { true }
+    func popoverDidShow(_ notification: Notification) { isReplyPopoverShown = true }
+    func popoverDidClose(_ notification: Notification) { isReplyPopoverShown = false }
 }
