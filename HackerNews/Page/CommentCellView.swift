@@ -98,14 +98,10 @@ class CommentCellView: NSTableCellView {
     }
 }
 
-extension CommentCellView: ReplyPopoverViewControllerDelegate {
-    func replyDidSubmit(_ replyPopoverViewController: ReplyPopoverViewController) {
-        isReplyPopoverShown = false
-    }
-
-    func replyDidCancel(_ replyPopoverViewController: ReplyPopoverViewController) {
-        isReplyPopoverShown = false
-    }
+extension CommentCellView: NSPopoverDelegate {
+    func popoverShouldDetach(_ popover: NSPopover) -> Bool { true }
+    func popoverDidShow(_ notification: Notification) { isReplyPopoverShown = true }
+    func popoverDidClose(_ notification: Notification) { isReplyPopoverShown = false }
 }
 
 extension NSUserInterfaceItemIdentifier {
