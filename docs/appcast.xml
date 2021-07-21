@@ -10,5 +10,14 @@
       <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
       <enclosure url="https://github.com/goranmoomin/HackerNews/releases/download/v0.0.6/HackerNews-v0.0.6.app.zip" sparkle:version="13" sparkle:shortVersionString="0.0.6" length="3774573" type="application/octet-stream" sparkle:edSignature="l3jxaXJbs/quC0Za5xHVAfbMe/maYRL0hOTHWGvJNgoZWYfkiL1DbJYuQRXsXXYga03BAiqUGfGJh3/y4ZByCw=="/>
     </item>
+    <item>
+      <title>0.1.0</title>
+      <pubDate>Wed, 21 Jul 2021 09:01:31 +0900</pubDate>
+      <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/goranmoomin/HackerNews/releases/download/v0.1.0/HackerNews-v0.1.0.app.zip" sparkle:version="26" sparkle:shortVersionString="0.1.0" length="3775280" type="application/octet-stream" sparkle:edSignature="HkjbL0Pdl9SKH8R+anIHvw+B3i39g6IO0JgI/hpGjfNBNn7kK65peZYdti8Ybp9SrpDgXFUJYzjqoDCIQ0WqCw=="/>
+      <sparkle:deltas>
+        <enclosure url="https://github.com/goranmoomin/HackerNews/releases/download/v0.1.0/HackerNews26-13.delta" sparkle:version="26" sparkle:shortVersionString="0.1.0" sparkle:deltaFrom="13" length="91736" type="application/octet-stream" sparkle:edSignature="gpRcN+OK4i2kjzM2HOIpdLVwjQgGJJPMGCT+6bOw4lC/v7J7xDdAcdjyHSBAiUT0r3Rlvh/E4beX0twIRTVrBQ=="/>
+      </sparkle:deltas>
+    </item>
   </channel>
 </rss>
