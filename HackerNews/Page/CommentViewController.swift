@@ -8,6 +8,7 @@ class CommentViewController: NSViewController {
             DispatchQueue.main.async {
                 self.noCommentLabel.isHidden = self.page == nil || self.comments.count > 0
                 self.commentOutlineView.reloadData()
+                self.commentOutlineView.expandItem(nil, expandChildren: true)
             }
         }
     }
