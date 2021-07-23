@@ -26,6 +26,10 @@ class MainWindowController: NSWindowController {
         sidebarViewController.delegate = self
         itemListViewController.delegate = self
     }
+
+    @IBAction func refreshPage(_ sender: NSMenuItem) { pageViewController.refresh(sender) }
+
+    @IBAction func refreshList(_ sender: NSMenuItem) { itemListViewController.refresh(sender) }
 }
 
 extension MainWindowController { static private(set) var shared: MainWindowController! }
@@ -102,10 +106,29 @@ extension MainWindowController: NSToolbarDelegate {
     }
 }
 
+extension MainWindowController: NSMenuItemValidation {
+    func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        if menuItem.identifier == .refreshMenuItem {
+            switch pageViewController.state {
+            case .page: return true
+            default: return false
+            }
+        } else if menuItem.identifier == .refreshListMenuItem {
+            return true
+        }
+        return true
+    }
+}
+
 extension NSToolbarItem.Identifier {
     static let itemListTrackingSeparator = NSToolbarItem.Identifier("ItemListTrackingSeparator")
     static let search = NSToolbarItem.Identifier("Search")
     static let refresh = NSToolbarItem.Identifier("Refresh")
     static let refreshList = NSToolbarItem.Identifier("RefreshList")
     static let openInSafari = NSToolbarItem.Identifier("OpenInSafari")
+}
+
+extension NSUserInterfaceItemIdentifier {
+    static let refreshMenuItem = NSUserInterfaceItemIdentifier("RefreshMenuItem")
+    static let refreshListMenuItem = NSUserInterfaceItemIdentifier("RefreshListMenuItem")
 }

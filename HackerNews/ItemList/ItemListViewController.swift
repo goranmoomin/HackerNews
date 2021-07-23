@@ -39,7 +39,7 @@ class ItemListViewController: NSViewController {
         category = .top
     }
 
-    @objc func refresh(_ sender: NSToolbarItem) { reloadData() }
+    @objc func refresh(_ sender: Any) { reloadData() }
 
     @IBAction func search(_ sender: NSSearchField) {
         let query = sender.stringValue

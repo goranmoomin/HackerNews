@@ -13,9 +13,9 @@ class PageViewController: NSSplitViewController {
     var itemViewController: ItemViewController!
     var commentViewController: CommentViewController!
 
-    var state: State = .none { didSet { reload() } }
+    var state: State = .none { didSet { reloadData() } }
 
-    func reload() {
+    func reloadData() {
         switch state {
         case .none: splitView.isHidden = true
         case .item(let item):
@@ -52,7 +52,7 @@ class PageViewController: NSSplitViewController {
         state = .none
     }
 
-    @objc func refresh(_ sender: NSToolbarItem) {
+    @objc func refresh(_ sender: Any) {
         switch state {
         case .page(let page): state = .item(page.topLevelItem)
         default: break
