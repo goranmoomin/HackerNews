@@ -538,8 +538,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/goranmoomin/HNAPI.git";
 			requirement = {
-				kind = exactVersion;
-				version = 0.0.3;
+				branch = master;
+				kind = branch;
 			};
 		};
 		5B544AC325DC121B00A3127E /* XCRemoteSwiftPackageReference "ModernAppKit" */ = {
