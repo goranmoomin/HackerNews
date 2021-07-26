@@ -58,9 +58,9 @@ class CommentOutlineRowView: NSTableRowView {
         super.draw(dirtyRect)
         if isMouseHovering {
             NSColor.systemGray.setFill()
-            let minX = dirtyRect.minX + CGFloat(level + 1) * indentationPerLevel
-            let minY = dirtyRect.minY + (isExpandable ? 22 : 2)
-            let height = dirtyRect.height - (isExpandable ? 24 : 4)
+            let minX: CGFloat = CGFloat(level + 1) * indentationPerLevel
+            let minY: CGFloat = isExpandable ? 22 : 2
+            let height = frame.height - (isExpandable ? 24 : 4)
             let barRect = NSRect(x: minX, y: minY, width: 4, height: height)
             let barPath = NSBezierPath(roundedRect: barRect, xRadius: 2, yRadius: 2)
             barPath.fill()
