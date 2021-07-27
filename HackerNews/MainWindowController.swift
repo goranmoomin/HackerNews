@@ -30,6 +30,14 @@ class MainWindowController: NSWindowController {
     @IBAction func refreshPage(_ sender: NSMenuItem) { pageViewController.refresh(sender) }
 
     @IBAction func refreshList(_ sender: NSMenuItem) { itemListViewController.refresh(sender) }
+
+    @IBAction func performSearchItem(_ sender: NSMenuItem) {
+        if let searchToolbarItem = window?.toolbar?.items
+            .first(where: { $0.itemIdentifier == .search }) as? NSSearchToolbarItem
+        {
+            window?.makeFirstResponder(searchToolbarItem.searchField)
+        }
+    }
 }
 
 extension MainWindowController { static private(set) var shared: MainWindowController! }
