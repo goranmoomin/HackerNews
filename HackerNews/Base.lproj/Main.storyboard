@@ -690,10 +690,10 @@ Gw
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Main Split View Controller-->
         <scene sceneID="4st-rW-P8q">
             <objects>
-                <splitViewController id="daz-Qk-COY" sceneMemberID="viewController">
+                <splitViewController id="daz-Qk-COY" customClass="MainSplitViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="tZ6-Kb-1Yk"/>
                         <splitViewItem holdingPriority="255" behavior="contentList" id="PDv-Wh-Mwc"/>
@@ -731,7 +731,7 @@ Gw
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="540"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" usesAutomaticRowHeights="YES" viewBased="YES" indentationPerLevel="13" outlineTableColumn="ABv-He-UPW" id="Y9F-Zo-gZL">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" usesAutomaticRowHeights="YES" viewBased="YES" indentationPerLevel="13" outlineTableColumn="ABv-He-UPW" id="Y9F-Zo-gZL" customClass="SidebarOutlineView" customModule="HackerNews" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="540"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="0.0"/>
