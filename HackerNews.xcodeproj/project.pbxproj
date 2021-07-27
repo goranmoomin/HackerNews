@@ -37,6 +37,9 @@
 		5BAB935F24C1816F00D433AD /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB935D24C1816F00D433AD /* ItemListViewController.swift */; };
 		5BAB936324C1817A00D433AD /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB936124C1817A00D433AD /* SidebarViewController.swift */; };
 		5BE17957269D0A4B00202FA6 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE17956269D0A4B00202FA6 /* Token.swift */; };
+		5BFDB89326B0CB7A00441E04 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDB89226B0CB7A00441E04 /* MainSplitViewController.swift */; };
+		5BFDB89526B0D06900441E04 /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDB89426B0D06900441E04 /* NSView.swift */; };
+		5BFDB89926B0D26200441E04 /* SidebarOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDB89826B0D26200441E04 /* SidebarOutlineView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +72,9 @@
 		5BAB935D24C1816F00D433AD /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		5BAB936124C1817A00D433AD /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
 		5BE17956269D0A4B00202FA6 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		5BFDB89226B0CB7A00441E04 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
+		5BFDB89426B0D06900441E04 /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
+		5BFDB89826B0D26200441E04 /* SidebarOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarOutlineView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,7 @@
 				5B8EA2B024D05E5A00013393 /* SidebarCellView.swift */,
 				5BAB936124C1817A00D433AD /* SidebarViewController.swift */,
 				5B8EA2B524D089B800013393 /* SidebarItem.swift */,
+				5BFDB89826B0D26200441E04 /* SidebarOutlineView.swift */,
 			);
 			path = Sidebar;
 			sourceTree = "<group>";
@@ -126,6 +133,7 @@
 				5B422F2424D1522E00392FB7 /* APIClient.swift */,
 				5B9216C924DD224900C51FF1 /* Atributika.swift */,
 				5B9216CB24DD226400C51FF1 /* NSFont.swift */,
+				5BFDB89426B0D06900441E04 /* NSView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 				5BAB934724C14FB900D433AD /* AppDelegate.swift */,
 				5BAB934D24C14FBB00D433AD /* Main.storyboard */,
 				5B422F2624D1D22400392FB7 /* MainWindowController.swift */,
+				5BFDB89226B0CB7A00441E04 /* MainSplitViewController.swift */,
 				5BA55BC824E6DFFD00F6CBD0 /* Account.swift */,
 				5BE17956269D0A4B00202FA6 /* Token.swift */,
 				5B9E236C24DF17ED00483918 /* Preferences */,
@@ -308,6 +317,8 @@
 				5BA55BC924E6DFFD00F6CBD0 /* Account.swift in Sources */,
 				5B92AAA124D8EB3A00C3B5DC /* ItemViewController.swift in Sources */,
 				5B422F2524D1522E00392FB7 /* APIClient.swift in Sources */,
+				5BFDB89526B0D06900441E04 /* NSView.swift in Sources */,
+				5BFDB89326B0CB7A00441E04 /* MainSplitViewController.swift in Sources */,
 				5B82985424F6118200B7E91A /* ReplyPopoverViewController.swift in Sources */,
 				5BAB935F24C1816F00D433AD /* ItemListViewController.swift in Sources */,
 				5B9216CC24DD226400C51FF1 /* NSFont.swift in Sources */,
@@ -320,6 +331,7 @@
 				5B9E236A24DF17CF00483918 /* PreferencesViewController.swift in Sources */,
 				5B92AA9E24D8EB2A00C3B5DC /* CommentViewController.swift in Sources */,
 				5BE17957269D0A4B00202FA6 /* Token.swift in Sources */,
+				5BFDB89926B0D26200441E04 /* SidebarOutlineView.swift in Sources */,
 				5B8EA2B124D05E5A00013393 /* SidebarCellView.swift in Sources */,
 				5BAB936324C1817A00D433AD /* SidebarViewController.swift in Sources */,
 				5B422F2724D1D22400392FB7 /* MainWindowController.swift in Sources */,
