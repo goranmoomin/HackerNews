@@ -19,5 +19,17 @@
         <enclosure url="https://github.com/goranmoomin/HackerNews/releases/download/v0.1.0/HackerNews26-13.delta" sparkle:version="26" sparkle:shortVersionString="0.1.0" sparkle:deltaFrom="13" length="91736" type="application/octet-stream" sparkle:edSignature="gpRcN+OK4i2kjzM2HOIpdLVwjQgGJJPMGCT+6bOw4lC/v7J7xDdAcdjyHSBAiUT0r3Rlvh/E4beX0twIRTVrBQ=="/>
       </sparkle:deltas>
     </item>
+    <item>
+      <title>0.1.1</title>
+      <pubDate>Mon, 02 Aug 2021 18:32:10 +0900</pubDate>
+      <sparkle:version>82</sparkle:version>
+      <sparkle:shortVersionString>0.1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/goranmoomin/HackerNews/releases/download/v0.1.1/HackerNews-v0.1.1.app.zip" length="3782411" type="application/octet-stream" sparkle:edSignature="AF2QeT4/KM+Muw9tkVNuoLbXsCQNTSSWN99rPGoqbx3CUWIqFiS43+h1EkfZhFZEpwu+iIC4vQidOLnr834LBg=="/>
+      <sparkle:deltas>
+        <enclosure url="https://github.com/goranmoomin/HackerNews/releases/download/v0.1.1/HackerNews82-13.delta" sparkle:deltaFrom="13" length="220048" type="application/octet-stream" sparkle:edSignature="WUCVVKmw5X0IOxkBTD7RSCbjKgZowVXRdyOlTQq4W2TRJD/1jBAAeXdk9TGy3OiZ8ZzsWsDeM4pddTatxs+dAQ=="/>
+        <enclosure url="https://github.com/goranmoomin/HackerNews/releases/download/v0.1.1/HackerNews82-26.delta" sparkle:deltaFrom="26" length="215839" type="application/octet-stream" sparkle:edSignature="lfSTnyXPMbPZ+jVGeWdWpuPZED6jlGhFAJGrb3sbLIK6U8SFd0EZg9C39Ja7cX5lTRQ75SNNxWemPcDPc7TVCQ=="/>
+      </sparkle:deltas>
+    </item>
   </channel>
 </rss>
