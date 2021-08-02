@@ -11,7 +11,8 @@ import HNAPI
                 result in
                 switch result {
                 case .success(let token): Token.current = token
-                case .failure(let error): NSApplication.shared.presentError(error)
+                case .failure(let error):
+                    DispatchQueue.main.async { NSApplication.shared.presentError(error) }
                 }
             }
         }
