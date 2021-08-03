@@ -1082,6 +1082,7 @@ Gw
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="itemListScrollView" destination="fgb-w8-23b" id="YKV-cS-tdj"/>
                         <outlet property="itemListTableView" destination="0fk-Ud-kqD" id="IqI-WQ-2cZ"/>
                         <outlet property="spinner" destination="Fb7-5p-no6" id="qDy-3R-LIc"/>
                     </connections>
