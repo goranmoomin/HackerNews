@@ -653,7 +653,7 @@ Gw
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="960" height="540"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1280" height="775"/>
-                        <toolbar key="toolbar" implicitIdentifier="891F2959-8C32-4BB7-AED8-68CD262A6E63" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="Y9G-qJ-Vpx">
+                        <toolbar key="toolbar" implicitIdentifier="891F2959-8C32-4BB7-AED8-68CD262A6E63" displayMode="iconOnly" sizeMode="regular" id="Y9G-qJ-Vpx">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="TsX-xz-hDT"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="bCq-8x-Ifg"/>
