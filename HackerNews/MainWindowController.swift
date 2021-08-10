@@ -25,6 +25,7 @@ class MainWindowController: NSWindowController {
         MainWindowController.shared = self
         sidebarViewController.delegate = self
         itemListViewController.delegate = self
+        self.windowFrameAutosaveName = "MainAppWindow"
     }
 
     @IBAction func refreshPage(_ sender: NSMenuItem) { pageViewController.refresh(sender) }
