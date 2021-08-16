@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19150" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19158" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19150"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19158"/>
         <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
         <capability name="Search Toolbar Item" minToolsVersion="12.0" minSystemVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -874,7 +874,7 @@ Gw
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="0A2-e5-fyj" customClass="ItemListCellView" customModule="HackerNews" customModuleProvider="target">
+                                                        <tableCellView identifier="ItemListCellView" id="0A2-e5-fyj" customClass="ItemListCellView" customModule="HackerNews" customModuleProvider="target">
                                                             <rect key="frame" x="18" y="0.0" width="348" height="80"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1047,6 +1047,22 @@ Gw
                                                                 <outlet property="textField" destination="l9h-tJ-xKZ" id="YsB-Cr-sUh"/>
                                                                 <outlet property="titleLabel" destination="l9h-tJ-xKZ" id="D2p-CD-egO"/>
                                                                 <outlet property="urlButton" destination="6mT-0A-oRV" id="Wvf-eH-i00"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                        <tableCellView identifier="ItemListLoadingCellView" id="shr-VK-fJH" customClass="ItemListCellLoadingView" customModule="HackerNews" customModuleProvider="target">
+                                                            <rect key="frame" x="18" y="80" width="348" height="80"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <progressIndicator maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="esd-Jl-k7s">
+                                                                    <rect key="frame" x="166" y="32" width="16" height="16"/>
+                                                                </progressIndicator>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="esd-Jl-k7s" firstAttribute="centerX" secondItem="shr-VK-fJH" secondAttribute="centerX" id="Z9I-kV-H6s"/>
+                                                                <constraint firstItem="esd-Jl-k7s" firstAttribute="centerY" secondItem="shr-VK-fJH" secondAttribute="centerY" id="etW-Ej-38M"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="spinner" destination="esd-Jl-k7s" id="H0I-Um-YYL"/>
                                                             </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
@@ -1546,7 +1562,7 @@ Gw
                                                 </connections>
                                             </button>
                                             <button translatesAutoresizingMaskIntoConstraints="NO" id="Szj-NT-ceP">
-                                                <rect key="frame" x="15" y="-2" width="17.5" height="19"/>
+                                                <rect key="frame" x="15" y="-2.5" width="17.5" height="19"/>
                                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="arrowshape.turn.up.left" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="ynj-z6-Dep">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -1804,7 +1820,7 @@ Gw
                                                                                     </connections>
                                                                                 </button>
                                                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="IFV-fG-DXd">
-                                                                                    <rect key="frame" x="30" y="-2" width="17.5" height="19"/>
+                                                                                    <rect key="frame" x="30" y="-2.5" width="17.5" height="19"/>
                                                                                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="arrowshape.turn.up.left" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="U11-2F-YIU">
                                                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                                         <font key="font" metaFont="system"/>

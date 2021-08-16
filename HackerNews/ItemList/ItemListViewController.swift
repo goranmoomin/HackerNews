@@ -63,9 +63,6 @@ class ItemListViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         category = .top
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(liveScrollDidEnd(_:)),
-            name: NSScrollView.didEndLiveScrollNotification, object: nil)
     }
 
     @objc func refresh(_ sender: Any) { reloadData() }
@@ -92,33 +89,30 @@ class ItemListViewController: NSViewController {
         }
     }
 
-    @objc func liveScrollDidEnd(_ notification: Notification) {
-        guard notification.object as AnyObject === itemListScrollView else { return }
-        if !isSearching,
-            let verticalScrollerFloatValue = itemListScrollView.verticalScroller?.floatValue,
-            verticalScrollerFloatValue > 0.9
-        {
-            let nextBatchItemIds = nextBatchItemIds
-            APIClient.shared.items(ids: nextBatchItemIds) { result in
-                guard self.nextBatchItemIds == nextBatchItemIds else { return }
-                switch result {
-                case .success(let items):
-                    self.items.append(contentsOf: items)
-                    self.nextBatchStartIndex += 30
-                case .failure(let error):
-                    DispatchQueue.main.async { NSApplication.shared.presentError(error) }
-                }
+    func startLoadingNextBatch() {
+        let nextBatchItemIds = nextBatchItemIds
+        APIClient.shared.items(ids: nextBatchItemIds) { result in
+            guard self.nextBatchItemIds == nextBatchItemIds else { return }
+            switch result {
+            case .success(let items):
+                self.items.append(contentsOf: items)
+                self.nextBatchStartIndex += 30
+            case .failure(let error):
+                DispatchQueue.main.async { NSApplication.shared.presentError(error) }
             }
         }
     }
 }
 
 extension ItemListViewController: NSTableViewDataSource {
-    func numberOfRows(in tableView: NSTableView) -> Int { items.count }
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        guard items.count > 0 else { return 0 }
+        return min(items.count + 1, itemIds.count)
+    }
 
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int)
         -> Any?
-    { items[row] }
+    { if row < items.count { return items[row] } else { return nil } }
 }
 
 extension ItemListViewController: NSTableViewDelegate {
@@ -127,4 +121,25 @@ extension ItemListViewController: NSTableViewDelegate {
         delegate?
             .itemListSelectionDidChange(self, selectedItem: items[itemListTableView.selectedRow])
     }
+
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int)
+        -> NSView?
+    {
+        if row < items.count {
+            return tableView.makeView(withIdentifier: .itemListCellView, owner: self)
+        } else {
+            guard items.count < itemIds.count else { return nil }
+            let loadingView =
+                tableView.makeView(withIdentifier: .itemListLoadingCellView, owner: self)
+                as! ItemListCellLoadingView
+            loadingView.spinner.startAnimation(self)
+            startLoadingNextBatch()
+            return loadingView
+        }
+    }
+}
+
+extension NSUserInterfaceItemIdentifier {
+    static let itemListCellView = NSUserInterfaceItemIdentifier("ItemListCellView")
+    static let itemListLoadingCellView = NSUserInterfaceItemIdentifier("ItemListLoadingCellView")
 }

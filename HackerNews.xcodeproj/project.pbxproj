@@ -24,6 +24,7 @@
 		5B92AA9E24D8EB2A00C3B5DC /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92AA9D24D8EB2A00C3B5DC /* CommentViewController.swift */; };
 		5B92AAA124D8EB3A00C3B5DC /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92AA9F24D8EB3A00C3B5DC /* ItemViewController.swift */; };
 		5B94BE2725DC203E00AA0DFD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5B94BE2625DC203E00AA0DFD /* README.md */; };
+		5B9A6BD326C9756000C9ACB4 /* ItemListCellLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A6BD226C9755F00C9ACB4 /* ItemListCellLoadingView.swift */; };
 		5B9E236A24DF17CF00483918 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E236924DF17CF00483918 /* PreferencesViewController.swift */; };
 		5BA2A9EF25F2168F00636823 /* CommentOutlineRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA2A9EE25F2168F00636823 /* CommentOutlineRowView.swift */; };
 		5BA55BB424DFE42700F6CBD0 /* AccountCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA55BB324DFE42700F6CBD0 /* AccountCellView.swift */; };
@@ -56,6 +57,7 @@
 		5B92AA9D24D8EB2A00C3B5DC /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		5B92AA9F24D8EB3A00C3B5DC /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		5B94BE2625DC203E00AA0DFD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5B9A6BD226C9755F00C9ACB4 /* ItemListCellLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListCellLoadingView.swift; sourceTree = "<group>"; };
 		5B9E236924DF17CF00483918 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		5BA2A9EE25F2168F00636823 /* CommentOutlineRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentOutlineRowView.swift; sourceTree = "<group>"; };
 		5BA55BB324DFE42700F6CBD0 /* AccountCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCellView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				5BAB935D24C1816F00D433AD /* ItemListViewController.swift */,
+				5B9A6BD226C9755F00C9ACB4 /* ItemListCellLoadingView.swift */,
 				5B8EA2FD24D10E0800013393 /* ItemListCellView.swift */,
 			);
 			path = ItemList;
@@ -313,6 +316,7 @@
 				5BAB935B24C1814E00D433AD /* PageViewController.swift in Sources */,
 				5B8EA2FE24D10E0800013393 /* ItemListCellView.swift in Sources */,
 				5BA55BB424DFE42700F6CBD0 /* AccountCellView.swift in Sources */,
+				5B9A6BD326C9756000C9ACB4 /* ItemListCellLoadingView.swift in Sources */,
 				5B9216CA24DD224900C51FF1 /* Atributika.swift in Sources */,
 				5BA55BC924E6DFFD00F6CBD0 /* Account.swift in Sources */,
 				5B92AAA124D8EB3A00C3B5DC /* ItemViewController.swift in Sources */,
