@@ -46,16 +46,17 @@ class CommentOutlineRowView: NSTableRowView {
 
     override func mouseEntered(with event: NSEvent) {
         super.mouseEntered(with: event)
-        isMouseHovering = true
+        // isMouseHovering = true
     }
 
     override func mouseExited(with event: NSEvent) {
         super.mouseExited(with: event)
-        isMouseHovering = false
+        // isMouseHovering = false
     }
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
+        // Drawing row indicator is disabled for now
         if isMouseHovering {
             NSColor.systemGray.setFill()
             let minX: CGFloat = CGFloat(level + 1) * indentationPerLevel
