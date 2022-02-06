@@ -157,6 +157,7 @@
 				5B94BE2625DC203E00AA0DFD /* README.md */,
 				5BAB934624C14FB900D433AD /* HackerNews */,
 				5BAB934524C14FB900D433AD /* Products */,
+				5BD24D8727B0210900940D52 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,6 +188,13 @@
 				5BAB935124C14FBB00D433AD /* HackerNews.entitlements */,
 			);
 			path = HackerNews;
+			sourceTree = "<group>";
+		};
+		5BD24D8727B0210900940D52 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -547,7 +555,7 @@
 			repositoryURL = "https://github.com/sparkle-project/Sparkle.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.26.0;
+				minimumVersion = 2.0.0;
 			};
 		};
 		5B42C3B624C57ADD0087CB9E /* XCRemoteSwiftPackageReference "HNAPI" */ = {
