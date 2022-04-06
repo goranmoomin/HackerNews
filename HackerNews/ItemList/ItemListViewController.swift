@@ -24,37 +24,29 @@ class ItemListViewController: NSViewController {
     var items: [TopLevelItem] = [] {
         didSet { DispatchQueue.main.async { self.itemListTableView.reloadData() } }
     }
-    var category: HNAPI.Category! { didSet { reloadData() } }
+    var category: HNAPI.Category! { didSet { Task { await self.reloadData() } } }
 
-    func reloadData() {
+    func reloadData() async {
         isSearching = false
         itemIds = []
         items = []
         nextBatchStartIndex = 0
-        spinner.startAnimation(self)
+        Task { self.spinner.startAnimation(self) }
         let category = category!
-        APIClient.shared.itemIds(category: category) { result in
+        do {
+            let itemIds = try await APIClient.shared.itemIds(category: category)
             guard self.category == category else { return }
-            switch result {
-            case .success(let itemIds):
-                self.itemIds = itemIds
-                let nextBatchItemIds = self.nextBatchItemIds
-                APIClient.shared.items(ids: nextBatchItemIds) { result in
-                    guard self.nextBatchItemIds == nextBatchItemIds else { return }
-                    DispatchQueue.main.async { self.spinner.stopAnimation(self) }
-                    switch result {
-                    case .success(let items):
-                        self.items = items
-                        self.nextBatchStartIndex += 30
-                    case .failure(let error):
-                        DispatchQueue.main.async { NSApplication.shared.presentError(error) }
-                    }
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.spinner.stopAnimation(self)
-                    NSApplication.shared.presentError(error)
-                }
+            self.itemIds = itemIds
+            let nextBatchItemIds = self.nextBatchItemIds
+            let items = try await APIClient.shared.items(ids: nextBatchItemIds)
+            guard self.nextBatchItemIds == nextBatchItemIds else { return }
+            Task { self.spinner.stopAnimation(self) }
+            self.items = items
+            self.nextBatchStartIndex += 30
+        } catch let error {
+            Task {
+                self.spinner.stopAnimation(self)
+                NSApplication.shared.presentError(error)
             }
         }
     }
@@ -65,25 +57,27 @@ class ItemListViewController: NSViewController {
         category = .top
     }
 
-    @objc func refresh(_ sender: Any) { reloadData() }
+    @objc func refresh(_ sender: Any) { Task { await self.reloadData() } }
 
     @IBAction func search(_ sender: NSSearchField) {
         let query = sender.stringValue
         if query == "" {
             isSearching = false
-            reloadData()
+            Task { await self.reloadData() }
         } else {
-            isSearching = true
-            items = []
-            spinner.startAnimation(self)
-            APIClient.shared.items(query: query) { result in
-                DispatchQueue.main.async {
+            Task {
+                isSearching = true
+                items = []
+                spinner.startAnimation(self)
+                do {
+                    let items = try await APIClient.shared.items(query: query)
                     guard sender.stringValue == query else { return }
                     self.spinner.stopAnimation(self)
-                    switch result {
-                    case .success(let items): self.items = items
-                    case .failure(let error): NSApplication.shared.presentError(error)
-                    }
+                    self.items = items
+                    self.itemIds = items.map(\.id)
+                } catch {
+                    self.spinner.stopAnimation(self)
+                    NSApplication.shared.presentError(error)
                 }
             }
         }

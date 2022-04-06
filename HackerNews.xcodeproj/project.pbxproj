@@ -47,6 +47,7 @@
 		5B422F2424D1522E00392FB7 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		5B422F2624D1D22400392FB7 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		5B6FB64624F77AAB00F49770 /* CommentTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTextView.swift; sourceTree = "<group>"; };
+		5B7F850227FD497F006DEF46 /* HNAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HNAPI; path = ../HNAPI; sourceTree = "<group>"; };
 		5B82985324F6118200B7E91A /* ReplyPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyPopoverViewController.swift; sourceTree = "<group>"; };
 		5B8EA2B024D05E5A00013393 /* SidebarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarCellView.swift; sourceTree = "<group>"; };
 		5B8EA2B524D089B800013393 /* SidebarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarItem.swift; sourceTree = "<group>"; };
@@ -154,6 +155,7 @@
 		5BAB933B24C14FB900D433AD = {
 			isa = PBXGroup;
 			children = (
+				5B7F850227FD497F006DEF46 /* HNAPI */,
 				5B94BE2625DC203E00AA0DFD /* README.md */,
 				5BAB934624C14FB900D433AD /* HackerNews */,
 				5BAB934524C14FB900D433AD /* Products */,

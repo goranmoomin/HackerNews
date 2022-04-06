@@ -45,13 +45,11 @@ class CommentOutlineRowView: NSTableRowView {
     }
 
     override func mouseEntered(with event: NSEvent) {
-        super.mouseEntered(with: event)
-        // isMouseHovering = true
+        super.mouseEntered(with: event)  // isMouseHovering = true
     }
 
     override func mouseExited(with event: NSEvent) {
-        super.mouseExited(with: event)
-        // isMouseHovering = false
+        super.mouseExited(with: event)  // isMouseHovering = false
     }
 
     override func draw(_ dirtyRect: NSRect) {
