@@ -13,30 +13,30 @@ class PageViewController: NSSplitViewController {
     var itemViewController: ItemViewController!
     var commentViewController: CommentViewController!
 
-    var state: State = .none { didSet { reloadData() } }
+    var state: State = .none { didSet { Task { await reloadData() } } }
 
-    func reloadData() {
+    func reloadData() async {
         switch state {
-        case .none: splitView.isHidden = true
+        case .none: Task { splitView.isHidden = true }
         case .item(let item):
-            itemViewController.item = item
-            splitView.isHidden = false
-            commentViewController.page = nil
-            APIClient.shared.page(item: item, token: Token.current) { result in
+            Task {
+                itemViewController.item = item
+                splitView.isHidden = false
+                commentViewController.page = nil
+            }
+            do {
+                let page = try await APIClient.shared.page(item: item, token: Token.current)
                 guard case .item(let currentItem) = self.state, currentItem.id == item.id else {
                     return
                 }
-                switch result {
-                case .success(let page): self.state = .page(page)
-                case .failure(let error): self.state = .error(error)
-                }
-            }
+                self.state = .page(page)
+            } catch let error { self.state = .error(error) }
         case .page(let page):
-            DispatchQueue.main.async { self.splitView.isHidden = false }
+            Task { self.splitView.isHidden = false }
             self.commentViewController.page = page
             self.itemViewController.page = page
         case .error(let error):
-            DispatchQueue.main.async {
+            Task {
                 self.splitView.isHidden = false
                 NSApplication.shared.presentError(error)
             }

@@ -83,18 +83,14 @@ class ItemListViewController: NSViewController {
         }
     }
 
-    func startLoadingNextBatch() {
+    func startLoadingNextBatch() async {
         let nextBatchItemIds = nextBatchItemIds
-        APIClient.shared.items(ids: nextBatchItemIds) { result in
+        do {
+            let items1 = try await APIClient.shared.items(ids: nextBatchItemIds)
             guard self.nextBatchItemIds == nextBatchItemIds else { return }
-            switch result {
-            case .success(let items):
-                self.items.append(contentsOf: items)
-                self.nextBatchStartIndex += 30
-            case .failure(let error):
-                DispatchQueue.main.async { NSApplication.shared.presentError(error) }
-            }
-        }
+            self.items.append(contentsOf: items1)
+            self.nextBatchStartIndex += 30
+        } catch let error { Task { NSApplication.shared.presentError(error) } }
     }
 }
 
@@ -127,7 +123,7 @@ extension ItemListViewController: NSTableViewDelegate {
                 tableView.makeView(withIdentifier: .itemListLoadingCellView, owner: self)
                 as! ItemListCellLoadingView
             loadingView.spinner.startAnimation(self)
-            startLoadingNextBatch()
+            Task { await startLoadingNextBatch() }
             return loadingView
         }
     }
