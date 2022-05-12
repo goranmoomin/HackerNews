@@ -23,6 +23,9 @@ Every bug report helps, including very trivial ones. Thanks in advance.
 I did a pre release, you might want to try it out by downloading it from the
 [releases tab](https://github.com/goranmoomin/HackerNews/releases).
 
+If you're getting a warning that says the application is damaged, the temporary solution is to clear the quarantine flag
+by running `xattr -c ~/Downloads/HackerNews.app` in the Terminal. Sorry for the inconvenience, will fix this soon.
+
 ## Development
 
 I wrote the [HNAPI](https://github.com/goranmoomin/HNAPI) package for interfacing with HN. It handles
