@@ -1,5 +1,6 @@
 import Atributika
 import Cocoa
+import SwiftSoup
 
 extension TagTransformer {
     static func pTransformer() -> TagTransformer {
@@ -27,9 +28,12 @@ extension String {
         let i = Style("i").font(.italicSystemFont(ofSize: systemFontSize))
         let pre = Style("pre").font(.monospacedSystemFont(ofSize: systemFontSize, weight: .regular))
         let transformers: [TagTransformer] = [.pTransformer(), .brTransformer]
-        func tuner(style: Style, tag: Tag) -> Style {
-            if tag.name == a.name, let href = tag.attributes["href"], let url = URL(string: href) {
-                return style.link(url)
+        func tuner(style: Style, tag: Atributika.Tag) -> Style {
+            if tag.name == a.name, let href = tag.attributes["href"] {
+                // NOTE: The Algolia API returns HTML with escaped href attributes, hence this hack.
+                if let url = URL(string: href) ?? URL(string: try! Entities.unescape(href)) {
+                    return style.link(url)
+                }
             }
             return style
         }
