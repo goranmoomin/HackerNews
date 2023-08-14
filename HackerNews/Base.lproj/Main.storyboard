@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21701"/>
         <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
         <capability name="Search Toolbar Item" minToolsVersion="12.0" minSystemVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -725,13 +725,13 @@ Gw
                         <rect key="frame" x="0.0" y="0.0" width="150" height="540"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHn-8M-WDH">
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="28" horizontalPageScroll="10" verticalLineScroll="28" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHn-8M-WDH">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="540"/>
                                 <clipView key="contentView" drawsBackground="NO" id="zbY-2M-stg">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="540"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" usesAutomaticRowHeights="YES" viewBased="YES" indentationPerLevel="13" outlineTableColumn="ABv-He-UPW" id="Y9F-Zo-gZL" customClass="SidebarOutlineView" customModule="HackerNews" customModuleProvider="target">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="28" rowSizeStyle="systemDefault" viewBased="YES" indentationPerLevel="13" outlineTableColumn="ABv-He-UPW" id="Y9F-Zo-gZL" customClass="SidebarOutlineView" customModule="HackerNews" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="540"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="0.0"/>
@@ -773,16 +773,16 @@ Gw
                                                                 <outlet property="textField" destination="z5X-rQ-vRO" id="Wb0-5p-3t5"/>
                                                             </connections>
                                                         </tableCellView>
-                                                        <tableCellView identifier="SidebarDataCell" id="VJv-b8-rcN" customClass="SidebarCellView" customModule="HackerNews" customModuleProvider="target">
+                                                        <tableCellView identifier="SidebarDataCell" misplaced="YES" id="VJv-b8-rcN" customClass="SidebarCellView" customModule="HackerNews" customModuleProvider="target">
                                                             <rect key="frame" x="11" y="18" width="127" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <imageView wantsLayer="YES" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="haH-Dd-buR">
-                                                                    <rect key="frame" x="2" y="0.0" width="15" height="24"/>
+                                                                    <rect key="frame" x="2" y="3" width="20" height="20"/>
                                                                     <imageCell key="cell" refusesFirstResponder="YES" imageScaling="proportionallyDown" image="NSActionTemplate" id="GIf-gq-DHy"/>
                                                                 </imageView>
                                                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p2e-4O-2Q5">
-                                                                    <rect key="frame" x="23" y="4" width="98" height="16"/>
+                                                                    <rect key="frame" x="28" y="4" width="96" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="4aa-lc-ctl">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -791,12 +791,10 @@ Gw
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="haH-Dd-buR" firstAttribute="top" secondItem="VJv-b8-rcN" secondAttribute="top" constant="3" id="31L-4R-hBs"/>
-                                                                <constraint firstAttribute="bottom" secondItem="haH-Dd-buR" secondAttribute="bottom" constant="3" id="3hV-ih-cht"/>
                                                                 <constraint firstAttribute="trailing" secondItem="p2e-4O-2Q5" secondAttribute="trailing" constant="8" id="IJ4-uQ-2CX"/>
-                                                                <constraint firstAttribute="bottom" secondItem="p2e-4O-2Q5" secondAttribute="bottom" constant="4" id="Nty-TY-teE"/>
+                                                                <constraint firstItem="p2e-4O-2Q5" firstAttribute="centerY" secondItem="VJv-b8-rcN" secondAttribute="centerY" id="WTb-ej-ehr"/>
+                                                                <constraint firstItem="haH-Dd-buR" firstAttribute="centerY" secondItem="VJv-b8-rcN" secondAttribute="centerY" id="aJA-ZB-BNR"/>
                                                                 <constraint firstItem="haH-Dd-buR" firstAttribute="leading" secondItem="VJv-b8-rcN" secondAttribute="leading" constant="2" id="gZ8-FQ-L3k"/>
-                                                                <constraint firstItem="p2e-4O-2Q5" firstAttribute="top" secondItem="VJv-b8-rcN" secondAttribute="top" constant="4" id="ik6-3i-zUo"/>
                                                                 <constraint firstItem="p2e-4O-2Q5" firstAttribute="leading" secondItem="haH-Dd-buR" secondAttribute="trailing" constant="8" symbolic="YES" id="xlg-lc-0w8"/>
                                                             </constraints>
                                                             <connections>
@@ -879,7 +877,7 @@ Gw
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Db-Aj-lLo">
-                                                                    <rect key="frame" x="20" y="8" width="243" height="14"/>
+                                                                    <rect key="frame" x="20" y="8" width="242" height="14"/>
                                                                     <subviews>
                                                                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f6a-VG-4Wi">
                                                                             <rect key="frame" x="0.0" y="0.0" width="91" height="14"/>
@@ -907,14 +905,14 @@ Gw
                                                                             </customSpacing>
                                                                         </stackView>
                                                                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zNg-1C-mGs">
-                                                                            <rect key="frame" x="95" y="0.0" width="39" height="14"/>
+                                                                            <rect key="frame" x="95" y="0.0" width="38" height="14"/>
                                                                             <subviews>
                                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qts-tq-0gZ">
-                                                                                    <rect key="frame" x="0.0" y="-3.5" width="16.5" height="22"/>
+                                                                                    <rect key="frame" x="0.0" y="-3" width="15" height="21"/>
                                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="hand.thumbsup" catalog="system" id="8y2-Ke-Cat"/>
                                                                                 </imageView>
                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QPb-Ip-GQg">
-                                                                                    <rect key="frame" x="16" y="0.0" width="25" height="14"/>
+                                                                                    <rect key="frame" x="15" y="0.0" width="25" height="14"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="264" id="68l-EE-9c4">
                                                                                         <font key="font" metaFont="smallSystem"/>
                                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -932,7 +930,7 @@ Gw
                                                                             </customSpacing>
                                                                         </stackView>
                                                                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tjG-43-qEX">
-                                                                            <rect key="frame" x="138" y="0.0" width="34" height="14"/>
+                                                                            <rect key="frame" x="137" y="0.0" width="34" height="14"/>
                                                                             <subviews>
                                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CJT-z3-O5P">
                                                                                     <rect key="frame" x="0.0" y="-3.5" width="17" height="21"/>
@@ -957,7 +955,7 @@ Gw
                                                                             </customSpacing>
                                                                         </stackView>
                                                                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8s6-bk-xZz">
-                                                                            <rect key="frame" x="176" y="0.0" width="67" height="14"/>
+                                                                            <rect key="frame" x="175" y="0.0" width="67" height="14"/>
                                                                             <subviews>
                                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d12-66-fxL">
                                                                                     <rect key="frame" x="0.0" y="-3" width="15" height="20"/>
@@ -1446,7 +1444,7 @@ Gw
                                 <color key="fillColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </box>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Byd-6o-CM7">
-                                <rect key="frame" x="20" y="8" width="279" height="14"/>
+                                <rect key="frame" x="20" y="8" width="278" height="14"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z5z-Ad-A8P">
                                         <rect key="frame" x="0.0" y="0.0" width="91" height="14"/>
@@ -1474,14 +1472,14 @@ Gw
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fgP-R0-nGH">
-                                        <rect key="frame" x="95" y="0.0" width="39" height="14"/>
+                                        <rect key="frame" x="95" y="0.0" width="38" height="14"/>
                                         <subviews>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EaY-ye-g5k">
-                                                <rect key="frame" x="0.0" y="-3.5" width="16.5" height="22"/>
+                                                <rect key="frame" x="0.0" y="-3" width="15" height="21"/>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="hand.thumbsup" catalog="system" id="lE8-7L-rGu"/>
                                             </imageView>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5d9-mq-8gF">
-                                                <rect key="frame" x="16" y="0.0" width="25" height="14"/>
+                                                <rect key="frame" x="15" y="0.0" width="25" height="14"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="264" id="EDh-rW-2gI">
                                                     <font key="font" metaFont="smallSystem"/>
                                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -1499,7 +1497,7 @@ Gw
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H0C-EO-dpz">
-                                        <rect key="frame" x="138" y="0.0" width="34" height="14"/>
+                                        <rect key="frame" x="137" y="0.0" width="34" height="14"/>
                                         <subviews>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3KF-8h-7zu">
                                                 <rect key="frame" x="0.0" y="-3.5" width="17" height="21"/>
@@ -1524,7 +1522,7 @@ Gw
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dba-8R-qod">
-                                        <rect key="frame" x="176" y="0.0" width="67" height="14"/>
+                                        <rect key="frame" x="175" y="0.0" width="67" height="14"/>
                                         <subviews>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fK6-Nu-Gaz">
                                                 <rect key="frame" x="0.0" y="-3" width="15" height="20"/>
@@ -1549,7 +1547,7 @@ Gw
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3di-mI-fmv">
-                                        <rect key="frame" x="247" y="0.0" width="32" height="14"/>
+                                        <rect key="frame" x="246" y="0.0" width="32" height="14"/>
                                         <subviews>
                                             <button translatesAutoresizingMaskIntoConstraints="NO" id="i3B-TT-CRC">
                                                 <rect key="frame" x="0.0" y="-2.5" width="13" height="19"/>
@@ -1924,15 +1922,15 @@ Gw
         </scene>
     </scenes>
     <resources>
-        <image name="NSActionTemplate" width="15" height="15"/>
-        <image name="NSAddTemplate" width="14" height="13"/>
-        <image name="NSRemoveTemplate" width="14" height="4"/>
+        <image name="NSActionTemplate" width="20" height="20"/>
+        <image name="NSAddTemplate" width="18" height="17"/>
+        <image name="NSRemoveTemplate" width="18" height="5"/>
         <image name="arrow.down" catalog="system" width="13" height="14"/>
         <image name="arrow.up" catalog="system" width="13" height="14"/>
         <image name="arrowshape.turn.up.left" catalog="system" width="17" height="14"/>
         <image name="chevron.left.slash.chevron.right" catalog="system" width="21" height="15"/>
         <image name="clock" catalog="system" width="15" height="15"/>
-        <image name="hand.thumbsup" catalog="system" width="16" height="17"/>
+        <image name="hand.thumbsup" catalog="system" width="15" height="16"/>
         <image name="italic" catalog="system" width="10" height="12"/>
         <image name="link" catalog="system" width="17" height="17"/>
         <image name="person" catalog="system" width="15" height="14"/>
