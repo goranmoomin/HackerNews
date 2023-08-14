@@ -1,0 +1,66 @@
+[
+    {
+        "created_at": "2023-07-30T16:39:16.000Z",
+        "title": "Musl 1.2.4 adds TCP DNS fallback",
+        "url": "https://www.openwall.com/lists/musl/2023/05/02/1",
+        "author": "goranmoomin",
+        "points": 242,
+        "story_text": null,
+        "comment_text": null,
+        "num_comments": 136,
+        "story_id": null,
+        "story_title": null,
+        "story_url": null,
+        "parent_id": null,
+        "created_at_i": 1690735156,
+        "_tags": [
+            "story",
+            "author_goranmoomin",
+            "story_36933028"
+        ],
+        "objectID": "36933028"
+    },
+    {
+      "created_at": "2023-08-13T17:00:56.000Z",
+      "title": "GoGoGrandparent (YC S16) is hiring a senior/staff back end/full-stack engineer",
+      "url": null,
+      "author": "davidchl",
+      "points": 1,
+      "story_text": "About us: \nWe&#x27;re a digital caregiver that helps older &amp; disabled adults avoid retirement communities and age well in their own homes. We tailor on demand APIs from companies like Uber and Instacart to the needs of people living with cognitive, visual, mobility and dexterity impairments. We&#x27;re operating profitably with millions in revenue and growing quickly. Our company is remote first. Total engineering headcount, including this position, is eight.<p>The position:\nFULLY REMOTE | Full-time | US, UK, or able to work 4+ hours overlap with mainland US<p>Build high-quality, robust engineering at the rarest of things - a Silicon Valley startup that is both wholesome AND profitable. We have 7-figure revenue, are YC-backed, and growing fast.<p>Tech stack (<i>required): Back-end heavy (Node</i>, Typescript<i>, MySQL</i>, REST*+GraphQL), front-end (Vue), deploy (AWS, Docker&#x2F;K8s)<p>Minimum 4 years experience (with Node). If full-stack, you must be strongest on the backend.<p>2-stage interview process.<p>If you want to help older adults and people with disabilities, send your LinkedIn&#x2F;CV to william@gogograndparent.com (keep it brief) or apply at <a href=\"https:&#x2F;&#x2F;www.ycombinator.com&#x2F;companies&#x2F;gogograndparent&#x2F;jobs\">https:&#x2F;&#x2F;www.ycombinator.com&#x2F;companies&#x2F;gogograndparent&#x2F;jobs</a>",
+      "comment_text": null,
+      "num_comments": null,
+      "story_id": null,
+      "story_title": null,
+      "story_url": null,
+      "parent_id": null,
+      "created_at_i": 1691946056,
+      "_tags": [
+        "job",
+        "author_davidchl",
+        "story_37111755"
+      ],
+      "objectID": "37111755"
+    },
+    {
+      "created_at": "2023-08-14T13:19:15.000Z",
+      "title": "Svix (YC W21) Is Hiring a Founding Account Executive (US Remote)",
+      "url": "https://www.svix.com/careers/",
+      "author": "tasn",
+      "points": 1,
+      "story_text": null,
+      "comment_text": null,
+      "num_comments": null,
+      "story_id": null,
+      "story_title": null,
+      "story_url": null,
+      "parent_id": null,
+      "created_at_i": 1692019155,
+      "_tags": [
+        "job",
+        "author_tasn",
+        "story_37120715",
+        "front_page"
+      ],
+      "objectID": "37120715"
+    }
+]

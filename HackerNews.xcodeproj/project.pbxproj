@@ -41,6 +41,9 @@
 		5BFDB89326B0CB7A00441E04 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDB89226B0CB7A00441E04 /* MainSplitViewController.swift */; };
 		5BFDB89526B0D06900441E04 /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDB89426B0D06900441E04 /* NSView.swift */; };
 		5BFDB89926B0D26200441E04 /* SidebarOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDB89826B0D26200441E04 /* SidebarOutlineView.swift */; };
+		E47297F92A8A418900C3EC21 /* ItemListCellSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47297F82A8A418900C3EC21 /* ItemListCellSwiftUIView.swift */; };
+		E4CE0F692A8A7DCD0088293F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4CE0F682A8A7DCD0088293F /* Preview Assets.xcassets */; };
+		E4CE0F6B2A8A7EC20088293F /* TopLevelItems.json in Resources */ = {isa = PBXBuildFile; fileRef = E4CE0F6A2A8A7EC20088293F /* TopLevelItems.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +81,9 @@
 		5BFDB89226B0CB7A00441E04 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
 		5BFDB89426B0D06900441E04 /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
 		5BFDB89826B0D26200441E04 /* SidebarOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarOutlineView.swift; sourceTree = "<group>"; };
+		E47297F82A8A418900C3EC21 /* ItemListCellSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListCellSwiftUIView.swift; sourceTree = "<group>"; };
+		E4CE0F682A8A7DCD0088293F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E4CE0F6A2A8A7EC20088293F /* TopLevelItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TopLevelItems.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,7 @@
 				5BAB935D24C1816F00D433AD /* ItemListViewController.swift */,
 				5B9A6BD226C9755F00C9ACB4 /* ItemListCellLoadingView.swift */,
 				5B8EA2FD24D10E0800013393 /* ItemListCellView.swift */,
+				E47297F82A8A418900C3EC21 /* ItemListCellSwiftUIView.swift */,
 			);
 			path = ItemList;
 			sourceTree = "<group>";
@@ -185,6 +192,7 @@
 				5B8EA2B324D0899700013393 /* ItemList */,
 				5B8EA2B424D0899D00013393 /* Page */,
 				5B9216C824DD222700C51FF1 /* Extensions */,
+				E4CE0F672A8A7D9F0088293F /* Preview Content */,
 				5BAB934B24C14FBB00D433AD /* Assets.xcassets */,
 				5BAB935024C14FBB00D433AD /* Info.plist */,
 				5BAB935124C14FBB00D433AD /* HackerNews.entitlements */,
@@ -197,6 +205,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E4CE0F672A8A7D9F0088293F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E4CE0F682A8A7DCD0088293F /* Preview Assets.xcassets */,
+				E4CE0F6A2A8A7EC20088293F /* TopLevelItems.json */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +289,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4CE0F6B2A8A7EC20088293F /* TopLevelItems.json in Resources */,
+				E4CE0F692A8A7DCD0088293F /* Preview Assets.xcassets in Resources */,
 				5B94BE2725DC203E00AA0DFD /* README.md in Resources */,
 				5BAB934C24C14FBB00D433AD /* Assets.xcassets in Resources */,
 				5BAB934F24C14FBB00D433AD /* Main.storyboard in Resources */,
@@ -336,6 +355,7 @@
 				5BFDB89326B0CB7A00441E04 /* MainSplitViewController.swift in Sources */,
 				5B82985424F6118200B7E91A /* ReplyPopoverViewController.swift in Sources */,
 				5BAB935F24C1816F00D433AD /* ItemListViewController.swift in Sources */,
+				E47297F92A8A418900C3EC21 /* ItemListCellSwiftUIView.swift in Sources */,
 				5B9216CC24DD226400C51FF1 /* NSFont.swift in Sources */,
 				5B6FB64724F77AAB00F49770 /* CommentTextView.swift in Sources */,
 				5B8EA2B624D089B800013393 /* SidebarItem.swift in Sources */,
@@ -495,6 +515,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "HackerNews/Preview\\ Content";
 				DEVELOPMENT_TEAM = V4QY3V2P77;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = HackerNews/Info.plist;
@@ -521,6 +542,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "HackerNews/Preview\\ Content";
 				DEVELOPMENT_TEAM = V4QY3V2P77;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = HackerNews/Info.plist;
